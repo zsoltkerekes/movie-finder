@@ -52,7 +52,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     AppRoutingModule,
     HttpModule,
     MaterialModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/movie-finder/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     ConstantsService,
