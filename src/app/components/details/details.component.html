@@ -1,0 +1,138 @@
+<section class="full" [style.backgroundImage]="backgroundImage()">
+  <mat-card class="poster">
+    <mat-card-content>
+      <img [src]="movie.poster_path.toString() !== 'Nincs Kép' ? 'http://image.tmdb.org/t/p' + '/w500' + movie.poster_path : ''"
+        [alt]="movie.title" [title]="movie.title" />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="details">
+    <mat-card-content>
+
+      <h2 class="title">
+        {{movie.title}}
+      </h2>
+
+      <h3 class="original_title">
+        {{movie.original_title ? 'Eredeti címe: '+ movie.original_title : ''}}
+        <span class="original_language">
+          {{movie.original_language ? '('+movie.original_language.toUpperCase()+')' : ''}}
+        </span>
+      </h3>
+
+      <p class="overview">
+        {{movie.overview}}
+      </p>
+
+      <p class="genres">
+        <span>
+          Műfajok:
+        </span>
+        <span>
+          {{listGenres(movie.genres)}}
+        </span>
+      </p>
+
+      <p class="adult">
+        <span>
+          Besorolás:
+        </span>
+        <span>
+          {{movie.adult===true ? 'Felnőtteknek' : 'Nem csak felnőtteknek'}}
+        </span>
+      </p>
+
+      <p class="runtime">
+        <span>
+          Hossz:
+        </span>
+        <span>
+          {{movie.runtime}} perc
+        </span>
+      </p>
+
+      <p class="status">
+        <span>
+          Státusz:
+        </span>
+        <span>
+          {{movie.status}}
+        </span>
+      </p>
+
+      <p class="release_date">
+        <span>
+          Premier:
+        </span>
+        <span>
+          {{movie.release_date}}
+        </span>
+      </p>
+
+      <p class="budget">
+        <span>
+          Elkészítési költség:
+        </span>
+        <span>
+          {{movie.budget | currency}}
+        </span>
+      </p>
+
+      <p class="vote">
+        <span>
+          Nézők szavazata alapján:
+        </span>
+        <span>
+          {{movie.vote_average}} / 10
+        </span>
+      </p>
+
+      <p class="popularity">
+        <span>
+          Relatív népszerűségi index:
+        </span>
+        <span>
+          {{movie.popularity}}
+        </span>
+      </p>
+
+      <p class="homepage">
+        <span>
+          {{ movie.homepage.toString() !== '' ? 'Saját hivatalos weboldala:':''}}
+        </span>
+        <span>
+          <a [href]="[movie.homepage.toString() !== 'Nincs hivatalos weboldal' ? movie.homepage : '']" target="_blank">
+            {{ movie.homepage.toString() !== '' ? movie.homepage : '' }}
+          </a>
+        </span>
+      </p>
+
+      <p class="imdb">
+        <span>
+          {{movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'Imdb hivatalos weboldala:':''}}
+        </span>
+        <span>
+          <a [href]="[movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'http://www.imdb.com/title/'+movie.imdb_id : '']" target="_blank">
+            {{movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'http://www.imdb.com/title/'+movie.imdb_id : ''}}
+          </a>
+        </span>
+      </p>
+
+      <p class="youtube">
+        <span>
+          Youtube Videók keresése:
+        </span>
+        <span>
+          <a [href]="'https://www.youtube.com/results?search_query='+movie.title" target="_blank">
+            magyar cím alapján
+          </a>
+          |
+          <a [href]="'https://www.youtube.com/results?search_query='+movie.original_title" target="_blank">
+            eredeti cím alapján
+          </a>
+        </span>
+      </p>
+
+    </mat-card-content>
+  </mat-card>
+</section>

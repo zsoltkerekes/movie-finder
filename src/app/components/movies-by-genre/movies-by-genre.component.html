@@ -1,0 +1,9 @@
+<h3>
+  Filmek ({{genres[id]}}):
+</h3>
+
+<div class="item-container">
+  <a *ngFor="let movie of moviesByGenre.results" [routerLink]="['/details', movie.id]">
+    <mf-list-item [movie]="movie"></mf-list-item>
+  </a>
+</div>

@@ -1,0 +1,13 @@
+<h3 *ngIf="phrase">
+  Filmek:
+</h3>
+
+<div class="item-container" *ngIf="searchResults.results.length > 0">
+  <a *ngFor="let movie of searchResults.results" [routerLink]="['/details', movie.id]">
+    <mf-list-item [movie]="movie"></mf-list-item>
+  </a>
+</div>
+
+<h2 *ngIf="((searchResults.results.length < 1) && (phrase))">
+  Nincs találat
+</h2>
