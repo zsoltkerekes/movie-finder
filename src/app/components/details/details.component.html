@@ -1,7 +1,7 @@
 <section class="full" [style.backgroundImage]="backgroundImage()">
   <mat-card class="poster">
     <mat-card-content>
-      <img [src]="movie.poster_path.toString() !== 'Nincs Kép' ? 'http://image.tmdb.org/t/p' + '/w500' + movie.poster_path : ''"
+      <img [src]="movie.poster_path.toString() !== 'Nincs Kép' ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path : ''"
         [alt]="movie.title" [title]="movie.title" />
     </mat-card-content>
   </mat-card>
@@ -112,8 +112,8 @@
           {{movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'Imdb hivatalos weboldala:':''}}
         </span>
         <span>
-          <a [href]="[movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'http://www.imdb.com/title/'+movie.imdb_id : '']" target="_blank">
-            {{movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'http://www.imdb.com/title/'+movie.imdb_id : ''}}
+          <a [href]="[movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'https://www.imdb.com/title/'+movie.imdb_id : '']" target="_blank">
+            {{movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'https://www.imdb.com/title/'+movie.imdb_id : ''}}
           </a>
         </span>
       </p>
