@@ -25,6 +25,7 @@ import { SearchComponent } from './containers/search/search.component';
 import { SearchByPhraseComponent } from './components/search-by-phrase/search-by-phrase.component';
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { RecommendedMoviesComponent } from './components/recommended-movies/recommended-movies.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     SearchByPhraseComponent,
     ListItemComponent,
     SearchResultsComponent,
+    RecommendedMoviesComponent,
 
   ],
   imports: [

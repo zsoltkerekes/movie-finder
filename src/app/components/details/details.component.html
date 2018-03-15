@@ -1,7 +1,8 @@
 <section class="full" [style.backgroundImage]="backgroundImage()">
   <mat-card class="poster">
     <mat-card-content>
-      <img [src]="movie.poster_path.toString() !== 'Nincs Kép' ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path : ''"
+      <img [src]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path :
+       './../../../assets/image/no-pic.jpg'"
         [alt]="movie.title" [title]="movie.title" />
     </mat-card-content>
   </mat-card>
@@ -10,7 +11,7 @@
     <mat-card-content>
 
       <h2 class="title">
-        {{movie.title}}
+        {{movie.title ? movie.title : '(Hiányzó adat: cím)'}}
       </h2>
 
       <h3 class="original_title">
@@ -21,7 +22,7 @@
       </h3>
 
       <p class="overview">
-        {{movie.overview}}
+        {{movie.overview ? movie.overview : '(Hiányzó adat: leírás)'}}
       </p>
 
       <p class="genres">
@@ -29,7 +30,7 @@
           Műfajok:
         </span>
         <span>
-          {{listGenres(movie.genres)}}
+          {{ movie.genres ? listGenres(movie.genres) : '(Hiányzó adat: műfajok)'}}
         </span>
       </p>
 
@@ -47,7 +48,7 @@
           Hossz:
         </span>
         <span>
-          {{movie.runtime}} perc
+          {{movie.runtime ? movie.runtime + ' perc' : '(Hiányzó adat: hossz)'}}
         </span>
       </p>
 
@@ -56,16 +57,16 @@
           Státusz:
         </span>
         <span>
-          {{movie.status}}
+          {{movie.status ? movie.status : '(Hiányzó adat: státusz)' }}
         </span>
       </p>
 
       <p class="release_date">
         <span>
-          Premier:
+          Premier dátuma:
         </span>
         <span>
-          {{movie.release_date}}
+          {{movie.release_date ? movie.release_date : '(Hiányzó adat: premier dátuma)'}}
         </span>
       </p>
 
@@ -74,7 +75,7 @@
           Elkészítési költség:
         </span>
         <span>
-          {{movie.budget | currency}}
+          {{movie.budget ? (movie.budget | currency) : '(Hiányzó adat: elkészítési költség)' }}
         </span>
       </p>
 
@@ -83,7 +84,7 @@
           Nézők szavazata alapján:
         </span>
         <span>
-          {{movie.vote_average}} / 10
+          {{movie.vote_average ? movie.vote_average + '/10' : '(Hiányzó adat: szavazat)' }}
         </span>
       </p>
 
@@ -92,35 +93,35 @@
           Relatív népszerűségi index:
         </span>
         <span>
-          {{movie.popularity}}
+          {{movie.popularity ? movie.popularity : '(Hiányzó adat: népszerűségi index)' }}
         </span>
       </p>
 
       <p class="homepage">
         <span>
-          {{ movie.homepage.toString() !== '' ? 'Saját hivatalos weboldala:':''}}
+          {{ movie.homepage ? 'Saját hivatalos weboldala:':'Nincs saját hivatalos weboldala'}}
         </span>
-        <span>
-          <a [href]="[movie.homepage.toString() !== 'Nincs hivatalos weboldal' ? movie.homepage : '']" target="_blank">
-            {{ movie.homepage.toString() !== '' ? movie.homepage : '' }}
+        <span *ngIf="movie.homepage">
+          <a [href]="movie.homepage" target="_blank">
+            {{ movie.homepage}}
           </a>
         </span>
       </p>
 
       <p class="imdb">
         <span>
-          {{movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'Imdb hivatalos weboldala:':''}}
+          {{movie.imdb_id ? 'Imdb hivatalos weboldala:':'Nincs IMDB link'}}
         </span>
-        <span>
-          <a [href]="[movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'https://www.imdb.com/title/'+movie.imdb_id : '']" target="_blank">
-            {{movie.imdb_id.toString() !== 'Nincs IMDB link' ? 'https://www.imdb.com/title/'+movie.imdb_id : ''}}
+        <span *ngIf="movie.imdb_id">
+          <a [href]="movie.imdb_id" target="_blank">
+            {{'https://www.imdb.com/title/'+movie.imdb_id}}
           </a>
         </span>
       </p>
 
       <p class="youtube">
         <span>
-          Youtube Videók keresése:
+          Youtube keresés:
         </span>
         <span>
           <a [href]="'https://www.youtube.com/results?search_query='+movie.title" target="_blank">
@@ -133,6 +134,23 @@
         </span>
       </p>
 
+      <p class="google">
+        <span>
+          Google keresés:
+        </span>
+        <span>
+          <a [href]="'https://www.google.hu/search?q='+movie.title" target="_blank">
+            magyar cím alapján
+          </a>
+          |
+          <a [href]="'https://www.google.hu/search?q='+movie.original_title" target="_blank">
+            eredeti cím alapján
+          </a>
+        </span>
+      </p>
+
     </mat-card-content>
   </mat-card>
 </section>
+
+<mf-recommended-movies [id]="movie.id"></mf-recommended-movies>

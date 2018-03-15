@@ -44,4 +44,6 @@ export class ApiService {
 
   getMovieSearch = phrase => this.getContent(this.constants.movieSearch(phrase));
 
+  getRecommendedMovies = id => this.getContent(this.constants.recommendedMovies(id));
+
 }

@@ -1,0 +1,9 @@
+<h3>
+  Ajánlott filmek:
+</h3>
+
+<div class="item-container">
+  <a *ngFor="let movie of recommendedMovies.results" [routerLink]="['/details', movie.id]">
+    <mf-list-item [movie]="movie"></mf-list-item>
+  </a>
+</div>
