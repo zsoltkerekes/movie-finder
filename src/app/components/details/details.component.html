@@ -2,7 +2,7 @@
   <mat-card class="poster">
     <mat-card-content>
       <img [src]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path :
-       './../../../assets/image/no-pic.jpg'"
+       'assets/image/no-pic.jpg'"
         [alt]="movie.title" [title]="movie.title" />
     </mat-card-content>
   </mat-card>
