@@ -113,7 +113,7 @@
           {{movie.imdb_id ? 'Imdb hivatalos weboldala:':'Nincs IMDB link'}}
         </span>
         <span *ngIf="movie.imdb_id">
-          <a [href]="movie.imdb_id" target="_blank">
+          <a [href]="'https://www.imdb.com/title/'+movie.imdb_id" target="_blank">
             {{'https://www.imdb.com/title/'+movie.imdb_id}}
           </a>
         </span>
