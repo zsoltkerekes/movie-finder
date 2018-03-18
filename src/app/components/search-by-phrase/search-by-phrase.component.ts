@@ -14,7 +14,7 @@ export class SearchByPhraseComponent {
 
   keyPressed(event) {
     if (event.key === 'Enter') {
-      this.router.navigate(['/search', event.target.value]);
+      this.router.navigate(['/search', event.target.value, 1]);
     }
   }
 

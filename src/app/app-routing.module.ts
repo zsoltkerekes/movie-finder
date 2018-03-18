@@ -45,7 +45,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'search/:phrase',
+    path: 'search/:phrase/:page',
     component : SearchComponent,
     data: {
       pageTitle: `Eredmény ::  ${baseTitle}`

@@ -1,4 +1,16 @@
-.stamp {
-  text-align: center;
-  width: 60%;
+.item-container {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    mat-card {
+      width: 10em;
+      margin: 1em;
+      text-align: center;
+    }
+  }
 }

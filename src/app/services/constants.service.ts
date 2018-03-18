@@ -12,7 +12,7 @@ export class ConstantsService {
   sortBy = 'sort_by=popularity.desc';
   adult = 'include_adult=true';
   language = 'language=hu-HU';
-  // page = pageNumber => `page=${pageNumber}`;
+  page = pageNumber => `page=${pageNumber}`;
 
   options = () =>
   `${this.apiKey}&${this.sortBy}&${this.language}&${this.adult}`
@@ -33,8 +33,8 @@ export class ConstantsService {
   movieByGenre = genre =>
   `${this.apiBaseUrl}genre/${genre}/movies?${this.options()}`
 
-  movieSearch = phrase =>
-   `${this.apiBaseUrl}search/movie?${this.options()}&query=${phrase}`
+  movieSearch = (phrase, page) =>
+   `${this.apiBaseUrl}search/movie?${this.options()}&query=${phrase}&${this.page(page)}`
 
    recommendedMovies = id =>
    `${this.apiBaseUrl}movie/${id}/recommendations?${this.options()}`

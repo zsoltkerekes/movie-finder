@@ -42,7 +42,7 @@ export class ApiService {
 
   getMovieByGenre = genre => this.getContent(this.constants.movieByGenre(genre));
 
-  getMovieSearch = phrase => this.getContent(this.constants.movieSearch(phrase));
+  getMovieSearch = (phrase, page = 1) => this.getContent(this.constants.movieSearch(phrase, page));
 
   getRecommendedMovies = id => this.getContent(this.constants.recommendedMovies(id));
 

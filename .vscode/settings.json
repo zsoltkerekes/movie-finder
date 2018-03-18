@@ -20,6 +20,7 @@
     "Népszerű",
     "Népszerűek",
     "Nézők",
+    "Oldalak",
     "Relatív",
     "Részletes",
     "Saját",
@@ -43,10 +44,12 @@
     "imdb",
     "indításához",
     "jasminewd",
+    "jelenleg",
     "keresése",
     "keypress",
     "költség",
     "lekérése",
+    "mutatottak",
     "műfaj",
     "műfajt",
     "működik",
@@ -63,7 +66,8 @@
     "szerverről",
     "találat",
     "weboldal",
-    "weboldala"
+    "weboldala",
+    "Összes"
   ],
   "git.ignoreLimitWarning": true
 }

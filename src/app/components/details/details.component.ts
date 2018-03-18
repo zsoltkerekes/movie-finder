@@ -1,6 +1,6 @@
 
 import { ApiService } from './../../services/api.service';
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieDetails, movieDetailsData } from '../../models/MovieDetails.model';
 import { Title } from '@angular/platform-browser';
@@ -10,10 +10,10 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit, OnChanges {
+export class DetailsComponent implements OnInit {
 
   id: Number;
-  movie: MovieDetails = movieDetailsData;
+  movie: MovieDetails;
   height: String;
 
   constructor(
@@ -32,12 +32,9 @@ export class DetailsComponent implements OnInit, OnChanges {
       );
   }
 
-  ngOnChanges() {
-    console.log(this.id);
-  }
-
   loadMovie = () => {
     document.documentElement.scrollTop = 0;
+    this.movie = movieDetailsData;
     this.title.setTitle(`Részletes leírás :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
     this.api.getMovieById(this.id)
       .subscribe(result => {
