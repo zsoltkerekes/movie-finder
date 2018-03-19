@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
 
     this.links = [
-      { name: 'Főoldal', icon: 'dashboard', url: '/' },
       { name: 'Keresés', icon: 'find_in_page', url: '/search' },
       { name: 'Népszerűek', icon: 'trending_up', url: '/popular/1' },
       { name: 'Legjobbak', icon: 'thumb_up', url: '/top-rated/1' },

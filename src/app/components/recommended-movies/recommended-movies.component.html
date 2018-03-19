@@ -1,6 +1,6 @@
-<h3 *ngIf="recommendedMovies.results">
+<h2 *ngIf="recommendedMovies.results.length>0" class="text-center">
   Ajánlott filmek:
-</h3>
+</h2>
 
 <div class="item-container">
   <a *ngFor="let movie of recommendedMovies.results" [routerLink]="['/details', movie.id]">

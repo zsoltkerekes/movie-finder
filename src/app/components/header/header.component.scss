@@ -1,3 +1,14 @@
-.mat-nav-list, .mat-list-item, h1 {
-  display: inline-flex;
+mat-nav-list {
+  display: flex;
+}
+
+.mat-list-item,
+.mat-nav-list,
+h1 {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.header {
+  background-color: #C5CAE9;
 }

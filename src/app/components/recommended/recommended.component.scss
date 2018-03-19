@@ -7,10 +7,21 @@
     color: inherit;
     text-decoration: none;
 
-    mat-card {
-      width: 10em;
-      margin: 1em;
+    button {
+      font-weight: bold;
+      width: 14em;
+      height: 4em;
+      margin: .75em;
       text-align: center;
+      transition: background-color .3s ease-in-out;
+
+      &:hover {
+        background-color: #E8EAF6;
+      }
     }
   }
+}
+
+h2 {
+  padding: 1em;
 }

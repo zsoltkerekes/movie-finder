@@ -16,6 +16,6 @@ export class UpcomingComponent implements OnInit {
 
   ngOnInit() {
     document.documentElement.scrollTop = 0;
-    this.title.setTitle(`Nemsokára a mMozikban :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.title.setTitle(`Nemsokára a Mozikban :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
   }
 }

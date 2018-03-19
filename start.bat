@@ -1,1 +1,1 @@
-cls && npm i && start
+cls && npm i && npm start

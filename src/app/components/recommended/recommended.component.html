@@ -1,10 +1,9 @@
-<mat-card class="mat-elevation-z4">
-  <h2>Válassz film műfajt!</h2>
-</mat-card>
+<h2 class="text-center">
+  Válassz film műfajt!
+</h2>
+
 <div class="item-container">
   <a *ngFor="let genre of genres" [routerLink]="['/genres', genre.id, 1]">
-    <mat-card class="mat-elevation-z4">
-      <button mat-button>{{genre.name}}</button>
-    </mat-card>
+    <button mat-raised-button class="button mat-elevation-z2">{{genre.name}}</button>
   </a>
 </div>
