@@ -8,6 +8,8 @@ import { PageNotFoundComponent } from './containers/page-not-found/page-not-foun
 import { PopularComponent } from './containers/popular/popular.component';
 import { SearchComponent } from './containers/search/search.component';
 import { TopRatedComponent } from './containers/top-rated/top-rated.component';
+import { NowPlayingComponent } from './containers/now-playing/now-playing.component';
+import { UpcomingComponent } from './containers/upcoming/upcoming.component';
 
 const baseTitle = 'Movie Finder';
 
@@ -21,7 +23,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'popular',
+    path: 'popular/:page',
     pathMatch: 'full',
     component: PopularComponent,
     data: {
@@ -29,7 +31,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'top-rated',
+    path: 'top-rated/:page',
     pathMatch: 'full',
     component: TopRatedComponent,
     data: {
@@ -39,28 +41,47 @@ const routes: Routes = [
   {
     path: 'search',
     pathMatch: 'full',
-    component : SearchComponent,
+    component: SearchComponent,
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
     path: 'search/:phrase/:page',
-    component : SearchComponent,
+    pathMatch: 'full',
+    component: SearchComponent,
     data: {
       pageTitle: `Eredmény ::  ${baseTitle}`
     }
   },
   {
-    path: 'genres/:id',
-    component : GenresComponent,
+    path: 'genres/:id/:page',
+    pathMatch: 'full',
+    component: GenresComponent,
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
     path: 'details/:id',
-    component : DetailsComponent,
+    pathMatch: 'full',
+    component: DetailsComponent,
+    data: {
+      pageTitle: `${baseTitle}`
+    }
+  },
+  {
+    path: 'now-playing/:page',
+    pathMatch: 'full',
+    component: NowPlayingComponent,
+    data: {
+      pageTitle: `${baseTitle}`
+    }
+  },
+  {
+    path: 'upcoming/:page',
+    pathMatch: 'full',
+    component: UpcomingComponent,
     data: {
       pageTitle: `${baseTitle}`
     }

@@ -1,17 +1,17 @@
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from './../../services/api.service';
+import { ListItem, listItemInitData } from './../../models/listItem.model';
 import { Component, OnInit } from '@angular/core';
 
-import { ListItem, listItemInitData } from '../../models/listItem.model';
-import { ApiService } from './../../services/api.service';
-
 @Component({
-  selector: 'mf-top-rated-movies',
-  templateUrl: './top-rated-movies.component.html',
-  styleUrls: ['./top-rated-movies.component.scss']
+  selector: 'mf-upcoming-movies',
+  templateUrl: './upcoming-movies.component.html',
+  styleUrls: ['./upcoming-movies.component.scss']
 })
-export class TopRatedMoviesComponent implements OnInit {
+export class UpcomingMoviesComponent implements OnInit {
 
-  topRatedMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
+
+  upcomingMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
   page: number;
 
   listGenres = this.api.getGenreList;
@@ -27,7 +27,7 @@ export class TopRatedMoviesComponent implements OnInit {
         () => {
           document.documentElement.scrollTop = 0;
           this.page = +this.activatedRoute.snapshot.params['page'] || 1;
-          this.api.getTopRatedMovies(this.page)
+          this.api.getUpcoming(this.page)
             .subscribe(response => {
               const willBeSorted = response.json();
               willBeSorted.results.sort((a, b) => {
@@ -35,7 +35,7 @@ export class TopRatedMoviesComponent implements OnInit {
                 if (a.popularity < b.popularity) { return 1; }
                 return 0;
               });
-              this.topRatedMovies = willBeSorted;
+              this.upcomingMovies = willBeSorted;
             });
         }
       );

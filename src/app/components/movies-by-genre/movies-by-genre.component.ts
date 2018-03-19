@@ -12,8 +12,9 @@ import { ApiService } from './../../services/api.service';
 })
 export class MoviesByGenreComponent implements OnInit {
   id: number;
+  page: number;
 
-  moviesByGenre:  { results: Array<ListItem> } = { results: [listItemInitData] };
+  moviesByGenre: { results: Array<ListItem> } = { results: [listItemInitData] };
 
   listGenres = this.api.getGenreList;
   genres = this.api.genres;
@@ -23,11 +24,19 @@ export class MoviesByGenreComponent implements OnInit {
     private api: ApiService
   ) { }
 
+
   ngOnInit() {
-    this.id = +this.activatedRoute.snapshot.params['id'];
-    document.documentElement.scrollTop = 0;
-    this.api.getMovieByGenre(this.id)
-      .subscribe(response =>  this.moviesByGenre = response.json());
+    this.activatedRoute.params
+      .subscribe(
+        () => {
+          this.id = +this.activatedRoute.snapshot.params['id'];
+          this.page = +this.activatedRoute.snapshot.params['page'];
+          document.documentElement.scrollTop = 0;
+          this.api.getMovieByGenre(this.id, this.page)
+            .subscribe(response => this.moviesByGenre = response.json()
+            );
+        }
+      );
   }
 
 }

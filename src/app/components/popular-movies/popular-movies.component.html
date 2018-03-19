@@ -2,9 +2,12 @@
   Népszerű Filmek:
 </h3>
 
+<mf-pagination [results]="popularMovies" [url]="'/popular/'"></mf-pagination>
+
 <div class="item-container">
   <a *ngFor="let movie of popularMovies.results" [routerLink]="['/details', movie.id]">
     <mf-list-item [movie]="movie"></mf-list-item>
   </a>
 </div>
 
+<mf-pagination [results]="popularMovies" [url]="'/popular/'"></mf-pagination>

@@ -1,17 +1,16 @@
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from './../../services/api.service';
+import { ListItem, listItemInitData } from './../../models/listItem.model';
 import { Component, OnInit } from '@angular/core';
 
-import { ListItem, listItemInitData } from './../../models/listItem.model';
-import { ApiService } from './../../services/api.service';
-
 @Component({
-  selector: 'mf-popular-movies',
-  templateUrl: './popular-movies.component.html',
-  styleUrls: ['./popular-movies.component.scss']
+  selector: 'mf-movies-now-playing',
+  templateUrl: './movies-now-playing.component.html',
+  styleUrls: ['./movies-now-playing.component.scss']
 })
-export class PopularMoviesComponent implements OnInit {
+export class MoviesNowPlayingComponent implements OnInit {
 
-  popularMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
+  nowPlayingMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
   page: number;
 
   listGenres = this.api.getGenreList;
@@ -27,14 +26,13 @@ export class PopularMoviesComponent implements OnInit {
         () => {
           document.documentElement.scrollTop = 0;
           this.page = +this.activatedRoute.snapshot.params['page'] || 1;
-          this.api.getPopularMovies(this.page)
+          this.api.getNowPlaying(this.page)
             .subscribe(response => {
-              this.popularMovies = response.json();
+              this.nowPlayingMovies = response.json();
             });
         }
       );
   }
-
 
 
 }

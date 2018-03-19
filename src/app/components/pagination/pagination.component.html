@@ -1,0 +1,11 @@
+<p class="text-center" *ngIf="pagination.total_results>0">
+  <span>
+    <strong>{{pagination.total_results}}</strong> db,
+    <strong>{{pagination.total_pages}}</strong> oldalon
+  </span>
+  <span *ngFor="let page of pagination.links">
+    <a [routerLink]="page.url" routerLinkActive="active" class="result-links">
+      {{page.name}}
+    </a>
+  </span>
+</p>

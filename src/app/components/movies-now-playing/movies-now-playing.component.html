@@ -1,0 +1,13 @@
+<h3>
+  Mostanában a mozikban lévő filmek:
+</h3>
+
+<mf-pagination [results]="nowPlayingMovies" [url]="'/now-playing/'"></mf-pagination>
+
+<div class="item-container">
+  <a *ngFor="let movie of nowPlayingMovies.results" [routerLink]="['/details', movie.id]">
+    <mf-list-item [movie]="movie"></mf-list-item>
+  </a>
+</div>
+
+<mf-pagination [results]="nowPlayingMovies" [url]="'/now-playing/'"></mf-pagination>

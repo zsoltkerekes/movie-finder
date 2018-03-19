@@ -26,6 +26,11 @@ import { SearchByPhraseComponent } from './components/search-by-phrase/search-by
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { RecommendedMoviesComponent } from './components/recommended-movies/recommended-movies.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { MoviesNowPlayingComponent } from './components/movies-now-playing/movies-now-playing.component';
+import { NowPlayingComponent } from './containers/now-playing/now-playing.component';
+import { UpcomingComponent } from './containers/upcoming/upcoming.component';
+import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +52,11 @@ import { RecommendedMoviesComponent } from './components/recommended-movies/reco
     ListItemComponent,
     SearchResultsComponent,
     RecommendedMoviesComponent,
+    PaginationComponent,
+    MoviesNowPlayingComponent,
+    NowPlayingComponent,
+    UpcomingComponent,
+    UpcomingMoviesComponent,
 
   ],
   imports: [

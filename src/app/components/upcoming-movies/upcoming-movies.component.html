@@ -1,0 +1,14 @@
+
+<h3>
+  Nemsokára moziba érkező filmek:
+</h3>
+
+<mf-pagination [results]="upcomingMovies" [url]="'/upcoming/'"></mf-pagination>
+
+<div class="item-container">
+  <a *ngFor="let movie of upcomingMovies.results" [routerLink]="['/details', movie.id]">
+    <mf-list-item [movie]="movie"></mf-list-item>
+  </a>
+</div>
+
+<mf-pagination [results]="upcomingMovies" [url]="'/upcoming/'"></mf-pagination>

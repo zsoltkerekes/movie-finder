@@ -2,8 +2,12 @@
   Filmek ({{genres[id]}}):
 </h3>
 
+<mf-pagination [results]="moviesByGenre" [url]="'/genres/' + id"></mf-pagination>
+
 <div class="item-container">
   <a *ngFor="let movie of moviesByGenre.results" [routerLink]="['/details', movie.id]">
     <mf-list-item [movie]="movie"></mf-list-item>
   </a>
 </div>
+
+<mf-pagination [results]="moviesByGenre" [url]="'/genres/' + id"></mf-pagination>

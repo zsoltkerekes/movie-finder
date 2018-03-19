@@ -32,18 +32,22 @@ export class ApiService {
     return output.join(', ');
   }
 
-  getPopularMovies = () => this.getContent(this.constants.popularMovies());
+  getPopularMovies = (page = 1) => this.getContent(this.constants.popularMovies(page));
 
   getMovieById = id => this.getContent(this.constants.movieById(id));
 
   getBackgroundUrl = () => `${this.constants.imageUrl}${this.constants.backdropSize}`;
 
-  getTopRatedMovies = () => this.getContent(this.constants.topRatedMovies());
+  getTopRatedMovies = (page = 1) => this.getContent(this.constants.topRatedMovies(page));
 
-  getMovieByGenre = genre => this.getContent(this.constants.movieByGenre(genre));
+  getMovieByGenre = (genre, page = 1) => this.getContent(this.constants.movieByGenre(genre, page));
 
   getMovieSearch = (phrase, page = 1) => this.getContent(this.constants.movieSearch(phrase, page));
 
   getRecommendedMovies = id => this.getContent(this.constants.recommendedMovies(id));
+
+  getNowPlaying = (page = 1) => this.getContent(this.constants.nowPlaying(page));
+
+  getUpcoming = (page = 1) => this.getContent(this.constants.upcoming(page));
 
 }

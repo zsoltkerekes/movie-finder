@@ -15,9 +15,11 @@ export class HeaderComponent implements OnInit {
 
     this.links = [
       { name: 'Főoldal', icon: 'dashboard', url: '/' },
-      { name: 'Népszerűek', icon: 'trending_up', url: '/popular' },
-      { name: 'Legjobbak', icon: 'thumb_up', url: '/top-rated' },
-      { name: 'Keresés', icon: 'find_in_page', url: '/search' }
+      { name: 'Keresés', icon: 'find_in_page', url: '/search' },
+      { name: 'Népszerűek', icon: 'trending_up', url: '/popular/1' },
+      { name: 'Legjobbak', icon: 'thumb_up', url: '/top-rated/1' },
+      { name: 'Most a Mozikban', icon: 'theaters', url: '/now-playing/1' },
+      { name: 'Nemsokára a Mozikban', icon: 'forward', url: '/upcoming/1' }
     ];
 
   }

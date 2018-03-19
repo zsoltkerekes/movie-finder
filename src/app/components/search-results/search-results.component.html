@@ -2,20 +2,7 @@
   Filmek:
 </h3>
 
-<p *ngIf="pagination.total_results" class="text-center">
-  <span>
-    Összes találat:
-    <strong>{{pagination.total_results}}</strong> db,
-    <strong>{{pagination.page}}/{{pagination.total_pages}}</strong> oldal
-  </span>
-  <br>
-  <br>
-  <span *ngFor="let page of pagination.links">
-    <a [routerLink]="page.url" routerLinkActive="active" class="result-links">
-      {{page.name}}
-    </a>
-  </span>
-</p>
+<mf-pagination [results]="searchResults" [url]="'/search/'+phrase"></mf-pagination>
 
 <div class="item-container" *ngIf="searchResults.results.length > 0">
   <a *ngFor="let movie of searchResults.results" [routerLink]="['/details', movie.id]">
@@ -23,14 +10,7 @@
   </a>
 </div>
 
-<p *ngIf="pagination.total_results" class="text-center">
-  <span *ngFor="let page of pagination.links">
-    <a [routerLink]="page.url" routerLinkActive="active" class="result-links">
-      {{page.name}}
-    </a>
-  </span>
-</p>
-
+<mf-pagination [results]="searchResults" [url]="'/search/'+phrase"></mf-pagination>
 
 <h2 *ngIf="((searchResults.results.length < 1) && (phrase))">
   Nincs találat
