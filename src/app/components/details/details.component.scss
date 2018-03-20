@@ -76,3 +76,35 @@ p {
     }
   }
 }
+@media (max-width:960px) {
+  .full {
+    background-image: none !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .poster {
+    display: block;
+    margin: auto;
+    max-width: 500px;
+    width: auto;
+
+    img {
+      width: 100%;
+      margin: auto;
+    }
+  }
+
+  .details {
+    display: block;
+    width: auto;
+    max-width: 500px;
+    margin: auto;
+    min-height: none;
+
+    h2,
+    h3 {
+      text-align: center;
+    }
+  }
+}

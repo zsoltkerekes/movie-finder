@@ -11,4 +11,30 @@ h1 {
 
 .header {
   background-color: #C5CAE9;
+  display: block;
+}
+
+.mobil-header {
+  display: none;
+  background-color: #C5CAE9;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+  }
+}
+@media (max-width:960px) {
+  .header {
+    display: none;
+  }
+
+  .mobil-header {
+    display: block;
+  }
 }

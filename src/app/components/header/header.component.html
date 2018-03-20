@@ -11,3 +11,43 @@
     </a>
   </mat-nav-list>
 </mat-card>
+
+<mat-card class="mobil-header">
+  <mat-card-header>
+    <mat-card-title>
+      <a mat-list-item routerLink="/">
+        <h1>Movie Finder</h1>
+      </a>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="mobile-menu">
+    <button mat-button [matMenuTriggerFor]="mobileMenu">
+      <mat-icon>
+        <mat-icon>more_vert</mat-icon>
+      </mat-icon>
+    </button>
+    <mat-menu #mobileMenu="matMenu">
+      <button mat-menu-item [routerLink]="[link.url]" *ngFor="let link of links">
+        <mat-icon>
+          {{ link.icon }}
+        </mat-icon>
+        {{ link.name }}
+      </button>
+    </mat-menu>
+  </mat-card-actions>
+</mat-card>
+
+<!-- <mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>avatar</div>
+
+    <mat-card-subtitle>sub-header</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    content
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>actionOne</button>
+    <button mat-button>actionTwo</button>
+  </mat-card-actions>
+</mat-card> -->
