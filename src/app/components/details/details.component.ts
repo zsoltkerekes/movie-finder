@@ -5,11 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 import { MovieDetails, movieDetailsData } from '../../models/MovieDetails.model';
 import { Title } from '@angular/platform-browser';
 
+declare function escape(s: string): string;
 @Component({
   selector: 'mf-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
+
 export class DetailsComponent implements OnInit {
 
   id: Number;
@@ -65,5 +67,8 @@ export class DetailsComponent implements OnInit {
     }
   }
 
+  open() {
+    window.open(`http://bithumen.be/browse.php?search=${escape(this.movie.title.toString())}`, '_blank');
+  }
 
 }
