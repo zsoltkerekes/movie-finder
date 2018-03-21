@@ -1,8 +1,16 @@
+import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+
+@Injectable()
 export class ConstantsService {
 
-  // config link https://api.themoviedb.org/3/configuration?api_key=8ada93d9b0cb48be3d73ac8e3ae93c13
+  global: boolean;
 
-  global = false;
+  constructor(
+    private cookieService: CookieService
+  ) {
+    this.global = this.cookieService.get('Movie-Finder') === 'Global' ? true : false;
+  }
 
   apiKey = 'api_key=8ada93d9b0cb48be3d73ac8e3ae93c13';
 
@@ -52,8 +60,13 @@ export class ConstantsService {
   upcoming = page =>
     `${this.apiBaseUrl}movie/upcoming?${this.options()}${this.page(page)}${this.region()}`
 
-  changeGlobal = () =>
-    this.global = !this.global
-
+  changeGlobal = () => {
+    this.global = !this.global;
+    const date = new Date();
+    date.setDate(date.getDate() + 3);
+    this.cookieService.set('Movie-Finder', this.global ? 'Global' : 'Local', date);
+    document.documentElement.scrollTop = 0;
+    window.location.reload();
+  }
 
 }

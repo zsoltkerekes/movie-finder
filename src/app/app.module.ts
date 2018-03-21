@@ -31,6 +31,7 @@ import { MoviesNowPlayingComponent } from './components/movies-now-playing/movie
 import { NowPlayingComponent } from './containers/now-playing/now-playing.component';
 import { UpcomingComponent } from './containers/upcoming/upcoming.component';
 import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-m
   ],
   providers: [
     ConstantsService,
-    ApiService
+    ApiService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

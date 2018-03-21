@@ -154,6 +154,10 @@ MIT
 MIT
 MIT
 
+ngx-cookie-service@1.0.10
+MIT
+MIT
+
 @angular/common@5.2.8
 MIT
 MIT

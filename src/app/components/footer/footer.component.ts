@@ -24,4 +24,6 @@ export class FooterComponent implements OnInit {
     this.api.changeGlobal();
   }
 
+  getGlobal = () => this.api.getGlobal();
+
 }

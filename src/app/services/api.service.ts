@@ -3,6 +3,7 @@ import { ConstantsService } from './constants.service';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
+
 @Injectable()
 export class ApiService {
 
@@ -12,8 +13,9 @@ export class ApiService {
   constructor(
     private http: Http,
     private constants: ConstantsService,
-    private router: Router
+    private router: Router,
   ) {
+
     this.getAllPossibleGenres();
   }
 
@@ -38,11 +40,11 @@ export class ApiService {
     return output.join(', ');
   }
 
-  changeGlobal () {
+  changeGlobal() {
     this.constants.changeGlobal();
-    this.getAllPossibleGenres();
-    this.router.navigate(['/']);
   }
+
+  getGlobal = () => this.constants.global;
 
   getPopularMovies = (page = 1) => this.getContent(this.constants.popularMovies(page));
 
