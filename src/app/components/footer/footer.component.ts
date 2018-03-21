@@ -1,5 +1,7 @@
+import { ConstantsService } from './../../services/constants.service';
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'mf-footer',
@@ -10,10 +12,16 @@ export class FooterComponent implements OnInit {
 
   date: Date;
 
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) { }
 
   ngOnInit() {
     this.date = new Date();
+  }
+
+  setGlobal() {
+    this.api.changeGlobal();
   }
 
 }

@@ -1,4 +1,11 @@
+@import "./../../../colors.scss";
+
 .footer {
-  background-color: #C5CAE9;
+  background-color: $main-color;
+  color: $main-font-color;
   margin-top: 2em;
+}
+
+.toggle {
+  float:left;
 }

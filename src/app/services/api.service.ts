@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ConstantsService } from './constants.service';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
@@ -10,8 +11,15 @@ export class ApiService {
 
   constructor(
     private http: Http,
-    private constants: ConstantsService
+    private constants: ConstantsService,
+    private router: Router
   ) {
+    this.getAllPossibleGenres();
+  }
+
+  getContent = url => this.http.get(url);
+
+  getAllPossibleGenres() {
     this.getContent(this.constants.apiGenres()).subscribe(response => {
       response.json().genres.forEach(row => { this.genres[row.id] = row.name; });
       this.genresArray = response.json().genres.sort((a, b) => {
@@ -22,14 +30,18 @@ export class ApiService {
     });
   }
 
-  getContent = url => this.http.get(url);
-
   getGenreList = (array: Array<Number>): String => {
     const output = [];
     array.forEach(row => {
       output.push(this.genres[row.toString()]);
     });
     return output.join(', ');
+  }
+
+  changeGlobal () {
+    this.constants.changeGlobal();
+    this.getAllPossibleGenres();
+    this.router.navigate(['/']);
   }
 
   getPopularMovies = (page = 1) => this.getContent(this.constants.popularMovies(page));

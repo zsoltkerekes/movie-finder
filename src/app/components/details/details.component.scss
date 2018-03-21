@@ -106,5 +106,16 @@ p {
     h3 {
       text-align: center;
     }
+
+    p{
+     text-align: left;
+     span{
+       float:none;
+     }
+    }
+    .overview{
+      text-align: justify;
+      font-size: 100%;
+    }
   }
 }
