@@ -37,8 +37,14 @@ h2 {
 
     a {
       button {
-        width: 8em;
+        width: 7em;
         margin: .25em;
+        white-space: normal;
+
+      }
+      .mat-raised-button {
+        padding: 0;
+        line-height: 1em;
       }
     }
 
