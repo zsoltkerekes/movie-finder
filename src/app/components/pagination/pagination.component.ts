@@ -40,7 +40,7 @@ export class PaginationComponent implements OnChanges {
         links: []
       };
       for (let i = 0; i < +this.results.total_pages; i++) {
-        let expandedUrl;
+        let expandedUrl = `${this.url}/${i + 1}`;
         if (this.type === 'movie') { expandedUrl = `${this.url}/${i + 1}/${this.tvShowPage}`; }
         if (this.type === 'tvShow') { expandedUrl = `${this.url}/${this.moviePage}/${i + 1}`; }
         this.pagination.links[i] = {
