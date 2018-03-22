@@ -11,9 +11,17 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 export class SearchResultsComponent implements OnInit {
 
   phrase: String;
-  page: Number;
+  moviePage: Number;
+  tvShowPage: Number;
 
-  searchResults: {
+  movieSearchResults: {
+    results: Array<ListItem>,
+    page: Number,
+    total_results: Number,
+    total_pages: Number
+  };
+
+  tvShowSearchResults: {
     results: Array<ListItem>,
     page: Number,
     total_results: Number,
@@ -29,28 +37,29 @@ export class SearchResultsComponent implements OnInit {
 
 
   ngOnInit() {
-    if (this.activatedRoute.snapshot.params['phrase'] !== '') {
-      this.search();
-      this.activatedRoute.params
-        .subscribe(
-          () => {
-            this.search();
+    this.activatedRoute.params
+      .subscribe(
+        () => {
+          if (this.activatedRoute.snapshot.params['phrase']) {
+            this.movieSearch();
+            this.tvShowSearch();
           }
-        );
-    }
+        }
+      );
   }
 
-  search() {
+  movieSearch() {
+
     this.phrase = this.activatedRoute.snapshot.params['phrase'];
-    this.page = +this.activatedRoute.snapshot.params['page'] || 1;
-    this.searchResults = {
+    this.moviePage = +this.activatedRoute.snapshot.params['moviePage'] || 1;
+    this.movieSearchResults = {
       results: [listItemInitData],
       page: 1,
       total_results: 1,
       total_pages: 1
     };
 
-    this.api.getMovieSearch(this.phrase, +this.page)
+    this.api.getMovieSearch(this.phrase, +this.moviePage)
       .subscribe((response) => {
         const willBeSorted = response.json();
         willBeSorted.results.sort((a, b) => {
@@ -58,8 +67,32 @@ export class SearchResultsComponent implements OnInit {
           if (a.popularity < b.popularity) { return 1; }
           return 0;
         });
-        this.searchResults = willBeSorted;
+        this.movieSearchResults = willBeSorted;
       });
   }
+
+  tvShowSearch() {
+
+    this.phrase = this.activatedRoute.snapshot.params['phrase'];
+    this.tvShowPage = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
+    this.tvShowSearchResults = {
+      results: [listItemInitData],
+      page: 1,
+      total_results: 1,
+      total_pages: 1
+    };
+
+    this.api.getTvShowSearch(this.phrase, +this.tvShowPage)
+      .subscribe((response) => {
+        const willBeSorted = response.json();
+        willBeSorted.results.sort((a, b) => {
+          if (a.popularity > b.popularity) { return -1; }
+          if (a.popularity < b.popularity) { return 1; }
+          return 0;
+        });
+        this.tvShowSearchResults = willBeSorted;
+      });
+  }
+
 
 }

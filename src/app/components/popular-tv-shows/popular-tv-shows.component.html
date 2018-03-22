@@ -1,0 +1,13 @@
+<h2 class="text-center">
+  Népszerű Sorozatok:
+</h2>
+
+<mf-pagination [results]="popularTvShows" [url]="'/popular/'" [type]="'tvShow'"></mf-pagination>
+
+<div class="item-container">
+  <a *ngFor="let tvShow of popularTvShows.results" [routerLink]="['/tv-details', tvShow.id]">
+    <mf-list-item [tvShow]="tvShow" movie=""></mf-list-item>
+  </a>
+</div>
+
+<mf-pagination [results]="popularTvShows" [url]="'/popular/'" [type]="'tvShow'"></mf-pagination>

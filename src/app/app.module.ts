@@ -1,3 +1,8 @@
+import { TvShowsByGenreComponent } from './components/tv-shows-by-genre/tv-shows-by-genre.component';
+import { TvGenresComponent } from './containers/tv-genres/tv-genres.component';
+import { TopRatedTvShowsComponent } from './components/top-rated-tv-shows/top-rated-tv-shows.component';
+import { PopularTvShowsComponent } from './components/popular-tv-shows/popular-tv-shows.component';
+import { RecommendedTvShowsComponent } from './components/recommended-tv-shows/recommended-tv-shows.component';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,6 +37,8 @@ import { NowPlayingComponent } from './containers/now-playing/now-playing.compon
 import { UpcomingComponent } from './containers/upcoming/upcoming.component';
 import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
 import { CookieService } from 'ngx-cookie-service';
+import { TVDetailsComponent } from './components/tv-details/tv-details.component';
+import { TvRecommendedComponent } from './components/tv-recommended/tv-recommended.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +65,13 @@ import { CookieService } from 'ngx-cookie-service';
     NowPlayingComponent,
     UpcomingComponent,
     UpcomingMoviesComponent,
+    TVDetailsComponent,
+    RecommendedTvShowsComponent,
+    PopularTvShowsComponent,
+    TopRatedTvShowsComponent,
+    TvRecommendedComponent,
+    TvGenresComponent,
+    TvShowsByGenreComponent
 
   ],
   imports: [

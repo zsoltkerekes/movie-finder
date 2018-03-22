@@ -5,13 +5,13 @@ import { ListItem, listItemInitData } from './../../models/listItem.model';
 import { ApiService } from './../../services/api.service';
 
 @Component({
-  selector: 'mf-popular-movies',
-  templateUrl: './popular-movies.component.html',
-  styleUrls: ['./popular-movies.component.scss']
+  selector: 'mf-popular-tv-shows',
+  templateUrl: './popular-tv-shows.component.html',
+  styleUrls: ['./popular-tv-shows.component.scss']
 })
-export class PopularMoviesComponent implements OnInit {
+export class PopularTvShowsComponent implements OnInit {
 
-  popularMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
+  popularTvShows: { results: Array<ListItem> } = { results: [listItemInitData] };
   page: number;
 
   listGenres = this.api.getGenreList;
@@ -25,10 +25,10 @@ export class PopularMoviesComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
-          this.page = +this.activatedRoute.snapshot.params['moviePage'] || 1;
-          this.api.getPopularMovies(this.page)
+          this.page = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
+          this.api.getPopularTvShows(this.page)
             .subscribe(response => {
-              this.popularMovies = response.json();
+              this.popularTvShows = response.json();
             });
         }
       );

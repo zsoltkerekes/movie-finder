@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
@@ -9,6 +10,7 @@ export class PaginationComponent implements OnChanges {
 
   @Input() results;
   @Input() url;
+  @Input() type;
 
   pagination: {
     total_pages: number,
@@ -17,10 +19,17 @@ export class PaginationComponent implements OnChanges {
     links: Array<any>
   };
 
-  constructor() {
-  }
+  moviePage: number;
+  tvShowPage: number;
+
+  constructor(
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnChanges() {
+
+    this.moviePage = +this.activatedRoute.snapshot.params['moviePage'] || 1;
+    this.tvShowPage = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
 
     if (this.results) {
 
@@ -31,8 +40,11 @@ export class PaginationComponent implements OnChanges {
         links: []
       };
       for (let i = 0; i < +this.results.total_pages; i++) {
+        let expandedUrl;
+        if (this.type === 'movie') { expandedUrl = `${this.url}/${i + 1}/${this.tvShowPage}`; }
+        if (this.type === 'tvShow') { expandedUrl = `${this.url}/${this.moviePage}/${i + 1}`; }
         this.pagination.links[i] = {
-          url: `${this.url}/${i + 1}`,
+          url: expandedUrl,
           name: `${i * 20 + 1}-${(i + 1) * 20}`
         };
       }

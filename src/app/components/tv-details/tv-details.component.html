@@ -1,0 +1,156 @@
+<section class="full" [style.backgroundImage]="backgroundImage()">
+  <mat-card class="poster">
+    <mat-card-content (dblclick)="open()">
+      <img [src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path :
+       'assets/image/no-pic.jpg'"
+        [alt]="tvShow.name" [title]="tvShow.name" />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="details">
+    <mat-card-content>
+
+      <h2 class="title">
+        {{tvShow.name ? tvShow.name : '(Hiányzó adat: cím)'}}
+      </h2>
+
+      <h3 class="original_title">
+        {{tvShow.original_name ? 'Eredeti címe: '+ tvShow.original_name : ''}}
+        <span class="original_language">
+          {{tvShow.original_language ? '('+tvShow.original_language.toUpperCase()+')' : ''}}
+        </span>
+      </h3>
+
+      <p class="overview">
+        {{tvShow.overview ? tvShow.overview : '(Hiányzó adat: leírás)'}}
+      </p>
+
+      <p class="genres">
+        <span>
+          Műfajok:
+        </span>
+        <span>
+          {{ tvShow.genres ? listGenres(tvShow.genres) : '(Hiányzó adat: műfajok)'}}
+        </span>
+      </p>
+
+      <p class="adult">
+        <span>
+          Besorolás:
+        </span>
+        <span>
+          {{tvShow.adult===true ? 'Felnőtteknek' : 'Nem csak felnőtteknek'}}
+        </span>
+      </p>
+
+      <p class="runtime">
+        <span>
+          Hossz:
+        </span>
+        <span>
+          {{ tvShow.episode_run_time ? tvShow.episode_run_time[0] + ' perc' : '(Hiányzó adat: hossz)'}}
+        </span>
+      </p>
+
+      <p class="status">
+        <span>
+          Státusz:
+        </span>
+        <span>
+          {{tvShow.status ? tvShow.status : '(Hiányzó adat: státusz)' }}
+        </span>
+      </p>
+
+      <p class="release_date">
+        <span>
+          Premier dátuma:
+        </span>
+        <span>
+          {{tvShow.first_air_date ? tvShow.first_air_date : '(Hiányzó adat: premier dátuma)'}}
+        </span>
+      </p>
+
+      <p class="budget">
+        <span>
+          Készítette:
+        </span>
+        <span>
+          {{tvShow.created_by ? createdBy : '(Hiányzó adat: készítette)' }}
+        </span>
+      </p>
+
+      <p class="vote">
+        <span>
+          Nézők szavazata alapján:
+        </span>
+        <span>
+          {{tvShow.vote_average ? tvShow.vote_average + '/10' : '(Hiányzó adat: szavazat)' }}
+        </span>
+      </p>
+
+      <p class="popularity">
+        <span>
+          Relatív népszerűségi index:
+        </span>
+        <span>
+          {{tvShow.popularity ? tvShow.popularity : '(Hiányzó adat: népszerűségi index)' }}
+        </span>
+      </p>
+
+      <p class="homepage">
+        <span>
+          {{ tvShow.homepage ? 'Saját hivatalos weboldala:':'Nincs saját hivatalos weboldala'}}
+        </span>
+        <span *ngIf="tvShow.homepage">
+          <a [href]="tvShow.homepage" target="_blank">
+            {{ tvShow.homepage}}
+          </a>
+        </span>
+      </p>
+
+      <p class="imdb">
+        <span>
+          {{tvShow.imdb_id ? 'Imdb hivatalos weboldala:':'Nincs IMDB link'}}
+        </span>
+        <span *ngIf="tvShow.imdb_id">
+          <a [href]="'https://www.imdb.com/title/'+tvShow.imdb_id" target="_blank">
+            {{'https://www.imdb.com/title/'+tvShow.imdb_id}}
+          </a>
+        </span>
+      </p>
+
+      <p class="youtube">
+        <span>
+          Youtube keresés:
+        </span>
+        <span>
+          <a [href]="'https://www.youtube.com/results?search_query='+tvShow.name" target="_blank">
+            magyar cím alapján
+          </a>
+          |
+          <a [href]="'https://www.youtube.com/results?search_query='+tvShow.original_name" target="_blank">
+            eredeti cím alapján
+          </a>
+        </span>
+      </p>
+
+      <p class="google">
+        <span>
+          Google keresés:
+        </span>
+        <span>
+          <a [href]="'https://www.google.hu/search?q='+tvShow.name" target="_blank">
+            magyar cím alapján
+          </a>
+          |
+          <a [href]="'https://www.google.hu/search?q='+tvShow.original_name" target="_blank">
+            eredeti cím alapján
+          </a>
+        </span>
+      </p>
+
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<mf-recommended-tv-shows [id]="tvShow.id"></mf-recommended-tv-shows>

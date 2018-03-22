@@ -3,12 +3,12 @@
   Legjobb Filmek:
 </h2>
 
-<mf-pagination [results]="topRatedMovies" [url]="'/top-rated/'"></mf-pagination>
+<mf-pagination [results]="topRatedMovies" [url]="'/top-rated/'" [type]="'movie'"></mf-pagination>
 
 <div class="item-container">
   <a *ngFor="let movie of topRatedMovies.results" [routerLink]="['/details', movie.id]">
-    <mf-list-item [movie]="movie"></mf-list-item>
+    <mf-list-item [movie]="movie" tvShow=""></mf-list-item>
   </a>
 </div>
 
-<mf-pagination [results]="topRatedMovies" [url]="'/top-rated/'"></mf-pagination>
+<mf-pagination [results]="topRatedMovies" [url]="'/top-rated/'" [type]="'movie'"></mf-pagination>

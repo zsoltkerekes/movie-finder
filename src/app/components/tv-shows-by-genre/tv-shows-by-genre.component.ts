@@ -6,18 +6,18 @@ import { ListItem } from '../../models/listItem.model';
 import { ApiService } from './../../services/api.service';
 
 @Component({
-  selector: 'mf-movies-by-genre',
-  templateUrl: './movies-by-genre.component.html',
-  styleUrls: ['./movies-by-genre.component.scss']
+  selector: 'mf-tv-shows-by-genre',
+  templateUrl: './tv-shows-by-genre.component.html',
+  styleUrls: ['./tv-shows-by-genre.component.scss']
 })
-export class MoviesByGenreComponent implements OnInit {
+export class TvShowsByGenreComponent implements OnInit {
   id: number;
   page: number;
 
-  moviesByGenre: { results: Array<ListItem> } = { results: [listItemInitData] };
+  tvShowsByGenre: { results: Array<ListItem> } = { results: [listItemInitData] };
 
-  listGenres = this.api.getGenreList;
-  genres = this.api.genres;
+  listTvGenres = this.api.getTvGenreList;
+  tvGenres = this.api.tvGenres;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,8 +32,8 @@ export class MoviesByGenreComponent implements OnInit {
           document.documentElement.scrollTop = 0;
           this.id = +this.activatedRoute.snapshot.params['id'];
           this.page = +this.activatedRoute.snapshot.params['page'];
-          this.api.getMovieByGenre(this.id, this.page)
-            .subscribe(response => this.moviesByGenre = response.json()
+          this.api.getTvShowByGenre(this.id, this.page)
+            .subscribe(response => this.tvShowsByGenre = response.json()
             );
         }
       );

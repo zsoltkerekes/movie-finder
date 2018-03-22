@@ -10,16 +10,30 @@ export class ApiService {
   genres = { name: String, id: Number };
   genresArray: Array<{ id: Number, name: String }>;
 
+  tvGenres = { name: String, id: Number };
+  tvGenresArray: Array<{ id: Number, name: String }>;
+
+
   constructor(
     private http: Http,
     private constants: ConstantsService,
     private router: Router,
   ) {
-
     this.getAllPossibleGenres();
+    this.getAllPossibleTvGenres();
   }
 
   getContent = url => this.http.get(url);
+
+  changeGlobal() {
+    this.constants.changeGlobal();
+  }
+
+  getGlobal = () => this.constants.global;
+
+  getBackgroundUrl = () => `${this.constants.imageUrl}${this.constants.backdropSize}`;
+
+  // Movie Begins
 
   getAllPossibleGenres() {
     this.getContent(this.constants.apiGenres()).subscribe(response => {
@@ -40,17 +54,9 @@ export class ApiService {
     return output.join(', ');
   }
 
-  changeGlobal() {
-    this.constants.changeGlobal();
-  }
-
-  getGlobal = () => this.constants.global;
-
   getPopularMovies = (page = 1) => this.getContent(this.constants.popularMovies(page));
 
   getMovieById = id => this.getContent(this.constants.movieById(id));
-
-  getBackgroundUrl = () => `${this.constants.imageUrl}${this.constants.backdropSize}`;
 
   getTopRatedMovies = (page = 1) => this.getContent(this.constants.topRatedMovies(page));
 
@@ -63,5 +69,42 @@ export class ApiService {
   getNowPlaying = (page = 1) => this.getContent(this.constants.nowPlaying(page));
 
   getUpcoming = (page = 1) => this.getContent(this.constants.upcoming(page));
+
+  // Movie Ends
+
+  // TV Show Begins
+
+  getAllPossibleTvGenres() {
+    this.getContent(this.constants.apiTvGenres()).subscribe(response => {
+      response.json().genres.forEach(row => { this.tvGenres[row.id] = row.name; });
+      this.tvGenresArray = response.json().genres.sort((a, b) => {
+        if (a.name > b.name) { return 1; }
+        if (a.name < b.name) { return -1; }
+        return 0;
+      });
+    });
+  }
+
+  getTvGenreList = (array: Array<Number>): String => {
+    const output = [];
+    array.forEach(row => {
+      output.push(this.tvGenres[row.toString()]);
+    });
+    return output.join(', ');
+  }
+
+  getTvShowSearch = (phrase, page = 1) => this.getContent(this.constants.tvShowSearch(phrase, page));
+
+  getTvShowById = id => this.getContent(this.constants.tvShowById(id));
+
+  getRecommendedTvShows = id => this.getContent(this.constants.recommendedTvShows(id));
+
+  getPopularTvShows = (page = 1) => this.getContent(this.constants.popularTvShows(page));
+
+  getTopRatedTvSows = (page = 1) => this.getContent(this.constants.topRatedTvShows(page));
+
+  getTvShowByGenre = (genre, page = 1) => this.getContent(this.constants.tvShowByGenre(genre, page));
+
+  // TV Show Ends
 
 }

@@ -5,13 +5,13 @@ import { ListItem, listItemInitData } from '../../models/listItem.model';
 import { ApiService } from './../../services/api.service';
 
 @Component({
-  selector: 'mf-top-rated-movies',
-  templateUrl: './top-rated-movies.component.html',
-  styleUrls: ['./top-rated-movies.component.scss']
+  selector: 'mf-top-rated-tv-shows',
+  templateUrl: './top-rated-tv-shows.component.html',
+  styleUrls: ['./top-rated-tv-shows.component.scss']
 })
-export class TopRatedMoviesComponent implements OnInit {
+export class TopRatedTvShowsComponent implements OnInit {
 
-  topRatedMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
+  topRatedTvShows: { results: Array<ListItem> } = { results: [listItemInitData] };
   page: number;
 
   listGenres = this.api.getGenreList;
@@ -25,8 +25,8 @@ export class TopRatedMoviesComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
-          this.page = +this.activatedRoute.snapshot.params['moviePage'] || 1;
-          this.api.getTopRatedMovies(this.page)
+          this.page = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
+          this.api.getTopRatedTvSows(this.page)
             .subscribe(response => {
               const willBeSorted = response.json();
               willBeSorted.results.sort((a, b) => {
@@ -34,7 +34,7 @@ export class TopRatedMoviesComponent implements OnInit {
                 if (a.popularity < b.popularity) { return 1; }
                 return 0;
               });
-              this.topRatedMovies = willBeSorted;
+              this.topRatedTvShows = willBeSorted;
             });
         }
       );

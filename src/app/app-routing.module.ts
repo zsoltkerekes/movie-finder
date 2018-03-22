@@ -1,3 +1,5 @@
+import { TvGenresComponent } from './containers/tv-genres/tv-genres.component';
+import { TVDetailsComponent } from './components/tv-details/tv-details.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -23,7 +25,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'popular/:page',
+    path: 'popular/:moviePage/:tvShowPage',
     pathMatch: 'full',
     component: PopularComponent,
     data: {
@@ -31,7 +33,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'top-rated/:page',
+    path: 'top-rated/:moviePage/:tvShowPage',
     pathMatch: 'full',
     component: TopRatedComponent,
     data: {
@@ -47,7 +49,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'search/:phrase/:page',
+    path: 'search/:phrase/:moviePage/:tvShowPage',
     pathMatch: 'full',
     component: SearchComponent,
     data: {
@@ -63,9 +65,25 @@ const routes: Routes = [
     }
   },
   {
+    path: 'tv-genres/:id/:page',
+    pathMatch: 'full',
+    component: TvGenresComponent,
+    data: {
+      pageTitle: `${baseTitle}`
+    }
+  },
+  {
     path: 'details/:id',
     pathMatch: 'full',
     component: DetailsComponent,
+    data: {
+      pageTitle: `${baseTitle}`
+    }
+  },
+  {
+    path: 'tv-details/:id',
+    pathMatch: 'full',
+    component: TVDetailsComponent,
     data: {
       pageTitle: `${baseTitle}`
     }

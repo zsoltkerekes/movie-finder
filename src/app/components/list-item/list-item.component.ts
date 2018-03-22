@@ -10,8 +10,10 @@ import { Component, Input } from '@angular/core';
 export class ListItemComponent {
 
   @Input('movie') movie: ListItem = listItemInitData;
+  @Input('tvShow') tvShow: ListItem = listItemInitData;
 
   listGenres = this.api.getGenreList;
+  listTvGenres = this.api.getTvGenreList;
 
   constructor(
     private api: ApiService

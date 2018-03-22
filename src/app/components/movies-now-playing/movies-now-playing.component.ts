@@ -24,7 +24,6 @@ export class MoviesNowPlayingComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
-          document.documentElement.scrollTop = 0;
           this.page = +this.activatedRoute.snapshot.params['page'] || 1;
           this.api.getNowPlaying(this.page)
             .subscribe(response => {

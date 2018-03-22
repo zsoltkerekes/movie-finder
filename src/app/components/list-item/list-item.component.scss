@@ -31,7 +31,8 @@ mat-card {
     width: calc( 100vw - 3em );
 
     mat-card-content img {
-      height: 100%;
+      max-width: 185px;
+      width: 100%;
       width: auto;
     }
 

@@ -25,7 +25,6 @@ export class UpcomingMoviesComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
-          document.documentElement.scrollTop = 0;
           this.page = +this.activatedRoute.snapshot.params['page'] || 1;
           this.api.getUpcoming(this.page)
             .subscribe(response => {
