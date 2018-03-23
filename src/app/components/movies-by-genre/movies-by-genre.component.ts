@@ -33,7 +33,11 @@ export class MoviesByGenreComponent implements OnInit {
           this.id = +this.activatedRoute.snapshot.params['id'];
           this.page = +this.activatedRoute.snapshot.params['page'];
           this.api.getMovieByGenre(this.id, this.page)
-            .subscribe(response => this.moviesByGenre = response.json()
+            .subscribe(response => {
+              const output = response.json();
+              output.results = output.results.map(row => row || {});
+              this.moviesByGenre = output;
+            }
             );
         }
       );

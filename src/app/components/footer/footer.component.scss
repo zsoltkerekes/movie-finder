@@ -4,8 +4,24 @@
   background-color: $main-color;
   color: $main-font-color;
   margin-top: 2em;
+
+  .icon {
+    position: relative;
+    top: .25em;
+    left: -0.25em;
+  }
 }
 
+.select,
 .toggle {
-  float:left;
+  float: left;
+  height: 4em;
+  margin-right: 2em;
+}
+@media (max-width:960px) {
+  .footer {
+    p {
+      clear: both;
+    }
+  }
 }

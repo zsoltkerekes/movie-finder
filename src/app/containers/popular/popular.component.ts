@@ -16,7 +16,7 @@ export class PopularComponent implements OnInit {
 
   ngOnInit() {
     document.documentElement.scrollTop = 0;
-    this.title.setTitle(`Népszerűek :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.title.setTitle(`Felfedezés :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
   }
 
 }

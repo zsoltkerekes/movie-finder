@@ -28,7 +28,9 @@ export class PopularMoviesComponent implements OnInit {
           this.page = +this.activatedRoute.snapshot.params['moviePage'] || 1;
           this.api.getPopularMovies(this.page)
             .subscribe(response => {
-              this.popularMovies = response.json();
+              const output = response.json();
+              output.results = output.results.map(row => row || {});
+              this.popularMovies = output;
             });
         }
       );

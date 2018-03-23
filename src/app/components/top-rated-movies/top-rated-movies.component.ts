@@ -28,7 +28,9 @@ export class TopRatedMoviesComponent implements OnInit {
           this.page = +this.activatedRoute.snapshot.params['moviePage'] || 1;
           this.api.getTopRatedMovies(this.page)
             .subscribe(response => {
-              const willBeSorted = response.json();
+              const output = response.json();
+              output.results = output.results.map(row => row || {});
+              const willBeSorted = output;
               willBeSorted.results.sort((a, b) => {
                 if (a.popularity > b.popularity) { return -1; }
                 if (a.popularity < b.popularity) { return 1; }

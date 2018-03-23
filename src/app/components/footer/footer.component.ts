@@ -11,6 +11,8 @@ import { ApiService } from '../../services/api.service';
 export class FooterComponent implements OnInit {
 
   date: Date;
+  sortByOptions: Array<{name: string, value: string}>;
+  selected: String;
 
   constructor(
     private api: ApiService
@@ -18,12 +20,16 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
     this.date = new Date();
+    this.sortByOptions = this.api.getSortByOptions();
+    this.selected = this.api.getSortByOption();
   }
 
-  setGlobal() {
-    this.api.changeGlobal();
-  }
-
+  setGlobal = () => this.api.changeGlobal();
   getGlobal = () => this.api.getGlobal();
+
+  setSortByOption = event => this.api.setSortByOption(event.value);
+
+  setAdult = () => this.api.setAdult();
+  getAdult = () => this.api.getAdult();
 
 }

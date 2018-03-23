@@ -29,7 +29,9 @@ export class RecommendedMoviesComponent implements OnInit {
           this.id = +this.activatedRoute.snapshot.params['id'];
           this.api.getRecommendedMovies(this.id)
             .subscribe(response => {
-              this.recommendedMovies = response.json();
+              const output = response.json();
+              output.results = output.results.map(row => row || {});
+              this.recommendedMovies = output;
             });
         }
       );

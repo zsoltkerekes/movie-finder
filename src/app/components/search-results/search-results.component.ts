@@ -61,7 +61,9 @@ export class SearchResultsComponent implements OnInit {
 
     this.api.getMovieSearch(this.phrase, +this.moviePage)
       .subscribe((response) => {
-        const willBeSorted = response.json();
+        const output = response.json();
+        output.results = output.results.map(row => row || {});
+        const willBeSorted = output;
         willBeSorted.results.sort((a, b) => {
           if (a.popularity > b.popularity) { return -1; }
           if (a.popularity < b.popularity) { return 1; }
@@ -84,7 +86,9 @@ export class SearchResultsComponent implements OnInit {
 
     this.api.getTvShowSearch(this.phrase, +this.tvShowPage)
       .subscribe((response) => {
-        const willBeSorted = response.json();
+        const output = response.json();
+        output.results = output.results.map(row => row || {});
+        const willBeSorted = output;
         willBeSorted.results.sort((a, b) => {
           if (a.popularity > b.popularity) { return -1; }
           if (a.popularity < b.popularity) { return 1; }

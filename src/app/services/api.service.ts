@@ -29,7 +29,14 @@ export class ApiService {
     this.constants.changeGlobal();
   }
 
-  getGlobal = () => this.constants.global;
+  getSortByOptions = () => this.constants.getSortByOptions();
+  setSortByOption = value => this.constants.setSortByOption(value);
+  getSortByOption = () => this.constants.getSortByOption();
+
+  getGlobal = () => this.constants.globalOption;
+
+  setAdult = () => this.constants.setAdultOption();
+  getAdult = () => this.constants.getAdultOption();
 
   getBackgroundUrl = () => `${this.constants.imageUrl}${this.constants.backdropSize}`;
 

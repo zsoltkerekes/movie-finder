@@ -29,7 +29,9 @@ export class RecommendedTvShowsComponent implements OnInit {
           this.id = +this.activatedRoute.snapshot.params['id'];
           this.api.getRecommendedTvShows(this.id)
             .subscribe(response => {
-              this.recommendedTvShows = response.json();
+              const output = response.json();
+              output.results = output.results.map(row => row || {});
+              this.recommendedTvShows = output;
             });
         }
       );

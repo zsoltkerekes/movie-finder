@@ -27,7 +27,9 @@ export class MoviesNowPlayingComponent implements OnInit {
           this.page = +this.activatedRoute.snapshot.params['page'] || 1;
           this.api.getNowPlaying(this.page)
             .subscribe(response => {
-              this.nowPlayingMovies = response.json();
+              const output = response.json();
+              output.results = output.results.map(row => row || {});
+              this.nowPlayingMovies = output;
             });
         }
       );

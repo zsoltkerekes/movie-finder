@@ -28,7 +28,9 @@ export class PopularTvShowsComponent implements OnInit {
           this.page = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
           this.api.getPopularTvShows(this.page)
             .subscribe(response => {
-              this.popularTvShows = response.json();
+              const output = response.json();
+              output.results = output.results.map(row => row || {});
+              this.popularTvShows = output;
             });
         }
       );

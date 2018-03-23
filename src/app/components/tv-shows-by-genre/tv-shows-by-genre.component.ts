@@ -33,7 +33,11 @@ export class TvShowsByGenreComponent implements OnInit {
           this.id = +this.activatedRoute.snapshot.params['id'];
           this.page = +this.activatedRoute.snapshot.params['page'];
           this.api.getTvShowByGenre(this.id, this.page)
-            .subscribe(response => this.tvShowsByGenre = response.json()
+            .subscribe(response => {
+              const output = response.json();
+              output.results = output.results.map(row => row || {});
+              this.tvShowsByGenre = output;
+            }
             );
         }
       );
