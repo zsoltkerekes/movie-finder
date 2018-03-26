@@ -2,7 +2,7 @@
   Sorozatok:
 </h2>
 
-<mf-pagination [results]="popularTvShows" [url]="'/popular/'" [type]="'tvShow'"></mf-pagination>
+<mf-pagination [results]="popularTvShows" [url]="'/discover/'" [type]="'tvShow'"></mf-pagination>
 
 <div class="item-container">
   <a *ngFor="let tvShow of popularTvShows.results" [routerLink]="['/tv-details', tvShow.id]">
@@ -10,4 +10,8 @@
   </a>
 </div>
 
-<mf-pagination [results]="popularTvShows" [url]="'/popular/'" [type]="'tvShow'"></mf-pagination>
+<mf-pagination [results]="popularTvShows" [url]="'/discover/'" [type]="'tvShow'"></mf-pagination>
+
+<h2 class="text-center" *ngIf="popularTvShows.results.length < 1">
+  Nincs találat
+</h2>

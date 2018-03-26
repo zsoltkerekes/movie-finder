@@ -7,6 +7,9 @@ export class ConstantsService {
   globalOption: boolean;
   sortByOption: string;
   adultOption: boolean;
+  yearOption: number;
+  withGenresOption: number[] = [];
+  tvWithGenresOption: number[] = [];
 
   constructor(
     private cookieService: CookieService
@@ -14,6 +17,9 @@ export class ConstantsService {
     this.globalOption = this.cookieService.get('Movie-Finder-globalOption') === 'Global' ? true : false;
     this.sortByOption = this.cookieService.get('Movie-Finder-sortByOption') || 'popularity.desc';
     this.adultOption = this.cookieService.get('Movie-Finder-adultOption') === 'true' ? true : false;
+    this.yearOption = +this.cookieService.get('Movie-Finder-yearOption') || new Date().getFullYear();
+    this.withGenresOption = this.cookieService.get('Movie-Finder-withGenresOption').split('-').map(row => +row);
+    this.tvWithGenresOption = this.cookieService.get('Movie-Finder-tvWithGenresOption').split('-').map(row => +row);
   }
 
   apiKey = 'api_key=8ada93d9b0cb48be3d73ac8e3ae93c13';
@@ -55,20 +61,62 @@ export class ConstantsService {
   getAdultOption = () => this.adultOption;
   setAdultOption = (): void => {
     this.adultOption = !this.adultOption;
-    this.cookieService.set('Movie-Finder-adultOption', this.adultOption ? 'true' : 'false' );
+    this.cookieService.set('Movie-Finder-adultOption', this.adultOption ? 'true' : 'false');
+    window.location.reload();
+  }
+
+  getYearOption = () => this.yearOption;
+  setYearOption = (year = undefined) => {
+    this.yearOption = year;
+    this.cookieService.set('Movie-Finder-yearOption', year);
+    window.location.reload();
+  }
+
+  getWithGenresOption = () => this.withGenresOption;
+  setWithGenresOption = genres => {
+    this.cookieService.set('Movie-Finder-withGenresOption', this.withGenresOption.join('-'));
+    window.location.reload();
+  }
+
+  getTvWithGenresOption = () => this.tvWithGenresOption;
+  setTvWithGenresOption = genres => {
+    this.cookieService.set('Movie-Finder-tvWithGenresOption', this.tvWithGenresOption.join('-'));
     window.location.reload();
   }
 
   language = () =>
     this.globalOption ? '' : '&language=hu'
 
-  page(pageNumber) { return `&page=${pageNumber}`; }
+  page = pageNumber =>
+    `&page=${pageNumber}`
 
   region = () =>
     this.globalOption ? '' : '&region=hu'
 
+  year = () =>
+    this.yearOption ? `&year=${this.yearOption}` : ``
+
+  tvYear = () =>
+  this.yearOption ? `&first_air_date_year=${this.yearOption}` : ``
+
+  withGenres = () => {
+    if (this.withGenresOption.length === 1 && this.withGenresOption[0] === 0) {
+      return '';
+    } else {
+      return `&with_genres=${this.withGenresOption.slice(1).join(',')}`;
+    }
+  }
+
+  withTvGenres = () => {
+    if (this.tvWithGenresOption.length === 1 && this.tvWithGenresOption[0] === 0) {
+      return '';
+    } else {
+      return `&with_genres=${this.tvWithGenresOption.slice(1).join(',')}`;
+    }
+  }
+
   options = () =>
-    `${this.apiKey}${this.sortBy(this.sortByOption)}${this.language()}${this.adult()}`
+    `${this.apiKey}${this.language()}${this.adult()}`
 
   // Movie Begins
 
@@ -76,7 +124,8 @@ export class ConstantsService {
     `${this.apiBaseUrl}genre/movie/list?${this.options()}`
 
   popularMovies = page =>
-    `${this.apiBaseUrl}discover/movie?${this.options()}${this.page(page)}`
+    `${this.apiBaseUrl}discover/movie?${this.options()}${
+    this.page(page)}${this.year()}${this.sortBy(this.sortByOption)}${this.withGenres()}`
 
   movieById = id =>
     `${this.apiBaseUrl}movie/${id}?${this.options()}`
@@ -116,7 +165,8 @@ export class ConstantsService {
     `${this.apiBaseUrl}tv/${id}/recommendations?${this.options()}`
 
   popularTvShows = page =>
-    `${this.apiBaseUrl}discover/tv?${this.options()}${this.page(page)}`
+    `${this.apiBaseUrl}discover/tv?${this.options()}${
+      this.page(page)}${this.tvYear()}${this.sortBy(this.sortByOption)}${this.withTvGenres()}`
 
   topRatedTvShows = page =>
     `${this.apiBaseUrl}tv/top_rated?${this.options()}${this.page(page)}`

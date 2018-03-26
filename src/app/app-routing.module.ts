@@ -7,7 +7,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { GenresComponent } from './containers/genres/genres.component';
 import { HomeComponent } from './containers/home/home.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
-import { PopularComponent } from './containers/popular/popular.component';
+import { DiscoverComponent } from './containers/discover/discover.component';
 import { SearchComponent } from './containers/search/search.component';
 import { TopRatedComponent } from './containers/top-rated/top-rated.component';
 import { NowPlayingComponent } from './containers/now-playing/now-playing.component';
@@ -25,9 +25,9 @@ const routes: Routes = [
     }
   },
   {
-    path: 'popular/:moviePage/:tvShowPage',
+    path: 'discover/:moviePage/:tvShowPage',
     pathMatch: 'full',
-    component: PopularComponent,
+    component: DiscoverComponent,
     data: {
       pageTitle: `${baseTitle}`
     }

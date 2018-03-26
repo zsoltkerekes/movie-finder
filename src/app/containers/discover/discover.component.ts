@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'mf-popular',
-  templateUrl: './popular.component.html',
-  styleUrls: ['./popular.component.scss']
+  selector: 'mf-discover',
+  templateUrl: './discover.component.html',
+  styleUrls: ['./discover.component.scss']
 })
-export class PopularComponent implements OnInit {
+export class DiscoverComponent implements OnInit {
 
   constructor(
     private title: Title,

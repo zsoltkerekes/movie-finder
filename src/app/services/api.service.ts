@@ -38,6 +38,15 @@ export class ApiService {
   setAdult = () => this.constants.setAdultOption();
   getAdult = () => this.constants.getAdultOption();
 
+  setYearOption = (year = undefined) => this.constants.setYearOption(year);
+  getYearOption = () => this.constants.getYearOption();
+
+  setWithGenresOption = genres => this.constants.setWithGenresOption(genres);
+  getWithGenresOption = () => this.constants.getWithGenresOption();
+
+  setTvWithGenresOption = genres => this.constants.setTvWithGenresOption(genres);
+  getTvWithGenresOption = () => this.constants.getTvWithGenresOption();
+
   getBackgroundUrl = () => `${this.constants.imageUrl}${this.constants.backdropSize}`;
 
   // Movie Begins
