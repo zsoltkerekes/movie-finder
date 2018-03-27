@@ -1,5 +1,5 @@
 <h2 class="text-center">
-  Sorozatok ({{tvGenres[id]}}):
+  Sorozatok ({{listTvGenres([id])}}):
 </h2>
 
 <mf-pagination [results]="tvShowsByGenre" [url]="'/tv-genres/' + id"></mf-pagination>

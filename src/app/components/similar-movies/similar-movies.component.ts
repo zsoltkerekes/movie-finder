@@ -4,20 +4,20 @@ import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'mf-recommended-tv-shows',
-  templateUrl: './recommended-tv-shows.component.html',
-  styleUrls: ['./recommended-tv-shows.component.scss']
+  selector: 'mf-similar-movies',
+  templateUrl: './similar-movies.component.html',
+  styleUrls: ['./similar-movies.component.scss']
 })
-export class RecommendedTvShowsComponent implements OnInit {
+export class SimilarMoviesComponent implements OnInit {
 
   @ViewChild ('container') container;
 
   id: Number;
 
-  recommendedTvShows: { results: Array<ListItem> } = { results: [listItemInitData] };
+  similarMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
 
-  listGenres = this.api.getTvGenreList;
-  genres = this.api.tvGenres;
+  listGenres = this.api.getGenreList;
+  genres = this.api.genres;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,12 +30,11 @@ export class RecommendedTvShowsComponent implements OnInit {
         () => {
           this.container.nativeElement.scrollLeft = 0;
           this.id = +this.activatedRoute.snapshot.params['id'];
-          this.api.getRecommendedTvShows(this.id)
+          this.api.getSimilarMovies(this.id)
             .subscribe(response => {
               const output = response.json();
               output.results = output.results.map(row => row || {});
-              this.recommendedTvShows = output;
-              console.log(output);
+              this.similarMovies = output;
             });
         }
       );

@@ -20,7 +20,6 @@ export class ApiService {
     private router: Router,
   ) {
     this.getAllPossibleGenres();
-    this.getAllPossibleTvGenres();
   }
 
   getContent = url => this.http.get(url);
@@ -59,6 +58,7 @@ export class ApiService {
         if (a.name < b.name) { return -1; }
         return 0;
       });
+      this.getAllPossibleTvGenres();
     });
   }
 
@@ -82,6 +82,8 @@ export class ApiService {
 
   getRecommendedMovies = id => this.getContent(this.constants.recommendedMovies(id));
 
+  getSimilarMovies = id => this.getContent(this.constants.similarMovies(id));
+
   getNowPlaying = (page = 1) => this.getContent(this.constants.nowPlaying(page));
 
   getUpcoming = (page = 1) => this.getContent(this.constants.upcoming(page));
@@ -92,12 +94,28 @@ export class ApiService {
 
   getAllPossibleTvGenres() {
     this.getContent(this.constants.apiTvGenres()).subscribe(response => {
+      this.tvGenres = { ...this.genres };
       response.json().genres.forEach(row => { this.tvGenres[row.id] = row.name; });
-      this.tvGenresArray = response.json().genres.sort((a, b) => {
-        if (a.name > b.name) { return 1; }
-        if (a.name < b.name) { return -1; }
-        return 0;
-      });
+      this.tvGenresArray =
+        [...this.genresArray, ...response.json().genres]
+          .sort((a, b) => {
+            if (a.name > b.name) { return 1; }
+            if (a.name < b.name) { return -1; }
+            return 0;
+          })
+          .map((currentValue, index, array) => {
+            if (index === 0) { return currentValue; } else {
+              if (array[index].name !== array[index - 1].name) {
+                return currentValue;
+              }
+            }
+          })
+          .filter(row => {
+            if (row) {
+              return row;
+            }
+          });
+      console.log(this.tvGenres);
     });
   }
 
@@ -114,6 +132,8 @@ export class ApiService {
   getTvShowById = id => this.getContent(this.constants.tvShowById(id));
 
   getRecommendedTvShows = id => this.getContent(this.constants.recommendedTvShows(id));
+
+  getSimilarTvShows = id => this.getContent(this.constants.similarTvShows(id));
 
   getPopularTvShows = (page = 1) => this.getContent(this.constants.popularTvShows(page));
 

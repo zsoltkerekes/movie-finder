@@ -142,6 +142,9 @@ export class ConstantsService {
   recommendedMovies = id =>
     `${this.apiBaseUrl}movie/${id}/recommendations?${this.options()}`
 
+  similarMovies = id =>
+    `${this.apiBaseUrl}movie/${id}/similar?${this.options()}`
+
   nowPlaying = page =>
     `${this.apiBaseUrl}movie/now_playing?${this.options()}${this.page(page)}${this.region()}`
 
@@ -163,6 +166,9 @@ export class ConstantsService {
 
   recommendedTvShows = id =>
     `${this.apiBaseUrl}tv/${id}/recommendations?${this.options()}`
+
+  similarTvShows = id =>
+    `${this.apiBaseUrl}tv/${id}/similar?${this.options()}`
 
   popularTvShows = page =>
     `${this.apiBaseUrl}discover/tv?${this.options()}${

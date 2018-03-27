@@ -1,4 +1,3 @@
-import { DiscoverTvOptionsComponent } from './components/discover-tv-options/discover-tv-options.component';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './components/details/details.component';
 import { DiscoverOptionsComponent } from './components/discover-options/discover-options.component';
+import { DiscoverTvOptionsComponent } from './components/discover-tv-options/discover-tv-options.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ListItemComponent } from './components/list-item/list-item.component';
@@ -23,6 +23,8 @@ import { RecommendedTvShowsComponent } from './components/recommended-tv-shows/r
 import { RecommendedComponent } from './components/recommended/recommended.component';
 import { SearchByPhraseComponent } from './components/search-by-phrase/search-by-phrase.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { SimilarMoviesComponent } from './components/similar-movies/similar-movies.component';
+import { SimilarTvShowsComponent } from './components/similar-tv-shows/similar-tv-shows.component';
 import { TopRatedMoviesComponent } from './components/top-rated-movies/top-rated-movies.component';
 import { TopRatedTvShowsComponent } from './components/top-rated-tv-shows/top-rated-tv-shows.component';
 import { TVDetailsComponent } from './components/tv-details/tv-details.component';
@@ -75,7 +77,9 @@ import { MaterialModule } from './shared-modules/material/material.module';
     TvGenresComponent,
     TvShowsByGenreComponent,
     DiscoverOptionsComponent,
-    DiscoverTvOptionsComponent
+    DiscoverTvOptionsComponent,
+    SimilarMoviesComponent,
+    SimilarTvShowsComponent
 
   ],
   imports: [

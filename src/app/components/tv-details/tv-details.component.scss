@@ -19,7 +19,7 @@ mat-card-content {
 
 .details {
   display: inline-flex;
-  width: calc( 100% - 500px - 140px);
+  width: calc( 100% - 500px - 7.25em);
   background-color: rgba(232, 234, 246,0.9);
   padding: 1em;
   min-height: 770px;
@@ -107,13 +107,15 @@ p {
       text-align: center;
     }
 
-    p{
-     text-align: left;
-     span{
-       float:none;
-     }
+    p {
+      text-align: left;
+
+      span {
+        float: none;
+      }
     }
-    .overview{
+
+    .overview {
       text-align: justify;
       font-size: 100%;
     }

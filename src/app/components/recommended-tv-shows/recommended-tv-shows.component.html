@@ -2,7 +2,7 @@
   Ajánlott sorozatok:
 </h2>
 
-<div class="item-container">
+<div class="item-container" #container>
   <a *ngFor="let tvShow of recommendedTvShows.results" [routerLink]="['/tv-details', tvShow.id]">
     <mf-list-item movie="" [tvShow]="tvShow"></mf-list-item>
   </a>

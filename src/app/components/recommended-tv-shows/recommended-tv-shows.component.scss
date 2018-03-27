@@ -1,0 +1,7 @@
+.item-container {
+  justify-content: normal;
+  -ms-flex-wrap: wrap;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  overflow-x: scroll;
+}
