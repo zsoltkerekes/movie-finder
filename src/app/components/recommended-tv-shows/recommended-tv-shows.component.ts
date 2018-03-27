@@ -35,7 +35,6 @@ export class RecommendedTvShowsComponent implements OnInit {
               const output = response.json();
               output.results = output.results.map(row => row || {});
               this.recommendedTvShows = output;
-              console.log(output);
             });
         }
       );

@@ -1,0 +1,17 @@
+<mat-tab-group>
+  <mat-tab *ngFor="let season of tvShow.seasons; let i = index" [label]="season.name || season.season_number || i ">
+    <img class="poster" [src]="season.poster_path ? 'https://image.tmdb.org/t/p/' +'w342'+ season.poster_path  : 'assets/image/no-pic.jpg'">
+    <h4>
+      {{season.name ? 'Alcím: ' + season.name : '(hiányzó adat: Alcím)'}}
+    </h4>
+    <p>
+      {{season.air_date ? 'Premier dátuma: ' + season.air_date : '(hiányzó adat: Premier dátuma)'}}
+    </p>
+    <p>
+      {{season.episode_count ? 'Epizódok száma: ' + season.episode_count : '(hiányzó adat: Epizódok száma)'}}
+    </p>
+    <p>
+      {{season.overview ? season.overview : '(hiányzó adat: Tartalom)' }}
+    </p>
+  </mat-tab>
+</mat-tab-group>

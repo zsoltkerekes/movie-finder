@@ -13,6 +13,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatMenuModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -40,7 +42,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatMenuModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule
   ],
   declarations: []
 })

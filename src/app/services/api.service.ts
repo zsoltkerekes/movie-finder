@@ -3,7 +3,6 @@ import { ConstantsService } from './constants.service';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
-
 @Injectable()
 export class ApiService {
 
@@ -20,13 +19,12 @@ export class ApiService {
     private router: Router,
   ) {
     this.getAllPossibleGenres();
+    this.getAllPossibleTvGenres();
   }
 
   getContent = url => this.http.get(url);
 
-  changeGlobal() {
-    this.constants.changeGlobal();
-  }
+  changeGlobal = () => this.constants.changeGlobal();
 
   getSortByOptions = () => this.constants.getSortByOptions();
   setSortByOption = value => this.constants.setSortByOption(value);
@@ -50,7 +48,7 @@ export class ApiService {
 
   // Movie Begins
 
-  getAllPossibleGenres() {
+  getAllPossibleGenres = () => {
     this.getContent(this.constants.apiGenres()).subscribe(response => {
       response.json().genres.forEach(row => { this.genres[row.id] = row.name; });
       this.genresArray = response.json().genres.sort((a, b) => {
@@ -58,7 +56,6 @@ export class ApiService {
         if (a.name < b.name) { return -1; }
         return 0;
       });
-      this.getAllPossibleTvGenres();
     });
   }
 
@@ -92,30 +89,15 @@ export class ApiService {
 
   // TV Show Begins
 
-  getAllPossibleTvGenres() {
+  getAllPossibleTvGenres = () => {
     this.getContent(this.constants.apiTvGenres()).subscribe(response => {
-      this.tvGenres = { ...this.genres };
       response.json().genres.forEach(row => { this.tvGenres[row.id] = row.name; });
-      this.tvGenresArray =
-        [...this.genresArray, ...response.json().genres]
-          .sort((a, b) => {
-            if (a.name > b.name) { return 1; }
-            if (a.name < b.name) { return -1; }
-            return 0;
-          })
-          .map((currentValue, index, array) => {
-            if (index === 0) { return currentValue; } else {
-              if (array[index].name !== array[index - 1].name) {
-                return currentValue;
-              }
-            }
-          })
-          .filter(row => {
-            if (row) {
-              return row;
-            }
-          });
-      console.log(this.tvGenres);
+      this.tvGenresArray = response.json().genres
+        .sort((a, b) => {
+          if (a.name > b.name) { return 1; }
+          if (a.name < b.name) { return -1; }
+          return 0;
+        });
     });
   }
 

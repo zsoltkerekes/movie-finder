@@ -43,6 +43,7 @@ import { UpcomingComponent } from './containers/upcoming/upcoming.component';
 import { ApiService } from './services/api.service';
 import { ConstantsService } from './services/constants.service';
 import { MaterialModule } from './shared-modules/material/material.module';
+import { TvShowSeasonsComponent } from './components/tv-show-seasons/tv-show-seasons.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { MaterialModule } from './shared-modules/material/material.module';
     DiscoverOptionsComponent,
     DiscoverTvOptionsComponent,
     SimilarMoviesComponent,
-    SimilarTvShowsComponent
+    SimilarTvShowsComponent,
+    TvShowSeasonsComponent
 
   ],
   imports: [

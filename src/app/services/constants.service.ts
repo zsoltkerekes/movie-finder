@@ -17,7 +17,7 @@ export class ConstantsService {
     this.globalOption = this.cookieService.get('Movie-Finder-globalOption') === 'Global' ? true : false;
     this.sortByOption = this.cookieService.get('Movie-Finder-sortByOption') || 'popularity.desc';
     this.adultOption = this.cookieService.get('Movie-Finder-adultOption') === 'true' ? true : false;
-    this.yearOption = +this.cookieService.get('Movie-Finder-yearOption') || new Date().getFullYear();
+    this.yearOption = +this.cookieService.get('Movie-Finder-yearOption') || undefined;
     this.withGenresOption = this.cookieService.get('Movie-Finder-withGenresOption').split('-').map(row => +row);
     this.tvWithGenresOption = this.cookieService.get('Movie-Finder-tvWithGenresOption').split('-').map(row => +row);
   }
@@ -59,7 +59,7 @@ export class ConstantsService {
   }
 
   getAdultOption = () => this.adultOption;
-  setAdultOption = (): void => {
+  setAdultOption = () => {
     this.adultOption = !this.adultOption;
     this.cookieService.set('Movie-Finder-adultOption', this.adultOption ? 'true' : 'false');
     window.location.reload();

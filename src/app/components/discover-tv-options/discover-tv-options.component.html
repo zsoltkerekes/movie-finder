@@ -17,8 +17,7 @@
       *ngFor="let tvShowGenre of tvShowGenres"
       color="primary"
       (change)="setTvShowGenre(tvShowGenre.id, $event)"
-      [checked]="getTvCheckedStatus(tvShowGenre.id)"
-      [id]="tvShowGenre.id">
+      [checked]="getTvCheckedStatus(tvShowGenre.id)">
       {{tvShowGenre.name}}
     </mat-checkbox>
   </div>

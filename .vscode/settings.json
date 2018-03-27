@@ -2,9 +2,11 @@
   "cSpell.words": [
     "Adatok",
     "Ajánlott",
+    "Alcím",
     "Besorolás",
     "Csökkenő",
     "Elkészítési",
+    "Epizódok",
     "Eredmény",
     "Felfedezés",
     "Felnőtteknek",
@@ -36,6 +38,7 @@
     "Sorozatok",
     "Sorrend",
     "Szavazatok",
+    "Tartalom",
     "Truthy",
     "Töltés",
     "Videók",
@@ -89,12 +92,15 @@
     "szavazata",
     "szerint",
     "szerverről",
+    "száma",
     "találat",
     "valamit",
     "weboldal",
     "weboldala",
+    "Évadok",
     "Összes",
-    "érkező"
+    "érkező",
+    "évad"
   ],
   "git.ignoreLimitWarning": true
 }

@@ -17,8 +17,7 @@
       *ngFor="let movieGenre of movieGenres"
       color="primary"
       (change)="setMovieGenre(movieGenre.id, $event)"
-      [checked]="getCheckedStatus(movieGenre.id)"
-      [id]="movieGenre.id">
+      [checked]="getCheckedStatus(movieGenre.id)">
       {{movieGenre.name}}
     </mat-checkbox>
   </div>
