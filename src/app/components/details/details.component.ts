@@ -69,6 +69,7 @@ export class DetailsComponent implements OnInit {
 
   open() {
     window.open(`http://bithumen.be/browse.php?search=${escape(this.movie.title.toString())}`, '_blank');
+    window.open(`https://ncore.cc/torrents.php?mire=${escape(this.movie.title.toString())}`, '_blank');
   }
 
 }
