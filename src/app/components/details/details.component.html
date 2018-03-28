@@ -134,6 +134,21 @@
         </span>
       </p>
 
+      <p class="online-filmek">
+        <span>
+          Online Film keresés:
+        </span>
+        <span>
+          <a [href]="'https://online-filmek.me/kereses.php?kereses='+movie.title" target="_blank">
+            magyar cím alapján
+          </a>
+          |
+          <a [href]="'https://online-filmek.me/kereses.php?kereses='+movie.original_title" target="_blank">
+            eredeti cím alapján
+          </a>
+        </span>
+      </p>
+
       <p class="google">
         <span>
           Google keresés:
