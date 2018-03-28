@@ -1,3 +1,4 @@
+import { TvShowSeasonsComponent } from './../components/tv-show-seasons/tv-show-seasons.component';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -97,7 +98,7 @@ export class ConstantsService {
     this.yearOption ? `&year=${this.yearOption}` : ``
 
   tvYear = () =>
-  this.yearOption ? `&first_air_date_year=${this.yearOption}` : ``
+    this.yearOption ? `&first_air_date_year=${this.yearOption}` : ``
 
   withGenres = () => {
     if (this.withGenresOption.length === 1 && this.withGenresOption[0] === 0) {
@@ -151,6 +152,9 @@ export class ConstantsService {
   upcoming = page =>
     `${this.apiBaseUrl}movie/upcoming?${this.options()}${this.page(page)}${this.region()}`
 
+  movieImages = id =>
+   `${this.apiBaseUrl}movie/${id}/images?${this.options()}&include_image_language=hu,eng,null`
+
   // Movie Ends
 
   // TV Show Begins
@@ -172,13 +176,19 @@ export class ConstantsService {
 
   popularTvShows = page =>
     `${this.apiBaseUrl}discover/tv?${this.options()}${
-      this.page(page)}${this.tvYear()}${this.sortBy(this.sortByOption)}${this.withTvGenres()}`
+    this.page(page)}${this.tvYear()}${this.sortBy(this.sortByOption)}${this.withTvGenres()}`
 
   topRatedTvShows = page =>
     `${this.apiBaseUrl}tv/top_rated?${this.options()}${this.page(page)}`
 
   tvShowByGenre = (genre, page) =>
     `${this.apiBaseUrl}discover/tv?&with_genres=${genre}&${this.options()}${this.page(page)}`
+
+  tvShowEpisodes = (id, season) =>
+    `${this.apiBaseUrl}tv/${id}/season/${season}?${this.options()}`
+
+  tvImages = id =>
+    `${this.apiBaseUrl}tv/${id}/images?${this.options()}&include_image_language=hu,eng,null`
 
   // TV Show Ends
 

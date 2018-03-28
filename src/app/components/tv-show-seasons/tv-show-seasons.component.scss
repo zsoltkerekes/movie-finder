@@ -10,9 +10,39 @@ p {
   width: 90%;
   margin: 1% 5%;
   text-align: justify;
-  font-size:110%;
+  font-size: 110%;
 }
 
 h4 {
   margin-top: 10%;
+}
+
+@media (max-width:960px) {
+  .poster {
+    margin: 1em auto;
+    padding-left: calc( 50% - 171px );
+    float: none;
+  }
+
+  h4,
+  p {
+    text-align: center;
+  }
+  p:last-of-type {
+    text-align: justify;
+  };
+
+  button {
+    width: 80%;
+    margin-left:10%;
+  }
+
+}
+@media (max-width:400px) {
+  .poster {
+    width: 90%;
+    padding: 0;
+    margin: 5%;
+    float: none;
+  }
 }

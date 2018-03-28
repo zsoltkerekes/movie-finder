@@ -1,3 +1,4 @@
+import { TvShowEpisodesComponent } from './containers/tv-show-episodes/tv-show-episodes.component';
 import { TvGenresComponent } from './containers/tv-genres/tv-genres.component';
 import { TVDetailsComponent } from './components/tv-details/tv-details.component';
 import { NgModule } from '@angular/core';
@@ -84,6 +85,14 @@ const routes: Routes = [
     path: 'tv-details/:id',
     pathMatch: 'full',
     component: TVDetailsComponent,
+    data: {
+      pageTitle: `${baseTitle}`
+    }
+  },
+  {
+    path: 'tv-show-episodes/:id/:season',
+    pathMatch: 'full',
+    component: TvShowEpisodesComponent,
     data: {
       pageTitle: `${baseTitle}`
     }

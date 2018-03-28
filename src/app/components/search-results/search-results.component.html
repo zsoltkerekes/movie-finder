@@ -14,9 +14,6 @@
   Nincs találat
 </h2>
 
-<mf-pagination *ngIf="phrase" [results]="movieSearchResults" [url]="'/search/'+phrase" [type]="'movie'"></mf-pagination>
-
-
 <mat-divider></mat-divider>
 
 <h2 *ngIf="phrase" class="text-center">
@@ -34,5 +31,3 @@
 <h2 *ngIf="!(tvShowSearchResults.results.length) && phrase" class="text-center">
   Nincs találat
 </h2>
-
-<mf-pagination *ngIf="phrase" [results]="tvShowSearchResults" [url]="'/search/'+phrase" [type]="'tvShow'"></mf-pagination>

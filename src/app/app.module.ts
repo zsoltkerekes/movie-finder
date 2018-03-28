@@ -1,3 +1,5 @@
+import { TvImagesComponent } from './components/tv-images/tv-images.component';
+import { TvShowEpisodesComponent } from './containers/tv-show-episodes/tv-show-episodes.component';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,6 +46,8 @@ import { ApiService } from './services/api.service';
 import { ConstantsService } from './services/constants.service';
 import { MaterialModule } from './shared-modules/material/material.module';
 import { TvShowSeasonsComponent } from './components/tv-show-seasons/tv-show-seasons.component';
+import { TvShowEpisodesDetailsComponent } from './components/tv-show-episodes-details/tv-show-episodes-details.component';
+import { MovieImagesComponent } from './components/movie-images/movie-images.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +85,11 @@ import { TvShowSeasonsComponent } from './components/tv-show-seasons/tv-show-sea
     DiscoverTvOptionsComponent,
     SimilarMoviesComponent,
     SimilarTvShowsComponent,
-    TvShowSeasonsComponent
+    TvShowSeasonsComponent,
+    TvShowEpisodesComponent,
+    TvShowEpisodesDetailsComponent,
+    MovieImagesComponent,
+    TvImagesComponent
 
   ],
   imports: [

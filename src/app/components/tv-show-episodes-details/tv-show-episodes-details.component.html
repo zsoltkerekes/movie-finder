@@ -1,0 +1,82 @@
+<section class="episodes">
+  <div class="text-center">
+    <h2>
+      {{tvShow.name ? tvShow.name : '(Hiányzó adat: Cím)' }}
+      ({{tvShow.original_name ? tvShow.original_name : ''}}
+      {{tvShow.original_name && tvShow.original_language ? '-' : '' }}
+      {{tvShow.original_language ? tvShow.original_language.toUpperCase() : ''}})
+    </h2>
+
+    <h3>
+      {{tvShowEpisodes.name ? tvShowEpisodes.name : ''}}
+      (összesen {{tvShowEpisodes.episodes.length}} epizód)
+    </h3>
+
+    <h4>
+      {{tvShow.status ? tvShow.status : ''}}
+    </h4>
+
+
+    <p class="season-overview">
+      {{tvShowEpisodes.overview ? tvShowEpisodes.overview : ''}}
+    </p>
+
+    <button
+      *ngFor="let link of tvShow.seasons; let i = index"
+      mat-raised-button
+      [routerLink]="['/tv-show-episodes', id, link.season_number]"
+      routerLinkActive="active">{{link.name ? link.name : i + '. évad'}}
+    </button>
+  </div>
+  <mat-accordion>
+
+    <mat-expansion-panel
+      [expanded]="episodeNumber === i"
+      (opened)="setEpisode(i)"
+      hideToggle="true"
+      *ngFor="let episode of tvShowEpisodes.episodes; let i = index">
+      <mat-expansion-panel-header class="mat-elevation-z2 title">
+        <mat-panel-title>
+          {{episode.name ? episode.name : '(Hiányzó adat: Epizód Cím)'}}
+          {{episode.vote_average ? '('+episode.vote_average+'/10)': ''}}
+        </mat-panel-title>
+        <mat-panel-description class="title-desc">
+          {{episode.episode_number ? episode.episode_number + '. epizód ' : 1+i + '. epizód ' }}
+          {{episode.air_date ? '('+episode.air_date+')' : '' }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <img class="picture" title="{{tvShow.name}} - {{episode.name}}" alt="{{tvShow.name}} - {{episode.name}}" [src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"
+      />
+      <div class="episode-body">
+        <p>
+          {{episode.episode_number ? episode.episode_number + '. epizód ' : 1+i + '. epizód ' }}
+          {{episode.air_date ? '('+episode.air_date+')' : '(Hiányzó adat: epizód premier dátum)' }}
+        </p>
+        <h4>
+          {{episode.name ? episode.name : '(Hiányzó adat: Epizód Cím)'}}
+          {{episode.vote_average ? '('+episode.vote_average+'/10)':'(Hiányzó adat: szavazat)'}}
+        </h4>
+        <p>
+          {{episode.overview ? episode.overview : '(Hiányzó adat: epizód tartalom)'}}
+        </p>
+      </div>
+      <mat-action-row class="buttons">
+        <button
+          mat-button
+          color="primary"
+          (click)="setEpisode(i-1)"
+          *ngIf="i>0"
+        >Előző</button>
+        <button
+          mat-button
+          color="primary"
+          (click)="setEpisode(i+1)"
+          *ngIf="i<tvShowEpisodes.episodes.length-1"
+          >Következő</button>
+      </mat-action-row>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
+</section>

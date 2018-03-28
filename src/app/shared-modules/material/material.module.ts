@@ -14,6 +14,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSlideToggleModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -43,7 +45,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSlideToggleModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
   ],
   declarations: []
 })

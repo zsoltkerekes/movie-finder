@@ -24,6 +24,7 @@ mat-card {
   mat-card {
     margin: 1em 0;
     padding: 10px 0;
+    min-height: 400px;
   }
 }
 @media (max-width:450px) {

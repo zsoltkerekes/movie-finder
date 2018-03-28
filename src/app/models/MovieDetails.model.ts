@@ -21,6 +21,7 @@ export interface MovieDetails {
   poster_path: String;
   overview: String;
   id: Number;
+  seasons: Array<any>;
 }
 
 export const movieDetailsData = {
@@ -45,5 +46,6 @@ export const movieDetailsData = {
   backdrop_path: undefined,
   poster_path: undefined,
   overview: undefined,
-  id: undefined
+  id: undefined,
+  seasons: [{}]
 };

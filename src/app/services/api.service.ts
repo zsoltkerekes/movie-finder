@@ -85,6 +85,8 @@ export class ApiService {
 
   getUpcoming = (page = 1) => this.getContent(this.constants.upcoming(page));
 
+  getMovieImages = id => this.getContent(this.constants.movieImages(id));
+
   // Movie Ends
 
   // TV Show Begins
@@ -122,6 +124,10 @@ export class ApiService {
   getTopRatedTvSows = (page = 1) => this.getContent(this.constants.topRatedTvShows(page));
 
   getTvShowByGenre = (genre, page = 1) => this.getContent(this.constants.tvShowByGenre(genre, page));
+
+  getTvShowEpisodes = (id, season) => this.getContent(this.constants.tvShowEpisodes(id, season));
+
+  getTvImages = id => this.getContent(this.constants.tvImages(id));
 
   // TV Show Ends
 
