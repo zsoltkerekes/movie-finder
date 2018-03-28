@@ -1,4 +1,4 @@
-
+﻿
 import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -75,6 +75,7 @@ export class TVDetailsComponent implements OnInit {
 
   open() {
     window.open(`http://bithumen.be/browse.php?search=${escape(this.tvShow.name.toString())}`, '_blank');
+    window.open(`https://ncore.cc/torrents.php?mire=${escape(this.tvShow.name.toString())}`, '_blank');
   }
 
 }
