@@ -1,6 +1,7 @@
 import { TvShowSeasonsComponent } from './../components/tv-show-seasons/tv-show-seasons.component';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable()
 export class ConstantsService {
@@ -153,7 +154,10 @@ export class ConstantsService {
     `${this.apiBaseUrl}movie/upcoming?${this.options()}${this.page(page)}${this.region()}`
 
   movieImages = id =>
-   `${this.apiBaseUrl}movie/${id}/images?${this.options()}&include_image_language=hu,eng,null`
+    `${this.apiBaseUrl}movie/${id}/images?${this.options()}&include_image_language=hu,eng,null`
+
+  movieVideos = id =>
+    `${this.apiBaseUrl}movie/${id}/videos?${this.options()}`
 
   // Movie Ends
 
@@ -189,6 +193,12 @@ export class ConstantsService {
 
   tvImages = id =>
     `${this.apiBaseUrl}tv/${id}/images?${this.options()}&include_image_language=hu,eng,null`
+
+  tvShowVideos = id =>
+    `${this.apiBaseUrl}tv/${id}/videos?${this.options()}`
+
+  tvShowSeasonVideos = (id, season) =>
+    `${this.apiBaseUrl}tv/${id}/season/${season}/videos?${this.options()}`
 
   // TV Show Ends
 

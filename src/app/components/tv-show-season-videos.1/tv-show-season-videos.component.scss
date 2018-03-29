@@ -1,0 +1,21 @@
+.video {
+  width: 60vw;
+  height: 34vw;
+}
+
+.mat-chip-list {
+
+  justify-content: center;
+
+  .mat-chip {
+    cursor: pointer;
+    margin: .5em !important;
+    flex-grow: 1;
+  }
+}
+
+.youtubeVideos {
+  @media (max-width:960px) {
+    display: none;
+  }
+}
