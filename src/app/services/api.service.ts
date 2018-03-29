@@ -19,7 +19,6 @@ export class ApiService {
     private router: Router,
   ) {
     this.getAllPossibleGenres();
-    this.getAllPossibleTvGenres();
   }
 
   getContent = url => this.http.get(url);
@@ -56,6 +55,7 @@ export class ApiService {
         if (a.name < b.name) { return -1; }
         return 0;
       });
+      this.getAllPossibleTvGenres();
     });
   }
 
@@ -96,12 +96,27 @@ export class ApiService {
   getAllPossibleTvGenres = () => {
     this.getContent(this.constants.apiTvGenres()).subscribe(response => {
       response.json().genres.forEach(row => { this.tvGenres[row.id] = row.name; });
-      this.tvGenresArray = response.json().genres
-        .sort((a, b) => {
-          if (a.name > b.name) { return 1; }
-          if (a.name < b.name) { return -1; }
-          return 0;
-        });
+      this.tvGenres = {
+        ...this.genres,
+        ...this.tvGenres
+      };
+      const temp = [
+        ...this.genresArray,
+        ...response.json().genres
+      ].sort((a, b) => {
+        if (a.name > b.name) { return 1; }
+        if (a.name < b.name) { return -1; }
+        return 0;
+      });
+      const output = [];
+      temp.forEach((value, index) => {
+        if (index > 0) {
+          if (temp[index].id !== temp[index - 1].id) {
+            output.push(temp[index - 1]);
+          }
+        }
+      });
+      this.tvGenresArray = output;
     });
   }
 
@@ -131,9 +146,9 @@ export class ApiService {
 
   getTvImages = id => this.getContent(this.constants.tvImages(id));
 
-  getTvShowsVideos  = id => this.getContent(this.constants.tvShowVideos(id));
+  getTvShowsVideos = id => this.getContent(this.constants.tvShowVideos(id));
 
-  getTvShowsSeasonVideos  = (id, season) => this.getContent(this.constants.tvShowSeasonVideos(id, season));
+  getTvShowsSeasonVideos = (id, season) => this.getContent(this.constants.tvShowSeasonVideos(id, season));
 
   // TV Show Ends
 
