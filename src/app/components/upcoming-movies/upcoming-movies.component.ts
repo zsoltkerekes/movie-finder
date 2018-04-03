@@ -38,6 +38,7 @@ export class UpcomingMoviesComponent implements OnInit {
               });
               this.upcomingMovies = willBeSorted;
             });
+            document.documentElement.scrollTop = 0;
         }
       );
   }

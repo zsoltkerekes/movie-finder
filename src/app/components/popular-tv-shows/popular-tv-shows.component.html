@@ -1,8 +1,8 @@
+<a href="" name="tvShow" id="tvShow"></a>
+
 <h2 class="text-center">
   Sorozatok:
 </h2>
-
-<mf-pagination [results]="popularTvShows" [url]="'/discover/'" [type]="'tvShow'"></mf-pagination>
 
 <div class="item-container">
   <a *ngFor="let tvShow of popularTvShows.results" [routerLink]="['/tv-details', tvShow.id]">
@@ -13,3 +13,5 @@
 <h2 class="text-center" *ngIf="popularTvShows.results.length < 1">
   Nincs találat
 </h2>
+
+<mf-pagination [results]="popularTvShows" [url]="'/discover/'" [type]="'tvShow'"></mf-pagination>

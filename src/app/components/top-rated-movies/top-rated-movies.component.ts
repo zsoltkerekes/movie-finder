@@ -38,6 +38,9 @@ export class TopRatedMoviesComponent implements OnInit {
               });
               this.topRatedMovies = willBeSorted;
             });
+            if (this.activatedRoute.snapshot.fragment === 'movie') {
+              document.querySelector('#movie').scrollIntoView();
+            }
         }
       );
   }

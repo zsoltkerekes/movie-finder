@@ -44,6 +44,12 @@ export class SearchResultsComponent implements OnInit {
             this.movieSearch();
             this.tvShowSearch();
           }
+          if (this.activatedRoute.snapshot.fragment === 'movie') {
+            document.querySelector('#movie').scrollIntoView();
+          }
+          if (this.activatedRoute.snapshot.fragment === 'tvShow') {
+            document.querySelector('#tvShow').scrollIntoView();
+          }
         }
       );
   }

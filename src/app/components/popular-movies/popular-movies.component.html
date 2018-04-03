@@ -1,8 +1,8 @@
+<a href="" name="movie" id="movie"></a>
+
 <h2 class="text-center">
   Filmek:
 </h2>
-
-<mf-pagination [results]="popularMovies" [url]="'/discover/'" [type]="'movie'"></mf-pagination>
 
 <div class="item-container">
   <a *ngFor="let movie of popularMovies.results" [routerLink]="['/details', movie.id]">
@@ -13,3 +13,5 @@
 <h2 class="text-center" *ngIf="popularMovies.results.length < 1">
   Nincs találat
 </h2>
+
+<mf-pagination [results]="popularMovies" [url]="'/discover/'" [type]="'movie'"></mf-pagination>

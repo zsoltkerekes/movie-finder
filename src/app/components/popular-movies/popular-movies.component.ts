@@ -32,10 +32,15 @@ export class PopularMoviesComponent implements OnInit {
               output.results = output.results.map(row => row || {});
               this.popularMovies = output;
             });
+            if (this.activatedRoute.snapshot.fragment === 'movie') {
+              document.querySelector('#movie').scrollIntoView();
+            }
         }
       );
+
+
+
+
   }
-
-
 
 }

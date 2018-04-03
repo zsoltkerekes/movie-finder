@@ -32,8 +32,12 @@ export class PopularTvShowsComponent implements OnInit {
               output.results = output.results.map(row => row || {});
               this.popularTvShows = output;
             });
+            if (this.activatedRoute.snapshot.fragment === 'tvShow') {
+              document.querySelector('#tvShow').scrollIntoView();
+            }
         }
       );
+
   }
 
 

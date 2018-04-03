@@ -1,8 +1,8 @@
+<a href="" name="movie" id="movie"></a>
+
 <h2 *ngIf="phrase" class="text-center">
   Filmek:
 </h2>
-
-<mf-pagination *ngIf="phrase" [results]="movieSearchResults" [url]="'/search/'+phrase" [type]="'movie'"></mf-pagination>
 
 <div class="item-container" *ngIf="movieSearchResults && phrase">
   <a *ngFor="let movie of movieSearchResults.results" [routerLink]="['/details', movie.id]">
@@ -14,13 +14,15 @@
   Nincs találat
 </h2>
 
+<mf-pagination *ngIf="phrase" [results]="movieSearchResults" [url]="'/search/'+phrase" [type]="'movie'"></mf-pagination>
+
 <mat-divider></mat-divider>
+
+<a href="" name="tvShow" id="tvShow"></a>
 
 <h2 *ngIf="phrase" class="text-center">
   Sorozatok:
 </h2>
-
-<mf-pagination *ngIf="phrase" [results]="tvShowSearchResults" [url]="'/search/'+phrase" [type]="'tvShow'"></mf-pagination>
 
 <div class="item-container" *ngIf="tvShowSearchResults && phrase">
   <a *ngFor="let tvShow of tvShowSearchResults.results" [routerLink]="['/tv-details', tvShow.id]">
@@ -31,3 +33,5 @@
 <h2 *ngIf="!(tvShowSearchResults.results.length) && phrase" class="text-center">
   Nincs találat
 </h2>
+
+<mf-pagination *ngIf="phrase" [results]="tvShowSearchResults" [url]="'/search/'+phrase" [type]="'tvShow'"></mf-pagination>

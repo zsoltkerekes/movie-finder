@@ -31,6 +31,8 @@ export class MoviesNowPlayingComponent implements OnInit {
               output.results = output.results.map(row => row || {});
               this.nowPlayingMovies = output;
             });
+            document.documentElement.scrollTop = 0;
+
         }
       );
   }

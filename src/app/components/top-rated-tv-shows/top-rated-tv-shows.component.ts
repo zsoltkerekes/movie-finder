@@ -38,7 +38,10 @@ export class TopRatedTvShowsComponent implements OnInit {
               });
               this.topRatedTvShows = willBeSorted;
             });
-        }
+            if (this.activatedRoute.snapshot.fragment === 'tvShow') {
+              document.querySelector('#tvShow').scrollIntoView();
+            }
+         }
       );
   }
 

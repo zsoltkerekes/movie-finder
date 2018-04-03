@@ -2,10 +2,10 @@
   Sorozatok ({{listTvGenres([id])}}):
 </h2>
 
-<mf-pagination [results]="tvShowsByGenre" [url]="'/tv-genres/' + id"></mf-pagination>
-
 <div class="item-container">
   <a *ngFor="let tvShow of tvShowsByGenre.results" [routerLink]="['/tv-details', tvShow.id]">
     <mf-list-item [tvShow]="tvShow" movie=""></mf-list-item>
   </a>
 </div>
+
+<mf-pagination [results]="tvShowsByGenre" [url]="'/tv-genres/' + id"></mf-pagination>

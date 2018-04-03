@@ -1,8 +1,7 @@
+
 <h2 class="text-center">
   A mostanában mozikban lévő filmek:
 </h2>
-
-<mf-pagination [results]="nowPlayingMovies" [url]="'/now-playing/'"></mf-pagination>
 
 <div class="item-container">
   <a *ngFor="let movie of nowPlayingMovies.results" [routerLink]="['/details', movie.id]">
@@ -10,3 +9,4 @@
   </a>
 </div>
 
+<mf-pagination [results]="nowPlayingMovies" [url]="'/now-playing/'"></mf-pagination>
