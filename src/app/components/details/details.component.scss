@@ -35,8 +35,8 @@ mat-card-content {
 .google,
 .homepage,
 .imdb,
-.youtube,
-.online-filmek {
+.online-filmek,
+.youtube {
 
   font-weight: bold;
 
@@ -75,6 +75,22 @@ p {
     &:nth-of-type(2) {
       float: right;
     }
+  }
+}
+
+.img-container {
+  position: relative;
+  min-height: 400px;
+
+  .dots-loader {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+  }
+
+  img {
+    z-index: 1000;
+    position: relative;
   }
 }
 @media (max-width:960px) {

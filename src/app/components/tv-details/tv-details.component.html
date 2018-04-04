@@ -1,9 +1,15 @@
 <section class="full" [style.backgroundImage]="backgroundImage()">
   <mat-card class="poster">
     <mat-card-content (dblclick)="open()">
-      <img [src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path :
-       'assets/image/no-pic.jpg'"
-        [alt]="tvShow.name" [title]="tvShow.name" />
+      <div class="img-container">
+        <div class="dots-loader">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <img [src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path :
+       'assets/image/no-pic.jpg'" [alt]="tvShow.name" [title]="tvShow.name" *ngIf="!loading"/>
+      </div>
     </mat-card-content>
   </mat-card>
 

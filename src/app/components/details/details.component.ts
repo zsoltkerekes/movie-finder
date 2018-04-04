@@ -17,6 +17,7 @@ export class DetailsComponent implements OnInit {
   id: Number;
   movie: MovieDetails;
   height: String;
+  loading: boolean;
 
   constructor(
     private title: Title,
@@ -34,7 +35,9 @@ export class DetailsComponent implements OnInit {
       );
   }
 
+
   loadMovie = () => {
+    this.loading = true;
     document.documentElement.scrollTop = 0;
     this.movie = movieDetailsData;
     this.title.setTitle(`Részletes leírás :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
@@ -50,6 +53,7 @@ export class DetailsComponent implements OnInit {
           }) :: ${
           this.activatedRoute.snapshot.data['pageTitle']
           }`);
+          this.loading = false;
       });
   }
 

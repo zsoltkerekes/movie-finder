@@ -10,9 +10,9 @@
         "/movie-finder/favicon.ico",
         "/movie-finder/index.html",
         "/movie-finder/inline.318b50c57b4eba3d437b.bundle.js",
-        "/movie-finder/main.12c80b5dd5c991cf25e1.bundle.js",
+        "/movie-finder/main.87fea1dab97c655de940.bundle.js",
         "/movie-finder/polyfills.bf95165a1d5098766b92.bundle.js",
-        "/movie-finder/styles.232ebbc69af1e2bd9c8b.bundle.css"
+        "/movie-finder/styles.25298c558ad759a1f425.bundle.css"
       ],
       "patterns": []
     },
@@ -21,7 +21,6 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
-        "/movie-finder/assets/image/loading.gif",
         "/movie-finder/assets/image/movie-icon.png",
         "/movie-finder/assets/image/no-pic.jpg",
         "/movie-finder/assets/image/tv-icon.png"
@@ -32,14 +31,13 @@
   "dataGroups": [],
   "hashTable": {
     "/movie-finder/inline.318b50c57b4eba3d437b.bundle.js": "998c6060446975e566fd17509558ddc68d72eec3",
-    "/movie-finder/assets/image/loading.gif": "55dfeb0796a2347998dd80521aeb2030c085b48a",
-    "/movie-finder/main.12c80b5dd5c991cf25e1.bundle.js": "83e9471cc3a082295494447a0aeb051eeab0c84b",
     "/movie-finder/assets/image/movie-icon.png": "2df6e76b55b2fb3d36fd34820b12e06117b2d886",
-    "/movie-finder/polyfills.bf95165a1d5098766b92.bundle.js": "5f49131c0c147a20f91b1e77814434e0c77bd3dc",
+    "/movie-finder/main.87fea1dab97c655de940.bundle.js": "f0c3a99b4afc9faf68ccb80ea8756c00ce589c23",
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
-    "/movie-finder/styles.232ebbc69af1e2bd9c8b.bundle.css": "3900c673ba0d8fd99f9183139ef55800e1b7256c",
+    "/movie-finder/polyfills.bf95165a1d5098766b92.bundle.js": "5f49131c0c147a20f91b1e77814434e0c77bd3dc",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
+    "/movie-finder/styles.25298c558ad759a1f425.bundle.css": "200d843c0acfba3950c53698cd14097e4336507b",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "6dfe1639abca7746b26bfeb62743d8e31d23e468"
+    "/movie-finder/index.html": "c002580b6e52ce22a66fc7d2c703cdefb24ac57a"
   }
 }

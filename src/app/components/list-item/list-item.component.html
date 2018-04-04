@@ -8,8 +8,15 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <img [src]="(movie.poster_path || tvShow.poster_path) ? 'https://image.tmdb.org/t/p/w185' +
-     (movie.poster_path || tvShow.poster_path) :
-       'assets/image/no-pic.jpg'" />
+    <div class="img-container">
+      <div class="dots-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <img [src]="(movie.poster_path || tvShow.poster_path) ? 'https://image.tmdb.org/t/p/w185' +
+          (movie.poster_path || tvShow.poster_path) :
+            'assets/image/no-pic.jpg'" />
+    </div>
   </mat-card-content>
 </mat-card>

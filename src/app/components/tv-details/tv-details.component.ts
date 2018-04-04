@@ -19,6 +19,7 @@ export class TVDetailsComponent implements OnInit {
   tvShow: MovieDetails;
   height: String;
   createdBy: String;
+  loading: boolean;
 
   constructor(
     private title: Title,
@@ -37,6 +38,7 @@ export class TVDetailsComponent implements OnInit {
   }
 
   loadTvShow = () => {
+    this.loading = true;
     document.documentElement.scrollTop = 0;
     this.tvShow = movieDetailsData;
     this.title.setTitle(`Részletes leírás :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
@@ -55,6 +57,7 @@ export class TVDetailsComponent implements OnInit {
           }) :: ${
           this.activatedRoute.snapshot.data['pageTitle']
           }`);
+          this.loading = false;
       });
   }
 
@@ -71,7 +74,6 @@ export class TVDetailsComponent implements OnInit {
       return `url(${this.api.getBackgroundUrl()}${this.tvShow.backdrop_path})`;
     }
   }
-
 
   open() {
     window.open(`http://bithumen.be/browse.php?search=${escape(this.tvShow.name.toString())}`, '_blank');
