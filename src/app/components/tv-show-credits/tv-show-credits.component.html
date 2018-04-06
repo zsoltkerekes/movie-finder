@@ -1,0 +1,35 @@
+<div *ngIf="movieCredits.cast.length">
+  <h3 class="text-center">Szereplők</h3>
+  <div class="container">
+    <a *ngFor="let person of movieCredits.cast" [routerLink]="['/person-details', person.id]">
+      <div class="cast">
+        <span class="pull-left">
+          {{person.character ? person.character : '(Hiányzó adat: Karakter)'}}
+        </span>
+        {{person.name ? person.name : 'Hiányzó adat: (Név)'}}
+        <span>
+          <img *ngIf="person.profile_path" [src]="'https://image.tmdb.org/t/p/' + 'w45' +person.profile_path" />
+          <mat-icon *ngIf="!(person.profile_path)" class="bigger">face</mat-icon>
+        </span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<div *ngIf="movieCredits.crew.length">
+  <h3 class="text-center">Stáb</h3>
+  <div class="container">
+    <a *ngFor="let person of movieCredits.crew" [routerLink]="['/person-details', person.id]">
+      <div class="crew">
+        <span class="pull-left">
+          {{person.job ? person.job : '(Hiányzó adat: Munkakör)'}}
+        </span>
+        {{person.name ? person.name : '(Hiányzó adat: név)'}}
+      </div>
+    </a>
+  </div>
+</div>
+
+<mat-divider></mat-divider>

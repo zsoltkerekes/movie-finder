@@ -31,7 +31,7 @@ export class MovieVideosComponent implements OnChanges {
             ...output,
             results: output.results.map(row => row || {})
           };
-          if (this.videos.results[0].key) {
+          if (this.videos.results.length > 0) {
             this.setVideoUrl(this.videos.results[0].key);
           }
         });

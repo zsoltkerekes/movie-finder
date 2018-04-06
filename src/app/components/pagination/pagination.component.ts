@@ -21,6 +21,7 @@ export class PaginationComponent implements OnChanges {
 
   moviePage: number;
   tvShowPage: number;
+  personPage: number;
 
   constructor(
     private activatedRoute: ActivatedRoute
@@ -30,6 +31,7 @@ export class PaginationComponent implements OnChanges {
 
     this.moviePage = +this.activatedRoute.snapshot.params['moviePage'] || 1;
     this.tvShowPage = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
+    this.personPage = +this.activatedRoute.snapshot.params['personPage'] || 1;
 
     if (this.results) {
 
@@ -39,10 +41,15 @@ export class PaginationComponent implements OnChanges {
         page: +this.results.page,
         links: []
       };
+
       for (let i = 0; i < +this.results.total_pages; i++) {
+
         let expandedUrl = `${this.url}/${i + 1}`;
-        if (this.type === 'movie') { expandedUrl = `${this.url}/${i + 1}/${this.tvShowPage}`; }
-        if (this.type === 'tvShow') { expandedUrl = `${this.url}/${this.moviePage}/${i + 1}`; }
+
+        if (this.type === 'movie') { expandedUrl = `${this.url}/${i + 1}/${this.tvShowPage}/${this.personPage}`; }
+        if (this.type === 'tvShow') { expandedUrl = `${this.url}/${this.moviePage}/${i + 1}/${this.personPage}`; }
+        if (this.type === 'person') { expandedUrl = `${this.url}/${this.moviePage}/${this.tvShowPage}/${i + 1}`; }
+
         this.pagination.links[i] = {
           url: expandedUrl,
           name: `${i * 20 + 1}-${(i + 1) * 20}`

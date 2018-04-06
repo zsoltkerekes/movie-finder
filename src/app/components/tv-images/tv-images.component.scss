@@ -10,3 +10,18 @@
   max-height: 75vh;
   padding: 1em 0;
 }
+
+.img-container {
+  position: relative;
+
+  .dots-loader {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+  }
+
+  img {
+    z-index: 1000;
+    position: relative;
+  }
+}

@@ -1,0 +1,37 @@
+<mat-divider></mat-divider>
+
+<div *ngIf="movieCredits.cast.length">
+  <h3 class="text-center">Film szereplések, szinkronhangok, satöbbi</h3>
+  <div class="container">
+    <a *ngFor="let movie of movieCredits.cast" [routerLink]="['/details', movie.id]">
+      <div class="cast">
+        <span class="pull-left">
+          {{movie.character ? movie.character : ''}}
+          {{movie.release_date ? '(' + movie.release_date + ')' : ''}}
+        </span>
+        {{movie.title ? movie.title : 'Hiányzó adat: (Film Cím)'}}
+        {{(movie.original_title && (movie.original_title !== movie.title))?
+        '(' + movie.original_title + ')' : ''}} {{movie.vote_average ? '[' + movie.vote_average + '/10 ]' : ''}}
+      </div>
+    </a>
+  </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<div *ngIf="movieCredits.crew.length">
+  <h3 class="text-center">Film rendezések, forgatókönyvek, satöbbi</h3>
+  <div class="container">
+    <a *ngFor="let movie of movieCredits.crew" [routerLink]="['/details', movie.id]">
+      <div class="crew">
+        <span class="pull-left">
+          {{movie.job ? movie.job : '(Hiányzó adat: Munkakör)'}}
+          {{movie.release_date ? '(' + movie.release_date + ')' : ''}}
+        </span>
+        {{movie.title ? movie.title : 'Hiányzó adat: (Film Cím)'}}
+        {{(movie.original_title && (movie.original_title !== movie.title))?
+        '(' + movie.original_title + ')' : ''}} {{movie.vote_average ? '[' + movie.vote_average + '/10 ]' : ''}}
+      </div>
+    </a>
+  </div>
+</div>

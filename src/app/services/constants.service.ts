@@ -159,6 +159,9 @@ export class ConstantsService {
   movieVideos = id =>
     `${this.apiBaseUrl}movie/${id}/videos?${this.options()}`
 
+  movieCredits = id =>
+    `${this.apiBaseUrl}movie/${id}/credits?${this.options()}`
+
   // Movie Ends
 
   // TV Show Begins
@@ -200,6 +203,30 @@ export class ConstantsService {
   tvShowSeasonVideos = (id, season) =>
     `${this.apiBaseUrl}tv/${id}/season/${season}/videos?${this.options()}`
 
+  tvShowCredits = id =>
+    `${this.apiBaseUrl}tv/${id}/credits?${this.options()}`
+
   // TV Show Ends
 
+  // People Begins
+
+  personById = id =>
+    `${this.apiBaseUrl}person/${id}?${this.options()}`
+
+  personMovieCredits = id =>
+    `${this.apiBaseUrl}person/${id}/movie_credits?${this.options()}`
+
+  personTvCredits = id =>
+    `${this.apiBaseUrl}person/${id}/tv_credits?${this.options()}`
+
+  personImages = id =>
+    `${this.apiBaseUrl}person/${id}/images?${this.options()}&include_image_language=hu,eng,null`
+
+  popularPersons = page =>
+  `${this.apiBaseUrl}person/popular?${this.options()}${this.page(page)}`
+
+  personSearch = (phrase, page) =>
+  `${this.apiBaseUrl}search/person?${this.options()}&query=${phrase}${this.page(page)}`
+
+  // People Ends
 }

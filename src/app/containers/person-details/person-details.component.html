@@ -1,0 +1,108 @@
+<section class="full">
+  <mat-card class="poster">
+    <mat-card-content>
+      <div class="img-container">
+        <div class="dots-loader">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <img [src]="person.profile_path ? 'https://image.tmdb.org/t/p' + '/w500' + person.profile_path :
+             'assets/image/no-pic.jpg'" [alt]="person.name" [title]="person.name" *ngIf="!loading" />
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="details">
+    <mat-card-content>
+
+      <h2 class="title">
+        {{person.name ? person.name : '(Hiányzó adat: Név)'}}
+        {{person.gender ? getGender(person.gender) : ''}}
+      </h2>
+
+      <p class="overview">
+        {{person.biography ? person.biography : '(Hiányzó adat: életrajz)'}}
+      </p>
+
+      <p class="adult">
+        <span>
+          Besorolás:
+        </span>
+        <span>
+          {{person.adult===true ? 'Felnőtteknek' : 'Nem csak felnőtteknek'}}
+        </span>
+      </p>
+
+      <p class="runtime">
+        <span>
+          Születésnap:
+        </span>
+        <span>
+          {{person.birthday ? person.birthday : '(Hiányzó adat: Születésnap)'}}
+          {{person.place_of_birth ? '('+ person.place_of_birth +')'  : ''}}
+        </span>
+      </p>
+
+      <p class="status">
+        <span>
+          Meghalt:
+        </span>
+        <span>
+          {{person.deathday ? person.deathday : 'Még él (vagy nincs adat erről)'}}
+        </span>
+      </p>
+
+      <p class="homepage">
+        <span>
+          {{ person.homepage ? 'Saját hivatalos weboldala:':'Nincs saját hivatalos weboldala'}}
+        </span>
+        <span *ngIf="person.homepage">
+          <a [href]="person.homepage" target="_blank">
+            {{ person.homepage}}
+          </a>
+        </span>
+      </p>
+
+      <p class="imdb">
+        <span>
+          {{person.imdb_id ? 'Imdb hivatalos weboldala:':'Nincs IMDB link'}}
+        </span>
+        <span *ngIf="person.imdb_id">
+          <a [href]="'https://www.imdb.com/title/'+person.imdb_id" target="_blank">
+            {{'https://www.imdb.com/title/'+person.imdb_id}}
+          </a>
+        </span>
+      </p>
+
+      <p class="youtube">
+        <span>
+          Youtube keresés:
+        </span>
+        <span>
+          <a [href]="'https://www.youtube.com/results?search_query='+person.name" target="_blank">
+            név alapján
+          </a>
+        </span>
+      </p>
+
+      <p class="google">
+        <span>
+          Google keresés:
+        </span>
+        <span>
+          <a [href]="'https://www.google.hu/search?q='+person.name" target="_blank">
+            név alapján
+          </a>
+        </span>
+      </p>
+
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<mf-person-images [id]="person.id"></mf-person-images>
+<mf-person-movie-credits [id]="person.id"></mf-person-movie-credits>
+<mf-person-tv-credits [id]="person.id"></mf-person-tv-credits>
+
+

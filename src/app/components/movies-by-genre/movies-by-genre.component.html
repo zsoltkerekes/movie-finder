@@ -4,7 +4,7 @@
 
 <div class="item-container">
   <a *ngFor="let movie of moviesByGenre.results" [routerLink]="['/details', movie.id]">
-    <mf-list-item [movie]="movie" tvShow=""></mf-list-item>
+    <mf-list-item [movie]="movie" tvShow="" person=""></mf-list-item>
   </a>
 </div>
 

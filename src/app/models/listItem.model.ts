@@ -4,6 +4,10 @@ export interface ListItem {
   genre_ids: Number[];
   id: Number;
   poster_path: String;
+  profile_path: String;
+  known_for: Array<{
+    title: string
+  }>;
 }
 
 export const listItemInitData = {
@@ -11,5 +15,7 @@ export const listItemInitData = {
   name: null,
   genre_ids: null,
   id: 0,
-  poster_path: null
+  poster_path: null,
+  profile_path: null,
+  known_for: null
 };

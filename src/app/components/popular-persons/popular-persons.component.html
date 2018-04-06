@@ -1,0 +1,17 @@
+<a href="" name="person" id="person"></a>
+
+<h2 class="text-center">
+  Emberek:
+</h2>
+
+<div class="item-container">
+  <a *ngFor="let person of popularPersons.results" [routerLink]="['/person-details', person.id]">
+    <mf-list-item movie="" tvShows="" [person]="person" ></mf-list-item>
+  </a>
+</div>
+
+<h2 class="text-center" *ngIf="popularPersons.results.length < 1">
+  Nincs találat
+</h2>
+
+<mf-pagination [results]="popularPersons" [url]="'/discover/'" [type]="'person'"></mf-pagination>

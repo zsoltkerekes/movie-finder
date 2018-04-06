@@ -4,7 +4,12 @@
     <strong>{{pagination.total_pages}}</strong> oldalon
   </span>
   <span *ngFor="let page of pagination.links">
-    <a [routerLink]="page.url" fragment="{{type}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="result-links mat-elevation-z2">
+    <a
+      [routerLink]="page.url"
+      fragment="{{type}}"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact:true}"
+      class="result-links mat-elevation-z2">
       {{page.name}}
     </a>
   </span>

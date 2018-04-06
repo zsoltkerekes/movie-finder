@@ -1,17 +1,18 @@
-import { TvShowEpisodesComponent } from './containers/tv-show-episodes/tv-show-episodes.component';
-import { TvGenresComponent } from './containers/tv-genres/tv-genres.component';
-import { TVDetailsComponent } from './components/tv-details/tv-details.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DetailsComponent } from './components/details/details.component';
+import { DetailsComponent } from './containers/details/details.component';
+import { DiscoverComponent } from './containers/discover/discover.component';
 import { GenresComponent } from './containers/genres/genres.component';
 import { HomeComponent } from './containers/home/home.component';
+import { NowPlayingComponent } from './containers/now-playing/now-playing.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
-import { DiscoverComponent } from './containers/discover/discover.component';
+import { PersonDetailsComponent } from './containers/person-details/person-details.component';
 import { SearchComponent } from './containers/search/search.component';
 import { TopRatedComponent } from './containers/top-rated/top-rated.component';
-import { NowPlayingComponent } from './containers/now-playing/now-playing.component';
+import { TVDetailsComponent } from './containers/tv-details/tv-details.component';
+import { TvGenresComponent } from './containers/tv-genres/tv-genres.component';
+import { TvShowEpisodesComponent } from './containers/tv-show-episodes/tv-show-episodes.component';
 import { UpcomingComponent } from './containers/upcoming/upcoming.component';
 
 const baseTitle = 'Movie Finder';
@@ -26,7 +27,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'discover/:moviePage/:tvShowPage',
+    path: 'discover/:moviePage/:tvShowPage/:personPage',
     pathMatch: 'full',
     component: DiscoverComponent,
     data: {
@@ -50,7 +51,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'search/:phrase/:moviePage/:tvShowPage',
+    path: 'search/:phrase/:moviePage/:tvShowPage/:personPage',
     pathMatch: 'full',
     component: SearchComponent,
     data: {
@@ -85,6 +86,14 @@ const routes: Routes = [
     path: 'tv-details/:id',
     pathMatch: 'full',
     component: TVDetailsComponent,
+    data: {
+      pageTitle: `${baseTitle}`
+    }
+  },
+  {
+    path: 'person-details/:id',
+    pathMatch: 'full',
+    component: PersonDetailsComponent,
     data: {
       pageTitle: `${baseTitle}`
     }

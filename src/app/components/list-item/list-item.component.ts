@@ -11,6 +11,7 @@ export class ListItemComponent {
 
   @Input('movie') movie: ListItem = listItemInitData;
   @Input('tvShow') tvShow: ListItem = listItemInitData;
+  @Input('person') person: ListItem = listItemInitData;
 
   listGenres = this.api.getGenreList;
   listTvGenres = this.api.getTvGenreList;

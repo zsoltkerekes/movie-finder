@@ -13,6 +13,7 @@ export class SearchResultsComponent implements OnInit {
   phrase: String;
   moviePage: Number;
   tvShowPage: Number;
+  personPage: Number;
 
   movieSearchResults: {
     results: Array<ListItem>,
@@ -22,6 +23,13 @@ export class SearchResultsComponent implements OnInit {
   };
 
   tvShowSearchResults: {
+    results: Array<ListItem>,
+    page: Number,
+    total_results: Number,
+    total_pages: Number
+  };
+
+  personSearchResults: {
     results: Array<ListItem>,
     page: Number,
     total_results: Number,
@@ -43,12 +51,16 @@ export class SearchResultsComponent implements OnInit {
           if (this.activatedRoute.snapshot.params['phrase']) {
             this.movieSearch();
             this.tvShowSearch();
+            this.personSearch();
           }
           if (this.activatedRoute.snapshot.fragment === 'movie') {
             document.querySelector('#movie').scrollIntoView();
           }
           if (this.activatedRoute.snapshot.fragment === 'tvShow') {
             document.querySelector('#tvShow').scrollIntoView();
+          }
+          if (this.activatedRoute.snapshot.fragment === 'person') {
+            document.querySelector('#person').scrollIntoView();
           }
         }
       );
@@ -104,5 +116,29 @@ export class SearchResultsComponent implements OnInit {
       });
   }
 
+  personSearch() {
+
+    this.phrase = this.activatedRoute.snapshot.params['phrase'];
+    this.personPage = +this.activatedRoute.snapshot.params['personPage'] || 1;
+    this.personSearchResults = {
+      results: [listItemInitData],
+      page: 1,
+      total_results: 1,
+      total_pages: 1
+    };
+
+    this.api.getPersonSearch(this.phrase, +this.personPage)
+      .subscribe((response) => {
+        const output = response.json();
+        output.results = output.results.map(row => row || {});
+        const willBeSorted = output;
+        willBeSorted.results.sort((a, b) => {
+          if (a.popularity > b.popularity) { return -1; }
+          if (a.popularity < b.popularity) { return 1; }
+          return 0;
+        });
+        this.personSearchResults = willBeSorted;
+      });
+  }
 
 }

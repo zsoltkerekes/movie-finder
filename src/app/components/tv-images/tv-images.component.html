@@ -1,5 +1,14 @@
 <mat-tab-group class="pictures">
+
   <mat-tab *ngFor="let image of images; let i=index" [label]="(i+1)+'/'+ images.length +'. kép'">
-    <img class="pic" [src]="image.file_path !== ''? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : 'assets/image/no-pic.jpg'">
+    <div class="img-container">
+      <div class="dots-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <img class="pic" [src]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
+    </div>
   </mat-tab>
+
 </mat-tab-group>

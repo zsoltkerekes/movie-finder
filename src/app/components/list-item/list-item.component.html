@@ -1,10 +1,14 @@
-<mat-card class="mat-elevation-z4" *ngIf="movie || tvShow ">
+<mat-card class="mat-elevation-z4" *ngIf="movie || tvShow || person ">
   <mat-card-header>
     <mat-card-title>
-      {{ movie.title ? movie.title : ''}} {{ tvShow.name ? tvShow.name : ''}}
+      {{ movie.title ? movie.title : ''}}
+      {{ tvShow.name ? tvShow.name : ''}}
+      {{ person.name ? person.name : ''}}
     </mat-card-title>
     <mat-card-subtitle>
-      {{movie.genre_ids ? listGenres(movie.genre_ids) : ''}} {{tvShow.genre_ids ? listTvGenres(tvShow.genre_ids) : ''}}
+      {{movie.genre_ids ? listGenres(movie.genre_ids) : ''}}
+      {{tvShow.genre_ids ? listTvGenres(tvShow.genre_ids) : ''}}
+      {{person.known_for ? person.known_for[0].title : ''}}
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
@@ -14,9 +18,9 @@
         <div></div>
         <div></div>
       </div>
-      <img [src]="(movie.poster_path || tvShow.poster_path) ? 'https://image.tmdb.org/t/p/w185' +
-          (movie.poster_path || tvShow.poster_path) :
-            'assets/image/no-pic.jpg'" />
+      <img [src]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
+       'https://image.tmdb.org/t/p/w185' + (movie.poster_path || tvShow.poster_path || person.profile_path) :
+        'assets/image/no-pic.jpg'" />
     </div>
   </mat-card-content>
 </mat-card>

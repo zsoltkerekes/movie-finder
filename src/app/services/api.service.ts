@@ -89,6 +89,8 @@ export class ApiService {
 
   getMovieVideos = id => this.getContent(this.constants.movieVideos(id));
 
+  getMovieCredits = id => this.getContent(this.constants.movieCredits(id));
+
   // Movie Ends
 
   // TV Show Begins
@@ -150,6 +152,24 @@ export class ApiService {
 
   getTvShowsSeasonVideos = (id, season) => this.getContent(this.constants.tvShowSeasonVideos(id, season));
 
+  getTvShowCredits = id => this.getContent(this.constants.tvShowCredits(id));
+
   // TV Show Ends
+
+  // People Begins
+
+  getPersonById = id => this.getContent(this.constants.personById(id));
+
+  getPersonMovieCredits = id => this.getContent(this.constants.personMovieCredits(id));
+
+  getPersonTvCredits = id => this.getContent(this.constants.personTvCredits(id));
+
+  getPersonImages = id => this.getContent(this.constants.personImages(id));
+
+  getPopularPersons = page => this.getContent(this.constants.popularPersons(page));
+
+  getPersonSearch = (phrase, page = 1) => this.getContent(this.constants.personSearch(phrase, page));
+
+  // People Ends
 
 }
