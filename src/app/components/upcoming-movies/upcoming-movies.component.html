@@ -1,7 +1,8 @@
 
 <h2  class="text-center">
-  A nemsokára mozikba érkező filmek:
+   {{getGlobal() ? 'Upcoming:':'A nemsokára mozikba érkező filmek:'}}
 </h2>
+
 
 <div class="item-container">
   <a *ngFor="let movie of upcomingMovies.results" [routerLink]="['/details', movie.id]">

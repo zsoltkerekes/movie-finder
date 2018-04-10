@@ -15,6 +15,7 @@ export class PopularTvShowsComponent implements OnInit {
   page: number;
 
   listGenres = this.api.getGenreList;
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private api: ApiService,

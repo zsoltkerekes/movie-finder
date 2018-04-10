@@ -17,11 +17,11 @@
     <mat-card-content>
 
       <h2 class="title">
-        {{movie.title ? movie.title : '(Hiányzó adat: cím)'}}
+        {{movie.title ? movie.title : 'N/A'}}
       </h2>
 
       <h3 class="original_title">
-        {{movie.original_title ? 'Eredeti címe: '+ movie.original_title : ''}}
+        {{movie.original_title && movie.title !== movie.original_title ? movie.original_title : ''}}
         <span class="original_language">
           {{movie.original_language ? '('+movie.original_language.toUpperCase()+')' : ''}}
         </span>
@@ -33,7 +33,7 @@
 
       <p class="genres">
         <span>
-          Műfajok:
+          {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
         </span>
         <span>
           {{ movie.genres ? listGenres(movie.genres) : '(Hiányzó adat: műfajok)'}}
@@ -42,70 +42,73 @@
 
       <p class="adult">
         <span>
-          Besorolás:
+          {{ getGlobal() ? 'Ratings:' : ' Besorolás:' }}
         </span>
         <span>
-          {{movie.adult===true ? 'Felnőtteknek' : 'Nem csak felnőtteknek'}}
+          {{movie.adult == true && getGlobal()== true ? 'For Adults' : ''}}
+          {{movie.adult == false && getGlobal()== true ? 'Not only for adults' : ''}}
+          {{movie.adult == false && getGlobal() == false ? 'Nem csak felnőtteknek' : ''}}
+          {{movie.adult == true && getGlobal() == false ? 'Felnőtteknek' : ''}}
         </span>
       </p>
 
       <p class="runtime">
         <span>
-          Hossz:
+          {{ getGlobal() ? 'Runtime:' : 'Hossz:' }}
         </span>
         <span>
-          {{movie.runtime ? movie.runtime + ' perc' : '(Hiányzó adat: hossz)'}}
+          {{ movie.runtime ? movie.runtime : 'N/A'}} {{ getGlobal() ? 'minutes' : 'perc' }}
         </span>
       </p>
 
       <p class="status">
         <span>
-          Státusz:
+          {{ getGlobal() ? 'Status:' : 'Státusz:' }}
         </span>
         <span>
-          {{movie.status ? movie.status : '(Hiányzó adat: státusz)' }}
+          {{movie.status ? movie.status : 'N/A' }}
         </span>
       </p>
 
       <p class="release_date">
         <span>
-          Premier dátuma:
+          {{ getGlobal() ? 'Release date:' : 'Premier dátuma:' }}
         </span>
         <span>
-          {{movie.release_date ? movie.release_date : '(Hiányzó adat: premier dátuma)'}}
+          {{ movie.release_date ? movie.release_date : 'N/A' }}
         </span>
       </p>
 
       <p class="budget">
         <span>
-          Elkészítési költség:
+          {{ getGlobal() ? 'Budget:' : 'Elkészítési költség:' }}
         </span>
         <span>
-          {{movie.budget ? (movie.budget | currency) : '(Hiányzó adat: elkészítési költség)' }}
+          {{ movie.budget ? (movie.budget | currency) : 'N/A' }}
         </span>
       </p>
 
       <p class="vote">
         <span>
-          Nézők szavazata alapján:
+          {{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}
         </span>
         <span>
-          {{movie.vote_average ? movie.vote_average + '/10' : '(Hiányzó adat: szavazat)' }}
+          {{ movie.vote_average ? movie.vote_average + '/10' : 'N/A' }}
         </span>
       </p>
 
       <p class="popularity">
         <span>
-          Relatív népszerűségi index:
+          {{ getGlobal() ? 'Popularity:' : 'Relatív népszerűségi index:' }}
         </span>
         <span>
-          {{movie.popularity ? movie.popularity : '(Hiányzó adat: népszerűségi index)' }}
+          {{ movie.popularity ? movie.popularity : 'N/A' }}
         </span>
       </p>
 
       <p class="homepage">
         <span>
-          {{ movie.homepage ? 'Saját hivatalos weboldala:':'Nincs saját hivatalos weboldala'}}
+          {{ movie.homepage ? 'Homepage:':''}}
         </span>
         <span *ngIf="movie.homepage">
           <a [href]="movie.homepage" target="_blank">
@@ -116,7 +119,7 @@
 
       <p class="imdb">
         <span>
-          {{movie.imdb_id ? 'Imdb hivatalos weboldala:':'Nincs IMDB link'}}
+          {{movie.imdb_id ? 'Imdb Homepage:':''}}
         </span>
         <span *ngIf="movie.imdb_id">
           <a [href]="'https://www.imdb.com/title/'+movie.imdb_id" target="_blank">
@@ -127,45 +130,45 @@
 
       <p class="youtube">
         <span>
-          Youtube keresés:
+          Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
           <a [href]="'https://www.youtube.com/results?search_query='+movie.title" target="_blank">
-            magyar cím alapján
+            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           |
           <a [href]="'https://www.youtube.com/results?search_query='+movie.original_title" target="_blank">
-            eredeti cím alapján
+            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
       </p>
 
       <p class="online-filmek">
         <span>
-          Online Film keresés:
+          Online Film {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
           <a [href]="'https://online-filmek.me/kereses.php?kereses='+movie.title" target="_blank">
-            magyar cím alapján
+            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           |
           <a [href]="'https://online-filmek.me/kereses.php?kereses='+movie.original_title" target="_blank">
-            eredeti cím alapján
+            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
       </p>
 
       <p class="google">
         <span>
-          Google keresés:
+          Google {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
           <a [href]="'https://www.google.hu/search?q='+movie.title" target="_blank">
-            magyar cím alapján
+            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           |
           <a [href]="'https://www.google.hu/search?q='+movie.original_title" target="_blank">
-            eredeti cím alapján
+            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
       </p>

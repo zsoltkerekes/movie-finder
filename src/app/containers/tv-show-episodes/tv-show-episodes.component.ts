@@ -10,13 +10,17 @@ import { Title } from '@angular/platform-browser';
 })
 export class TvShowEpisodesComponent implements OnInit {
 
+  subTitle: string;
+
   constructor(
     private title: Title,
     private activatedRoute: ActivatedRoute,
+    private api: ApiService
   ) { }
 
   ngOnInit() {
-    this.title.setTitle(`Epizódok :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.subTitle = this.api.getGlobal() ? 'Episodes' : 'Epizódok';
+    this.title.setTitle(`${this.subTitle} :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
   }
 
 }

@@ -16,7 +16,7 @@ export class PageNotFoundComponent implements OnInit {
 
   ngOnInit() {
     document.documentElement.scrollTop = 0;
-    this.title.setTitle(`Nincs is ilyen oldal :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.title.setTitle(`404 :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
   }
 
 }

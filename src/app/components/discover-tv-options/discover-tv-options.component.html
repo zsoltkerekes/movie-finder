@@ -9,7 +9,7 @@
   </mat-form-field>
 
   <mat-form-field class="year">
-    <input matInput type="number" placeholder="Megjelenés éve" min="1900" [value]="year" max="2050" (change)="setYearOption($event)">
+    <input matInput type="number" [placeholder]="placeholder"min="1900" [value]="year" max="2050" (change)="setYearOption($event)">
   </mat-form-field>
 
   <div class="tvShowGenre container">

@@ -1,5 +1,5 @@
 <h2 *ngIf="recommendedTvShows.results.length>0" class="text-center">
-  Ajánlott sorozatok:
+  {{getGlobal() ? 'Recommended Tv Shows:' : 'Ajánlott sorozatok:'}}
 </h2>
 
 <div class="item-container" #container>

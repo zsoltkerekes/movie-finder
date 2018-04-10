@@ -40,16 +40,30 @@ export class ConstantsService {
   sortBy = (option = 'popularity.desc') => `&sort_by=${option}`;
 
   getSortByOptions = () => {
-    return [
-      { name: 'Népszerűség alapján csökkenő', value: 'popularity.desc' },
-      { name: 'Népszerűség alapján növekvő', value: 'popularity.asc' },
-      { name: 'Premier dátuma alapján csökkenő', value: 'release_date.desc' },
-      { name: 'Premier dátuma alapján növekvő', value: 'release_date.asc' },
-      { name: 'Eredeti cím alapján csökkenő', value: 'original_title.desc' },
-      { name: 'Eredeti cím alapján növekvő', value: 'original_title.asc' },
-      { name: 'Szavazatok alapján csökkenő', value: 'vote_average.desc' },
-      { name: 'Szavazatok alapján növekvő', value: 'vote_average.asc' }
-    ];
+    if (this.globalOption === false) {
+      return [
+        { name: 'Népszerűség alapján csökkenő', value: 'popularity.desc' },
+        { name: 'Népszerűség alapján növekvő', value: 'popularity.asc' },
+        { name: 'Premier dátuma alapján csökkenő', value: 'release_date.desc' },
+        { name: 'Premier dátuma alapján növekvő', value: 'release_date.asc' },
+        { name: 'Eredeti cím alapján csökkenő', value: 'original_title.desc' },
+        { name: 'Eredeti cím alapján növekvő', value: 'original_title.asc' },
+        { name: 'Szavazatok alapján csökkenő', value: 'vote_average.desc' },
+        { name: 'Szavazatok alapján növekvő', value: 'vote_average.asc' }
+      ];
+    } else {
+      return [
+        { name: 'Popularity (desc)', value: 'popularity.desc' },
+        { name: 'Popularity (asc)', value: 'popularity.asc' },
+        { name: 'Release Date (desc)', value: 'release_date.desc' },
+        { name: 'Release Date (asc)', value: 'release_date.asc' },
+        { name: 'Original_title (desc)', value: 'original_title.desc' },
+        { name: 'Original_title (asc)', value: 'original_title.asc' },
+        { name: 'Vote Average(desc)', value: 'vote_average.desc' },
+        { name: 'Vote Average(asc)', value: 'vote_average.asc' }
+      ];
+    }
+
   }
 
   getSortByOption = () => this.sortByOption;

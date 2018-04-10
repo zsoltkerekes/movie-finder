@@ -1,7 +1,7 @@
 <a href="" name="movie" id="movie"></a>
 
 <h2 class="text-center">
-  Filmek:
+  {{getGlobal() ? 'Movies:':'Filmek:'}}
 </h2>
 
 <div class="item-container">
@@ -11,7 +11,7 @@
 </div>
 
 <h2 class="text-center" *ngIf="popularMovies.results.length < 1">
-  Nincs találat
+  {{getGlobal() ? 'No results':'Nincs találat'}}
 </h2>
 
 <mf-pagination [results]="popularMovies" [url]="'/discover/'" [type]="'movie'"></mf-pagination>

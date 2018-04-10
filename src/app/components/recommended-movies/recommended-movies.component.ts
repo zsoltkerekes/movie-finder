@@ -18,6 +18,7 @@ export class RecommendedMoviesComponent implements OnInit {
 
   listGenres = this.api.getGenreList;
   genres = this.api.genres;
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private activatedRoute: ActivatedRoute,

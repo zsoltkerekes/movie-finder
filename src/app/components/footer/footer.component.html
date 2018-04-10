@@ -5,7 +5,7 @@
   </mat-slide-toggle>
 
   <mat-slide-toggle class="toggle" (change)="setAdult()" [checked]="getAdult()">
-    Felnőtteknek
+    {{ getGlobal() ? 'Adult' : 'Felnőtt' }}
   </mat-slide-toggle>
 
   <p>

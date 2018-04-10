@@ -18,6 +18,7 @@ export class TvShowsByGenreComponent implements OnInit {
 
   listTvGenres = this.api.getTvGenreList;
   tvGenres = this.api.tvGenres;
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private activatedRoute: ActivatedRoute,

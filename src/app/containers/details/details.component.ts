@@ -18,6 +18,7 @@ export class DetailsComponent implements OnInit {
   movie: MovieDetails;
   height: String;
   loading: boolean;
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private title: Title,
@@ -40,7 +41,7 @@ export class DetailsComponent implements OnInit {
     this.loading = true;
     document.documentElement.scrollTop = 0;
     this.movie = movieDetailsData;
-    this.title.setTitle(`Részletes leírás :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.title.setTitle(`? :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
     this.api.getMovieById(this.id)
       .subscribe(result => {
         let output = result.json();

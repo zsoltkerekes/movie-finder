@@ -35,7 +35,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'top-rated/:moviePage/:tvShowPage',
+    path: 'top-rated/:moviePage/:tvShowPage/:personPage',
     pathMatch: 'full',
     component: TopRatedComponent,
     data: {

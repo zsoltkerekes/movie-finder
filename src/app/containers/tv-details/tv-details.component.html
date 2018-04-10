@@ -8,7 +8,7 @@
           <div></div>
         </div>
         <img [src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path :
-       'assets/image/no-pic.jpg'" [alt]="tvShow.name" [title]="tvShow.name" *ngIf="!loading"/>
+       'assets/image/no-pic.jpg'" [alt]="tvShow.name" [title]="tvShow.name" *ngIf="!loading" />
       </div>
     </mat-card-content>
   </mat-card>
@@ -17,11 +17,11 @@
     <mat-card-content>
 
       <h2 class="title">
-        {{tvShow.name ? tvShow.name : '(Hiányzó adat: cím)'}}
+        {{tvShow.name ? tvShow.name : 'N/A'}}
       </h2>
 
       <h3 class="original_title">
-        {{tvShow.original_name ? 'Eredeti címe: '+ tvShow.original_name : ''}}
+        {{tvShow.original_name && tvShow.name !== tvShow.original_name ? tvShow.original_name : ''}}
         <span class="original_language">
           {{tvShow.original_language ? '('+tvShow.original_language.toUpperCase()+')' : ''}}
         </span>
@@ -33,70 +33,74 @@
 
       <p class="genres">
         <span>
-          Műfajok:
+            {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
         </span>
         <span>
-          {{ tvShow.genres ? listGenres(tvShow.genres) : '(Hiányzó adat: műfajok)'}}
+          {{ tvShow.genres ? listGenres(tvShow.genres) : 'N/A'}}
         </span>
       </p>
 
       <p class="adult">
         <span>
-          Besorolás:
+          {{ getGlobal() ? 'Ratings:' : ' Besorolás:' }}
         </span>
         <span>
-          {{tvShow.adult===true ? 'Felnőtteknek' : 'Nem csak felnőtteknek'}}
+          {{tvShow.adult == true && getGlobal()== true ? 'For Adults' : ''}}
+          {{tvShow.adult == false && getGlobal()== true ? 'Not only for adults' : ''}}
+          {{tvShow.adult == false && getGlobal() == false ? 'Nem csak felnőtteknek' : ''}}
+          {{tvShow.adult == true && getGlobal() == false ? 'Felnőtteknek' : ''}}
         </span>
       </p>
 
       <p class="runtime">
         <span>
-          Hossz:
+          {{ getGlobal() ? 'Runtime:' : 'Hossz:' }}
         </span>
         <span>
-          {{ tvShow.episode_run_time ? tvShow.episode_run_time[0] + ' perc' : '(Hiányzó adat: hossz)'}}
+
+          {{ tvShow.episode_run_time ? tvShow.episode_run_time[0] : 'N/A'}} {{ getGlobal() ? 'minutes' : 'perc' }}
         </span>
       </p>
 
       <p class="status">
         <span>
-          Státusz:
+          {{ getGlobal() ? 'Status:' : 'Státusz:' }}
         </span>
         <span>
-          {{tvShow.status ? tvShow.status : '(Hiányzó adat: státusz)' }}
+          {{tvShow.status ? tvShow.status : 'N/A' }}
         </span>
       </p>
 
       <p class="release_date">
         <span>
-          Premier dátuma:
+          {{ getGlobal() ? 'Release date:' : 'Premier dátuma:' }}
         </span>
         <span>
-          {{tvShow.first_air_date ? tvShow.first_air_date : '(Hiányzó adat: premier dátuma)'}}
+          {{tvShow.first_air_date ? tvShow.first_air_date : 'N/A'}}
         </span>
       </p>
 
       <p class="budget">
         <span>
-          Készítette:
+          {{ getGlobal() ? 'Created By:' : 'Készítette:' }}
         </span>
         <span>
-          {{tvShow.created_by ? createdBy : '(Hiányzó adat: készítette)' }}
+          {{ tvShow.created_by ? createdBy : 'N/A' }}
         </span>
       </p>
 
       <p class="vote">
         <span>
-          Nézők szavazata alapján:
+          {{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}
         </span>
         <span>
-          {{tvShow.vote_average ? tvShow.vote_average + '/10' : '(Hiányzó adat: szavazat)' }}
+          {{tvShow.vote_average ? tvShow.vote_average + '/10' : 'N/A' }}
         </span>
       </p>
 
       <p class="popularity">
         <span>
-          Relatív népszerűségi index:
+          {{ getGlobal() ? 'Popularity:' : 'Relatív népszerűségi index:' }}
         </span>
         <span>
           {{tvShow.popularity ? tvShow.popularity : '(Hiányzó adat: népszerűségi index)' }}
@@ -105,7 +109,7 @@
 
       <p class="homepage">
         <span>
-          {{ tvShow.homepage ? 'Saját hivatalos weboldala:':'Nincs saját hivatalos weboldala'}}
+          {{ tvShow.homepage ? 'Homepage:':''}}
         </span>
         <span *ngIf="tvShow.homepage">
           <a [href]="tvShow.homepage" target="_blank">
@@ -116,7 +120,7 @@
 
       <p class="imdb">
         <span>
-          {{tvShow.imdb_id ? 'Imdb hivatalos weboldala:':'Nincs IMDB link'}}
+            {{ tvShow.imdb_id ? 'Imdb Homepage:':''}}
         </span>
         <span *ngIf="tvShow.imdb_id">
           <a [href]="'https://www.imdb.com/title/'+tvShow.imdb_id" target="_blank">
@@ -127,15 +131,15 @@
 
       <p class="youtube">
         <span>
-          Youtube keresés:
+            Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
           <a [href]="'https://www.youtube.com/results?search_query='+tvShow.name" target="_blank">
-            magyar cím alapján
+            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           |
           <a [href]="'https://www.youtube.com/results?search_query='+tvShow.original_name" target="_blank">
-            eredeti cím alapján
+            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
       </p>
@@ -143,30 +147,30 @@
 
       <p class="online-sorozatok">
         <span>
-          Online sorozatok keresés:
+          Online {{ getGlobal() ? 'series search:' : 'sorozatok keresés:' }}
         </span>
         <span>
           <a [href]="'https://www.sorozatbarat.online/video/search?s='+tvShow.name" target="_blank">
-            magyar cím alapján
+            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           |
           <a [href]="'https://www.sorozatbarat.online/video/search?s='+tvShow.original_name" target="_blank">
-            eredeti cím alapján
+            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
       </p>
 
       <p class="google">
         <span>
-          Google keresés:
+          Google {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
           <a [href]="'https://www.google.hu/search?q='+tvShow.name" target="_blank">
-            magyar cím alapján
+            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           |
           <a [href]="'https://www.google.hu/search?q='+tvShow.original_name" target="_blank">
-            eredeti cím alapján
+            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
       </p>

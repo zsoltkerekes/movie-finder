@@ -1,7 +1,7 @@
 <a href="" name="movie" id="movie"></a>
 
 <h2 *ngIf="phrase" class="text-center">
-  Filmek:
+  {{getGlobal() ? 'Movies:' : 'Filmek:'}}
 </h2>
 
 <div class="item-container" *ngIf="movieSearchResults && phrase">
@@ -11,7 +11,7 @@
 </div>
 
 <h2 *ngIf="movieSearchResults && !(movieSearchResults.results.length) && phrase" class="text-center">
-  Nincs találat
+  {{getGlobal() ? 'No results:' : 'Nincs találat:'}}
 </h2>
 
 <mf-pagination *ngIf="phrase" [results]="movieSearchResults" [url]="'/search/'+phrase" [type]="'movie'"></mf-pagination>
@@ -21,7 +21,7 @@
 <a href="" name="tvShow" id="tvShow"></a>
 
 <h2 *ngIf="phrase" class="text-center">
-  Sorozatok:
+  {{getGlobal() ? 'Tv Shows:' : 'Sorozatok:'}}
 </h2>
 
 <div class="item-container" *ngIf="tvShowSearchResults && phrase">
@@ -31,7 +31,7 @@
 </div>
 
 <h2 *ngIf="tvShowSearchResults && !(tvShowSearchResults.results.length) && phrase" class="text-center">
-  Nincs találat
+  {{getGlobal() ? 'No results:' : 'Nincs találat:'}}
 </h2>
 
 <mf-pagination *ngIf="phrase" [results]="tvShowSearchResults" [url]="'/search/'+phrase" [type]="'tvShow'"></mf-pagination>
@@ -41,7 +41,7 @@
 <a href="" name="person" id="person"></a>
 
 <h2 *ngIf="phrase" class="text-center">
-  Emberek:
+  {{getGlobal() ? 'Persons:' : 'Emberek:'}}
 </h2>
 
 <div class="item-container" *ngIf="personSearchResults && phrase">
@@ -51,7 +51,7 @@
 </div>
 
 <h2 *ngIf="personSearchResults && !(personSearchResults.results.length) && phrase" class="text-center">
-  Nincs találat
+  {{getGlobal() ? 'No results:' : 'Nincs találat:'}}
 </h2>
 
 <mf-pagination *ngIf="phrase" [results]="personSearchResults" [url]="'/search/'+phrase" [type]="'person'"></mf-pagination>

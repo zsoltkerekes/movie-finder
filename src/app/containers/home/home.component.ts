@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     document.documentElement.scrollTop = 0;
-    this.title.setTitle(`Főoldal :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.title.setTitle(`${this.activatedRoute.snapshot.data['pageTitle']}`);
   }
 
 }

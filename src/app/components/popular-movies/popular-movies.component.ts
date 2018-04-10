@@ -13,6 +13,7 @@ export class PopularMoviesComponent implements OnInit {
 
   popularMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
   page: number;
+  getGlobal = this.api.getGlobal;
 
   listGenres = this.api.getGenreList;
 

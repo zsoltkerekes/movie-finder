@@ -10,6 +10,7 @@ import { ApiService } from './../../services/api.service';
 export class TvRecommendedComponent implements DoCheck {
 
   tvGenres: Array<{ id: Number, name: String }> = [{ id: 1, name: 'Töltés...' }];
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private api: ApiService

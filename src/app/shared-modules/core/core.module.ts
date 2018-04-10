@@ -55,6 +55,7 @@ import { TvGenresComponent } from './../../containers/tv-genres/tv-genres.compon
 import { TvShowEpisodesComponent } from './../../containers/tv-show-episodes/tv-show-episodes.component';
 import { UpcomingComponent } from './../../containers/upcoming/upcoming.component';
 import { MaterialModule } from './../material/material.module';
+import { TopRatedPersonsComponent } from '../../components/top-rated-persons/top-rated-persons.component';
 
 @NgModule({
   imports: [
@@ -114,7 +115,8 @@ import { MaterialModule } from './../material/material.module';
     TvShowCreditsComponent,
     PopularPersonsComponent,
     MovieReviewsComponent,
-    TvShowReviewsComponent
+    TvShowReviewsComponent,
+    TopRatedPersonsComponent
   ],
   exports: [
     HomeComponent,
@@ -166,7 +168,8 @@ import { MaterialModule } from './../material/material.module';
     TvShowCreditsComponent,
     PopularPersonsComponent,
     MovieReviewsComponent,
-    TvShowReviewsComponent
+    TvShowReviewsComponent,
+    TopRatedPersonsComponent
   ]
 })
 export class CoreModule { }

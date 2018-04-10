@@ -1,7 +1,7 @@
 <div class="container">
 
   <mat-form-field class="select">
-    <mat-select [(value)]="selected" placeholder="Sorrend" (change)="setSortByOption($event)">
+    <mat-select [(value)]="selected" (change)="setSortByOption($event)">
       <mat-option *ngFor="let option of sortByOptions" [value]="option.value">
         {{ option.name }}
       </mat-option>
@@ -9,7 +9,7 @@
   </mat-form-field>
 
   <mat-form-field class="year">
-    <input matInput type="number" placeholder="Megjelenés éve" min="1900" [value]="year" max="2050" (change)="setYearOption($event)">
+    <input matInput type="number" [placeholder]="placeholder" min="1900" [value]="year" max="2050" (change)="setYearOption($event)">
   </mat-form-field>
 
   <div class="mGenre container">

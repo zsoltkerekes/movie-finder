@@ -1,13 +1,16 @@
 <div *ngIf="movieCredits.cast.length > 0">
-  <h3 class="text-center">Szereplők</h3>
+  <h3 class="text-center">
+      {{ getGlobal() ? 'Cast' : 'Szereplők' }}
+  </h3>
   <div class="container">
     <a *ngFor="let person of movieCredits.cast" [routerLink]="['/person-details', person.id]">
       <div class="cast">
         <img *ngIf="person.profile_path" [src]="'https://image.tmdb.org/t/p/' + 'w45' +person.profile_path" />
         <mat-icon *ngIf="!(person.profile_path)" class="bigger">face</mat-icon>
         <span class="right">
-          {{person.name ? person.name : 'Hiányzó adat: (Név)'}}
-          {{person.character ? '(szerepe: ' + person.character + ')' : '(Hiányzó adat: Karakter)'}}
+          {{person.name ? person.name : 'N/A'}}
+          {{ getGlobal() ? ' as ' : ' szerepe: ' }}
+          {{person.character ? person.character : 'N/A'}}
         </span>
       </div>
     </a>
@@ -18,15 +21,17 @@
   <br>
   <mat-divider></mat-divider>
   <br>
-  <h3 class="text-center">Stáb</h3>
+  <h3 class="text-center">
+      {{ getGlobal() ? 'Crew' : 'Stáb' }}
+  </h3>
   <div class="container">
     <a *ngFor="let person of movieCredits.crew" [routerLink]="['/person-details', person.id]">
       <div class="crew">
         <span class="pull-left">
-          {{person.job ? person.job : '(Hiányzó adat: Munkakör)'}}
+          {{person.job ? person.job : 'N/A'}}
         </span>
         <span>
-          {{person.name ? person.name : '(Hiányzó adat: név)'}}
+          {{person.name ? person.name : 'N/A'}}
         </span>
       </div>
     </a>

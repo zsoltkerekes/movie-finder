@@ -1,7 +1,7 @@
 <p class="text-center" *ngIf="pagination.total_results>0">
   <span>
-    <strong>{{pagination.total_results}}</strong> db,
-    <strong>{{pagination.total_pages}}</strong> oldalon
+    <strong>{{pagination.total_results}}</strong> {{getGlobal() ? 'results':'találat'}},
+    <strong>{{pagination.total_pages}}</strong> {{getGlobal() ? 'pages':'oldalon'}},
   </span>
   <span *ngFor="let page of pagination.links">
     <a

@@ -1,5 +1,5 @@
 <h2 *ngIf="similarTvShows.results.length>0" class="text-center">
-  Hasonló sorozatok:
+  {{getGlobal() ? 'Similar Tv shows:' : 'Hasonló sorozatok:'}}
 </h2>
 
 <div class="item-container" #container>

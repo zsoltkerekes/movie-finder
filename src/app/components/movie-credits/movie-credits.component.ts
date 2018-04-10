@@ -12,6 +12,7 @@ export class MovieCreditsComponent implements OnChanges {
 
   @Input('id') id;
   movieCredits: PeopleMovieCredits;
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private api: ApiService

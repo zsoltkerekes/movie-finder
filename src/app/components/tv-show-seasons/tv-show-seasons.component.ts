@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'mf-tv-show-seasons',
@@ -8,7 +9,9 @@ import { Component, Input } from '@angular/core';
 export class TvShowSeasonsComponent {
 
   @Input('tvShow') tvShow;
+  getGlobal = this.api.getGlobal;
 
-  constructor() {
-  }
+  constructor(
+    private api: ApiService
+  ) { }
 }

@@ -14,6 +14,7 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
   year: number;
   movieGenres: Array<any>;
   selectedMovieGenres: number[];
+  placeholder: string;
 
   constructor(
     private api: ApiService
@@ -25,6 +26,7 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     this.selected = this.api.getSortByOption();
     this.movieGenres = this.api.genresArray;
     this.selectedMovieGenres = this.api.getWithGenresOption();
+    this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
   }
 
   ngDoCheck() {

@@ -10,6 +10,7 @@ import { ApiService } from './../../services/api.service';
 export class RecommendedComponent implements DoCheck {
 
   genres: Array<{ id: Number, name: String }> = [{ id: 1, name: 'Töltés...' }];
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private api: ApiService
@@ -18,6 +19,8 @@ export class RecommendedComponent implements DoCheck {
   ngDoCheck() {
     this.genres = this.api.genresArray ? [...this.api.genresArray] : null;
   }
+
+
 
 
 }

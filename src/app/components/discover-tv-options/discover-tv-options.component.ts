@@ -14,6 +14,7 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
   year: number;
   tvShowGenres: Array<any>;
   selectedTvShowGenres: number[];
+  placeholder: string;
 
   constructor(
     private api: ApiService
@@ -25,6 +26,7 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
     this.selected = this.api.getSortByOption();
     this.tvShowGenres = this.api.tvGenresArray;
     this.selectedTvShowGenres = this.api.getTvWithGenresOption();
+    this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
   }
 
   ngDoCheck() {

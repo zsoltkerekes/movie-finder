@@ -28,7 +28,6 @@ export class MovieReviewsComponent implements OnChanges {
           const output = response.json();
           output.results = output.results.map(row => row || {});
           this.movieReviews = output;
-          console.log(response);
         });
     }
   }

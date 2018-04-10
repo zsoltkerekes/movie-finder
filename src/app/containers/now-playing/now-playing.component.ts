@@ -1,3 +1,4 @@
+import { ApiService } from './../../services/api.service';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -9,13 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NowPlayingComponent implements OnInit {
 
+  subTitle: string;
+
   constructor(
     private title: Title,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private api: ApiService
   ) { }
 
   ngOnInit() {
     document.documentElement.scrollTop = 0;
-    this.title.setTitle(`Most a mozikban :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.subTitle = this.api.getGlobal() ? 'Now Playing' : 'Most a Mozikban';
+    this.title.setTitle(`${this.subTitle} :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
   }
 }

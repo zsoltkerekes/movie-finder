@@ -20,6 +20,7 @@ export class TVDetailsComponent implements OnInit {
   height: String;
   createdBy: String;
   loading: boolean;
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private title: Title,

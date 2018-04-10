@@ -37,6 +37,7 @@ export class SearchResultsComponent implements OnInit {
   };
 
   listGenres = this.api.getGenreList;
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private activatedRoute: ActivatedRoute,

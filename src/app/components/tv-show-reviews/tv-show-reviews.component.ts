@@ -28,7 +28,6 @@ export class TvShowReviewsComponent implements OnChanges {
           const output = response.json();
           output.results = output.results.map(row => row || {});
           this.tvShowReviews = output;
-          console.log(response);
         });
     }
   }

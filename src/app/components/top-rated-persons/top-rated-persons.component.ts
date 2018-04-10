@@ -5,13 +5,13 @@ import { ListItem, listItemInitData } from './../../models/listItem.model';
 import { ApiService } from './../../services/api.service';
 
 @Component({
-  selector: 'mf-popular-persons',
-  templateUrl: './popular-persons.component.html',
-  styleUrls: ['./popular-persons.component.scss']
+  selector: 'mf-top-rated-persons',
+  templateUrl: './top-rated-persons.component.html',
+  styleUrls: ['./top-rated-persons.component.scss']
 })
-export class PopularPersonsComponent implements OnInit {
+export class TopRatedPersonsComponent implements OnInit {
 
-  popularPersons: { results: Array<ListItem> } = { results: [listItemInitData] };
+  topRatedPersons: { results: Array<ListItem> } = { results: [listItemInitData] };
   page: number;
 
   listGenres = this.api.getGenreList;
@@ -31,7 +31,7 @@ export class PopularPersonsComponent implements OnInit {
             .subscribe(response => {
               const output = response.json();
               output.results = output.results.map(row => row || {});
-              this.popularPersons = output;
+              this.topRatedPersons = output;
             });
             if (this.activatedRoute.snapshot.fragment === 'person') {
               document.querySelector('#person').scrollIntoView();

@@ -2,19 +2,19 @@
   <mat-tab *ngFor="let season of tvShow.seasons; let i = index" [label]="season.name || season.season_number || i ">
     <img class="poster" [src]="season.poster_path ? 'https://image.tmdb.org/t/p/' +'w342'+ season.poster_path  : 'assets/image/no-pic.jpg'">
     <h4>
-      {{season.name ? 'Alcím: ' + season.name : '(hiányzó adat: Alcím)'}}
+      {{getGlobal() ? 'Season Name: ' : 'Alcím: '}} {{season.name ? season.name : 'N/A'}}
     </h4>
     <p>
-      {{season.air_date ? 'Premier dátuma: ' + season.air_date : '(hiányzó adat: Premier dátuma)'}}
+      {{getGlobal() ? 'Season Air Date: ' : 'Premier dátuma: '}} {{season.air_date ? season.air_date : 'N/A'}}
     </p>
     <p>
-      {{season.episode_count ? 'Epizódok száma: ' + season.episode_count : '(hiányzó adat: Epizódok száma)'}}
+      {{getGlobal() ? 'Season episode count: ' : 'Epizódok száma: '}} {{season.episode_count ? season.episode_count : 'N/A'}}
     </p>
     <p>
-      {{season.overview ? season.overview : '' }}
+      {{getGlobal() ? 'Season overview: ' : 'Tartalom: '}} {{season.overview ? season.overview : 'N/A' }}
     </p>
     <button mat-raised-button color="primary" class="mat-elevation-z2" [routerLink]="['/tv-show-episodes', tvShow.id, season.season_number]">
-      Epizódok tartalma az évadból
+      {{getGlobal() ? 'Episodes overview' : 'Epizódok tartalma az évadból'}}
     </button>
   </mat-tab>
 </mat-tab-group>

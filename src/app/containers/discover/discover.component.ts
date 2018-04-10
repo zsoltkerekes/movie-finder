@@ -1,3 +1,4 @@
+import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -9,14 +10,18 @@ import { Title } from '@angular/platform-browser';
 })
 export class DiscoverComponent implements OnInit {
 
+  subTitle: string;
+
   constructor(
     private title: Title,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private api: ApiService
   ) { }
 
   ngOnInit() {
     document.documentElement.scrollTop = 0;
-    this.title.setTitle(`Felfedezés :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.subTitle = this.api.getGlobal() ? 'Discover' : 'Felfedezés';
+    this.title.setTitle(`${this.subTitle} :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
   }
 
 }
