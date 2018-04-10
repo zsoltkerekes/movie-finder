@@ -1,6 +1,7 @@
-<mat-divider></mat-divider>
-
 <div *ngIf="tvCredits.crew.length">
+  <br>
+  <mat-divider></mat-divider>
+  <br>
   <h3 class="text-center">Sorozat rendezések, forgatókönyvek, satöbbi</h3>
   <div class="container">
     <a *ngFor="let tv of tvCredits.crew" [routerLink]="['/tv-details', tv.id]" >
@@ -17,9 +18,10 @@
   </div>
 </div>
 
-<mat-divider></mat-divider>
-
 <div *ngIf="tvCredits.cast.length">
+  <br>
+  <mat-divider></mat-divider>
+  <br>
   <h3 class="text-center">TalkShow szereplések, Díjátadók, satöbbi</h3>
   <div class="container">
     <a *ngFor="let tv of tvCredits.cast" [routerLink]="['/tv-details', tv.id]">

@@ -4,17 +4,42 @@
   max-height: 15em;
   overflow-y: auto;
   margin-bottom: 2em;
+  width: calc( 70% - 4em - 20px );
+  margin: 0 auto;
+  @media (max-width:960px) {
+    width: calc( 100% - 20px );
+
+    img {
+      float: left;
+      margin: 0 1em 1em 0;
+    }
+  }
+
+  .cast {
+    min-height: 4.3em;
+  }
+
+  .crew {
+    text-align: right;
+  }
 
   .cast,
   .crew {
-    text-align: right;
+
     padding: .3em 2em;
     border: 1px solid $main-color;
-    width: calc( 100% - 4em - 20px );
-    margin: 0 auto;
+
     cursor: pointer;
     transition: background-color .3s ease-in-out;
     cursor: pointer;
+
+    span.right {
+      float: right;
+      padding: 1.5em;
+      @media (max-width:960px) {
+        float: none;
+      }
+    }
 
     &:hover {
       background-color: $main-color;
@@ -22,11 +47,7 @@
   }
 }
 
-.pull-left {
-  float: left;
-}
-
 .bigger {
   font-size: 300%;
-  margin-right: 0.5em;
+  margin-right: .5em;
 }

@@ -1,0 +1,23 @@
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  .reviews {
+    text-align: left;
+    margin-bottom: 1.5em;
+    width: 50% ;
+    display: inline-block;
+    vertical-align: top;
+
+    @media (max-width:960px) {
+      width: 100%;
+    }
+
+    p {
+      height: 12.5em;
+      white-space: pre-line;
+      overflow-y: auto;
+    }
+  }
+}

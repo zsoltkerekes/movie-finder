@@ -1,3 +1,4 @@
+import { TvShowReviewsComponent } from './../../components/tv-show-reviews/tv-show-reviews.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -11,6 +12,7 @@ import { HeaderComponent } from './../../components/header/header.component';
 import { ListItemComponent } from './../../components/list-item/list-item.component';
 import { MovieCreditsComponent } from './../../components/movie-credits/movie-credits.component';
 import { MovieImagesComponent } from './../../components/movie-images/movie-images.component';
+import { MovieReviewsComponent } from './../../components/movie-reviews/movie-reviews.component';
 import { MovieVideosComponent } from './../../components/movie-videos/movie-videos.component';
 import { MoviesByGenreComponent } from './../../components/movies-by-genre/movies-by-genre.component';
 import { MoviesNowPlayingComponent } from './../../components/movies-now-playing/movies-now-playing.component';
@@ -33,9 +35,7 @@ import { TopRatedTvShowsComponent } from './../../components/top-rated-tv-shows/
 import { TvImagesComponent } from './../../components/tv-images/tv-images.component';
 import { TvRecommendedComponent } from './../../components/tv-recommended/tv-recommended.component';
 import { TvShowCreditsComponent } from './../../components/tv-show-credits/tv-show-credits.component';
-import {
-  TvShowEpisodesDetailsComponent,
-} from './../../components/tv-show-episodes-details/tv-show-episodes-details.component';
+import { TvShowEpisodesDetailsComponent} from './../../components/tv-show-episodes-details/tv-show-episodes-details.component';
 import { TvShowSeasonVideosComponent } from './../../components/tv-show-season-videos/tv-show-season-videos.component';
 import { TvShowSeasonsComponent } from './../../components/tv-show-seasons/tv-show-seasons.component';
 import { TvShowVideosComponent } from './../../components/tv-show-videos/tv-show-videos.component';
@@ -112,7 +112,9 @@ import { MaterialModule } from './../material/material.module';
     PersonImagesComponent,
     MovieCreditsComponent,
     TvShowCreditsComponent,
-    PopularPersonsComponent
+    PopularPersonsComponent,
+    MovieReviewsComponent,
+    TvShowReviewsComponent
   ],
   exports: [
     HomeComponent,
@@ -162,7 +164,9 @@ import { MaterialModule } from './../material/material.module';
     PersonImagesComponent,
     MovieCreditsComponent,
     TvShowCreditsComponent,
-    PopularPersonsComponent
+    PopularPersonsComponent,
+    MovieReviewsComponent,
+    TvShowReviewsComponent
   ]
 })
 export class CoreModule { }

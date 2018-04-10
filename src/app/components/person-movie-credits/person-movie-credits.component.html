@@ -1,6 +1,8 @@
-<mat-divider></mat-divider>
 
 <div *ngIf="movieCredits.cast.length">
+  <br>
+  <mat-divider></mat-divider>
+  <br>
   <h3 class="text-center">Film szereplések, szinkronhangok, satöbbi</h3>
   <div class="container">
     <a *ngFor="let movie of movieCredits.cast" [routerLink]="['/details', movie.id]">
@@ -17,9 +19,10 @@
   </div>
 </div>
 
-<mat-divider></mat-divider>
-
 <div *ngIf="movieCredits.crew.length">
+  <br>
+  <mat-divider></mat-divider>
+  <br>
   <h3 class="text-center">Film rendezések, forgatókönyvek, satöbbi</h3>
   <div class="container">
     <a *ngFor="let movie of movieCredits.crew" [routerLink]="['/details', movie.id]">
@@ -35,3 +38,5 @@
     </a>
   </div>
 </div>
+
+

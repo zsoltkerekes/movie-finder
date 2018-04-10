@@ -1,0 +1,11 @@
+<div class="container" *ngIf="tvShowReviews && tvShowReviews.results.length > 0">
+  <span *ngFor="let review of tvShowReviews.results" class="reviews">
+    <mat-card *ngIf="review.content">
+      <mat-card-content>
+        <p>
+          {{review.content}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </span>
+</div>

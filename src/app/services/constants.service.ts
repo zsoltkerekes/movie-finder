@@ -162,6 +162,9 @@ export class ConstantsService {
   movieCredits = id =>
     `${this.apiBaseUrl}movie/${id}/credits?${this.options()}`
 
+  movieReviews = id =>
+    `${this.apiBaseUrl}movie/${id}/reviews?${this.options()}`
+
   // Movie Ends
 
   // TV Show Begins
@@ -206,6 +209,9 @@ export class ConstantsService {
   tvShowCredits = id =>
     `${this.apiBaseUrl}tv/${id}/credits?${this.options()}`
 
+  tvShowReviews = id =>
+    `${this.apiBaseUrl}tv/${id}/reviews?${this.options()}`
+
   // TV Show Ends
 
   // People Begins
@@ -223,10 +229,10 @@ export class ConstantsService {
     `${this.apiBaseUrl}person/${id}/images?${this.options()}&include_image_language=hu,eng,null`
 
   popularPersons = page =>
-  `${this.apiBaseUrl}person/popular?${this.options()}${this.page(page)}`
+    `${this.apiBaseUrl}person/popular?${this.options()}${this.page(page)}`
 
   personSearch = (phrase, page) =>
-  `${this.apiBaseUrl}search/person?${this.options()}&query=${phrase}${this.page(page)}`
+    `${this.apiBaseUrl}search/person?${this.options()}&query=${phrase}${this.page(page)}`
 
   // People Ends
 }
