@@ -18,6 +18,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
 
   tvShow: MovieDetails;
   tvShowEpisodes: TvShowEpisodes;
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private title: Title,

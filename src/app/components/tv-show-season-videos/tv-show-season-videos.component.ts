@@ -15,6 +15,7 @@ export class TvShowSeasonVideosComponent implements OnChanges {
   videos: Videos;
   videoSrc: SafeResourceUrl;
   selectedVideo: string;
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private api: ApiService,

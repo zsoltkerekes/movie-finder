@@ -1,6 +1,8 @@
 <div class="youtubeVideos text-center">
 
-  <h2 *ngIf="this.videos.results.length>0">Kapcsolódó Videók:</h2>
+  <h2 *ngIf="this.videos.results.length>0">
+    {{ getGlobal() ? 'Recommended videos:' : 'Kapcsolódó Videók:' }}
+  </h2>
 
   <mat-chip-list>
     <mat-chip

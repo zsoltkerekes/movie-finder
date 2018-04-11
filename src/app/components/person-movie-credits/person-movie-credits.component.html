@@ -1,9 +1,17 @@
 
+<h2 *ngIf="movieCredits.cast.length || movieCredits.crew.length" class="text-center">
+  <br>
+  <mat-divider></mat-divider>
+  {{ getGlobal() ? 'Movies': 'Filmek'}}
+</h2>
+
 <div *ngIf="movieCredits.cast.length">
   <br>
   <mat-divider></mat-divider>
   <br>
-  <h3 class="text-center">Film szereplések, szinkronhangok, satöbbi</h3>
+  <h3 class="text-center">
+    {{ getGlobal() ? 'Cast': 'Szereplések, szinkronhangok, satöbbi'}}
+  </h3>
   <div class="container">
     <a *ngFor="let movie of movieCredits.cast" [routerLink]="['/details', movie.id]">
       <div class="cast">
@@ -23,7 +31,9 @@
   <br>
   <mat-divider></mat-divider>
   <br>
-  <h3 class="text-center">Film rendezések, forgatókönyvek, satöbbi</h3>
+  <h3 class="text-center">
+    {{ getGlobal() ? 'Crew': 'Rendezések, forgatókönyvek, satöbbi'}}
+  </h3>
   <div class="container">
     <a *ngFor="let movie of movieCredits.crew" [routerLink]="['/details', movie.id]">
       <div class="crew">

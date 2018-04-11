@@ -19,6 +19,7 @@ export class PersonDetailsComponent implements OnInit {
   person: People;
   height: String;
   loading: boolean;
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private title: Title,
@@ -64,9 +65,12 @@ export class PersonDetailsComponent implements OnInit {
 
   getGender(id: number): string {
     switch (id) {
-      case 1: return '(Nő)';
-      case 2: return '(Férfi)';
-      default: return 'Nincs megadva';
+      case 1:
+        return this.getGlobal() ? '(Woman)' : '(Nő)';
+      case 2:
+        return this.getGlobal() ? '(Man)' : '(Férfi)';
+      default:
+        return '';
     }
 
   }

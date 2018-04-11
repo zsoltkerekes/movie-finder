@@ -36,7 +36,7 @@
             {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
         </span>
         <span>
-          {{ tvShow.genres ? listGenres(tvShow.genres) : 'N/A'}}
+          {{ tvShow.genres && tvShow.genres.length > 0 ? listGenres(tvShow.genres) : 'N/A'}}
         </span>
       </p>
 
@@ -58,7 +58,7 @@
         </span>
         <span>
 
-          {{ tvShow.episode_run_time ? tvShow.episode_run_time[0] : 'N/A'}} {{ getGlobal() ? 'minutes' : 'perc' }}
+          {{ tvShow.episode_run_time[0] ? tvShow.episode_run_time[0] : 'N/A'}} {{ getGlobal() ? 'minutes' : 'perc' }}
         </span>
       </p>
 

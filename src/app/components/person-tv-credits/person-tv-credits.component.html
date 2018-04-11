@@ -1,16 +1,25 @@
+<h2 *ngIf="tvCredits.cast.length || tvCredits.crew.length" class="text-center">
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+    {{ getGlobal() ? 'Tv shows': 'Sorozatok'}}
+  </h2>
+
 <div *ngIf="tvCredits.crew.length">
   <br>
   <mat-divider></mat-divider>
   <br>
-  <h3 class="text-center">Sorozat rendezések, forgatókönyvek, satöbbi</h3>
+  <h3 class="text-center">
+    {{ getGlobal() ? 'Crew': 'Rendezések, forgatókönyvek, satöbbi' }}
+  </h3>
   <div class="container">
     <a *ngFor="let tv of tvCredits.crew" [routerLink]="['/tv-details', tv.id]" >
     <div class="crew">
       <span class="pull-left">
-        {{tv.job ? tv.job : '(Hiányzó adat: Munkakör)'}}
+        {{tv.job ? tv.job : 'N/A'}}
         {{tv.first_air_date  ? '(' + tv.first_air_date + ')' : ''}}
       </span>
-      {{tv.name ? tv.name : 'Hiányzó adat: (Sorozat Cím)'}}
+      {{tv.name ? tv.name : 'N/A'}}
       {{(tv.original_name && (tv.original_name !== tv.name))? '(' + tv.original_name + ')' : ''}}
       {{tv.vote_average   ? '[' + tv.vote_average + '/10 ]' : ''}}
     </div>
@@ -22,7 +31,9 @@
   <br>
   <mat-divider></mat-divider>
   <br>
-  <h3 class="text-center">TalkShow szereplések, Díjátadók, satöbbi</h3>
+  <h3 class="text-center">
+    {{ getGlobal() ? 'Cast': 'TalkShow szereplések, Díjátadók, satöbbi' }}
+  </h3>
   <div class="container">
     <a *ngFor="let tv of tvCredits.cast" [routerLink]="['/tv-details', tv.id]">
       <div class="cast">
@@ -30,7 +41,7 @@
           {{tv.character ? tv.character : ''}}
           {{tv.first_air_date  ? tv.first_air_date : ''}}
         </span>
-        {{tv.name ? tv.name : 'Hiányzó adat: (Cím)'}}
+        {{tv.name ? tv.name : 'N/A'}}
         {{(tv.original_name && (tv.original_name !== tv.name))? '(' + tv.original_name + ')' : ''}}
         {{tv.vote_average   ? '[' + tv.vote_average + '/10 ]' : ''}}
       </div>
