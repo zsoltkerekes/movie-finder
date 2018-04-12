@@ -7,9 +7,14 @@ import { identifierModuleUrl } from '@angular/compiler';
 export class ConstantsService {
 
   globalOption: boolean;
-  sortByOption: string;
   adultOption: boolean;
-  yearOption: number;
+
+  sortMovieByOption: string;
+  sortTvShowByOption: string;
+
+  movieYearOption: number;
+  tvShowYearOption: number;
+
   withGenresOption: number[] = [];
   tvWithGenresOption: number[] = [];
 
@@ -17,9 +22,14 @@ export class ConstantsService {
     private cookieService: CookieService
   ) {
     this.globalOption = this.cookieService.get('Movie-Finder-globalOption') === 'Global' ? true : false;
-    this.sortByOption = this.cookieService.get('Movie-Finder-sortByOption') || 'popularity.desc';
     this.adultOption = this.cookieService.get('Movie-Finder-adultOption') === 'true' ? true : false;
-    this.yearOption = +this.cookieService.get('Movie-Finder-yearOption') || undefined;
+
+    this.sortMovieByOption = this.cookieService.get('Movie-Finder-sortMovieByOption') || 'popularity.desc';
+    this.sortTvShowByOption = this.cookieService.get('Movie-Finder-sortTvShowByOption') || 'popularity.desc';
+
+    this.movieYearOption = +this.cookieService.get('Movie-Finder-movieYearOption') || undefined;
+    this.tvShowYearOption = +this.cookieService.get('Movie-Finder-tvShowYearOption') || undefined;
+
     this.withGenresOption = this.cookieService.get('Movie-Finder-withGenresOption').split('-').map(row => +row);
     this.tvWithGenresOption = this.cookieService.get('Movie-Finder-tvWithGenresOption').split('-').map(row => +row);
   }
@@ -66,14 +76,6 @@ export class ConstantsService {
 
   }
 
-  getSortByOption = () => this.sortByOption;
-
-  setSortByOption = value => {
-    this.sortByOption = value;
-    this.cookieService.set('Movie-Finder-sortByOption', value);
-    window.location.reload();
-  }
-
   getAdultOption = () => this.adultOption;
   setAdultOption = () => {
     this.adultOption = !this.adultOption;
@@ -81,10 +83,31 @@ export class ConstantsService {
     window.location.reload();
   }
 
-  getYearOption = () => this.yearOption;
-  setYearOption = (year = undefined) => {
-    this.yearOption = year;
-    this.cookieService.set('Movie-Finder-yearOption', year);
+  getMovieSortByOption = () => this.sortMovieByOption;
+  getTvShowSortByOption = () => this.sortTvShowByOption;
+
+  setMovieSortByOption = value => {
+    this.sortMovieByOption = value;
+    this.cookieService.set('Movie-Finder-sortMovieByOption', value);
+    window.location.reload();
+  }
+  setTvShowSortByOption = value => {
+    this.sortTvShowByOption = value;
+    this.cookieService.set('Movie-Finder-sortTvShowByOption', value);
+    window.location.reload();
+  }
+
+  getMovieYearOption = () => this.movieYearOption;
+  getTvShowYearOption = () => this.tvShowYearOption;
+
+  setMovieYearOption = (year = undefined) => {
+    this.movieYearOption = year;
+    this.cookieService.set('Movie-Finder-movieYearOption', year);
+    window.location.reload();
+  }
+  setTvShowYearOption = (year = undefined) => {
+    this.tvShowYearOption = year;
+    this.cookieService.set('Movie-Finder-tvShowYearOption', year);
     window.location.reload();
   }
 
@@ -110,10 +133,10 @@ export class ConstantsService {
     this.globalOption ? '' : '&region=hu'
 
   year = () =>
-    this.yearOption ? `&year=${this.yearOption}` : ``
+    this.movieYearOption ? `&year=${this.movieYearOption}` : ``
 
   tvYear = () =>
-    this.yearOption ? `&first_air_date_year=${this.yearOption}` : ``
+    this.tvShowYearOption ? `&first_air_date_year=${this.tvShowYearOption}` : ``
 
   withGenres = () => {
     if (this.withGenresOption.length === 1 && this.withGenresOption[0] === 0) {
@@ -141,7 +164,7 @@ export class ConstantsService {
 
   popularMovies = page =>
     `${this.apiBaseUrl}discover/movie?${this.options()}${
-    this.page(page)}${this.year()}${this.sortBy(this.sortByOption)}${this.withGenres()}`
+    this.page(page)}${this.year()}${this.sortBy(this.sortMovieByOption)}${this.withGenres()}`
 
   movieById = id =>
     `${this.apiBaseUrl}movie/${id}?${this.options()}`
@@ -200,7 +223,7 @@ export class ConstantsService {
 
   popularTvShows = page =>
     `${this.apiBaseUrl}discover/tv?${this.options()}${
-    this.page(page)}${this.tvYear()}${this.sortBy(this.sortByOption)}${this.withTvGenres()}`
+    this.page(page)}${this.tvYear()}${this.sortBy(this.sortTvShowByOption)}${this.withTvGenres()}`
 
   topRatedTvShows = page =>
     `${this.apiBaseUrl}tv/top_rated?${this.options()}${this.page(page)}`

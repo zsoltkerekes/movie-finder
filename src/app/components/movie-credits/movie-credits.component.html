@@ -2,8 +2,13 @@
   <h3 class="text-center">
       {{ getGlobal() ? 'Cast' : 'Szereplők' }}
   </h3>
+
+  <mat-form-field class="full-width">
+      <input matInput type="search" [placeholder]="placeholder"  name="searchCast" id="searchCast" [(ngModel)]="searchCast"/>
+  </mat-form-field>
+
   <div class="container">
-    <a *ngFor="let person of movieCredits.cast" [routerLink]="['/person-details', person.id]">
+    <a *ngFor="let person of movieCredits.cast | search:searchCast " [routerLink]="['/person-details', person.id]">
       <div class="cast">
         <img *ngIf="person.profile_path" [src]="'https://image.tmdb.org/t/p/' + 'w45' +person.profile_path" />
         <mat-icon *ngIf="!(person.profile_path)" class="bigger">face</mat-icon>
@@ -24,8 +29,13 @@
   <h3 class="text-center">
       {{ getGlobal() ? 'Crew' : 'Stáb' }}
   </h3>
+
+  <mat-form-field class="full-width">
+      <input matInput type="search" [placeholder]="placeholder"  name="searchCrew" id="searchCrew" [(ngModel)]="searchCrew"/>
+  </mat-form-field>
+
   <div class="container">
-    <a *ngFor="let person of movieCredits.crew" [routerLink]="['/person-details', person.id]">
+    <a *ngFor="let person of movieCredits.crew | search:searchCrew " [routerLink]="['/person-details', person.id]">
       <div class="crew">
         <span class="pull-left">
           {{person.job ? person.job : 'N/A'}}

@@ -6,14 +6,16 @@
   </h2>
 
 <div *ngIf="tvCredits.crew.length">
-  <br>
-  <mat-divider></mat-divider>
-  <br>
   <h3 class="text-center">
     {{ getGlobal() ? 'Crew': 'Rendezések, forgatókönyvek, satöbbi' }}
   </h3>
+
+  <mat-form-field class="full-width">
+      <input matInput type="search" [placeholder]="placeholder"  name="searchCrew" id="searchCrew" [(ngModel)]="searchCrew"/>
+  </mat-form-field>
+
   <div class="container">
-    <a *ngFor="let tv of tvCredits.crew" [routerLink]="['/tv-details', tv.id]" >
+    <a *ngFor="let tv of tvCredits.crew | search:searchCrew" [routerLink]="['/tv-details', tv.id]" >
     <div class="crew">
       <span class="pull-left">
         {{tv.job ? tv.job : 'N/A'}}
@@ -28,14 +30,16 @@
 </div>
 
 <div *ngIf="tvCredits.cast.length">
-  <br>
-  <mat-divider></mat-divider>
-  <br>
   <h3 class="text-center">
     {{ getGlobal() ? 'Cast': 'TalkShow szereplések, Díjátadók, satöbbi' }}
   </h3>
+
+  <mat-form-field class="full-width">
+      <input matInput type="search" [placeholder]="placeholder"  name="searchCast" id="searchCast" [(ngModel)]="searchCast"/>
+  </mat-form-field>
+
   <div class="container">
-    <a *ngFor="let tv of tvCredits.cast" [routerLink]="['/tv-details', tv.id]">
+    <a *ngFor="let tv of tvCredits.cast | search:searchCast" [routerLink]="['/tv-details', tv.id]">
       <div class="cast">
         <span class="pull-left">
           {{tv.character ? tv.character : ''}}

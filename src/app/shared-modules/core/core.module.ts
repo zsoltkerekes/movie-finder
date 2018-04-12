@@ -56,6 +56,8 @@ import { TvShowEpisodesComponent } from './../../containers/tv-show-episodes/tv-
 import { UpcomingComponent } from './../../containers/upcoming/upcoming.component';
 import { MaterialModule } from './../material/material.module';
 import { TopRatedPersonsComponent } from '../../components/top-rated-persons/top-rated-persons.component';
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from '../../pipes/search.pipe';
 
 @NgModule({
   imports: [
@@ -63,7 +65,8 @@ import { TopRatedPersonsComponent } from '../../components/top-rated-persons/top
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   declarations: [
     HomeComponent,
@@ -116,7 +119,8 @@ import { TopRatedPersonsComponent } from '../../components/top-rated-persons/top
     PopularPersonsComponent,
     MovieReviewsComponent,
     TvShowReviewsComponent,
-    TopRatedPersonsComponent
+    TopRatedPersonsComponent,
+    SearchPipe
   ],
   exports: [
     HomeComponent,
@@ -169,7 +173,8 @@ import { TopRatedPersonsComponent } from '../../components/top-rated-persons/top
     PopularPersonsComponent,
     MovieReviewsComponent,
     TvShowReviewsComponent,
-    TopRatedPersonsComponent
+    TopRatedPersonsComponent,
+    SearchPipe
   ]
 })
 export class CoreModule { }

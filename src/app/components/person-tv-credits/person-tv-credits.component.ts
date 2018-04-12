@@ -12,6 +12,9 @@ export class PersonTvCreditsComponent implements OnChanges {
   @Input('id') id;
   tvCredits: PeopleMovieCredits;
   getGlobal = this.api.getGlobal;
+  placeholder = this.api.getGlobal() ?  'Search..' :  'Keresés..';
+  searchCast = '';
+  searchCrew = '';
 
   constructor(
     private api: ApiService

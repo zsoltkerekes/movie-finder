@@ -11,6 +11,7 @@ export class PersonImagesComponent implements OnChanges {
 
   @Input('id') id;
   images: Images[];
+  getGlobal = this.api.getGlobal;
 
   constructor(
     private api: ApiService

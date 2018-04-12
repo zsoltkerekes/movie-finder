@@ -2,24 +2,37 @@
 <h2 *ngIf="movieCredits.cast.length || movieCredits.crew.length" class="text-center">
   <br>
   <mat-divider></mat-divider>
+  <br>
   {{ getGlobal() ? 'Movies': 'Filmek'}}
 </h2>
 
 <div *ngIf="movieCredits.cast.length">
-  <br>
-  <mat-divider></mat-divider>
-  <br>
   <h3 class="text-center">
     {{ getGlobal() ? 'Cast': 'Szereplések, szinkronhangok, satöbbi'}}
   </h3>
+
+  <mat-form-field class="full-width">
+      <input matInput type="search" [placeholder]="placeholder"  name="searchCast" id="searchCast" [(ngModel)]="searchCast"/>
+  </mat-form-field>
+
+  <mat-radio-group (change)="onChange($event)" class="content-center" >
+    <p>Sorrend:</p>
+    <mat-radio-button value="vote_average" color="primary" checked>{{ getGlobal() ? 'By votes' : 'Szavazatok alapján' }}</mat-radio-button>
+    <mat-radio-button value="popularity" color="primary">{{ getGlobal() ? 'By popularity' : 'Népszerűség alapján' }}</mat-radio-button>
+    <mat-radio-button value="title" color="primary">{{ getGlobal() ? 'By title' : 'Cím alapján' }}</mat-radio-button>
+    <mat-radio-button value="release_date" color="primary">{{ getGlobal() ? 'By release date' : 'Év alapján' }}</mat-radio-button>
+  </mat-radio-group>
+
   <div class="container">
-    <a *ngFor="let movie of movieCredits.cast" [routerLink]="['/details', movie.id]">
+    <a *ngFor="let movie of movieCredits.cast | search:searchCast " [routerLink]="['/details', movie.id]">
       <div class="cast">
         <span class="pull-left">
           {{movie.character ? movie.character : ''}}
           {{movie.release_date ? '(' + movie.release_date + ')' : ''}}
         </span>
-        {{movie.title ? movie.title : 'Hiányzó adat: (Film Cím)'}}
+        <strong>
+            {{movie.title ? movie.title : 'N/A'}}
+        </strong>
         {{(movie.original_title && (movie.original_title !== movie.title))?
         '(' + movie.original_title + ')' : ''}} {{movie.vote_average ? '[' + movie.vote_average + '/10 ]' : ''}}
       </div>
@@ -28,14 +41,16 @@
 </div>
 
 <div *ngIf="movieCredits.crew.length">
-  <br>
-  <mat-divider></mat-divider>
-  <br>
   <h3 class="text-center">
     {{ getGlobal() ? 'Crew': 'Rendezések, forgatókönyvek, satöbbi'}}
   </h3>
+
+  <mat-form-field class="full-width">
+      <input matInput type="search" [placeholder]="placeholder"  name="searchCrew" id="searchCrew" [(ngModel)]="searchCrew"/>
+  </mat-form-field>
+
   <div class="container">
-    <a *ngFor="let movie of movieCredits.crew" [routerLink]="['/details', movie.id]">
+    <a *ngFor="let movie of movieCredits.crew | search:searchCrew" [routerLink]="['/details', movie.id]">
       <div class="crew">
         <span class="pull-left">
           {{movie.job ? movie.job : '(Hiányzó adat: Munkakör)'}}

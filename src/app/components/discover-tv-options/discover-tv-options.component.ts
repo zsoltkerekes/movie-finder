@@ -10,8 +10,8 @@ import { Component, OnInit, DoCheck, ViewChild } from '@angular/core';
 export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
 
   sortByOptions: Array<{ name: string, value: string }>;
-  selected: String;
-  year: number;
+  tvShowSelected: String;
+  tvShowYear: number;
   tvShowGenres: Array<any>;
   selectedTvShowGenres: number[];
   placeholder: string;
@@ -21,9 +21,9 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
   ) { }
 
   ngOnInit() {
-    this.year = this.api.getYearOption();
+    this.tvShowYear = this.api.getTvShowYearOption();
     this.sortByOptions = this.api.getSortByOptions();
-    this.selected = this.api.getSortByOption();
+    this.tvShowSelected = this.api.getTvShowSortByOption();
     this.tvShowGenres = this.api.tvGenresArray;
     this.selectedTvShowGenres = this.api.getTvWithGenresOption();
     this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
@@ -33,8 +33,8 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
     this.tvShowGenres = this.api.tvGenresArray ? [...this.api.tvGenresArray] : null;
   }
 
-  setSortByOption = event => this.api.setSortByOption(event.value);
-  setYearOption = event => this.api.setYearOption(event.target.value);
+  setTvShowSortByOption = event => this.api.setTvShowSortByOption(event.value);
+  setTvShowYearOption = event => this.api.setTvShowYearOption(event.target.value);
 
   setTvShowGenre = (id, event) => {
     if (event.checked) {

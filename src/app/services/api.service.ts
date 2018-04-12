@@ -26,16 +26,23 @@ export class ApiService {
   changeGlobal = () => this.constants.changeGlobal();
 
   getSortByOptions = () => this.constants.getSortByOptions();
-  setSortByOption = value => this.constants.setSortByOption(value);
-  getSortByOption = () => this.constants.getSortByOption();
+
+  setMovieSortByOption = value => this.constants.setMovieSortByOption(value);
+  getMovieSortByOption = () => this.constants.getMovieSortByOption();
+
+  setTvShowSortByOption = value => this.constants.setTvShowSortByOption(value);
+  getTvShowSortByOption = () => this.constants.getTvShowSortByOption();
 
   getGlobal = () => this.constants.globalOption;
 
   setAdult = () => this.constants.setAdultOption();
   getAdult = () => this.constants.getAdultOption();
 
-  setYearOption = (year = undefined) => this.constants.setYearOption(year);
-  getYearOption = () => this.constants.getYearOption();
+  setMovieYearOption = (year = undefined) => this.constants.setMovieYearOption(year);
+  getMovieYearOption = () => this.constants.getMovieYearOption();
+
+  setTvShowYearOption = (year = undefined) => this.constants.setTvShowYearOption(year);
+  getTvShowYearOption = () => this.constants.getTvShowYearOption();
 
   setWithGenresOption = genres => this.constants.setWithGenresOption(genres);
   getWithGenresOption = () => this.constants.getWithGenresOption();

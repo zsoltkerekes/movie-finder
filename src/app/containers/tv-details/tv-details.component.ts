@@ -42,7 +42,7 @@ export class TVDetailsComponent implements OnInit {
     this.loading = true;
     document.documentElement.scrollTop = 0;
     this.tvShow = movieDetailsData;
-    this.title.setTitle(`Részletes leírás :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.title.setTitle(`Részletes ? :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
     this.api.getTvShowById(this.id)
       .subscribe(result => {
         let output = result.json();
@@ -64,10 +64,14 @@ export class TVDetailsComponent implements OnInit {
 
   listGenres = array => {
     const output = [];
-    array.forEach(row => {
-      output.push(row.name);
-    });
-    return output.join(', ');
+    if (array) {
+      array.forEach(row => {
+        output.push(row.name);
+      });
+      return output.join(', ');
+    } else {
+      return array;
+    }
   }
 
   backgroundImage = () => {

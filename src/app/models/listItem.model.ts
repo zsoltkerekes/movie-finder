@@ -11,11 +11,11 @@ export interface ListItem {
 }
 
 export const listItemInitData = {
-  title: 'Adatok lekérése a szerverről...',
-  name: null,
-  genre_ids: null,
+  title: undefined,
+  name: undefined,
+  genre_ids: undefined,
   id: 0,
-  poster_path: null,
-  profile_path: null,
-  known_for: null
+  poster_path: undefined,
+  profile_path: undefined,
+  known_for: undefined
 };

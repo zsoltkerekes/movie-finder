@@ -10,8 +10,8 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 export class DiscoverOptionsComponent implements OnInit, DoCheck {
 
   sortByOptions: Array<{ name: string, value: string }>;
-  selected: String;
-  year: number;
+  movieSelected: String;
+  movieYear: number;
   movieGenres: Array<any>;
   selectedMovieGenres: number[];
   placeholder: string;
@@ -21,9 +21,9 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
   ) { }
 
   ngOnInit() {
-    this.year = this.api.getYearOption();
+    this.movieYear = this.api.getMovieYearOption();
     this.sortByOptions = this.api.getSortByOptions();
-    this.selected = this.api.getSortByOption();
+    this.movieSelected = this.api.getMovieSortByOption();
     this.movieGenres = this.api.genresArray;
     this.selectedMovieGenres = this.api.getWithGenresOption();
     this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
@@ -33,8 +33,8 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     this.movieGenres = this.api.genresArray ? [...this.api.genresArray] : null;
   }
 
-  setSortByOption = event => this.api.setSortByOption(event.value);
-  setYearOption = event => this.api.setYearOption(event.target.value);
+  setMovieSortByOption = event => this.api.setMovieSortByOption(event.value);
+  setMovieYearOption = event => this.api.setMovieYearOption(event.target.value);
 
   setMovieGenre = (id, event) => {
     if (event.checked) {

@@ -5,7 +5,7 @@ export interface Images {
 
 export const imagesData = [
   {
-    file_path: null,
+    file_path: undefined,
     vote_average: 0
   }
 ];

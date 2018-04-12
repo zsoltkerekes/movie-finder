@@ -17,19 +17,19 @@ export interface TvShowEpisodes {
 }
 
 export const tvShowEpisodesData = {
-  air_date: undefined,
+  air_date: null,
   episodes: [{
-    episode_number: undefined,
-    air_date: undefined,
-    name: undefined,
-    overview: undefined,
-    season_number: undefined,
-    still_path: undefined,
-    vote_average: undefined
+    episode_number: null,
+    air_date: null,
+    name: null,
+    overview: null,
+    season_number: null,
+    still_path: null,
+    vote_average: null
   }],
-  name: undefined,
-  overview: undefined,
-  id: undefined,
-  poster_path: undefined,
-  season_number: undefined
+  name: null,
+  overview: null,
+  id: null,
+  poster_path: null,
+  season_number: null
 };

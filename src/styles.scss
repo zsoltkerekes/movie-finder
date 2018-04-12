@@ -28,9 +28,12 @@ html {
 }
 
 .item-container {
-  display: inline-flex;
+  display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  width:100%;
+  margin:0 auto;
+  max-width: 1600px;
   @media (max-width:960px) {
     justify-content: normal;
     -ms-flex-wrap: wrap;
@@ -84,4 +87,26 @@ a {
 
 .dots-loader>div:nth-child(3) {
   animation-delay: 0.4s;
+}
+
+.full-width {
+  width: 64%;
+  margin: 2.5% 18.0%;
+}
+
+@media (max-width:400px) {
+  .full-width {
+    width: 95%;
+    margin: 10% 2.5%;
+  }
+}
+
+.content-center {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin: 0em 0em 2em 0em;
+  mat-radio-button {
+    margin: 0em 1em 0em 1em;
+  }
 }

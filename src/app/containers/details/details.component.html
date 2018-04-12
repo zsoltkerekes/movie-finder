@@ -28,7 +28,7 @@
       </h3>
 
       <p class="overview">
-        {{movie.overview ? movie.overview : '(Hiányzó adat: leírás)'}}
+        {{movie.overview ? movie.overview : 'N/A'}}
       </p>
 
       <p class="genres">
@@ -36,28 +36,17 @@
           {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
         </span>
         <span>
-          {{ movie.genres ? listGenres(movie.genres) : '(Hiányzó adat: műfajok)'}}
+          {{ movie.genres ? listGenres(movie.genres) : 'N/A'}}
         </span>
       </p>
 
-      <p class="adult">
-        <span>
-          {{ getGlobal() ? 'Ratings:' : ' Besorolás:' }}
-        </span>
-        <span>
-          {{movie.adult == true && getGlobal()== true ? 'For Adults' : ''}}
-          {{movie.adult == false && getGlobal()== true ? 'Not only for adults' : ''}}
-          {{movie.adult == false && getGlobal() == false ? 'Nem csak felnőtteknek' : ''}}
-          {{movie.adult == true && getGlobal() == false ? 'Felnőtteknek' : ''}}
-        </span>
-      </p>
 
       <p class="runtime">
         <span>
           {{ getGlobal() ? 'Runtime:' : 'Hossz:' }}
         </span>
         <span>
-          {{ movie.runtime ? movie.runtime : 'N/A'}} {{ getGlobal() ? 'minutes' : 'perc' }}
+          {{ movie.runtime ? movie.runtime.toString() + (getGlobal() ? ' minutes' : ' perc').toString() : 'N/A'}}
         </span>
       </p>
 
@@ -93,7 +82,7 @@
           {{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}
         </span>
         <span>
-          {{ movie.vote_average ? movie.vote_average + '/10' : 'N/A' }}
+          {{ movie.vote_average ? (movie.vote_average | number:'1.1-1') + '/10' : 'N/A' }}
         </span>
       </p>
 
@@ -117,7 +106,7 @@
         </span>
       </p>
 
-      <p class="imdb">
+      <p class="imdb" *ngIf="movie.title || movie.original_title">
         <span>
           {{movie.imdb_id ? 'Imdb Homepage:':''}}
         </span>
@@ -128,46 +117,46 @@
         </span>
       </p>
 
-      <p class="youtube">
+      <p class="youtube" *ngIf="movie.title || movie.original_title">
         <span>
           Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
-          <a [href]="'https://www.youtube.com/results?search_query='+movie.title" target="_blank">
+          <a *ngIf="movie.title" [href]="'https://www.youtube.com/results?search_query='+movie.title" target="_blank">
             {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
-          |
-          <a [href]="'https://www.youtube.com/results?search_query='+movie.original_title" target="_blank">
+          <a *ngIf="movie.title !== movie.original_title">|</a>
+          <a *ngIf="movie.original_title && movie.title !== movie.original_title" [href]="'https://www.youtube.com/results?search_query='+movie.original_title" target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
       </p>
 
-      <p class="online-filmek">
+      <p class="online-filmek" *ngIf="movie.title || movie.original_title">
         <span>
           Online Film {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
-          <a [href]="'https://online-filmek.me/kereses.php?kereses='+movie.title" target="_blank">
+          <a *ngIf="movie.title" [href]="'https://online-filmek.me/kereses.php?kereses='+movie.title" target="_blank">
             {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
-          |
-          <a [href]="'https://online-filmek.me/kereses.php?kereses='+movie.original_title" target="_blank">
+          <a *ngIf="movie.title !== movie.original_title">|</a>
+          <a *ngIf="movie.original_title && movie.title !== movie.original_title" [href]="'https://online-filmek.me/kereses.php?kereses='+movie.original_title" target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
       </p>
 
-      <p class="google">
+      <p class="google" *ngIf="movie.title || movie.original_title">
         <span>
           Google {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
-          <a [href]="'https://www.google.hu/search?q='+movie.title" target="_blank">
+          <a *ngIf="movie.title" [href]="'https://www.google.hu/search?q='+movie.title" target="_blank">
             {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
-          |
-          <a [href]="'https://www.google.hu/search?q='+movie.original_title" target="_blank">
+          <span *ngIf="movie.title !== movie.original_title">|</span>
+          <a *ngIf="movie.original_title && movie.title !== movie.original_title" [href]="'https://www.google.hu/search?q='+movie.original_title" target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>

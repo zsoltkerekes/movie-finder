@@ -30,8 +30,10 @@ export class DetailsComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
-          this.id = +this.activatedRoute.snapshot.params['id'];
-          this.loadMovie();
+          if (this.activatedRoute.snapshot.params['id']) {
+            this.id = +this.activatedRoute.snapshot.params['id'];
+            this.loadMovie();
+          }
         }
       );
   }
@@ -54,16 +56,20 @@ export class DetailsComponent implements OnInit {
           }) :: ${
           this.activatedRoute.snapshot.data['pageTitle']
           }`);
-          this.loading = false;
+        this.loading = false;
       });
   }
 
   listGenres = array => {
     const output = [];
-    array.forEach(row => {
-      output.push(row.name);
-    });
-    return output.join(', ');
+    if (array) {
+      array.forEach(row => {
+        output.push(row.name);
+      });
+      return output.join(', ');
+    } else {
+      return array;
+    }
   }
 
   backgroundImage = () => {

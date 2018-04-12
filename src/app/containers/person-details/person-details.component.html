@@ -26,19 +26,7 @@
         {{person.biography ? person.biography : 'N/A'}}
       </p>
 
-      <p class="adult">
-        <span>
-          {{ getGlobal() ? 'Ratings:' : ' Besorolás:' }}
-        </span>
-        <span>
-          {{person.adult == true && getGlobal()== true ? 'For Adults' : ''}}
-          {{person.adult == false && getGlobal()== true ? 'Not only for adults' : ''}}
-          {{person.adult == false && getGlobal() == false ? 'Nem csak felnőtteknek' : ''}}
-          {{person.adult == true && getGlobal() == false ? 'Felnőtteknek' : ''}}
-        </span>
-      </p>
-
-      <p class="runtime">
+        <p class="runtime">
         <span>
            {{ getGlobal() ? 'Birthday:' : ' Születésnap:' }}
         </span>
@@ -84,7 +72,7 @@
           Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
-          <a [href]="'https://www.youtube.com/results?search_query='+person.name" target="_blank">
+          <a *ngIf="person.name" [href]="'https://www.youtube.com/results?search_query='+person.name" target="_blank">
             {{ getGlobal() ? 'by name' : 'név alapján' }}
           </a>
         </span>
@@ -95,7 +83,7 @@
           Google {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
-          <a [href]="'https://www.google.hu/search?q='+person.name" target="_blank">
+          <a *ngIf="person.name" [href]="'https://www.google.hu/search?q='+person.name" target="_blank">
             {{ getGlobal() ? 'by name' : 'név alapján' }}
           </a>
         </span>
