@@ -58,6 +58,7 @@ import { MaterialModule } from './../material/material.module';
 import { TopRatedPersonsComponent } from '../../components/top-rated-persons/top-rated-persons.component';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from '../../pipes/search.pipe';
+import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 
 @NgModule({
   imports: [
@@ -66,7 +67,8 @@ import { SearchPipe } from '../../pipes/search.pipe';
     AppRoutingModule,
     HttpModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    LazyLoadImagesModule
   ],
   declarations: [
     HomeComponent,

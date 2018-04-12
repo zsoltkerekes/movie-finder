@@ -37,13 +37,13 @@
 
   <mat-accordion>
 
-    <mat-expansion-panel
+    <mat-expansion-panel lazy-load-images
       [expanded]="episodeNumber === i"
       (opened)="setEpisode(i)"
       hideToggle="true"
       *ngFor="let episode of tvShowEpisodes.episodes; let i = index">
 
-      <mat-expansion-panel-header class="mat-elevation-z2 title">
+      <mat-expansion-panel-header class="mat-elevation-z2 title" >
         <mat-panel-title>
           {{episode.episode_number ? episode.episode_number : 1+i }}.
           {{episode.name ? episode.name : 'N/A'}}
@@ -57,7 +57,7 @@
       class="picture"
       title="{{tvShow.name}} - {{episode.name}}"
       alt="{{tvShow.name}} - {{episode.name}}"
-      [src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
+      [attr.data-src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
       <div class="episode-body">
         <h4>
           {{episode.name ? episode.name : 'N/A'}}

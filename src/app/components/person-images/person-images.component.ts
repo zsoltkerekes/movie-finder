@@ -25,7 +25,9 @@ export class PersonImagesComponent implements OnChanges {
           const output = response.json();
           this.images = [
             ...output.profiles
-          ].sort((a, b) => {
+          ].filter(image => {
+            return image.width <= 1920 && image.height <= 1080;
+          }).sort((a, b) => {
             if (a.vote_average < b.vote_average) { return 1; }
             if (a.vote_average > b.vote_average) { return -1; }
             return 0;

@@ -1,8 +1,5 @@
 .pictures {
   text-align: center;
-  @media (max-width:960px) {
-    display: none;
-  }
 }
 
 .pic {
@@ -13,7 +10,7 @@
 
 .img-container {
   position: relative;
-  min-height: 200px;
+  min-height:  calc( 75vh + 2.5em );
 
   .dots-loader {
     position: absolute;

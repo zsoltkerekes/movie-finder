@@ -9,8 +9,8 @@
 
   <div class="container">
     <a *ngFor="let person of movieCredits.cast | search:searchCast " [routerLink]="['/person-details', person.id]">
-      <div class="cast">
-        <img *ngIf="person.profile_path" [src]="'https://image.tmdb.org/t/p/' + 'w45' +person.profile_path" />
+      <div class="cast" lazy-load-images>
+        <img *ngIf="person.profile_path" [attr.data-src]="'https://image.tmdb.org/t/p/' + 'w45' +person.profile_path" />
         <mat-icon *ngIf="!(person.profile_path)" class="bigger">face</mat-icon>
         <span class="right">
           {{person.name ? person.name : 'N/A'}}

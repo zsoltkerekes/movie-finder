@@ -1,6 +1,10 @@
 .video {
   width: 60vw;
   height: 34vw;
+  @media (max-width:960px) {
+    width: 95vw;
+    height: 54vw;
+  }
 }
 
 .mat-chip-list {
@@ -11,11 +15,5 @@
     cursor: pointer;
     margin: .5em !important;
     flex-grow: 1;
-  }
-}
-
-.youtubeVideos {
-  @media (max-width:960px) {
-    display: none;
   }
 }
