@@ -1,5 +1,6 @@
-<mat-tab-group>
-  <mat-tab *ngFor="let season of tvShow.seasons; let i = index" [label]="season.name || season.season_number || i " lazy-load-images>
+<mat-tab-group lazy-load-images>
+  <mat-tab *ngFor="let season of tvShow.seasons; let i = index"
+  [label]="season.name || season.season_number || i " >
     <img class="poster" [attr.data-src]="season.poster_path ? 'https://image.tmdb.org/t/p/' +'w342'+ season.poster_path  : 'assets/image/no-pic.jpg'">
     <h4>
       {{getGlobal() ? 'Season Name: ' : 'Alcím: '}} {{season.name ? season.name : 'N/A'}}
