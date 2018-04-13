@@ -13,8 +13,8 @@ export class PersonTvCreditsComponent implements OnChanges {
   tvCredits: PeopleMovieCredits;
   getGlobal = this.api.getGlobal;
   placeholder = this.api.getGlobal() ?  'Search..' :  'Keresés..';
-  searchCast = '';
-  searchCrew = '';
+  searchCast: string;
+  searchCrew: string;
 
   constructor(
     private api: ApiService
@@ -22,6 +22,8 @@ export class PersonTvCreditsComponent implements OnChanges {
 
   ngOnChanges() {
     this.tvCredits = peopleMovieCreditsData;
+    this.searchCast = '';
+    this.searchCrew = '';
     if (this.id) {
       this.api.getPersonTvCredits(this.id)
         .subscribe(response => {

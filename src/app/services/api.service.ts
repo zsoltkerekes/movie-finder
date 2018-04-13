@@ -181,6 +181,8 @@ export class ApiService {
 
   getPersonSearch = (phrase, page = 1) => this.getContent(this.constants.personSearch(phrase, page));
 
+  getPersonTaggedImages = id => this.getContent(this.constants.personTaggedImages(id));
+
   // People Ends
 
 }

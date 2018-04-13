@@ -1,3 +1,4 @@
+import { PersonTaggedImagesComponent } from './../../components/person-tagged-images/person-tagged-images.component';
 import { TvShowReviewsComponent } from './../../components/tv-show-reviews/tv-show-reviews.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -122,7 +123,8 @@ import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
     MovieReviewsComponent,
     TvShowReviewsComponent,
     TopRatedPersonsComponent,
-    SearchPipe
+    SearchPipe,
+    PersonTaggedImagesComponent
   ],
   exports: [
     HomeComponent,

@@ -271,5 +271,9 @@ export class ConstantsService {
   personSearch = (phrase, page) =>
     `${this.apiBaseUrl}search/person?${this.options()}&query=${phrase}${this.page(page)}`
 
+
+  personTaggedImages = id =>
+    `${this.apiBaseUrl}person/${id}/tagged_images?${this.options()}`
+
   // People Ends
 }

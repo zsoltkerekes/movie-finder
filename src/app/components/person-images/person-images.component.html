@@ -1,4 +1,8 @@
-<mat-tab-group class="pictures">
+<h2 class="text-center" *ngIf="images && images.length > 0">
+  {{getGlobal() ? 'Images' : 'Képek'}}
+</h2>
+
+<mat-tab-group class="pictures" *ngIf="images && images.length > 0">
 
   <mat-tab *ngFor="let image of images; let i=index"
   [label]="(i+1)+'/'+ images.length + ( getGlobal() ? '. picture' : '. kép').toString()">

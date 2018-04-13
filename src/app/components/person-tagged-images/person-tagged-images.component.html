@@ -1,0 +1,43 @@
+<h2 class="text-center" *ngIf="images && images.length > 0">
+  {{getGlobal() ? 'Tagged Images from acts' : 'Képek a szerepléseiről, filmjeiről, stb '}}
+</h2>
+
+<mat-tab-group class="pictures" *ngIf="images && images.length > 0">
+
+  <mat-tab *ngFor="let image of images; let i=index" [label]="(i+1)+'/'+ images.length + ( getGlobal() ? '. picture' : '. kép').toString()">
+    <div class="img-container" lazy-load-images>
+      <div class="dots-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <img class="pic" [attr.data-src]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
+
+      <a [routerLink]="[ image.media_type === 'movie' ? '/details' : '/tv-details', image.media.id ]" class="overview">
+        <div>
+          <strong>
+              <p>
+                {{ image.media.name ? image.media.name : ''}}
+                {{ image.media.title ? image.media.title : ''}}
+                {{ image.vote_average ? '('+ (image.vote_average | number: '1.1-1') +')':'' }}
+              </p>
+              <p>
+                {{ image.media.original_name && image.media.original_name !== image.media.name ? '('+ image.media.original_name +')' : '' }}
+                {{ image.media.original_title && image.media.original_title !== image.media.title ? '('+ image.media.original_title +')' : '' }}
+              </p>
+          </strong>
+            <p>
+                {{ image.media.release_date ? image.media.release_date : '' }}
+                {{ image.media.first_air_date ? image.media.first_air_date : '' }}
+            </p>
+          <p class="text-justify">
+            {{ image.media.overview }}
+          </p>
+        </div>
+      </a>
+
+    </div>
+  </mat-tab>
+
+</mat-tab-group>
