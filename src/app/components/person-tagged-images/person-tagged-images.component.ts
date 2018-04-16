@@ -25,9 +25,11 @@ export class PersonTaggedImagesComponent implements OnChanges {
           const output = response.json();
           this.images = [
             ...output.results
-          ].filter(image => {
-            return image.width <= 1920 && image.height <= 1500;
-          }).sort((a, b) => {
+          ]
+          // .filter(image => {
+          //   return image.width <= 1920 && image.height <= 1500;
+          // })
+          .sort((a, b) => {
             if (a.media.popularity < b.media.popularity) { return 1; }
             if (a.media.popularity > b.media.popularity) { return -1; }
             return 0;
