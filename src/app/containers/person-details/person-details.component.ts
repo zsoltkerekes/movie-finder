@@ -20,12 +20,15 @@ export class PersonDetailsComponent implements OnInit {
   height: String;
   loading: boolean;
   getGlobal = this.api.getGlobal;
+  innerWidth: number;
 
   constructor(
     private title: Title,
     private activatedRoute: ActivatedRoute,
     private api: ApiService
-  ) { }
+  ) {
+    this.innerWidth = window.innerWidth;
+  }
 
   ngOnInit() {
     this.activatedRoute.params

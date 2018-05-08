@@ -7,8 +7,10 @@
           <div></div>
           <div></div>
         </div>
-        <img [attr.data-src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path :
-       'assets/image/no-pic.jpg'" [alt]="tvShow.name" [title]="tvShow.name" *ngIf="!loading" />
+        <img *ngIf="!loading && innerWidth <= 960" [attr.data-src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path :
+       'assets/image/no-pic.jpg'" [alt]="tvShow.name" [title]="tvShow.name" />
+        <img *ngIf="!loading && innerWidth > 960" [src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path :
+       'assets/image/no-pic.jpg'" [alt]="tvShow.name" [title]="tvShow.name" />
       </div>
     </mat-card-content>
   </mat-card>
@@ -28,13 +30,12 @@
       </h3>
 
       <p class="overview">
-          {{ getGlobal() ? 'Overview:' : 'Tartalom:' }}
-        {{tvShow.overview ? tvShow.overview : 'N/A'}}
+        {{ getGlobal() ? 'Overview:' : 'Tartalom:' }} {{tvShow.overview ? tvShow.overview : 'N/A'}}
       </p>
 
       <p class="genres">
         <span>
-            {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
+          {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
         </span>
         <span>
           {{ tvShow.genres && tvShow.genres.length > 0 ? listGenres(tvShow.genres) : 'N/A'}}
@@ -46,7 +47,8 @@
           {{ getGlobal() ? 'Runtime:' : 'Hossz:' }}
         </span>
         <span>
-          {{ tvShow.episode_run_time && tvShow.episode_run_time[0] ? tvShow.episode_run_time[0].toString() + (getGlobal() ? ' minutes' : ' perc').toString() : 'N/A' }}
+          {{ tvShow.episode_run_time && tvShow.episode_run_time[0] ? tvShow.episode_run_time[0].toString() + (getGlobal() ? ' minutes'
+          : ' perc').toString() : 'N/A' }}
         </span>
       </p>
 
@@ -108,7 +110,7 @@
 
       <p class="imdb">
         <span>
-            {{ tvShow.imdb_id ? 'Imdb Homepage:':''}}
+          {{ tvShow.imdb_id ? 'Imdb Homepage:':''}}
         </span>
         <span *ngIf="tvShow.imdb_id">
           <a [href]="'https://www.imdb.com/title/'+tvShow.imdb_id" target="_blank">
@@ -119,14 +121,15 @@
 
       <p class="youtube">
         <span>
-            Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
+          Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
         <span>
           <a *ngIf="tvShow.name" [href]="'https://www.youtube.com/results?search_query='+tvShow.name" target="_blank">
             {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
-          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.youtube.com/results?search_query='+tvShow.original_name" target="_blank">
+          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.youtube.com/results?search_query='+tvShow.original_name"
+            target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
@@ -142,7 +145,8 @@
             {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
-          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.sorozatbarat.online/video/search?s='+tvShow.original_name" target="_blank">
+          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.sorozatbarat.online/video/search?s='+tvShow.original_name"
+            target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
@@ -157,7 +161,8 @@
             {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
-          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.google.hu/search?q='+tvShow.original_name" target="_blank">
+          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.google.hu/search?q='+tvShow.original_name"
+            target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>

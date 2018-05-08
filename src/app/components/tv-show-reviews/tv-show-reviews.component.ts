@@ -27,6 +27,7 @@ export class TvShowReviewsComponent implements OnChanges {
         .subscribe(response => {
           const output = response.json();
           output.results = output.results.map(row => row || {});
+          output.results.forEach(row => row.content = row.content.replace(/[_]/g, '"'));
           this.tvShowReviews = output;
         });
     }

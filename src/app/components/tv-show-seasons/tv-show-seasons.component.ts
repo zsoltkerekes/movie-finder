@@ -10,8 +10,11 @@ export class TvShowSeasonsComponent {
 
   @Input('tvShow') tvShow;
   getGlobal = this.api.getGlobal;
+  innerWidth: number;
 
   constructor(
     private api: ApiService
-  ) { }
+  ) {
+    this.innerWidth = window.innerWidth;
+  }
 }

@@ -21,7 +21,10 @@ export class ConstantsService {
   constructor(
     private cookieService: CookieService
   ) {
-    this.globalOption = this.cookieService.get('Movie-Finder-globalOption') === 'Global' ? true : false;
+
+    this.globalOption = (this.cookieService.check('Movie-Finder-globalOption') === false ||
+    this.cookieService.get('Movie-Finder-globalOption') === 'Global') ?  true : false;
+
     this.adultOption = this.cookieService.get('Movie-Finder-adultOption') === 'true' ? true : false;
 
     this.sortMovieByOption = this.cookieService.get('Movie-Finder-sortMovieByOption') || 'popularity.desc';

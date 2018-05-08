@@ -16,8 +16,12 @@ export class ListItemComponent {
   listGenres = this.api.getGenreList;
   listTvGenres = this.api.getTvGenreList;
 
+  innerWidth: number;
+
   constructor(
     private api: ApiService
-  ) {  }
+  ) {
+    this.innerWidth = window.innerWidth;
+  }
 
 }

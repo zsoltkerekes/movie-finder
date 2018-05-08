@@ -12,10 +12,13 @@ export class TvImagesComponent implements OnChanges {
   @Input('id') id;
   images: Images[];
   getGlobal = this.api.getGlobal;
+  innerWidth: number;
 
   constructor(
     private api: ApiService
-  ) { }
+  ) {
+    this.innerWidth = window.innerWidth;
+   }
 
   ngOnChanges() {
     this.images = imagesData;

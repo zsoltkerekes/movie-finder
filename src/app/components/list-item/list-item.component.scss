@@ -1,11 +1,15 @@
 mat-card {
-  min-height: 370px;
+  min-height: 390px;
   margin: 1em .5em;
   text-align: center;
   width: 220px;
 
   mat-card-content img {
-    width: 185px;
+    width:100%;
+    max-width: 185px;
+    height: auto;
+    max-height: 278px;
+    vertical-align: bottom;
   }
 
   mat-card-subtitle,

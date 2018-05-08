@@ -14,7 +14,8 @@
         <div></div>
       </div>
 
-      <img class="pic" [attr.data-src]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
+      <img *ngIf="innerWidth <= 960" class="pic" [attr.data-src]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
+      <img *ngIf="innerWidth > 960" class="pic" [src]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
 
       <a [routerLink]="[ image.media_type === 'movie' ? '/details' : '/tv-details', image.media.id ]" class="overview">
         <div>

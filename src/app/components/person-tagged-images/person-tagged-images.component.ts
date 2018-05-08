@@ -12,10 +12,13 @@ export class PersonTaggedImagesComponent implements OnChanges {
   @Input('id') id;
   images: Images[];
   getGlobal = this.api.getGlobal;
+  innerWidth: number;
 
   constructor(
     private api: ApiService
-  ) { }
+  ) {
+    this.innerWidth = window.innerWidth;
+  }
 
   ngOnChanges() {
     this.images = imagesData;
@@ -26,14 +29,14 @@ export class PersonTaggedImagesComponent implements OnChanges {
           this.images = [
             ...output.results
           ]
-          // .filter(image => {
-          //   return image.width <= 1920 && image.height <= 1500;
-          // })
-          .sort((a, b) => {
-            if (a.media.popularity < b.media.popularity) { return 1; }
-            if (a.media.popularity > b.media.popularity) { return -1; }
-            return 0;
-          });
+            // .filter(image => {
+            //   return image.width <= 1920 && image.height <= 1500;
+            // })
+            .sort((a, b) => {
+              if (a.media.popularity < b.media.popularity) { return 1; }
+              if (a.media.popularity > b.media.popularity) { return -1; }
+              return 0;
+            });
         });
     }
   }

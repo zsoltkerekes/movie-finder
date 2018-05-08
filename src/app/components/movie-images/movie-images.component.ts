@@ -12,10 +12,13 @@ export class MovieImagesComponent implements OnChanges {
   @Input('id') id;
   images: Images[];
   getGlobal = this.api.getGlobal;
+  innerWidth: number;
 
   constructor(
     private api: ApiService
-  ) { }
+  ) {
+    this.innerWidth = window.innerWidth;
+  }
 
   ngOnChanges() {
     this.images = imagesData;
@@ -27,14 +30,14 @@ export class MovieImagesComponent implements OnChanges {
             ...output.backdrops,
             ...output.posters
           ]
-          // .filter(image => {
-          //   return image.width <= 1920 && image.height <= 1500;
-          // })
-          .sort((a, b) => {
-            if (a.vote_average < b.vote_average) { return 1; }
-            if (a.vote_average > b.vote_average) { return -1; }
-            return 0;
-          });
+            // .filter(image => {
+            //   return image.width <= 1920 && image.height <= 1500;
+            // })
+            .sort((a, b) => {
+              if (a.vote_average < b.vote_average) { return 1; }
+              if (a.vote_average > b.vote_average) { return -1; }
+              return 0;
+            });
         });
     }
   }

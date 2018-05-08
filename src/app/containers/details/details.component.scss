@@ -85,7 +85,7 @@ p {
   .dots-loader {
     position: absolute;
     top: 40%;
-    left: 40%;
+    left: calc( 50% - 1.5em);
   }
 
   img {

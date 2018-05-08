@@ -53,11 +53,22 @@
           {{episode.air_date ? episode.air_date : '' }}
         </mat-panel-description>
       </mat-expansion-panel-header>
+
       <img
+      *ngIf="innerWidth <= 960"
       class="picture"
       title="{{tvShow.name}} - {{episode.name}}"
       alt="{{tvShow.name}} - {{episode.name}}"
       [attr.data-src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
+
+      <img
+      *ngIf="innerWidth > 960"
+      class="picture"
+      title="{{tvShow.name}} - {{episode.name}}"
+      alt="{{tvShow.name}} - {{episode.name}}"
+      [src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
+
+
       <div class="episode-body">
         <h4>
           {{episode.name ? episode.name : 'N/A'}}

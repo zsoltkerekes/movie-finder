@@ -15,6 +15,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
   id: string;
   season: string;
   episodeNumber: number;
+  innerWidth: number;
 
   tvShow: MovieDetails;
   tvShowEpisodes: TvShowEpisodes;
@@ -24,7 +25,9 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
     private title: Title,
     private activatedRoute: ActivatedRoute,
     private api: ApiService
-  ) { }
+  ) {
+    this.innerWidth = window.innerWidth;
+   }
 
   setEpisode = index => this.episodeNumber = index;
 

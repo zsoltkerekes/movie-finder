@@ -21,12 +21,15 @@ export class TVDetailsComponent implements OnInit {
   createdBy: String;
   loading: boolean;
   getGlobal = this.api.getGlobal;
+  innerWidth: number;
 
   constructor(
     private title: Title,
     private activatedRoute: ActivatedRoute,
     private api: ApiService
-  ) { }
+  ) {
+    this.innerWidth = window.innerWidth;
+  }
 
   ngOnInit() {
     this.activatedRoute.params
@@ -58,7 +61,7 @@ export class TVDetailsComponent implements OnInit {
           }) :: ${
           this.activatedRoute.snapshot.data['pageTitle']
           }`);
-          this.loading = false;
+        this.loading = false;
       });
   }
 

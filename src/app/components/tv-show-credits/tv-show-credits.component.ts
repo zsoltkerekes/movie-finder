@@ -13,13 +13,16 @@ export class TvShowCreditsComponent implements OnChanges {
   @Input('id') id;
   movieCredits: PeopleMovieCredits;
   getGlobal = this.api.getGlobal;
-  placeholder = this.api.getGlobal() ?  'Search..' :  'Keresés..';
+  placeholder = this.api.getGlobal() ? 'Search..' : 'Keresés..';
   searchCast: string;
   searchCrew: string;
+  innerWidth: number;
 
   constructor(
     private api: ApiService
-  ) { }
+  ) {
+    this.innerWidth = window.innerWidth;
+  }
 
   ngOnChanges() {
     this.movieCredits = peopleMovieCreditsData;
