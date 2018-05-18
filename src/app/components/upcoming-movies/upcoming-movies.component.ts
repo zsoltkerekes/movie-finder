@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from './../../services/api.service';
 import { ListItem, listItemInitData } from './../../models/listItem.model';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'mf-upcoming-movies',
@@ -10,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpcomingMoviesComponent implements OnInit {
 
+  @ViewChild ('container') container;
 
-  upcomingMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
+  upcomingMovies: { results: Array<ListItem> };
   page: number;
 
   listGenres = this.api.getGenreList;
@@ -26,6 +27,8 @@ export class UpcomingMoviesComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
+          this.upcomingMovies = { results: [listItemInitData] };
+          this.container.nativeElement.scrollLeft = 0;
           this.page = +this.activatedRoute.snapshot.params['page'] || 1;
           this.api.getUpcoming(this.page)
             .subscribe(response => {

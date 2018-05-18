@@ -2,7 +2,7 @@
   {{getGlobal() ? 'Now Playing:':'A mostanában mozikban lévő filmek:'}}
 </h2>
 
-<div class="item-container">
+<div class="item-container" #container>
   <a *ngFor="let movie of nowPlayingMovies.results" [routerLink]="['/details', movie.id]">
     <mf-list-item [movie]="movie" person="" tvShow=""></mf-list-item>
   </a>

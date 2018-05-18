@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 import { ListItem, listItemInitData } from '../../models/listItem.model';
 import { ApiService } from './../../services/api.service';
@@ -11,7 +11,9 @@ import { ApiService } from './../../services/api.service';
 })
 export class TopRatedTvShowsComponent implements OnInit {
 
-  topRatedTvShows: { results: Array<ListItem> } = { results: [listItemInitData] };
+  @ViewChild ('container') container;
+
+  topRatedTvShows: { results: Array<ListItem> };
   page: number;
 
   listGenres = this.api.getGenreList;
@@ -26,6 +28,8 @@ export class TopRatedTvShowsComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
+          this.topRatedTvShows = { results: [listItemInitData] };
+          this.container.nativeElement.scrollLeft = 0;
           this.page = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
           this.api.getTopRatedTvSows(this.page)
             .subscribe(response => {

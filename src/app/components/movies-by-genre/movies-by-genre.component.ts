@@ -1,5 +1,5 @@
 import { listItemInitData } from './../../models/listItem.model';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ListItem } from '../../models/listItem.model';
@@ -11,10 +11,13 @@ import { ApiService } from './../../services/api.service';
   styleUrls: ['./movies-by-genre.component.scss']
 })
 export class MoviesByGenreComponent implements OnInit {
+
+  @ViewChild ('container') container;
+
   id: number;
   page: number;
 
-  moviesByGenre: { results: Array<ListItem> } = { results: [listItemInitData] };
+  moviesByGenre: { results: Array<ListItem> };
 
   listGenres = this.api.getGenreList;
   genres = this.api.genres;
@@ -30,7 +33,9 @@ export class MoviesByGenreComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
+          this.moviesByGenre = { results: [listItemInitData] };
           document.documentElement.scrollTop = 0;
+          this.container.nativeElement.scrollLeft = 0;
           this.id = +this.activatedRoute.snapshot.params['id'];
           this.page = +this.activatedRoute.snapshot.params['page'];
           this.api.getMovieByGenre(this.id, this.page)

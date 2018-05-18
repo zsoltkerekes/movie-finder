@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from './../../services/api.service';
 import { ListItem, listItemInitData } from './../../models/listItem.model';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'mf-movies-now-playing',
@@ -10,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesNowPlayingComponent implements OnInit {
 
-  nowPlayingMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
+  @ViewChild ('container') container;
+
+  nowPlayingMovies: { results: Array<ListItem> };
   page: number;
 
   listGenres = this.api.getGenreList;
@@ -25,6 +27,8 @@ export class MoviesNowPlayingComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
+          this.nowPlayingMovies = { results: [listItemInitData] };
+          this.container.nativeElement.scrollLeft = 0;
           this.page = +this.activatedRoute.snapshot.params['page'] || 1;
           this.api.getNowPlaying(this.page)
             .subscribe(response => {

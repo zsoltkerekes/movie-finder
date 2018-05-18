@@ -9,7 +9,6 @@ import { ApiService } from './services/api.service';
 import { ConstantsService } from './services/constants.service';
 import { CoreModule } from './shared-modules/core/core.module';
 
-
 @NgModule({
   declarations: [
     AppComponent

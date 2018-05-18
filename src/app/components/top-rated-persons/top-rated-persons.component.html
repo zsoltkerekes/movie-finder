@@ -4,7 +4,7 @@
   {{getGlobal() ? 'Persons:':'Emberek:'}}
 </h2>
 
-<div class="item-container">
+<div class="item-container" #container>
   <a *ngFor="let person of topRatedPersons.results" [routerLink]="['/person-details', person.id]">
     <mf-list-item movie="" tvShows="" [person]="person" ></mf-list-item>
   </a>

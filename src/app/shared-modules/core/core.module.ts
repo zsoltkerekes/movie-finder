@@ -60,6 +60,7 @@ import { TopRatedPersonsComponent } from '../../components/top-rated-persons/top
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from '../../pipes/search.pipe';
 import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
+import {SideScrollDirective} from '../../directives/side-scroll.directive';
 
 @NgModule({
   imports: [
@@ -124,7 +125,8 @@ import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
     TvShowReviewsComponent,
     TopRatedPersonsComponent,
     SearchPipe,
-    PersonTaggedImagesComponent
+    PersonTaggedImagesComponent,
+    SideScrollDirective
   ],
   exports: [
     HomeComponent,

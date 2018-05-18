@@ -4,7 +4,7 @@
   {{getGlobal() ? 'Movies:':'Filmek:'}}
 </h2>
 
-<div class="item-container">
+<div class="item-container" #container>
   <a *ngFor="let movie of popularMovies.results" [routerLink]="['/details', movie.id]">
     <mf-list-item [movie]="movie" tvShows="" person=""></mf-list-item>
   </a>

@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 import { ListItem, listItemInitData } from './../../models/listItem.model';
 import { ApiService } from './../../services/api.service';
@@ -11,7 +11,9 @@ import { ApiService } from './../../services/api.service';
 })
 export class PopularMoviesComponent implements OnInit {
 
-  popularMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
+  @ViewChild ('container') container;
+
+  popularMovies: { results: Array<ListItem> };
   page: number;
   getGlobal = this.api.getGlobal;
 
@@ -26,6 +28,8 @@ export class PopularMoviesComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
+          this.container.nativeElement.scrollLeft = 0;
+          this.popularMovies = { results: [listItemInitData] };
           this.page = +this.activatedRoute.snapshot.params['moviePage'] || 1;
           this.api.getPopularMovies(this.page)
             .subscribe(response => {

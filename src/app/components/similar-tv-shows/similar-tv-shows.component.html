@@ -2,7 +2,7 @@
   {{getGlobal() ? 'Similar Tv shows:' : 'Hasonló sorozatok:'}}
 </h2>
 
-<div class="item-container" #container>
+<div class="item-container" #container mfSideScroll>
   <a *ngFor="let tvShow of similarTvShows.results" [routerLink]="['/tv-details', tvShow.id]">
     <mf-list-item movie="" [tvShow]="tvShow" person=""></mf-list-item>
   </a>
