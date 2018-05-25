@@ -46,7 +46,7 @@ export class DetailsComponent implements OnInit {
     this.loading = true;
     document.documentElement.scrollTop = 0;
     this.movie = movieDetailsData;
-    this.title.setTitle(`? :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.title.setTitle(`${this.activatedRoute.snapshot.data['pageTitle']}`);
     this.api.getMovieById(this.id)
       .subscribe(result => {
         let output = result.json();

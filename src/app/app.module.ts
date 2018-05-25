@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
 import { ConstantsService } from './services/constants.service';
 import { CoreModule } from './shared-modules/core/core.module';
+import {ScrollerService} from './services/scroller.service';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,11 @@ import { CoreModule } from './shared-modules/core/core.module';
   providers: [
     ConstantsService,
     ApiService,
-    CookieService
+    CookieService,
+    ScrollerService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

@@ -1,7 +1,6 @@
-import { ConstantsService } from './../../services/constants.service';
-import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { ApiService } from '../../services/api.service';
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../../services/api.service';
+import {ScrollerService} from '../../services/scroller.service';
 
 @Component({
   selector: 'mf-footer',
@@ -11,19 +10,19 @@ import { ApiService } from '../../services/api.service';
 export class FooterComponent implements OnInit {
 
   date: Date;
+  setGlobal = () => this.api.changeGlobal();
+  getGlobal = () => this.api.getGlobal();
+  setAdult = () => this.api.setAdult();
+  getAdult = () => this.api.getAdult();
 
   constructor(
-    private api: ApiService
-  ) { }
+    private api: ApiService,
+    public scroll: ScrollerService
+  ) {
+  }
 
   ngOnInit() {
     this.date = new Date();
   }
-
-  setGlobal = () => this.api.changeGlobal();
-  getGlobal = () => this.api.getGlobal();
-
-  setAdult = () => this.api.setAdult();
-  getAdult = () => this.api.getAdult();
 
 }

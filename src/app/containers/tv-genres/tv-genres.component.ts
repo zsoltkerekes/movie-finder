@@ -21,7 +21,7 @@ export class TvGenresComponent implements OnInit {
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.title.setTitle(`${
-      this.api.tvGenres[this.id] ? this.api.tvGenres[this.id] : '?'
+      this.api.tvGenres[this.id] ? this.api.tvGenres[this.id] : ''
       } :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
   }
 

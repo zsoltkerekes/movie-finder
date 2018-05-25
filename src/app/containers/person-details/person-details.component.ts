@@ -45,7 +45,7 @@ export class PersonDetailsComponent implements OnInit {
     this.loading = true;
     document.documentElement.scrollTop = 0;
     this.person = peopleData;
-    this.title.setTitle(`Részletes leírás :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+    this.title.setTitle(`${this.activatedRoute.snapshot.data['pageTitle']}`);
     this.api.getPersonById(this.id)
       .subscribe(result => {
         this.person = result.json();
