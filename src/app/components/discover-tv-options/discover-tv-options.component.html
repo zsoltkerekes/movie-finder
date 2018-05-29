@@ -1,7 +1,7 @@
 <div class="container">
 
   <mat-form-field class="select">
-    <mat-select [(value)]="tvShowSelected" placeholder="Sorrend" (change)="setTvShowSortByOption($event)">
+    <mat-select [(value)]="tvShowSelected" placeholder="Sorrend" (selectionChange)="setTvShowSortByOption($event)">
       <mat-option *ngFor="let option of sortByOptions" [value]="option.value">
         {{ option.name }}
       </mat-option>

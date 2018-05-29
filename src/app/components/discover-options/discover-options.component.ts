@@ -33,6 +33,8 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     this.movieGenres = this.api.genresArray ? [...this.api.genresArray] : null;
   }
 
+
+
   setMovieSortByOption = event => this.api.setMovieSortByOption(event.value);
   setMovieYearOption = event => this.api.setMovieYearOption(event.target.value);
 
