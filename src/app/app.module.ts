@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { CookieService } from 'ngx-cookie-service';
+import {NgModule} from '@angular/core';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {CookieService} from 'ngx-cookie-service';
+import {CookieLawModule} from 'angular2-cookie-law';
 
-import { environment } from '../environments/environment';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ApiService } from './services/api.service';
-import { ConstantsService } from './services/constants.service';
-import { CoreModule } from './shared-modules/core/core.module';
+import {environment} from '../environments/environment';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {ApiService} from './services/api.service';
+import {ConstantsService} from './services/constants.service';
+import {CoreModule} from './shared-modules/core/core.module';
 import {ScrollerService} from './services/scroller.service';
 
 @NgModule({
@@ -17,7 +18,8 @@ import {ScrollerService} from './services/scroller.service';
   imports: [
     AppRoutingModule,
     CoreModule,
-    ServiceWorkerModule.register('/movie-finder/ngsw-worker.js', { enabled: environment.production })
+    CookieLawModule,
+    ServiceWorkerModule.register('/movie-finder/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
     ConstantsService,
@@ -29,4 +31,5 @@ import {ScrollerService} from './services/scroller.service';
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule {
+}

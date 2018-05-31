@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9482449f-090e-49d3-a2f8-ed6a302b4aca" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/discover-options/discover-options.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/discover-options/discover-options.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/discover-options/discover-options.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/discover-options/discover-options.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/discover-tv-options/discover-tv-options.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/discover-tv-options/discover-tv-options.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/recommended-movies/recommended-movies.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/recommended-movies/recommended-movies.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/recommended-tv-shows/recommended-tv-shows.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/recommended-tv-shows/recommended-tv-shows.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -25,35 +24,7 @@
     <favorites_list name="movie-finder" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="recommended-movies.component.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/recommended-movies/recommended-movies.component.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/styles.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recommended-tv-shows.component.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/recommended-tv-shows/recommended-tv-shows.component.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,8 +58,6 @@
         <option value="$PROJECT_DIR$/src/app/directives/side-scroll.directive.ts" />
         <option value="$PROJECT_DIR$/src/app/components/similar-movies/similar-movies.component.scss" />
         <option value="$PROJECT_DIR$/src/app/components/similar-tv-shows/similar-tv-shows.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/shared-modules/core/core.module.ts" />
         <option value="$PROJECT_DIR$/src/app/components/footer/footer.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/footer/footer.component.html" />
         <option value="$PROJECT_DIR$/src/app/services/scroller.service.ts" />
@@ -106,6 +75,10 @@
         <option value="$PROJECT_DIR$/src/app/components/recommended-movies/recommended-movies.component.scss" />
         <option value="$PROJECT_DIR$/src/app/components/recommended-tv-shows/recommended-tv-shows.component.scss" />
         <option value="$PROJECT_DIR$/src/styles.scss" />
+        <option value="$PROJECT_DIR$/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/src/app/shared-modules/core/core.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.component.ts" />
       </list>
     </option>
   </component>
@@ -166,140 +139,6 @@
               <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="discover-options" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="discover-tv-options" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="details" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="discover" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="genres" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="now-playing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="page-not-found" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="person-details" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="top-rated" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="tv-details" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="tv-genres" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="tv-show-episodes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="upcoming" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared-modules" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -317,7 +156,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="item-container&#9;null&#9;null&#10;.item-container&#9;null&#9;null&#10;.item-con&#9;null&#9;null&#10;listitemda&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="item-con&#9;null&#9;null&#10;.item-container&#9;null&#9;null&#10;item-container&#9;null&#9;null&#10;.item-con&#9;null&#9;null&#10;listitemda&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -347,7 +186,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -390,27 +229,27 @@
       <workItem from="1526565803695" duration="1862000" />
       <workItem from="1526623388599" duration="11643000" />
       <workItem from="1527231229786" duration="2839000" />
-      <workItem from="1527588094493" duration="1062000" />
+      <workItem from="1527588094493" duration="2225000" />
+      <workItem from="1527748584336" duration="740000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17406000" />
+    <option name="totallyTimeSpent" value="19309000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50033045" side_tool="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32905984" />
       <window_info id="npm" order="0" sideWeight="0.50427353" side_tool="true" weight="0.24983476" />
       <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49966952" weight="0.32905984" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32905984" />
+      <window_info active="true" anchor="bottom" x="1920" y="23" width="1536" height="801" id="Terminal" order="2" type="WINDOWED" visible="true" weight="0.32905984" />
       <window_info anchor="bottom" id="TypeScript" order="5" weight="0.32905984" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.4957265" visible="true" weight="0.24983476" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.4957265" visible="true" weight="0.24983476" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="SonarLint" order="12" visible="true" weight="0.17806268" />
+      <window_info anchor="bottom" id="SonarLint" order="12" weight="0.17806268" />
       <window_info id="Structure" order="2" sideWeight="0.50106156" side_tool="true" weight="0.24983476" />
       <window_info id="Favorites" order="1" sideWeight="0.5014245" side_tool="true" weight="0.24983476" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
@@ -456,13 +295,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/components/top-rated-tv-shows/top-rated-tv-shows.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/top-rated-persons/top-rated-persons.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -576,32 +408,8 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared-modules/core/core.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="62" column="75" selection-start-line="62" selection-start-column="75" selection-end-line="62" selection-end-column="75" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/footer/footer.component.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -731,25 +539,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#70#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/discover-tv-options/discover-tv-options.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/discover-tv-options/discover-tv-options.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="81" selection-start-line="3" selection-start-column="81" selection-end-line="3" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/recommended-movies/recommended-movies.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -760,17 +580,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/recommended-movies/recommended-movies.component.scss">
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="102">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles.scss">
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        <state relative-caret-position="187">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared-modules/core/core.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="12" lean-forward="true" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#115#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
