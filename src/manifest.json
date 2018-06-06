@@ -5,7 +5,7 @@
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/movie-finder",
-  "start_url": "/movie-finder",
+  "start_url": "https://zsoltkerekes.github.io/movie-finder/#/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
