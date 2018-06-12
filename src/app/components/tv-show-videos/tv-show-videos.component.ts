@@ -15,6 +15,7 @@ export class TvShowVideosComponent implements OnChanges {
   videoSrc: SafeResourceUrl;
   selectedVideo: string;
   getGlobal = this.api.getGlobal;
+  embedOptions = '?iv_load_policy=3&rel=0&showinfo=0';
 
   constructor(
     private api: ApiService,
@@ -33,18 +34,18 @@ export class TvShowVideosComponent implements OnChanges {
             results: output.results.map(row => row || {})
           };
           if (this.videos.results.length > 0) {
-            this.setVideoUrl(this.videos.results[0].key + '?iv_load_policy=3&rel=0&showinfo=0');
+            this.setVideoUrl(this.videos.results[0].key + this.embedOptions);
           }
         });
     }
   }
 
   setVideoUrl = key => {
-    this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${key}?iv_load_policy=3&rel=0&showinfo=0`);
+    this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${key}${this.embedOptions}`);
     this.selectedVideo = key;
   }
 
-  getSelectedVideo = i => this.videos.results[i].key === this.selectedVideo;
+  getSelectedVideo = i => this.videos.results[i].key + this.embedOptions === this.selectedVideo;
 
 
 }
