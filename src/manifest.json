@@ -1,10 +1,9 @@
 {
-  "name": "Movie Finder",
+  "name": "Movie, Series and People Finder, and Informer",
   "short_name": "Movie Finder",
   "theme_color": "#000000",
   "background_color": "#C5CAE9",
   "display": "standalone",
-  "scope": "/Movie, Series and People Finder, and Informer",
   "start_url": "https://zsoltkerekes.github.io/movie-finder/#/",
   "icons": [
     {
