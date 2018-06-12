@@ -34,14 +34,14 @@ export class TvShowSeasonVideosComponent implements OnChanges {
             results: output.results.map(row => row || {})
           };
           if (this.videos.results.length > 0) {
-            this.setVideoUrl(this.videos.results[0].key);
+            this.setVideoUrl(this.videos.results[0].key + '?iv_load_policy=3&rel=0&showinfo=0');
           }
         });
     }
   }
 
   setVideoUrl = key => {
-    this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${key}`);
+    this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${key}?iv_load_policy=3&rel=0&showinfo=0`);
     this.selectedVideo = key;
   }
 
