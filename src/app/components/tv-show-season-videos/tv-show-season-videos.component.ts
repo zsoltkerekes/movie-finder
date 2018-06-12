@@ -36,6 +36,7 @@ export class TvShowSeasonVideosComponent implements OnChanges {
           };
           if (this.videos.results.length > 0) {
             this.setVideoUrl(this.videos.results[0].key + this.embedOptions);
+            this.selectedVideo = this.videos.results[0].key ;
           }
         });
     }
@@ -46,7 +47,7 @@ export class TvShowSeasonVideosComponent implements OnChanges {
     this.selectedVideo = key;
   }
 
-  getSelectedVideo = i => this.videos.results[i].key + this.embedOptions === this.selectedVideo;
+  getSelectedVideo = i => this.videos.results[i].key === this.selectedVideo;
 
 
 }
