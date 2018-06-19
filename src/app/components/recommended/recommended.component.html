@@ -3,7 +3,7 @@
     {{ getGlobal() ? 'Choose a Movie genre!': 'Válassz film műfajt!'}}
   </h2>
 
-  <div class="pic" style="background-image: url(https://picsum.photos/1000/500/?random)"></div>
+  <div class="pic" style="background-image: url(https://picsum.photos/900/400/?random)"></div>
 
   <div class="item-container">
     <a *ngFor="let genre of genres" [routerLink]="['/genres', genre.id, 1]">
