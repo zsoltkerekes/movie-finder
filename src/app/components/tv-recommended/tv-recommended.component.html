@@ -3,10 +3,15 @@
     {{ getGlobal() ? 'Choose a Tv series genre!': 'Válassz sorozat műfajt!'}}
   </h2>
 
+  <div class="pic" style="background-image: url(https://picsum.photos/1000/510/?random)"></div>
+
   <div class="item-container">
     <a *ngFor="let genre of tvGenres" [routerLink]="['/tv-genres', genre.id, 1]">
       <button mat-raised-button class="button mat-elevation-z2">{{genre.name}}</button>
     </a>
   </div>
+
+
+
 </section>
 

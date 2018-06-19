@@ -33,7 +33,11 @@
 h2 {
   padding: 1em;
 }
+
 @media (max-width:960px) {
+  .pic {
+    display: none;
+  }
   .item-container {
     justify-content: center;
 
@@ -51,6 +55,22 @@ h2 {
       }
     }
 
+  }
+
+}
+
+@media (min-width:961px) {
+  .pic {
+    width: calc( 70vw - 45px);
+    height: 70vh;
+    background-position: center;
+    background-size: cover;
+    float:left;
+  }
+  .item-container{
+    width: 30vw;
+    max-height: 70vh;
+    overflow-y: auto;
   }
 
 }

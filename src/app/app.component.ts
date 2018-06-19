@@ -8,11 +8,10 @@ import {Component, ViewChild, OnInit} from '@angular/core';
 export class AppComponent implements OnInit {
   cookieLawSeen: boolean;
 
-  @ViewChild('cookieLaw')
-  cookieLawEl: any;
+  @ViewChild('cookieLaw') cookieLaw: any;
 
   ngOnInit() {
-    this.cookieLawSeen = this.cookieLawEl.cookieLawSeen;
+    this.cookieLawSeen = this.cookieLaw.cookieLawSeen;
   }
 
 }
