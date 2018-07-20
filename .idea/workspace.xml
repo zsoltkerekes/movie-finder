@@ -3,10 +3,40 @@
   <component name="ChangeListManager">
     <list default="true" id="9482449f-090e-49d3-a2f8-ed6a302b4aca" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/3rdpartylicenses.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/icons/icon-128x128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/icons/icon-144x144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/icons/icon-152x152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/icons/icon-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/icons/icon-384x384.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/icons/icon-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/icons/icon-72x72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/icons/icon-96x96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/image/movie-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/image/no-pic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/image/tv-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/main.148311099dfec3d9f94a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/movie-icon.369c0a57734617e08156.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ngsw-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ngsw.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/polyfills.45f04dbf0a9140406c3c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/runtime.6afe30102d8fe7337431.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/safety-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/styles.dd566fb618bd4f4937ff.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tv-icon.f2b06e0b3468dda17584.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/worker-basic.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/recommended/recommended.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/recommended/recommended.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/recommended/recommended.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/recommended/recommended.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/containers/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/containers/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/containers/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/containers/home/home.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -23,14 +53,21 @@
     <favorites_list name="movie-finder" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="recommended.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/recommended/recommended.component.ts">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="home.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/containers/home/home.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.component.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/containers/home/home.component.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
+              <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -38,29 +75,8 @@
       <file leaf-file-name="recommended.component.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/recommended/recommended.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tv-recommended.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recommended.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/recommended/recommended.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="85" lean-forward="true" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="85" />
+            <state relative-caret-position="102">
+              <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -68,8 +84,26 @@
       <file leaf-file-name="tv-recommended.component.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+            <state relative-caret-position="102">
+              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="styles.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/styles.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="118" column="2" selection-start-line="118" selection-start-column="2" selection-end-line="118" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colors.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/colors.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -80,6 +114,8 @@
     <findStrings>
       <find>cookie</find>
       <find>cookieLa</find>
+      <find>h1 {</find>
+      <find>h2</find>
     </findStrings>
     <dirStrings>
       <dir>D:\GitHub\movie-finder\src\</dir>
@@ -91,9 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/components/popular-movies/popular-movies.component.html" />
-        <option value="$PROJECT_DIR$/src/app/components/popular-movies/popular-movies.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/popular-tv-shows/popular-tv-shows.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/popular-tv-shows/popular-tv-shows.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/popular-persons/popular-persons.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/popular-persons/popular-persons.component.html" />
@@ -126,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/app/components/discover-tv-options/discover-tv-options.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/recommended-movies/recommended-movies.component.scss" />
         <option value="$PROJECT_DIR$/src/app/components/recommended-tv-shows/recommended-tv-shows.component.scss" />
-        <option value="$PROJECT_DIR$/src/styles.scss" />
         <option value="$PROJECT_DIR$/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/src/app/shared-modules/core/core.module.ts" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
@@ -138,10 +170,14 @@
         <option value="$PROJECT_DIR$/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/footer/footer.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/components/recommended/recommended.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.scss" />
+        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/recommended/recommended.component.html" />
+        <option value="$PROJECT_DIR$/src/app/containers/home/home.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/recommended/recommended.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/containers/home/home.component.scss" />
+        <option value="$PROJECT_DIR$/src/styles.scss" />
       </list>
     </option>
   </component>
@@ -191,49 +227,6 @@
               <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="recommended" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="tv-recommended" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie-finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -243,7 +236,7 @@
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="setVideoUrl&#9;null&#9;null&#10;getSelectedVideo&#9;null&#9;null&#10;&lt;iframe&gt;&#9;null&#9;null&#10;item-con&#9;null&#9;null&#10;.item-container&#9;null&#9;null&#10;item-container&#9;null&#9;null&#10;.item-con&#9;null&#9;null&#10;listitemda&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/HDC-ODC/custompage-reviews" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -325,12 +318,13 @@
       <workItem from="1529410067687" duration="4669000" />
       <workItem from="1529414953755" duration="8000" />
       <workItem from="1529416332293" duration="16000" />
-      <workItem from="1529416577097" duration="1003000" />
+      <workItem from="1529416577097" duration="1628000" />
+      <workItem from="1532077809839" duration="3944000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29767000" />
+    <option name="totallyTimeSpent" value="34336000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -338,24 +332,24 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50033045" side_tool="true" weight="0.32905984" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49966952" weight="0.32905984" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32905984" />
       <window_info id="npm" order="0" sideWeight="0.5099715" side_tool="true" weight="0.24983476" />
-      <window_info active="true" anchor="bottom" x="1920" y="23" width="1536" height="801" id="Terminal" order="2" type="WINDOWED" visible="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49966952" weight="0.32905984" />
+      <window_info active="true" anchor="bottom" x="1920" y="23" width="1536" height="801" id="Terminal" order="2" visible="true" weight="0.32905984" />
       <window_info anchor="bottom" id="TypeScript" order="5" weight="0.32905984" />
       <window_info content_ui="combo" id="Project" order="3" sideWeight="0.4900285" visible="true" weight="0.24983476" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="SonarLint" order="12" weight="0.17806268" />
+      <window_info anchor="bottom" id="Find" order="6" />
       <window_info id="Structure" order="2" sideWeight="0.50106156" side_tool="true" weight="0.24983476" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info id="Favorites" order="1" sideWeight="0.5014245" side_tool="true" weight="0.24983476" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="6" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,19 +385,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/components/similar-tv-shows/similar-tv-shows.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/footer/footer.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -549,20 +530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/colors.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/tv-show-season-videos/tv-show-season-videos.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -654,9 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/containers/home/home.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/footer/footer.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -680,34 +644,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/recommended/recommended.component.scss">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="13" />
+        <state relative-caret-position="102">
+          <caret line="6" column="87" selection-start-line="6" selection-start-column="87" selection-end-line="6" selection-end-column="87" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.scss">
+    <entry file="file://$PROJECT_DIR$/src/app/components/header/header.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        <state relative-caret-position="3">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/recommended/recommended.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="85" lean-forward="true" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="85" />
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/recommended/recommended.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/containers/home/home.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/tv-recommended/tv-recommended.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/containers/home/home.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/colors.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="118" column="2" selection-start-line="118" selection-start-column="2" selection-end-line="118" selection-end-column="2" />
         </state>
       </provider>
     </entry>

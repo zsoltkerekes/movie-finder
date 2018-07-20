@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o --source-map --watch --progress --verbose --live-reload",
+    "start": "ng serve -o --source-map --watch --progress --verbose --live-reload --aot",
     "build": "ng build --prod --aot --service-worker --buildOptimizer --base-href /movie-finder/ --output-path docs",
     "test": "ng test",
     "lint": "ng lint",
