@@ -4,7 +4,6 @@
   display: inline-flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 1em auto;
 
   a {
     color: inherit;
@@ -31,7 +30,8 @@
 }
 
 h2 {
-  padding: 2em 1em 1em;
+  padding: 3em 1em 2em 1em;
+  margin: 0;
   clear: both;
 }
 
