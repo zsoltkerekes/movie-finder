@@ -13,6 +13,7 @@ export interface MovieDetails {
   episode_run_time: Number;
   adult: Boolean;
   budget: Number;
+  revenue: Number;
   created_by: Array<{name: String}>;
   genres: [{ id: Number, name: String }];
   homepage: String;
@@ -39,6 +40,7 @@ export const movieDetailsData = {
   episode_run_time: undefined,
   adult: undefined,
   budget: undefined,
+  revenue: undefined,
   created_by: undefined,
   genres: undefined,
   homepage: undefined,

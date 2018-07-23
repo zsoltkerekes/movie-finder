@@ -15,6 +15,15 @@ export class SearchResultsComponent implements OnInit {
   tvShowPage: Number;
   personPage: Number;
 
+  keywordsSearchResults: {
+    results: [
+      {
+        name: string,
+        id: number
+      }
+    ]
+  };
+
   movieSearchResults: {
     results: Array<ListItem>,
     page: Number,
@@ -50,6 +59,7 @@ export class SearchResultsComponent implements OnInit {
       .subscribe(
         () => {
           if (this.activatedRoute.snapshot.params['phrase']) {
+            this.keywordsSearch();
             this.movieSearch();
             this.tvShowSearch();
             this.personSearch();
@@ -65,6 +75,18 @@ export class SearchResultsComponent implements OnInit {
           }
         }
       );
+  }
+
+  keywordsSearch() {
+    this.phrase = this.activatedRoute.snapshot.params['phrase'];
+    this.keywordsSearchResults = undefined;
+
+    this.api.getKeywordSearch(this.phrase)
+      .subscribe((response) => {
+        const output = response.json();
+        this.keywordsSearchResults = output;
+      });
+
   }
 
   movieSearch() {

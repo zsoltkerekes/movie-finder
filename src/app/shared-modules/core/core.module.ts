@@ -61,6 +61,9 @@ import {FormsModule} from '@angular/forms';
 import {SearchPipe} from '../../pipes/search.pipe';
 import {LazyLoadImagesModule} from 'ngx-lazy-load-images';
 import {SideScrollDirective} from '../../directives/side-scroll.directive';
+import {MovieKeywordsComponent} from '../../components/movie-keywords/movie-keywords.component';
+import { TvKeywordsComponent } from '../../components/tv-keywords/tv-keywords.component';
+import {ByKeywordsComponent} from '../../containers/by-keywords/by-keywords.component';
 
 @NgModule({
   imports: [
@@ -124,6 +127,9 @@ import {SideScrollDirective} from '../../directives/side-scroll.directive';
     MovieReviewsComponent,
     TvShowReviewsComponent,
     TopRatedPersonsComponent,
+    MovieKeywordsComponent,
+    TvKeywordsComponent,
+    ByKeywordsComponent,
     SearchPipe,
     PersonTaggedImagesComponent,
     SideScrollDirective

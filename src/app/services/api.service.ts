@@ -100,6 +100,8 @@ export class ApiService {
 
   getMovieReviews = id => this.getContent(this.constants.movieReviews(id));
 
+  getMovieKeywords = id => this.getContent(this.constants.movieKeywords(id));
+
   // Movie Ends
 
   // TV Show Begins
@@ -165,6 +167,8 @@ export class ApiService {
 
   getTvShowReviews = id => this.getContent(this.constants.tvShowReviews(id));
 
+  getTvKeywords = id => this.getContent(this.constants.tvKeywords(id));
+
   // TV Show Ends
 
   // People Begins
@@ -184,5 +188,16 @@ export class ApiService {
   getPersonTaggedImages = id => this.getContent(this.constants.personTaggedImages(id));
 
   // People Ends
+
+
+  // Keywords Begins
+
+  getKeywordDetails = id => this.getContent(this.constants.keywordDetails(id));
+
+  getMoviesByKeyword = (id,  page = 1) => this.getContent(this.constants.moviesByKeyword(id, page));
+
+  getKeywordSearch = (phrase, page = 1) => this.getContent(this.constants.keywordSearch(phrase));
+
+  // Keywords Ends
 
 }

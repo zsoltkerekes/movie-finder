@@ -14,6 +14,7 @@ import { TVDetailsComponent } from './containers/tv-details/tv-details.component
 import { TvGenresComponent } from './containers/tv-genres/tv-genres.component';
 import { TvShowEpisodesComponent } from './containers/tv-show-episodes/tv-show-episodes.component';
 import { UpcomingComponent } from './containers/upcoming/upcoming.component';
+import { ByKeywordsComponent } from './containers/by-keywords/by-keywords.component';
 
 const baseTitle = 'Movie Finder';
 
@@ -118,6 +119,14 @@ const routes: Routes = [
     path: 'upcoming/:page',
     pathMatch: 'full',
     component: UpcomingComponent,
+    data: {
+      pageTitle: `${baseTitle}`
+    }
+  },
+  {
+    path: 'by-keywords/:id/:keywordsPage',
+    pathMatch: 'full',
+    component: ByKeywordsComponent,
     data: {
       pageTitle: `${baseTitle}`
     }

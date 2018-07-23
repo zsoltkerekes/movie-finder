@@ -1,6 +1,24 @@
 <a href="" name="movie" id="movie"></a>
 
 <h2 *ngIf="phrase" class="text-center">
+    {{getGlobal() ? 'Keywords:' : 'Keywords:'}}
+</h2>
+
+<div  *ngIf="keywordsSearchResults && phrase" class="keywordslist">
+  <a *ngFor="let keyword of keywordsSearchResults.results" [routerLink]="['/by-keywords', keyword.id, '1']">
+    <div>
+      [&nbsp;{{keyword.name}}&nbsp;]
+    </div>
+  </a>
+</div>
+
+<h2 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center">
+    {{getGlobal() ? 'No results' : 'Nincs találat'}}
+</h2>
+
+<mat-divider></mat-divider>
+
+<h2 *ngIf="phrase" class="text-center">
   {{getGlobal() ? 'Movies:' : 'Filmek:'}}
 </h2>
 
@@ -11,7 +29,7 @@
 </div>
 
 <h2 *ngIf="movieSearchResults && !(movieSearchResults.results.length) && phrase" class="text-center">
-  {{getGlobal() ? 'No results:' : 'Nincs találat:'}}
+  {{getGlobal() ? 'No results' : 'Nincs találat'}}
 </h2>
 
 <mf-pagination *ngIf="phrase" [results]="movieSearchResults" [url]="'/search/'+phrase" [type]="'movie'"></mf-pagination>
@@ -31,7 +49,7 @@
 </div>
 
 <h2 *ngIf="tvShowSearchResults && !(tvShowSearchResults.results.length) && phrase" class="text-center">
-  {{getGlobal() ? 'No results:' : 'Nincs találat:'}}
+  {{getGlobal() ? 'No results' : 'Nincs találat'}}
 </h2>
 
 <mf-pagination *ngIf="phrase" [results]="tvShowSearchResults" [url]="'/search/'+phrase" [type]="'tvShow'"></mf-pagination>
@@ -51,7 +69,7 @@
 </div>
 
 <h2 *ngIf="personSearchResults && !(personSearchResults.results.length) && phrase" class="text-center">
-  {{getGlobal() ? 'No results:' : 'Nincs találat:'}}
+  {{getGlobal() ? 'No results' : 'Nincs találat'}}
 </h2>
 
 <mf-pagination *ngIf="phrase" [results]="personSearchResults" [url]="'/search/'+phrase" [type]="'person'"></mf-pagination>

@@ -205,6 +205,9 @@ export class ConstantsService {
   movieReviews = id =>
     `${this.apiBaseUrl}movie/${id}/reviews?${this.options()}`
 
+  movieKeywords = id =>
+    `${this.apiBaseUrl}movie/${id}/keywords?${this.options()}`
+
   // Movie Ends
 
   // TV Show Begins
@@ -252,6 +255,9 @@ export class ConstantsService {
   tvShowReviews = id =>
     `${this.apiBaseUrl}tv/${id}/reviews?${this.options()}`
 
+  tvKeywords = id =>
+    `${this.apiBaseUrl}tv/${id}/keywords?${this.options()}`
+
   // TV Show Ends
 
   // People Begins
@@ -274,9 +280,22 @@ export class ConstantsService {
   personSearch = (phrase, page) =>
     `${this.apiBaseUrl}search/person?${this.options()}&query=${phrase}${this.page(page)}`
 
-
   personTaggedImages = id =>
     `${this.apiBaseUrl}person/${id}/tagged_images?${this.options()}`
 
   // People Ends
+
+
+  // Keywords Begins
+
+  keywordDetails = id =>
+  `${this.apiBaseUrl}keyword/${id}?${this.options()}`
+
+  moviesByKeyword = (id, page) =>
+  `${this.apiBaseUrl}keyword/${id}/movies?${this.options()}${this.page(page)}`
+
+  keywordSearch = phrase  =>
+    `${this.apiBaseUrl}search/keyword?${this.options()}&query=${phrase}`
+
+  // Keywords Ends
 }

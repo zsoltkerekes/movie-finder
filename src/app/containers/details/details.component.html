@@ -33,6 +33,10 @@
         {{movie.overview ? movie.overview : 'N/A'}}
       </p>
 
+      <p class="text-right">
+        <mf-movie-keywords [id]="movie.id"></mf-movie-keywords>
+      </p>
+
       <p class="genres">
         <span>
           {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
@@ -41,7 +45,6 @@
           {{ movie.genres ? listGenres(movie.genres) : 'N/A'}}
         </span>
       </p>
-
 
       <p class="runtime">
         <span>
@@ -76,6 +79,15 @@
         </span>
         <span>
           {{ movie.budget ? (movie.budget | currency) : 'N/A' }}
+        </span>
+      </p>
+
+      <p class="budget">
+        <span>
+          {{ getGlobal() ? 'Revenue:' : 'Bevétel:' }}
+        </span>
+        <span>
+          {{ movie.revenue ? (movie.revenue | currency) : 'N/A' }}
         </span>
       </p>
 

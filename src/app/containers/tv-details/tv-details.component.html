@@ -33,6 +33,10 @@
         {{ getGlobal() ? 'Overview:' : 'Tartalom:' }} {{tvShow.overview ? tvShow.overview : 'N/A'}}
       </p>
 
+      <p class="text-right">
+        <mf-tv-keywords [id]="tvShow.id"></mf-tv-keywords>
+      </p>
+
       <p class="genres">
         <span>
           {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}

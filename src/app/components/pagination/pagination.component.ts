@@ -23,6 +23,7 @@ export class PaginationComponent implements OnChanges {
   moviePage: number;
   tvShowPage: number;
   personPage: number;
+  keywordsPage: number;
 
   getGlobal = this.api.getGlobal;
 
@@ -36,6 +37,8 @@ export class PaginationComponent implements OnChanges {
     this.moviePage = +this.activatedRoute.snapshot.params['moviePage'] || 1;
     this.tvShowPage = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
     this.personPage = +this.activatedRoute.snapshot.params['personPage'] || 1;
+    this.personPage = +this.activatedRoute.snapshot.params['personPage'] || 1;
+    this.keywordsPage = +this.activatedRoute.snapshot.params['keywordsPage'] || 1;
 
     if (this.results) {
 
@@ -53,6 +56,7 @@ export class PaginationComponent implements OnChanges {
         if (this.type === 'movie') { expandedUrl = `${this.url}/${i + 1}/${this.tvShowPage}/${this.personPage}`; }
         if (this.type === 'tvShow') { expandedUrl = `${this.url}/${this.moviePage}/${i + 1}/${this.personPage}`; }
         if (this.type === 'person') { expandedUrl = `${this.url}/${this.moviePage}/${this.tvShowPage}/${i + 1}`; }
+        if (this.type === 'keyword') { expandedUrl = `${this.url}/${i + 1}`; }
 
         this.pagination.links[i] = {
           url: expandedUrl,
