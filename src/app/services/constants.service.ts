@@ -1,7 +1,5 @@
-import { TvShowSeasonsComponent } from './../components/tv-show-seasons/tv-show-seasons.component';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable()
 export class ConstantsService {

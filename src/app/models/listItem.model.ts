@@ -1,10 +1,10 @@
 export interface ListItem {
-  title: String;
-  name: String;
-  genre_ids: Number[];
-  id: Number;
-  poster_path: String;
-  profile_path: String;
+  title: string;
+  name: string;
+  genre_ids: number[];
+  id: number;
+  poster_path: string;
+  profile_path: string;
   known_for: Array<{
     title: string
   }>;

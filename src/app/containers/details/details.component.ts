@@ -1,5 +1,5 @@
 
-import { ApiService } from './../../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieDetails, movieDetailsData } from '../../models/MovieDetails.model';
@@ -14,9 +14,9 @@ declare function escape(s: string): string;
 
 export class DetailsComponent implements OnInit {
 
-  id: Number;
+  id: number;
   movie: MovieDetails;
-  height: String;
+  height: string;
   loading: boolean;
   getGlobal = this.api.getGlobal;
   innerWidth: number;

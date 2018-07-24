@@ -15,10 +15,10 @@ declare function escape(s: string): string;
 
 export class TVDetailsComponent implements OnInit {
 
-  id: Number;
+  id: number;
   tvShow: MovieDetails;
-  height: String;
-  createdBy: String;
+  height: string;
+  createdBy: string;
   loading: boolean;
   getGlobal = this.api.getGlobal;
   innerWidth: number;

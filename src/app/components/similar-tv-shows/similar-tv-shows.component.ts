@@ -12,7 +12,7 @@ export class SimilarTvShowsComponent implements OnInit {
 
   @ViewChild ('container') container;
 
-  id: Number;
+  id: number;
 
   similarTvShows: { results: Array<ListItem> } = { results: [listItemInitData] };
 

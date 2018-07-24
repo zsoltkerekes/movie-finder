@@ -12,7 +12,7 @@ export class SimilarMoviesComponent implements OnInit {
 
   @ViewChild ('container') container;
 
-  id: Number;
+  id: number;
 
   similarMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
 

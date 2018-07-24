@@ -1,4 +1,3 @@
-import { ConstantsService } from './../../services/constants.service';
 import { ApiService } from './../../services/api.service';
 import { Component, OnInit, DoCheck } from '@angular/core';
 
@@ -10,7 +9,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 export class DiscoverOptionsComponent implements OnInit, DoCheck {
 
   sortByOptions: Array<{ name: string, value: string }>;
-  movieSelected: String;
+  movieSelected: string;
   movieYear: number;
   movieGenres: Array<any>;
   selectedMovieGenres: number[];
@@ -33,8 +32,6 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     this.movieGenres = this.api.genresArray ? [...this.api.genresArray] : null;
   }
 
-
-
   setMovieSortByOption = event => this.api.setMovieSortByOption(event.value);
   setMovieYearOption = event => this.api.setMovieYearOption(event.target.value);
 
@@ -51,6 +48,5 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     const result = this.selectedMovieGenres.findIndex(previouslySelected => previouslySelected === id) !== -1 ? 'checked' : null;
     return result;
   }
-
 
 }

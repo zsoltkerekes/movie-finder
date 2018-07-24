@@ -1,9 +1,7 @@
-import { People, peopleData } from './../../models/person.model';
-
-import { ApiService } from './../../services/api.service';
+import { People, peopleData } from '../../models/person.model';
+import { ApiService } from '../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieDetails, movieDetailsData } from '../../models/MovieDetails.model';
 import { Title } from '@angular/platform-browser';
 
 declare function escape(s: string): string;
@@ -15,9 +13,9 @@ declare function escape(s: string): string;
 
 export class PersonDetailsComponent implements OnInit {
 
-  id: Number;
+  id: number;
   person: People;
-  height: String;
+  height: string;
   loading: boolean;
   getGlobal = this.api.getGlobal;
   innerWidth: number;

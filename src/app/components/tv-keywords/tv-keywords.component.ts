@@ -8,7 +8,7 @@ import { ApiService } from './../../services/api.service';
 })
 export class TvKeywordsComponent implements OnChanges {
   @Input('id') id;
-  keywords: String;
+  keywords: string;
 
   constructor(
     private api: ApiService

@@ -1,5 +1,5 @@
-import { ApiService } from './../../services/api.service';
-import { ListItem, listItemInitData } from './../../models/listItem.model';
+import { ApiService } from '../../services/api.service';
+import { ListItem, listItemInitData } from '../../models/listItem.model';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, DoCheck } from '@angular/core';
 
@@ -10,10 +10,10 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
 
-  phrase: String;
-  moviePage: Number;
-  tvShowPage: Number;
-  personPage: Number;
+  phrase: string;
+  moviePage: number;
+  tvShowPage: number;
+  personPage: number;
 
   keywordsSearchResults: {
     results: [

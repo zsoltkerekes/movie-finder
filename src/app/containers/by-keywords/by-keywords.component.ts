@@ -12,7 +12,7 @@ import { ListItem, listItemInitData } from '../../models/listItem.model';
 export class ByKeywordsComponent implements OnInit {
   id: number;
   page: number;
-  keyword: String;
+  keyword: string;
   movies: { results: Array<ListItem> };
   getGlobal = this.api.getGlobal;
 

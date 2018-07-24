@@ -1,4 +1,3 @@
-import { ConstantsService } from './../../services/constants.service';
 import { ApiService } from './../../services/api.service';
 import { Component, OnInit, DoCheck, ViewChild } from '@angular/core';
 
@@ -10,7 +9,7 @@ import { Component, OnInit, DoCheck, ViewChild } from '@angular/core';
 export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
 
   sortByOptions: Array<{ name: string, value: string }>;
-  tvShowSelected: String;
+  tvShowSelected: string;
   tvShowYear: number;
   tvShowGenres: Array<any>;
   selectedTvShowGenres: number[];
@@ -49,6 +48,5 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
     const result = this.selectedTvShowGenres.findIndex(previouslySelected => previouslySelected === id) !== -1 ? 'checked' : null;
     return result;
   }
-
 
 }

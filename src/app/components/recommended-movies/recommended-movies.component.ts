@@ -12,7 +12,7 @@ export class RecommendedMoviesComponent implements OnInit {
 
   @ViewChild ('container') container;
 
-  id: Number;
+  id: number;
 
   recommendedMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
 

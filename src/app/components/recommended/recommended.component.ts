@@ -9,7 +9,7 @@ import { ApiService } from './../../services/api.service';
 })
 export class RecommendedComponent implements DoCheck {
 
-  genres: Array<{ id: Number, name: String }> = [{ id: 1, name: 'Töltés...' }];
+  genres: { id: Number, name: String }[] = [{ id: 1, name: 'Töltés...' }];
   getGlobal = this.api.getGlobal;
 
   constructor(
