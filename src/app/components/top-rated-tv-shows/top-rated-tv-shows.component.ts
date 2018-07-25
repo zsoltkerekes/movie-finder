@@ -2,7 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import {Component, OnInit, ViewChild} from '@angular/core';
 
 import { ListItem, listItemInitData } from '../../models/listItem.model';
-import { ApiService } from './../../services/api.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'mf-top-rated-tv-shows',
@@ -15,7 +15,7 @@ export class TopRatedTvShowsComponent implements OnInit {
 
   topRatedTvShows: { results: Array<ListItem> };
   page: number;
-
+  isLoading: boolean;
   listGenres = this.api.getGenreList;
   getGlobal = this.api.getGlobal;
 
@@ -28,8 +28,8 @@ export class TopRatedTvShowsComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
+          this.isLoading = true;
           this.topRatedTvShows = { results: [listItemInitData] };
-          this.container.nativeElement.scrollLeft = 0;
           this.page = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
           this.api.getTopRatedTvSows(this.page)
             .subscribe(response => {
@@ -42,6 +42,10 @@ export class TopRatedTvShowsComponent implements OnInit {
                 return 0;
               });
               this.topRatedTvShows = willBeSorted;
+              this.isLoading = false;
+              if (this.container) {
+                this.container.nativeElement.scrollLeft = 0;
+              }
             });
             if (this.activatedRoute.snapshot.fragment === 'tvShow') {
               document.querySelector('#tvShow').scrollIntoView();

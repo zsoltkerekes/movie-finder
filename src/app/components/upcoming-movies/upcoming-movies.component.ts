@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from './../../services/api.service';
-import { ListItem, listItemInitData } from './../../models/listItem.model';
+import { ApiService } from '../../services/api.service';
+import { ListItem, listItemInitData } from '../../models/listItem.model';
 import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
@@ -14,7 +14,7 @@ export class UpcomingMoviesComponent implements OnInit {
 
   upcomingMovies: { results: Array<ListItem> };
   page: number;
-
+  isLoading: boolean;
   listGenres = this.api.getGenreList;
   getGlobal = this.api.getGlobal;
 
@@ -27,8 +27,8 @@ export class UpcomingMoviesComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
+          this.isLoading = true;
           this.upcomingMovies = { results: [listItemInitData] };
-          this.container.nativeElement.scrollLeft = 0;
           this.page = +this.activatedRoute.snapshot.params['page'] || 1;
           this.api.getUpcoming(this.page)
             .subscribe(response => {
@@ -41,6 +41,10 @@ export class UpcomingMoviesComponent implements OnInit {
                 return 0;
               });
               this.upcomingMovies = willBeSorted;
+              this.isLoading = false;
+              if (this.container) {
+                this.container.nativeElement.scrollLeft = 0;
+              }
             });
             document.documentElement.scrollTop = 0;
         }

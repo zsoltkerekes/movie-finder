@@ -1,8 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import { ListItem, listItemInitData } from './../../models/listItem.model';
-import { ApiService } from './../../services/api.service';
+import { ListItem, listItemInitData } from '../../models/listItem.model';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'mf-popular-movies',
@@ -15,8 +15,8 @@ export class PopularMoviesComponent implements OnInit {
 
   popularMovies: { results: Array<ListItem> };
   page: number;
+  isLoading: boolean;
   getGlobal = this.api.getGlobal;
-
   listGenres = this.api.getGenreList;
 
   constructor(
@@ -28,7 +28,7 @@ export class PopularMoviesComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
-          this.container.nativeElement.scrollLeft = 0;
+          this.isLoading = true;
           this.popularMovies = { results: [listItemInitData] };
           this.page = +this.activatedRoute.snapshot.params['moviePage'] || 1;
           this.api.getPopularMovies(this.page)
@@ -36,6 +36,10 @@ export class PopularMoviesComponent implements OnInit {
               const output = response.json();
               output.results = output.results.map(row => row || {});
               this.popularMovies = output;
+              this.isLoading = false;
+              if (this.container) {
+                this.container.nativeElement.scrollLeft = 0;
+              }
             });
             if (this.activatedRoute.snapshot.fragment === 'movie') {
               document.querySelector('#movie').scrollIntoView();

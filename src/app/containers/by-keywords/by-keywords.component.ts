@@ -13,6 +13,7 @@ export class ByKeywordsComponent implements OnInit {
   id: number;
   page: number;
   keyword: string;
+  isLoading: boolean;
   movies: { results: Array<ListItem> };
   getGlobal = this.api.getGlobal;
 
@@ -27,6 +28,7 @@ export class ByKeywordsComponent implements OnInit {
       .subscribe(
         () => {
           document.documentElement.scrollTop = 0;
+          this.isLoading = true;
           this.title.setTitle(`By Keyword :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
           if (this.activatedRoute.snapshot.params['id']) {
             this.id = +this.activatedRoute.snapshot.params['id'];
@@ -45,7 +47,9 @@ export class ByKeywordsComponent implements OnInit {
       .subscribe(
         result => {
           this.keyword = result.json().name;
-          this.title.setTitle(`${this.keyword} :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
+          this.title.setTitle(`${
+            this.keyword[0].toLocaleUpperCase() + this.keyword.substr(1)
+          } :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
         }
       );
 
@@ -53,6 +57,7 @@ export class ByKeywordsComponent implements OnInit {
       .subscribe(
         response => {
           this.movies = response.json();
+          this.isLoading = false;
         }
       );
 

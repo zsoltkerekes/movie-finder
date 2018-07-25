@@ -1,4 +1,4 @@
-import { ApiService } from './../../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { Component, OnChanges, Input } from '@angular/core';
 import { Videos, videosData } from '../../models/videos.model';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';

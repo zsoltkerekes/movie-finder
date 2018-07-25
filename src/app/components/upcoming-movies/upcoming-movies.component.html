@@ -1,13 +1,19 @@
-
-<h2  class="text-center">
-   {{getGlobal() ? 'Upcoming:':'A nemsokára mozikba érkező filmek:'}}
+<h2 class="text-center">
+  {{getGlobal() ? 'Upcoming:':'A nemsokára mozikba érkező filmek:'}}
 </h2>
 
+<h3 class="text-center huge-margin" *ngIf="isLoading">
+  {{getGlobal() ? 'Loading...':'Betöltés...'}}
+</h3>
 
-<div class="item-container" #container>
+<div class="item-container" #container *ngIf="!(isLoading)">
   <a *ngFor="let movie of upcomingMovies.results" [routerLink]="['/details', movie.id]">
     <mf-list-item [movie]="movie" person="" tvShow=""></mf-list-item>
   </a>
 </div>
+
+<h2 class="text-center" *ngIf="upcomingMovies.results.length < 1">
+  {{getGlobal() ? 'No results':'Nincs találat'}}
+</h2>
 
 <mf-pagination [results]="upcomingMovies" [url]="'/upcoming/'"></mf-pagination>

@@ -20,6 +20,19 @@ html {
   }
 }
 
+* {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
 .text-right {
   text-align: right;
 }
@@ -124,4 +137,8 @@ h2 {
   0px 0px 13px $main-bg-color,
   0px 0px 17px $main-bg-color,
   0px 0px 30px $main-bg-color;
+}
+
+.huge-margin {
+  margin: 25vh 0;
 }

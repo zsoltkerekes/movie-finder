@@ -1,5 +1,5 @@
-import { ApiService } from './../../services/api.service';
-import { PeopleMovieCredits, peopleMovieCreditsData } from './../../models/person.model';
+import { ApiService } from '../../services/api.service';
+import { PeopleMovieCredits, peopleMovieCreditsData } from '../../models/person.model';
 import { Component, OnChanges, Input } from '@angular/core';
 
 @Component({

@@ -1,9 +1,9 @@
-import { listItemInitData } from './../../models/listItem.model';
-import { Component, OnInit } from '@angular/core';
+import { listItemInitData } from '../../models/listItem.model';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ListItem } from '../../models/listItem.model';
-import { ApiService } from './../../services/api.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'mf-tv-shows-by-genre',
@@ -11,9 +11,12 @@ import { ApiService } from './../../services/api.service';
   styleUrls: ['./tv-shows-by-genre.component.scss']
 })
 export class TvShowsByGenreComponent implements OnInit {
+
+  @ViewChild ('container') container;
+
   id: number;
   page: number;
-
+  isLoading: boolean;
   tvShowsByGenre: { results: Array<ListItem> } = { results: [listItemInitData] };
 
   listTvGenres = this.api.getTvGenreList;
@@ -30,6 +33,7 @@ export class TvShowsByGenreComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
+          this.isLoading = true;
           document.documentElement.scrollTop = 0;
           this.id = +this.activatedRoute.snapshot.params['id'];
           this.page = +this.activatedRoute.snapshot.params['page'];
@@ -38,6 +42,10 @@ export class TvShowsByGenreComponent implements OnInit {
               const output = response.json();
               output.results = output.results.map(row => row || {});
               this.tvShowsByGenre = output;
+                this.isLoading = false;
+                if (this.container) {
+                  this.container.nativeElement.scrollLeft = 0;
+                }
             }
             );
         }

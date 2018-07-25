@@ -1,9 +1,9 @@
-import { listItemInitData } from './../../models/listItem.model';
+import { listItemInitData } from '../../models/listItem.model';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ListItem } from '../../models/listItem.model';
-import { ApiService } from './../../services/api.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'mf-movies-by-genre',
@@ -16,9 +16,8 @@ export class MoviesByGenreComponent implements OnInit {
 
   id: number;
   page: number;
-
+  isLoading: boolean;
   moviesByGenre: { results: Array<ListItem> };
-
   listGenres = this.api.getGenreList;
   genres = this.api.genres;
   getGlobal = this.api.getGlobal;
@@ -33,9 +32,8 @@ export class MoviesByGenreComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
+          this.isLoading = true;
           this.moviesByGenre = { results: [listItemInitData] };
-          document.documentElement.scrollTop = 0;
-          this.container.nativeElement.scrollLeft = 0;
           this.id = +this.activatedRoute.snapshot.params['id'];
           this.page = +this.activatedRoute.snapshot.params['page'];
           this.api.getMovieByGenre(this.id, this.page)
@@ -43,6 +41,10 @@ export class MoviesByGenreComponent implements OnInit {
               const output = response.json();
               output.results = output.results.map(row => row || {});
               this.moviesByGenre = output;
+              this.isLoading = false;
+              if (this.container) {
+                this.container.nativeElement.scrollLeft = 0;
+              }
             }
             );
         }

@@ -14,6 +14,10 @@ export class SearchResultsComponent implements OnInit {
   moviePage: number;
   tvShowPage: number;
   personPage: number;
+  isLoadingMovie: boolean;
+  isLoadingPerson: boolean;
+  isLoadingTv: boolean;
+  isLoadingKeywords: boolean;
 
   keywordsSearchResults: {
     results: [
@@ -59,6 +63,12 @@ export class SearchResultsComponent implements OnInit {
       .subscribe(
         () => {
           if (this.activatedRoute.snapshot.params['phrase']) {
+
+            this.isLoadingMovie = true;
+            this.isLoadingPerson = true;
+            this.isLoadingTv = true;
+            this.isLoadingKeywords = true;
+
             this.keywordsSearch();
             this.movieSearch();
             this.tvShowSearch();
@@ -85,12 +95,12 @@ export class SearchResultsComponent implements OnInit {
       .subscribe((response) => {
         const output = response.json();
         this.keywordsSearchResults = output;
+        this.isLoadingKeywords = false;
       });
 
   }
 
   movieSearch() {
-
     this.phrase = this.activatedRoute.snapshot.params['phrase'];
     this.moviePage = +this.activatedRoute.snapshot.params['moviePage'] || 1;
     this.movieSearchResults = {
@@ -111,11 +121,11 @@ export class SearchResultsComponent implements OnInit {
           return 0;
         });
         this.movieSearchResults = willBeSorted;
+        this.isLoadingMovie = false;
       });
   }
 
   tvShowSearch() {
-
     this.phrase = this.activatedRoute.snapshot.params['phrase'];
     this.tvShowPage = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
     this.tvShowSearchResults = {
@@ -136,11 +146,11 @@ export class SearchResultsComponent implements OnInit {
           return 0;
         });
         this.tvShowSearchResults = willBeSorted;
+        this.isLoadingTv = false;
       });
   }
 
   personSearch() {
-
     this.phrase = this.activatedRoute.snapshot.params['phrase'];
     this.personPage = +this.activatedRoute.snapshot.params['personPage'] || 1;
     this.personSearchResults = {
@@ -161,6 +171,7 @@ export class SearchResultsComponent implements OnInit {
           return 0;
         });
         this.personSearchResults = willBeSorted;
+        this.isLoadingPerson = false;
       });
   }
 

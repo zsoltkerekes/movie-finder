@@ -1,8 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import { ListItem, listItemInitData } from './../../models/listItem.model';
-import { ApiService } from './../../services/api.service';
+import { ListItem, listItemInitData } from '../../models/listItem.model';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'mf-top-rated-persons',
@@ -15,7 +15,7 @@ export class TopRatedPersonsComponent implements OnInit {
 
   topRatedPersons: { results: Array<ListItem> };
   page: number;
-
+  isLoading: boolean;
   listGenres = this.api.getGenreList;
   getGlobal = this.api.getGlobal;
 
@@ -28,14 +28,18 @@ export class TopRatedPersonsComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         () => {
+          this.isLoading = true;
           this.topRatedPersons = { results: [listItemInitData] };
-          this.container.nativeElement.scrollLeft = 0;
           this.page = +this.activatedRoute.snapshot.params['personPage'] || 1;
           this.api.getPopularPersons(this.page)
             .subscribe(response => {
               const output = response.json();
               output.results = output.results.map(row => row || {});
               this.topRatedPersons = output;
+              this.isLoading = false;
+              if (this.container) {
+                this.container.nativeElement.scrollLeft = 0;
+              }
             });
             if (this.activatedRoute.snapshot.fragment === 'person') {
               document.querySelector('#person').scrollIntoView();

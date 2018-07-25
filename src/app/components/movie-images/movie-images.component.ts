@@ -1,4 +1,4 @@
-import { Images, imagesData } from './../../models/images.model';
+import { Images, imagesData } from '../../models/images.model';
 import { Component, OnChanges, Input } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 

@@ -2,10 +2,18 @@
   {{getGlobal()? 'Movies':'Filmek'}} ({{genres[id]}}):
 </h2>
 
-<div class="item-container" #container>
+<h3 class="text-center huge-margin" *ngIf="isLoading">
+  {{getGlobal() ? 'Loading...':'Betöltés...'}}
+</h3>
+
+<div class="item-container" #container *ngIf="!(isLoading)">
   <a *ngFor="let movie of moviesByGenre.results" [routerLink]="['/details', movie.id]">
     <mf-list-item [movie]="movie" tvShow="" person=""></mf-list-item>
   </a>
 </div>
+
+<h2 class="text-center" *ngIf="moviesByGenre.results.length < 1">
+  {{getGlobal() ? 'No results':'Nincs találat'}}
+</h2>
 
 <mf-pagination [results]="moviesByGenre" [url]="'/genres/' + id"></mf-pagination>
