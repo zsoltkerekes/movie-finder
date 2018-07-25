@@ -1,0 +1,93 @@
+<section class="full">
+  <mat-card class="poster">
+    <mat-card-content>
+      <div class="img-container" lazy-load-images>
+        <div class="dots-loader">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <img *ngIf="!loading && innerWidth <= 960" [attr.data-src]="person.profile_path ? 'https://image.tmdb.org/t/p' + '/w500' + person.profile_path :
+             'assets/image/no-pic.jpg'" [alt]="person.name" [title]="person.name" />
+        <img *ngIf="!loading && innerWidth > 960" [src]="person.profile_path ? 'https://image.tmdb.org/t/p' + '/w500' + person.profile_path :
+             'assets/image/no-pic.jpg'" [alt]="person.name" [title]="person.name" />
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="details">
+    <mat-card-content>
+
+      <h2 class="title">
+        {{person.name ? person.name : 'N/A'}} {{person.gender ? getGender(person.gender) : ''}}
+      </h2>
+
+      <p class="overview">
+        {{getGlobal() ? 'Biography: ' : 'Életrajz: ' }} {{person.biography ? person.biography : 'N/A'}}
+      </p>
+
+      <p class="runtime">
+        <span>
+          {{ getGlobal() ? 'Birthday:' : ' Születésnap:' }}
+        </span>
+        <span>
+          {{person.birthday ? person.birthday : 'N/A'}} {{person.place_of_birth ? '('+ person.place_of_birth +')' : ''}}
+        </span>
+      </p>
+
+      <p class="status">
+        <span>
+          {{ getGlobal() ? 'Deathday:' : ' Meghalt:' }}
+        </span>
+        <span>
+          {{person.deathday ? person.deathday : 'N/A'}}
+        </span>
+      </p>
+
+      <p class="homepage">
+        <span>
+          {{ person.homepage ? 'Homepage:':''}}
+        </span>
+        <span *ngIf="person.homepage">
+          <a [href]="person.homepage" target="_blank">
+            {{ person.homepage}}
+          </a>
+        </span>
+      </p>
+
+      <p class="imdb">
+        <span>
+          {{person.imdb_id ? 'Imdb Homepage:':''}}
+        </span>
+        <span *ngIf="person.imdb_id">
+          <a [href]="'https://www.imdb.com/title/'+person.imdb_id" target="_blank">
+            {{'https://www.imdb.com/title/'+person.imdb_id}}
+          </a>
+        </span>
+      </p>
+
+      <p class="youtube">
+        <span>
+          Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
+        </span>
+        <span>
+          <a *ngIf="person.name" [href]="'https://www.youtube.com/results?search_query='+person.name" target="_blank">
+            {{ getGlobal() ? 'by name' : 'név alapján' }}
+          </a>
+        </span>
+      </p>
+
+      <p class="google">
+        <span>
+          Google {{ getGlobal() ? 'search:' : 'keresés:' }}
+        </span>
+        <span>
+          <a *ngIf="person.name" [href]="'https://www.google.hu/search?q='+person.name" target="_blank">
+            {{ getGlobal() ? 'by name' : 'név alapján' }}
+          </a>
+        </span>
+      </p>
+
+    </mat-card-content>
+  </mat-card>
+</section>

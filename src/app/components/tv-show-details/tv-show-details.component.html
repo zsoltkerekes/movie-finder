@@ -1,0 +1,186 @@
+<section class="full" [style.backgroundImage]="backgroundImage()">
+  <mat-card class="poster">
+    <mat-card-content (dblclick)="open()">
+      <div class="img-container" lazy-load-images>
+        <div class="dots-loader">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <img
+          *ngIf="!(loading) && innerWidth <= 960"
+          [attr.data-src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : 'assets/image/no-pic.jpg'"
+          [alt]="tvShow.name"
+          [title]="tvShow.name" />
+
+        <img
+          *ngIf="!(loading) && innerWidth > 960"
+          [src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : 'assets/image/no-pic.jpg'"
+          [alt]="tvShow.name"
+          [title]="tvShow.name" />
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="details">
+    <mat-card-content>
+
+      <h2 class="title">
+        {{tvShow.name ? tvShow.name : 'N/A'}}
+      </h2>
+
+      <h3 class="original_title">
+        {{tvShow.original_name && tvShow.name !== tvShow.original_name ? tvShow.original_name : ''}}
+        <span class="original_language">
+          {{tvShow.original_language ? '('+tvShow.original_language.toUpperCase()+')' : ''}}
+        </span>
+      </h3>
+
+      <p class="overview">
+        {{ getGlobal() ? 'Overview:' : 'Tartalom:' }} {{tvShow.overview ? tvShow.overview : 'N/A'}}
+      </p>
+
+      <p class="text-right">
+        <mf-tv-keywords [id]="tvShow.id"></mf-tv-keywords>
+      </p>
+
+      <p class="genres">
+        <span>
+          {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
+        </span>
+        <span>
+          {{ tvShow.genres && tvShow.genres.length > 0 ? listGenres(tvShow.genres) : 'N/A'}}
+        </span>
+      </p>
+
+      <p class="runtime">
+        <span>
+          {{ getGlobal() ? 'Runtime:' : 'Hossz:' }}
+        </span>
+        <span>
+          {{ tvShow.episode_run_time && tvShow.episode_run_time[0] ? tvShow.episode_run_time[0].toString() + (getGlobal() ? ' minutes'
+          : ' perc').toString() : 'N/A' }}
+        </span>
+      </p>
+
+      <p class="status">
+        <span>
+          {{ getGlobal() ? 'Status:' : 'Státusz:' }}
+        </span>
+        <span>
+          {{tvShow.status ? tvShow.status : 'N/A' }}
+        </span>
+      </p>
+
+      <p class="release_date">
+        <span>
+          {{ getGlobal() ? 'Release date:' : 'Premier dátuma:' }}
+        </span>
+        <span>
+          {{tvShow.first_air_date ? tvShow.first_air_date : 'N/A'}}
+        </span>
+      </p>
+
+      <p class="budget">
+        <span>
+          {{ getGlobal() ? 'Created By:' : 'Készítette:' }}
+        </span>
+        <span>
+          {{ tvShow.created_by && tvShow.created_by.length > 0 ? createdBy : 'N/A' }}
+        </span>
+      </p>
+
+      <p class="vote">
+        <span>
+          {{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}
+        </span>
+        <span>
+          {{tvShow.vote_average ? tvShow.vote_average + '/10' : 'N/A' }}
+        </span>
+      </p>
+
+      <p class="popularity">
+        <span>
+          {{ getGlobal() ? 'Popularity:' : 'Relatív népszerűségi index:' }}
+        </span>
+        <span>
+          {{tvShow.popularity ? tvShow.popularity : 'N/A' }}
+        </span>
+      </p>
+
+      <p class="homepage">
+        <span>
+          {{ tvShow.homepage ? 'Homepage:':''}}
+        </span>
+        <span *ngIf="tvShow.homepage">
+          <a [href]="tvShow.homepage" target="_blank">
+            {{ tvShow.homepage}}
+          </a>
+        </span>
+      </p>
+
+      <p class="imdb">
+        <span>
+          {{ tvShow.imdb_id ? 'Imdb Homepage:':''}}
+        </span>
+        <span *ngIf="tvShow.imdb_id">
+          <a [href]="'https://www.imdb.com/title/'+tvShow.imdb_id" target="_blank">
+            {{'https://www.imdb.com/title/'+tvShow.imdb_id}}
+          </a>
+        </span>
+      </p>
+
+      <p class="youtube">
+        <span>
+          Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
+        </span>
+        <span>
+          <a *ngIf="tvShow.name" [href]="'https://www.youtube.com/results?search_query='+tvShow.name" target="_blank">
+            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
+          </a>
+          <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
+          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.youtube.com/results?search_query='+tvShow.original_name"
+             target="_blank">
+            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
+          </a>
+        </span>
+      </p>
+
+
+      <p class="online-sorozatok">
+        <span>
+          Online {{ getGlobal() ? 'series search:' : 'sorozatok keresés:' }}
+        </span>
+        <span>
+          <a *ngIf="tvShow.name" [href]="'https://www.sorozatbarat.online/video/search?s='+tvShow.name" target="_blank">
+            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
+          </a>
+          <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
+          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.sorozatbarat.online/video/search?s='+tvShow.original_name"
+             target="_blank">
+            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
+          </a>
+        </span>
+      </p>
+
+      <p class="google">
+        <span>
+          Google {{ getGlobal() ? 'search:' : 'keresés:' }}
+        </span>
+        <span>
+          <a *ngIf="tvShow.name" [href]="'https://www.google.hu/search?q='+tvShow.name" target="_blank">
+            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
+          </a>
+          <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
+          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.google.hu/search?q='+tvShow.original_name"
+             target="_blank">
+            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
+          </a>
+        </span>
+      </p>
+
+    </mat-card-content>
+  </mat-card>
+</section>
