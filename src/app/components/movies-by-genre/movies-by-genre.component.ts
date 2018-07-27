@@ -17,7 +17,7 @@ export class MoviesByGenreComponent implements OnInit {
   id: number;
   page: number;
   isLoading: boolean;
-  moviesByGenre: { results: Array<ListItem> };
+  moviesByGenre: { results: Array<ListItem> } = { results: [listItemInitData] };
   listGenres = this.api.getGenreList;
   genres = this.api.genres;
   getGlobal = this.api.getGlobal;
@@ -33,6 +33,7 @@ export class MoviesByGenreComponent implements OnInit {
       .subscribe(
         () => {
           this.isLoading = true;
+          document.documentElement.scrollTop = 0;
           this.moviesByGenre = { results: [listItemInitData] };
           this.id = +this.activatedRoute.snapshot.params['id'];
           this.page = +this.activatedRoute.snapshot.params['page'];
