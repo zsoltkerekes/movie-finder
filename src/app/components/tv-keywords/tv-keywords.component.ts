@@ -8,14 +8,14 @@ import { ApiService } from '../../services/api.service';
 })
 export class TvKeywordsComponent implements OnChanges {
   @Input('id') id;
-  keywords: string;
+  keywords: string[];
 
   constructor(
     private api: ApiService
   ) { }
 
   ngOnChanges() {
-    this.keywords = '';
+    this.keywords = [];
     if (this.id) {
       this.api.getTvKeywords(this.id)
         .subscribe(response => {
@@ -23,7 +23,7 @@ export class TvKeywordsComponent implements OnChanges {
           response.json().results.forEach(keyword => {
             output.push(keyword.name);
           });
-          this.keywords = `(${output.join(', ')})`;
+          this.keywords = output;
         });
     }
   }

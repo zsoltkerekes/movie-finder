@@ -1,0 +1,11 @@
+.mat-chip-list {
+
+  justify-content: center;
+
+  .mat-chip {
+    cursor: pointer;
+    margin: .5em !important;
+    flex-grow: 1;
+    text-align: center;
+  }
+}

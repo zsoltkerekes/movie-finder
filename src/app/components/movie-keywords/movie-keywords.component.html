@@ -1,3 +1,7 @@
-<a *ngFor="let keyword of keywords" [routerLink]="['/by-keywords', keyword.id, '1']">
-  &nbsp;[{{keyword.name}}]&nbsp;
-</a>
+<mat-chip-list>
+  <mat-chip
+    color="primary" [selected]="true"
+    *ngFor="let keyword of keywords" [routerLink]="['/by-keywords', keyword.id, '1']">
+    {{keyword.name}}
+  </mat-chip>
+</mat-chip-list>
