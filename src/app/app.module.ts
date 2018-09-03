@@ -10,6 +10,7 @@ import {ApiService} from './services/api.service';
 import {ConstantsService} from './services/constants.service';
 import {CoreModule} from './shared-modules/core/core.module';
 import {ScrollerService} from './services/scroller.service';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {ScrollerService} from './services/scroller.service';
   ],
   imports: [
     AppRoutingModule,
+    CommonModule,
     CoreModule,
     CookieLawModule,
     ServiceWorkerModule.register('/movie-finder/ngsw-worker.js', {enabled: environment.production})

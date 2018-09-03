@@ -1,4 +1,4 @@
-import {Component, ViewChild, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'mf-root',
@@ -7,11 +7,18 @@ import {Component, ViewChild, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
   cookieLawSeen: boolean;
-
   @ViewChild('cookieLaw') cookieLaw: any;
+
+  checkConnection = () => {
+    // @ts-ignore
+    return(window.navigator.connection.type || '');
+  }
 
   ngOnInit() {
     this.cookieLawSeen = this.cookieLaw.cookieLawSeen;
+    // @ts-ignore
+    window.navigator.connection.onchange = this.checkConnection;
+    this.checkConnection();
   }
 
 }

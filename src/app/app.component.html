@@ -1,7 +1,14 @@
-<mf-header></mf-header>
-<router-outlet></router-outlet>
-<mf-footer></mf-footer>
-<cookie-law #cookieLaw
-            name="ng4CookieLaw"
-            (isSeen)="cookieLawSeen = $event"
-            target="_blank"></cookie-law>
+<div *ngIf="checkConnection() !== 'none' ">
+  <mf-header></mf-header>
+  <router-outlet></router-outlet>
+  <mf-footer></mf-footer>
+  <cookie-law #cookieLaw name="ng4CookieLaw" (isSeen)="cookieLawSeen = $event" target="_blank"></cookie-law>
+</div>
+
+<div *ngIf="checkConnection() === 'none' ">
+  <mf-header></mf-header>
+  <div class="error">
+    <img src='/assets/image/no-internet.jpg'/>
+  </div>
+  <mf-footer></mf-footer>
+</div>
