@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {CookieService} from 'ngx-cookie-service';
-import {CookieLawModule} from 'angular2-cookie-law';
 
 import {environment} from '../environments/environment';
 import {AppRoutingModule} from './app-routing.module';
@@ -20,7 +19,6 @@ import {CommonModule} from '@angular/common';
     AppRoutingModule,
     CommonModule,
     CoreModule,
-    CookieLawModule,
     ServiceWorkerModule.register('/movie-finder/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
