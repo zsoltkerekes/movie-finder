@@ -4,8 +4,8 @@
   "assetGroups": [
     {
       "name": "app",
-      "installMode": "prefetch",
-      "updateMode": "prefetch",
+      "installMode": "lazy",
+      "updateMode": "lazy",
       "urls": [
         "/movie-finder/favicon.ico",
         "/movie-finder/index.html"
@@ -15,7 +15,7 @@
     {
       "name": "assets",
       "installMode": "lazy",
-      "updateMode": "prefetch",
+      "updateMode": "lazy",
       "urls": [
         "/movie-finder/assets/icons/icon-128x128.png",
         "/movie-finder/assets/icons/icon-144x144.png",
@@ -35,9 +35,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
     "/movie-finder/assets/icons/icon-128x128.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "bd16246cc5a1934e2da8221e082a061908f0299e",
     "/movie-finder/assets/icons/icon-144x144.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
     "/movie-finder/assets/icons/icon-152x152.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
     "/movie-finder/assets/icons/icon-192x192.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
@@ -48,7 +46,9 @@
     "/movie-finder/assets/image/movie-bg.jpg": "b79eec7586590d78a9fead88ab8a517f6e5f8cc0",
     "/movie-finder/assets/image/movie-icon.png": "2df6e76b55b2fb3d36fd34820b12e06117b2d886",
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
-    "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2"
+    "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
+    "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
+    "/movie-finder/index.html": "970bcfff299357da05fb405fe4b2d3709a5e4f27"
   },
   "navigationUrls": [
     {
@@ -57,15 +57,15 @@
     },
     {
       "positive": false,
-      "regex": "^\\/(?:.+\\/)?[^\\/]*\\.[^\\/]*$"
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
     },
     {
       "positive": false,
-      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*$"
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
     },
     {
       "positive": false,
-      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*\\/.*$"
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
     }
   ]
 }
