@@ -32,6 +32,14 @@ p {
   .footer {
     p {
       clear: both;
+      text-align: center;
     }
+  }
+}
+@media (max-width: 599px) {
+  .toggle {
+    float: none;
+    text-align: center;
+    margin: 0 12%;
   }
 }

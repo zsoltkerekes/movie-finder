@@ -46,3 +46,14 @@ h1 {
     display: block;
   }
 }
+
+@media (max-width: 599px) {
+  .mobil-header {
+    padding: 0;
+    .mobile-menu {
+      position: absolute;
+      top: 0.5em;
+      right: 1em;
+    }
+  }
+}

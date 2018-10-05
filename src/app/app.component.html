@@ -1,6 +1,8 @@
 <div *ngIf="checkConnection() !== 'none' ">
   <mf-header></mf-header>
-  <router-outlet></router-outlet>
+  <section class="container">
+    <router-outlet></router-outlet>
+  </section>
   <mf-footer></mf-footer>
 </div>
 

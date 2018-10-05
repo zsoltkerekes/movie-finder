@@ -19,10 +19,6 @@
       "urls": [
         "/movie-finder/assets/icons/icon-128x128.png",
         "/movie-finder/assets/icons/icon-144x144.png",
-        "/movie-finder/assets/icons/icon-152x152.png",
-        "/movie-finder/assets/icons/icon-192x192.png",
-        "/movie-finder/assets/icons/icon-384x384.png",
-        "/movie-finder/assets/icons/icon-512x512.png",
         "/movie-finder/assets/icons/icon-72x72.png",
         "/movie-finder/assets/icons/icon-96x96.png",
         "/movie-finder/assets/image/movie-bg.jpg",
@@ -35,20 +31,16 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/movie-finder/assets/icons/icon-128x128.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/assets/icons/icon-144x144.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/assets/icons/icon-152x152.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/assets/icons/icon-192x192.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/assets/icons/icon-384x384.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/assets/icons/icon-512x512.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/assets/icons/icon-72x72.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/assets/icons/icon-96x96.png": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/assets/image/movie-bg.jpg": "b79eec7586590d78a9fead88ab8a517f6e5f8cc0",
+    "/movie-finder/assets/icons/icon-128x128.png": "4977cfc454bd48023e8d225d8894468cc464eac8",
+    "/movie-finder/assets/icons/icon-144x144.png": "4977cfc454bd48023e8d225d8894468cc464eac8",
+    "/movie-finder/assets/icons/icon-72x72.png": "4977cfc454bd48023e8d225d8894468cc464eac8",
+    "/movie-finder/assets/icons/icon-96x96.png": "4977cfc454bd48023e8d225d8894468cc464eac8",
+    "/movie-finder/assets/image/movie-bg.jpg": "5c1e70029a3a15132b3e808fe64e03de5a9f9cfc",
     "/movie-finder/assets/image/movie-icon.png": "2df6e76b55b2fb3d36fd34820b12e06117b2d886",
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "970bcfff299357da05fb405fe4b2d3709a5e4f27"
+    "/movie-finder/index.html": "563e3b55fda9b93840a8600855752741f4827880"
   },
   "navigationUrls": [
     {
