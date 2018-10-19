@@ -1,12 +1,10 @@
 <a href="" name="movie" id="movie"></a>
 
-<h2  class="text-center">
+<h2 class="text-center">
   {{getGlobal() ? 'Top rated movies' : 'Legjobb Filmek:'}}
 </h2>
 
-<h3 class="text-center huge-margin" *ngIf="isLoading">
-  {{getGlobal() ? 'Loading...':'Betöltés...'}}
-</h3>
+<mf-loading *ngIf="isLoading"></mf-loading>
 
 <div class="item-container" #container *ngIf="!(isLoading)">
   <a *ngFor="let movie of topRatedMovies.results" [routerLink]="['/details', movie.id]">

@@ -1,8 +1,8 @@
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import { ListItem, listItemInitData } from '../../models/listItem.model';
-import { ApiService } from '../../services/api.service';
+import {ListItem, listItemInitData} from '../../models/listItem.model';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-top-rated-movies',
@@ -11,7 +11,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class TopRatedMoviesComponent implements OnInit {
 
-  @ViewChild ('container') container;
+  @ViewChild('container') container;
 
   topRatedMovies: { results: Array<ListItem> };
   page: number;
@@ -22,14 +22,15 @@ export class TopRatedMoviesComponent implements OnInit {
   constructor(
     private api: ApiService,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
         () => {
           this.isLoading = true;
-          this.topRatedMovies = { results: [listItemInitData] };
+          this.topRatedMovies = {results: [listItemInitData]};
           this.page = +this.activatedRoute.snapshot.params['moviePage'] || 1;
           this.api.getTopRatedMovies(this.page)
             .subscribe(response => {
@@ -37,8 +38,12 @@ export class TopRatedMoviesComponent implements OnInit {
               output.results = output.results.map(row => row || {});
               const willBeSorted = output;
               willBeSorted.results.sort((a, b) => {
-                if (a.popularity > b.popularity) { return -1; }
-                if (a.popularity < b.popularity) { return 1; }
+                if (a.popularity > b.popularity) {
+                  return -1;
+                }
+                if (a.popularity < b.popularity) {
+                  return 1;
+                }
                 return 0;
               });
               this.topRatedMovies = willBeSorted;
@@ -47,9 +52,9 @@ export class TopRatedMoviesComponent implements OnInit {
                 this.container.nativeElement.scrollLeft = 0;
               }
             });
-            if (this.activatedRoute.snapshot.fragment === 'movie') {
-              document.querySelector('#movie').scrollIntoView();
-            }
+          if (this.activatedRoute.snapshot.fragment === 'movie') {
+            document.querySelector('#movie').scrollIntoView();
+          }
         }
       );
   }

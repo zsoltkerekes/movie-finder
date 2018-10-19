@@ -24,7 +24,7 @@ export class TvShowDetailsComponent implements OnChanges, OnInit, AfterContentCh
     if (this.tvShow.backdrop_path) {
       return `url(${this.api.getBackgroundUrl()}${this.tvShow.backdrop_path})`;
     }
-  }
+  };
 
   listGenres = array => {
     const output = [];
@@ -36,7 +36,7 @@ export class TvShowDetailsComponent implements OnChanges, OnInit, AfterContentCh
     } else {
       return array;
     }
-  }
+  };
 
   constructor(
     private api: ApiService,

@@ -10,13 +10,7 @@
 
 .img-container {
   position: relative;
-  min-height:  calc( 75vh + 2.5em );
-
-  .dots-loader {
-    position: absolute;
-    top: 90px;
-    left: calc( 50% - 1.5em);
-  }
+  min-height: 36vh;
 
   img {
     z-index: 1000;

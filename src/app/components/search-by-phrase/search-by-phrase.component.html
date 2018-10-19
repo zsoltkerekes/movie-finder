@@ -1,6 +1,7 @@
 <mat-form-field class="full-width">
-  <input matInput type="search" #message maxlength="135" [placeholder]="placeholder" (keypress)="keyPressed($event)" required="required">
-  <mat-hint align="start"><strong>{{hint}}</strong> </mat-hint>
+  <input matInput type="search" #message maxlength="135" [placeholder]="placeholder" (keypress)="keyPressed($event)"
+         required="required">
+  <mat-hint align="start"><strong>{{hint}}</strong></mat-hint>
   <mat-hint align="end">{{message.value.length}} / 135</mat-hint>
 </mat-form-field>
 

@@ -8,8 +8,8 @@ import {Component, OnInit} from '@angular/core';
 export class AppComponent implements OnInit {
   checkConnection = () => {
     // @ts-ignore
-    return(window.navigator.connection.type || '');
-  }
+    return (window.navigator.connection.type || '');
+  };
 
   ngOnInit() {
     // @ts-ignore

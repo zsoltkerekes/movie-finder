@@ -1,5 +1,5 @@
-import { ApiService } from '../../services/api.service';
-import { Component, OnChanges, Input } from '@angular/core';
+import {ApiService} from '../../services/api.service';
+import {Component, Input, OnChanges} from '@angular/core';
 
 @Component({
   selector: 'mf-tv-show-reviews',
@@ -19,7 +19,8 @@ export class TvShowReviewsComponent implements OnChanges {
 
   constructor(
     private api: ApiService
-  ) { }
+  ) {
+  }
 
   ngOnChanges() {
     if (this.id) {

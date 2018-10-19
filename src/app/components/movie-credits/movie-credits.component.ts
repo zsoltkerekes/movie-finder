@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 
-import { PeopleMovieCredits, peopleMovieCreditsData } from '../../models/person.model';
-import { ApiService } from '../../services/api.service';
+import {PeopleMovieCredits, peopleMovieCreditsData} from '../../models/person.model';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-movie-credits',
@@ -33,13 +33,21 @@ export class MovieCreditsComponent implements OnChanges {
         .subscribe(response => {
           const output = response.json();
           output.cast = output.cast.sort((a, b) => {
-            if (a.order < b.order) { return -1; }
-            if (a.order > b.order) { return 1; }
+            if (a.order < b.order) {
+              return -1;
+            }
+            if (a.order > b.order) {
+              return 1;
+            }
             return 0;
           });
           output.crew = output.crew.sort((a, b) => {
-            if (a.job < b.job) { return -1; }
-            if (a.job > b.job) { return 1; }
+            if (a.job < b.job) {
+              return -1;
+            }
+            if (a.job > b.job) {
+              return 1;
+            }
             return 0;
           });
           this.movieCredits = output;

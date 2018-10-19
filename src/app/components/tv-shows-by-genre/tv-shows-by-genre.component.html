@@ -2,10 +2,7 @@
   {{getGlobal()? 'Tv shows':'Sorozatok'}} ({{listTvGenres([id])}}):
 </h2>
 
-<h3 class="text-center huge-margin" *ngIf="isLoading">
-  {{getGlobal() ? 'Loading...':'Betöltés...'}}
-</h3>
-
+<mf-loading *ngIf="isLoading"></mf-loading>
 <div class="item-container" #container *ngIf="!(isLoading)">
   <a *ngFor="let tvShow of tvShowsByGenre.results" [routerLink]="['/tv-details', tvShow.id]">
     <mf-list-item [tvShow]="tvShow" movie="" person=""></mf-list-item>

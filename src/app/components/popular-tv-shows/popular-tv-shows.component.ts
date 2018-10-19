@@ -1,8 +1,8 @@
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import { ListItem, listItemInitData } from '../../models/listItem.model';
-import { ApiService } from '../../services/api.service';
+import {ListItem, listItemInitData} from '../../models/listItem.model';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-popular-tv-shows',
@@ -11,9 +11,9 @@ import { ApiService } from '../../services/api.service';
 })
 export class PopularTvShowsComponent implements OnInit {
 
-  @ViewChild ('container') container;
+  @ViewChild('container') container;
 
-  popularTvShows: { results: Array<ListItem> } ;
+  popularTvShows: { results: Array<ListItem> };
   page: number;
   isLoading: boolean;
   listGenres = this.api.getGenreList;
@@ -22,14 +22,15 @@ export class PopularTvShowsComponent implements OnInit {
   constructor(
     private api: ApiService,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
         () => {
           this.isLoading = true;
-          this.popularTvShows = { results: [listItemInitData] };
+          this.popularTvShows = {results: [listItemInitData]};
           this.page = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
           this.api.getPopularTvShows(this.page)
             .subscribe(response => {
@@ -41,14 +42,13 @@ export class PopularTvShowsComponent implements OnInit {
                 this.container.nativeElement.scrollLeft = 0;
               }
             });
-            if (this.activatedRoute.snapshot.fragment === 'tvShow') {
-              document.querySelector('#tvShow').scrollIntoView();
-            }
+          if (this.activatedRoute.snapshot.fragment === 'tvShow') {
+            document.querySelector('#tvShow').scrollIntoView();
+          }
         }
       );
 
   }
-
 
 
 }

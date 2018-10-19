@@ -92,8 +92,8 @@ export const peopleMovieCreditsData = {
     overview: undefined,
     poster_path: undefined,
     first_air_date: undefined,
-    name:  undefined,
-    original_name:  undefined,
+    name: undefined,
+    original_name: undefined,
     order: 100000000,
     profile_path: undefined
   }],
@@ -113,8 +113,8 @@ export const peopleMovieCreditsData = {
     adult: undefined,
     poster_path: undefined,
     first_air_date: undefined,
-    name:  undefined,
-    original_name:  undefined,
+    name: undefined,
+    original_name: undefined,
     order: 100000000,
     profile_path: undefined
   }]

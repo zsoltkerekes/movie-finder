@@ -1,6 +1,6 @@
-import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../services/api.service';
-import { ListItem, listItemInitData } from '../../models/listItem.model';
+import {ActivatedRoute} from '@angular/router';
+import {ApiService} from '../../services/api.service';
+import {ListItem, listItemInitData} from '../../models/listItem.model';
 import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 })
 export class UpcomingMoviesComponent implements OnInit {
 
-  @ViewChild ('container') container;
+  @ViewChild('container') container;
 
   upcomingMovies: { results: Array<ListItem> };
   page: number;
@@ -21,14 +21,15 @@ export class UpcomingMoviesComponent implements OnInit {
   constructor(
     private api: ApiService,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
         () => {
           this.isLoading = true;
-          this.upcomingMovies = { results: [listItemInitData] };
+          this.upcomingMovies = {results: [listItemInitData]};
           this.page = +this.activatedRoute.snapshot.params['page'] || 1;
           this.api.getUpcoming(this.page)
             .subscribe(response => {
@@ -36,8 +37,12 @@ export class UpcomingMoviesComponent implements OnInit {
               output.results = output.results.map(row => row || {});
               const willBeSorted = output;
               willBeSorted.results.sort((a, b) => {
-                if (a.popularity > b.popularity) { return -1; }
-                if (a.popularity < b.popularity) { return 1; }
+                if (a.popularity > b.popularity) {
+                  return -1;
+                }
+                if (a.popularity < b.popularity) {
+                  return 1;
+                }
                 return 0;
               });
               this.upcomingMovies = willBeSorted;
@@ -46,7 +51,7 @@ export class UpcomingMoviesComponent implements OnInit {
                 this.container.nativeElement.scrollLeft = 0;
               }
             });
-            document.documentElement.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
         }
       );
   }

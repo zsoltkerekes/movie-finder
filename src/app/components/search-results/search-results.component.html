@@ -1,14 +1,12 @@
 <a href="" name="movie" id="movie"></a>
 
 <h2 *ngIf="phrase" class="text-center">
-    {{getGlobal() ? 'Keywords:' : 'Keywords:'}}
+  {{getGlobal() ? 'Keywords:' : 'Keywords:'}}
 </h2>
 
-<h3 class="text-center huge-margin" *ngIf="isLoadingKeywords">
-  {{getGlobal() ? 'Loading...':'Betöltés...'}}
-</h3>
+<mf-loading *ngIf="isLoadingKeywords"></mf-loading>
 
-<div  *ngIf="keywordsSearchResults && phrase && !(isLoadingKeywords)" class="keywordslist">
+<div *ngIf="keywordsSearchResults && phrase && !(isLoadingKeywords)" class="keywordslist">
   <mat-chip-list>
     <mat-chip
       color="primary" [selected]="true"
@@ -19,7 +17,7 @@
 </div>
 
 <h2 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center">
-    {{getGlobal() ? 'No results' : 'Nincs találat'}}
+  {{getGlobal() ? 'No results' : 'Nincs találat'}}
 </h2>
 
 <mat-divider *ngIf="phrase"></mat-divider>
@@ -28,9 +26,7 @@
   {{getGlobal() ? 'Movies:' : 'Filmek:'}}
 </h2>
 
-<h3 class="text-center huge-margin" *ngIf="isLoadingMovie">
-  {{getGlobal() ? 'Loading...':'Betöltés...'}}
-</h3>
+<mf-loading *ngIf="isLoadingMovie"></mf-loading>
 
 <div class="item-container" *ngIf="movieSearchResults && phrase && !(isLoadingMovie)">
   <a *ngFor="let movie of movieSearchResults.results" [routerLink]="['/details', movie.id]">
@@ -52,9 +48,7 @@
   {{getGlobal() ? 'Tv Shows:' : 'Sorozatok:'}}
 </h2>
 
-<h3 class="text-center huge-margin" *ngIf="isLoadingTv">
-  {{getGlobal() ? 'Loading...':'Betöltés...'}}
-</h3>
+<mf-loading *ngIf="isLoadingTv"></mf-loading>
 
 <div class="item-container" *ngIf="tvShowSearchResults && phrase && !(isLoadingTv)">
   <a *ngFor="let tvShow of tvShowSearchResults.results" [routerLink]="['/tv-details', tvShow.id]">
@@ -66,7 +60,8 @@
   {{getGlobal() ? 'No results' : 'Nincs találat'}}
 </h2>
 
-<mf-pagination *ngIf="phrase" [results]="tvShowSearchResults" [url]="'/search/'+phrase" [type]="'tvShow'"></mf-pagination>
+<mf-pagination *ngIf="phrase" [results]="tvShowSearchResults" [url]="'/search/'+phrase"
+               [type]="'tvShow'"></mf-pagination>
 
 <mat-divider *ngIf="phrase"></mat-divider>
 
@@ -76,9 +71,7 @@
   {{getGlobal() ? 'Persons:' : 'Emberek:'}}
 </h2>
 
-<h3 class="text-center huge-margin" *ngIf="isLoadingPerson">
-  {{getGlobal() ? 'Loading...':'Betöltés...'}}
-</h3>
+<mf-loading *ngIf="isLoadingPerson"></mf-loading>
 
 <div class="item-container" *ngIf="personSearchResults && phrase && !(isLoadingPerson)">
   <a *ngFor="let person of personSearchResults.results" [routerLink]="['/person-details', person.id]">
@@ -90,4 +83,5 @@
   {{getGlobal() ? 'No results' : 'Nincs találat'}}
 </h2>
 
-<mf-pagination *ngIf="phrase" [results]="personSearchResults" [url]="'/search/'+phrase" [type]="'person'"></mf-pagination>
+<mf-pagination *ngIf="phrase" [results]="personSearchResults" [url]="'/search/'+phrase"
+               [type]="'person'"></mf-pagination>

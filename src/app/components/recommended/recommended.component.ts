@@ -1,6 +1,6 @@
-import { Component, DoCheck } from '@angular/core';
+import {Component, DoCheck} from '@angular/core';
 
-import { ApiService } from '../../services/api.service';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-recommended',
@@ -9,18 +9,17 @@ import { ApiService } from '../../services/api.service';
 })
 export class RecommendedComponent implements DoCheck {
 
-  genres: { id: Number, name: String }[] = [{ id: 1, name: 'Töltés...' }];
+  genres: { id: Number, name: String }[];
   getGlobal = this.api.getGlobal;
 
   constructor(
     private api: ApiService
-  ) { }
-
-  ngDoCheck() {
-    this.genres = this.api.genresArray ? [...this.api.genresArray] : null;
+  ) {
   }
 
-
+  ngDoCheck() {
+    this.genres = this.api.genresArray ? [...this.api.genresArray] : [{id: 1, name: 'Loading...'}];
+  }
 
 
 }

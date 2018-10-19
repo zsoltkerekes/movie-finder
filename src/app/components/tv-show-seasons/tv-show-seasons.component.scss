@@ -17,10 +17,10 @@ h4 {
   margin-top: 10%;
 }
 
-@media (max-width:960px) {
+@media (max-width: 960px) {
   .poster {
     margin: 1em auto;
-    padding-left: calc( 50% - 171px );
+    padding-left: calc(50% - 171px);
     float: none;
   }
 
@@ -30,15 +30,17 @@ h4 {
   }
   p:last-of-type {
     text-align: justify;
-  };
+  }
+;
 
   button {
     width: 80%;
-    margin-left:10%;
+    margin-left: 10%;
   }
 
 }
-@media (max-width:400px) {
+
+@media (max-width: 400px) {
   .poster {
     width: 90%;
     padding: 0;

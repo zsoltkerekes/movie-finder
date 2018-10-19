@@ -39,7 +39,7 @@ export class MovieDetailsComponent implements OnChanges {
           }`);
         this.loading = false;
       });
-  }
+  };
 
   listGenres = array => {
     const output = [];
@@ -51,13 +51,13 @@ export class MovieDetailsComponent implements OnChanges {
     } else {
       return array;
     }
-  }
+  };
 
   backgroundImage = () => {
     if (this.movie.backdrop_path) {
       return `url(${this.api.getBackgroundUrl()}${this.movie.backdrop_path})`;
     }
-  }
+  };
 
   constructor(
     private api: ApiService,

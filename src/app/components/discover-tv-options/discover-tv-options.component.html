@@ -9,15 +9,16 @@
   </mat-form-field>
 
   <mat-form-field class="year">
-    <input matInput type="number" [placeholder]="placeholder"min="1900" [value]="tvShowYear" max="2050" (change)="setTvShowYearOption($event)">
+    <input matInput type="number" [placeholder]="placeholder" min="1900" [value]="tvShowYear" max="2050"
+           (change)="setTvShowYearOption($event)">
   </mat-form-field>
 
   <div class="tvShowGenre container">
     <mat-checkbox class="tvShowGenres"
-      *ngFor="let tvShowGenre of tvShowGenres"
-      color="primary"
-      (change)="setTvShowGenre(tvShowGenre.id, $event)"
-      [checked]="getTvCheckedStatus(tvShowGenre.id)">
+                  *ngFor="let tvShowGenre of tvShowGenres"
+                  color="primary"
+                  (change)="setTvShowGenre(tvShowGenre.id, $event)"
+                  [checked]="getTvCheckedStatus(tvShowGenre.id)">
       {{tvShowGenre.name}}
     </mat-checkbox>
   </div>

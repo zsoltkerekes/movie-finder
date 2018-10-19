@@ -17,7 +17,8 @@ export class PersonDetailsComponent implements OnInit {
   constructor(
     private title: Title,
     private activatedRoute: ActivatedRoute,
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.params

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Title } from '@angular/platform-browser';
-import { ApiService } from '../../services/api.service';
-import { ListItem, listItemInitData } from '../../models/listItem.model';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Title} from '@angular/platform-browser';
+import {ApiService} from '../../services/api.service';
+import {ListItem, listItemInitData} from '../../models/listItem.model';
 
 @Component({
   selector: 'mf-movies-by-keyword',
@@ -21,7 +21,8 @@ export class MoviesByKeywordComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private title: Title,
     private api: ApiService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.params
@@ -41,7 +42,7 @@ export class MoviesByKeywordComponent implements OnInit {
 
   loadKeywordsRelatedContent = () => {
 
-    this.movies = { results: [listItemInitData] };
+    this.movies = {results: [listItemInitData]};
 
     this.api.getKeywordDetails(this.id)
       .subscribe(
@@ -61,6 +62,6 @@ export class MoviesByKeywordComponent implements OnInit {
         }
       );
 
-  }
+  };
 
 }

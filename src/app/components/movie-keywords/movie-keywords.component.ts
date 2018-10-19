@@ -1,5 +1,5 @@
-import { Component, OnChanges, Input } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import {Component, Input, OnChanges} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-movie-keywords',
@@ -15,7 +15,8 @@ export class MovieKeywordsComponent implements OnChanges {
 
   constructor(
     private api: ApiService
-  ) { }
+  ) {
+  }
 
   ngOnChanges() {
     this.keywords = [];

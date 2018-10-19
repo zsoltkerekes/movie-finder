@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {People, peopleData} from '../../models/person.model';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
@@ -53,7 +53,7 @@ export class PersonsDetailsComponent implements OnInit {
           }`);
         this.loading = false;
       });
-  }
+  };
 
   listGenres = array => {
     const output = [];
@@ -61,7 +61,7 @@ export class PersonsDetailsComponent implements OnInit {
       output.push(row.name);
     });
     return output.join(', ');
-  }
+  };
 
   getGender(id: number): string {
     switch (id) {

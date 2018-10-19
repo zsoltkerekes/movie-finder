@@ -13,7 +13,8 @@
     color: $main-font-color;
   }
 }
-@media (max-width:960px) {
+
+@media (max-width: 960px) {
   p {
     text-align: right;
     display: flex;
@@ -23,7 +24,6 @@
     align-content: center;
 
     span {
-      margin: .25em;
       line-height: 2.5em;
     }
   }

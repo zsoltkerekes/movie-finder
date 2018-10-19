@@ -1,8 +1,8 @@
 .container {
   @media(max-width: 599px) {
-    min-height: calc( 100vh - 13.5em );
+    min-height: calc(100vh - 13.5em);
   }
   @media(min-width: 960px) {
-    min-height: calc( 100vh - 12em );
+    min-height: calc(100vh - 12em);
   }
 }

@@ -14,7 +14,7 @@ export interface MovieDetails {
   adult: Boolean;
   budget: number;
   revenue: number;
-  created_by: Array<{name: string}>;
+  created_by: Array<{ name: string }>;
   genres: [{ id: number, name: string }];
   homepage: string;
   imdb_id: string;

@@ -1,20 +1,20 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { DetailsComponent } from './containers/details/details.component';
-import { DiscoverComponent } from './containers/discover/discover.component';
-import { GenresComponent } from './containers/genres/genres.component';
-import { HomeComponent } from './containers/home/home.component';
-import { NowPlayingComponent } from './containers/now-playing/now-playing.component';
-import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
-import { PersonDetailsComponent } from './containers/person-details/person-details.component';
-import { SearchComponent } from './containers/search/search.component';
-import { TopRatedComponent } from './containers/top-rated/top-rated.component';
-import { TVDetailsComponent } from './containers/tv-details/tv-details.component';
-import { TvGenresComponent } from './containers/tv-genres/tv-genres.component';
-import { TvShowEpisodesComponent } from './containers/tv-show-episodes/tv-show-episodes.component';
-import { UpcomingComponent } from './containers/upcoming/upcoming.component';
-import { ByKeywordsComponent } from './containers/by-keywords/by-keywords.component';
+import {DetailsComponent} from './containers/details/details.component';
+import {DiscoverComponent} from './containers/discover/discover.component';
+import {GenresComponent} from './containers/genres/genres.component';
+import {HomeComponent} from './containers/home/home.component';
+import {NowPlayingComponent} from './containers/now-playing/now-playing.component';
+import {PageNotFoundComponent} from './containers/page-not-found/page-not-found.component';
+import {PersonDetailsComponent} from './containers/person-details/person-details.component';
+import {SearchComponent} from './containers/search/search.component';
+import {TopRatedComponent} from './containers/top-rated/top-rated.component';
+import {TVDetailsComponent} from './containers/tv-details/tv-details.component';
+import {TvGenresComponent} from './containers/tv-genres/tv-genres.component';
+import {TvShowEpisodesComponent} from './containers/tv-show-episodes/tv-show-episodes.component';
+import {UpcomingComponent} from './containers/upcoming/upcoming.component';
+import {ByKeywordsComponent} from './containers/by-keywords/by-keywords.component';
 
 const baseTitle = 'Movie Finder';
 
@@ -138,11 +138,12 @@ const routes: Routes = [
       pageTitle: `${baseTitle}`
     }
   },
-  { path: '**', redirectTo: '404' }
+  {path: '**', redirectTo: '404'}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

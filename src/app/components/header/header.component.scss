@@ -37,7 +37,8 @@ h1 {
     right: 2em;
   }
 }
-@media (max-width:960px) {
+
+@media (max-width: 960px) {
   .header {
     display: none;
   }

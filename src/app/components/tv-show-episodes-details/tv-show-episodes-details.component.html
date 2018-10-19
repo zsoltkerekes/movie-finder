@@ -10,7 +10,7 @@
     <h3>
       {{tvShowEpisodes.name ? tvShowEpisodes.name : ''}}
       ({{tvShowEpisodes.episodes.length}}
-       {{getGlobal() ? 'episode' : 'epizód'}})
+      {{getGlobal() ? 'episode' : 'epizód'}})
     </h3>
 
     <h4>
@@ -23,8 +23,9 @@
       {{tvShowEpisodes.overview ? tvShowEpisodes.overview : 'N/A'}}
     </p>
 
-    <button *ngFor="let link of tvShow.seasons; let i = index" mat-raised-button [routerLink]="['/tv-show-episodes', id, link.season_number]"
-      routerLinkActive="active">
+    <button *ngFor="let link of tvShow.seasons; let i = index" mat-raised-button
+            [routerLink]="['/tv-show-episodes', id, link.season_number]"
+            routerLinkActive="active">
       {{link.name ? link.name : i + '/' + tvShow.seasons.length}}
     </button>
   </div>
@@ -38,12 +39,12 @@
   <mat-accordion>
 
     <mat-expansion-panel lazy-load-images
-      [expanded]="episodeNumber === i"
-      (opened)="setEpisode(i)"
-      hideToggle="true"
-      *ngFor="let episode of tvShowEpisodes.episodes; let i = index">
+                         [expanded]="episodeNumber === i"
+                         (opened)="setEpisode(i)"
+                         hideToggle="true"
+                         *ngFor="let episode of tvShowEpisodes.episodes; let i = index">
 
-      <mat-expansion-panel-header class="mat-elevation-z2 title" >
+      <mat-expansion-panel-header class="mat-elevation-z2 title">
         <mat-panel-title>
           {{episode.episode_number ? episode.episode_number : 1+i }}.
           {{episode.name ? episode.name : 'N/A'}}
@@ -55,18 +56,18 @@
       </mat-expansion-panel-header>
 
       <img
-      *ngIf="innerWidth <= 960"
-      class="picture"
-      title="{{tvShow.name}} - {{episode.name}}"
-      alt="{{tvShow.name}} - {{episode.name}}"
-      [attr.data-src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
+        *ngIf="innerWidth <= 960"
+        class="picture"
+        title="{{tvShow.name}} - {{episode.name}}"
+        alt="{{tvShow.name}} - {{episode.name}}"
+        [attr.data-src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
 
       <img
-      *ngIf="innerWidth > 960"
-      class="picture"
-      title="{{tvShow.name}} - {{episode.name}}"
-      alt="{{tvShow.name}} - {{episode.name}}"
-      [src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
+        *ngIf="innerWidth > 960"
+        class="picture"
+        title="{{tvShow.name}} - {{episode.name}}"
+        alt="{{tvShow.name}} - {{episode.name}}"
+        [src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
 
 
       <div class="episode-body">

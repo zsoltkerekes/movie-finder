@@ -1,7 +1,7 @@
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-upcoming',
@@ -16,7 +16,8 @@ export class UpcomingComponent implements OnInit {
     private title: Title,
     private activatedRoute: ActivatedRoute,
     private api: ApiService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     document.documentElement.scrollTop = 0;

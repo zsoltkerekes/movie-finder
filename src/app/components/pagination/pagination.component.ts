@@ -1,6 +1,6 @@
-import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import {ActivatedRoute} from '@angular/router';
+import {Component, Input, OnChanges} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-pagination',
@@ -30,7 +30,8 @@ export class PaginationComponent implements OnChanges {
   constructor(
     private activatedRoute: ActivatedRoute,
     private api: ApiService
-  ) { }
+  ) {
+  }
 
   ngOnChanges() {
 
@@ -53,10 +54,18 @@ export class PaginationComponent implements OnChanges {
 
         let expandedUrl = `${this.url}/${i + 1}`;
 
-        if (this.type === 'movie') { expandedUrl = `${this.url}/${i + 1}/${this.tvShowPage}/${this.personPage}`; }
-        if (this.type === 'tvShow') { expandedUrl = `${this.url}/${this.moviePage}/${i + 1}/${this.personPage}`; }
-        if (this.type === 'person') { expandedUrl = `${this.url}/${this.moviePage}/${this.tvShowPage}/${i + 1}`; }
-        if (this.type === 'keyword') { expandedUrl = `${this.url}/${i + 1}`; }
+        if (this.type === 'movie') {
+          expandedUrl = `${this.url}/${i + 1}/${this.tvShowPage}/${this.personPage}`;
+        }
+        if (this.type === 'tvShow') {
+          expandedUrl = `${this.url}/${this.moviePage}/${i + 1}/${this.personPage}`;
+        }
+        if (this.type === 'person') {
+          expandedUrl = `${this.url}/${this.moviePage}/${this.tvShowPage}/${i + 1}`;
+        }
+        if (this.type === 'keyword') {
+          expandedUrl = `${this.url}/${i + 1}`;
+        }
 
         this.pagination.links[i] = {
           url: expandedUrl,

@@ -30,7 +30,7 @@ export class TVDetailsComponent implements OnInit {
         this.tvShow = output;
         this.title.setTitle(`${ this.tvShow.name } :: ${  this.activatedRoute.snapshot.data['pageTitle']      }`);
       });
-  }
+  };
 
   constructor(
     private title: Title,

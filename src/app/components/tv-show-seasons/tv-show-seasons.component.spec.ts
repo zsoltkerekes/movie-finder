@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TvShowSeasonsComponent } from './tv-show-seasons.component';
+import {TvShowSeasonsComponent} from './tv-show-seasons.component';
 
 describe('TvShowSeasonsComponent', () => {
   let component: TvShowSeasonsComponent;
@@ -8,9 +8,9 @@ describe('TvShowSeasonsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TvShowSeasonsComponent ]
+      declarations: [TvShowSeasonsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

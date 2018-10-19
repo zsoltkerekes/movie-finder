@@ -68,6 +68,7 @@ import {MoviesByKeywordComponent} from '../../components/movies-by-keyword/movie
 import {MovieDetailsComponent} from '../../components/movie-details/movie-details.component';
 import {TvShowDetailsComponent} from '../../components/tv-show-details/tv-show-details.component';
 import {PersonsDetailsComponent} from '../../components/person-details/person-details.component';
+import {LoadingComponent} from '../../components/loading/loading.component';
 
 @NgModule({
   imports: [
@@ -140,7 +141,8 @@ import {PersonsDetailsComponent} from '../../components/person-details/person-de
     SideScrollDirective,
     MovieDetailsComponent,
     TvShowDetailsComponent,
-    PersonsDetailsComponent
+    PersonsDetailsComponent,
+    LoadingComponent
   ],
   exports: [
     HomeComponent,

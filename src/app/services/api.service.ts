@@ -1,15 +1,15 @@
-import { Router } from '@angular/router';
-import { ConstantsService } from './constants.service';
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Router} from '@angular/router';
+import {ConstantsService} from './constants.service';
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
 
 @Injectable()
 export class ApiService {
 
-  genres = { name: String, id: Number };
+  genres = {name: String, id: Number};
   genresArray: Array<{ id: Number, name: String }>;
 
-  tvGenres = { name: String, id: Number };
+  tvGenres = {name: String, id: Number};
   tvGenresArray: Array<{ id: Number, name: String }>;
 
 
@@ -56,15 +56,21 @@ export class ApiService {
 
   getAllPossibleGenres = () => {
     this.getContent(this.constants.apiGenres()).subscribe(response => {
-      response.json().genres.forEach(row => { this.genres[row.id] = row.name; });
+      response.json().genres.forEach(row => {
+        this.genres[row.id] = row.name;
+      });
       this.genresArray = response.json().genres.sort((a, b) => {
-        if (a.name > b.name) { return 1; }
-        if (a.name < b.name) { return -1; }
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
         return 0;
       });
       this.getAllPossibleTvGenres();
     });
-  }
+  };
 
   getGenreList = (array: Array<Number>): String => {
     const output = [];
@@ -72,7 +78,7 @@ export class ApiService {
       output.push(this.genres[row.toString()]);
     });
     return output.join(', ');
-  }
+  };
 
   getPopularMovies = (page = 1) => this.getContent(this.constants.popularMovies(page));
 
@@ -108,7 +114,9 @@ export class ApiService {
 
   getAllPossibleTvGenres = () => {
     this.getContent(this.constants.apiTvGenres()).subscribe(response => {
-      response.json().genres.forEach(row => { this.tvGenres[row.id] = row.name; });
+      response.json().genres.forEach(row => {
+        this.tvGenres[row.id] = row.name;
+      });
       this.tvGenres = {
         ...this.genres,
         ...this.tvGenres
@@ -117,8 +125,12 @@ export class ApiService {
         ...this.genresArray,
         ...response.json().genres
       ].sort((a, b) => {
-        if (a.name > b.name) { return 1; }
-        if (a.name < b.name) { return -1; }
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
         return 0;
       });
       const output = [];
@@ -131,7 +143,7 @@ export class ApiService {
       });
       this.tvGenresArray = output;
     });
-  }
+  };
 
   getTvGenreList = (array: Array<Number>): String => {
     const output = [];
@@ -139,7 +151,7 @@ export class ApiService {
       output.push(this.tvGenres[row.toString()]);
     });
     return output.join(', ');
-  }
+  };
 
   getTvShowSearch = (phrase, page = 1) => this.getContent(this.constants.tvShowSearch(phrase, page));
 
@@ -194,7 +206,7 @@ export class ApiService {
 
   getKeywordDetails = id => this.getContent(this.constants.keywordDetails(id));
 
-  getMoviesByKeyword = (id,  page = 1) => this.getContent(this.constants.moviesByKeyword(id, page));
+  getMoviesByKeyword = (id, page = 1) => this.getContent(this.constants.moviesByKeyword(id, page));
 
   getKeywordSearch = (phrase, page = 1) => this.getContent(this.constants.keywordSearch(phrase));
 

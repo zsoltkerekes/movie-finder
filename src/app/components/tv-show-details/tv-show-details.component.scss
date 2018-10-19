@@ -82,12 +82,6 @@ p {
   position: relative;
   min-height: 400px;
 
-  .dots-loader {
-    position: absolute;
-    top: 40%;
-    left: calc(50% - 1.5em);
-  }
-
   img {
     z-index: 1000;
     position: relative;

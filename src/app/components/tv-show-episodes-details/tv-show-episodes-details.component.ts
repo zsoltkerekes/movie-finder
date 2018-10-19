@@ -1,9 +1,9 @@
-import { TvShowEpisodes, tvShowEpisodesData } from '../../models/tv-show-episodes.model';
-import { MovieDetails, movieDetailsData } from '../../models/MovieDetails.model';
-import { Title } from '@angular/platform-browser';
-import { ApiService } from '../../services/api.service';
-import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import {TvShowEpisodes, tvShowEpisodesData} from '../../models/tv-show-episodes.model';
+import {MovieDetails, movieDetailsData} from '../../models/MovieDetails.model';
+import {Title} from '@angular/platform-browser';
+import {ApiService} from '../../services/api.service';
+import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'mf-tv-show-episodes-details',
@@ -27,7 +27,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
     private api: ApiService
   ) {
     this.innerWidth = window.innerWidth;
-   }
+  }
 
   setEpisode = index => this.episodeNumber = index;
 
@@ -50,10 +50,10 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
           this.api.getTvShowById(this.id)
             .subscribe(result => {
               let output = result.json();
-              output = { ...this.tvShow, ...output };
+              output = {...this.tvShow, ...output};
               this.tvShow = output;
               this.title.setTitle(`${this.season}. évad :: ${this.tvShow.name} :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
-               });
+            });
 
           this.api.getTvShowEpisodes(this.id, this.season)
             .subscribe(response => {
@@ -61,7 +61,6 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
               output.episodes = output.episodes.map(row => row || {});
               this.tvShowEpisodes = output;
             });
-
 
 
         }

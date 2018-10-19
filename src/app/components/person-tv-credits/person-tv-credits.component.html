@@ -1,9 +1,9 @@
 <h2 *ngIf="tvCredits.cast.length || tvCredits.crew.length" class="text-center">
-    <br>
-    <mat-divider></mat-divider>
-    <br>
-    {{ getGlobal() ? 'Tv shows': 'Sorozatok'}}
-  </h2>
+  <br>
+  <mat-divider></mat-divider>
+  <br>
+  {{ getGlobal() ? 'Tv shows': 'Sorozatok'}}
+</h2>
 
 <div *ngIf="tvCredits.crew.length">
   <h3 class="text-center">
@@ -11,21 +11,22 @@
   </h3>
 
   <mat-form-field class="full-width">
-      <input matInput type="search" [placeholder]="placeholder"  name="searchCrew" id="searchCrew" [(ngModel)]="searchCrew"/>
+    <input matInput type="search" [placeholder]="placeholder" name="searchCrew" id="searchCrew"
+           [(ngModel)]="searchCrew"/>
   </mat-form-field>
 
   <div class="container">
-    <a *ngFor="let tv of tvCredits.crew | search:searchCrew" [routerLink]="['/tv-details', tv.id]" >
-    <div class="crew">
+    <a *ngFor="let tv of tvCredits.crew | search:searchCrew" [routerLink]="['/tv-details', tv.id]">
+      <div class="crew">
       <span class="pull-left">
         {{tv.job ? tv.job : 'N/A'}}
         {{tv.first_air_date  ? '(' + tv.first_air_date + ')' : ''}}
       </span>
-      {{tv.name ? tv.name : 'N/A'}}
-      {{(tv.original_name && (tv.original_name !== tv.name))? '(' + tv.original_name + ')' : ''}}
-      {{tv.vote_average   ? '[' + tv.vote_average + '/10 ]' : ''}}
-    </div>
-  </a>
+        {{tv.name ? tv.name : 'N/A'}}
+        {{(tv.original_name && (tv.original_name !== tv.name))? '(' + tv.original_name + ')' : ''}}
+        {{tv.vote_average ? '[' + tv.vote_average + '/10 ]' : ''}}
+      </div>
+    </a>
   </div>
 </div>
 
@@ -35,7 +36,8 @@
   </h3>
 
   <mat-form-field class="full-width">
-      <input matInput type="search" [placeholder]="placeholder"  name="searchCast" id="searchCast" [(ngModel)]="searchCast"/>
+    <input matInput type="search" [placeholder]="placeholder" name="searchCast" id="searchCast"
+           [(ngModel)]="searchCast"/>
   </mat-form-field>
 
   <div class="container">
@@ -47,7 +49,7 @@
         </span>
         {{tv.name ? tv.name : 'N/A'}}
         {{(tv.original_name && (tv.original_name !== tv.name))? '(' + tv.original_name + ')' : ''}}
-        {{tv.vote_average   ? '[' + tv.vote_average + '/10 ]' : ''}}
+        {{tv.vote_average ? '[' + tv.vote_average + '/10 ]' : ''}}
       </div>
     </a>
   </div>

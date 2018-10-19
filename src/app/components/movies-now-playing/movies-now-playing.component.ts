@@ -1,6 +1,6 @@
-import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../services/api.service';
-import { ListItem, listItemInitData } from '../../models/listItem.model';
+import {ActivatedRoute} from '@angular/router';
+import {ApiService} from '../../services/api.service';
+import {ListItem, listItemInitData} from '../../models/listItem.model';
 import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 })
 export class MoviesNowPlayingComponent implements OnInit {
 
-  @ViewChild ('container') container;
+  @ViewChild('container') container;
 
   nowPlayingMovies: { results: Array<ListItem> };
   page: number;
@@ -21,14 +21,15 @@ export class MoviesNowPlayingComponent implements OnInit {
   constructor(
     private api: ApiService,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
         () => {
           this.isLoading = true;
-          this.nowPlayingMovies = { results: [listItemInitData] };
+          this.nowPlayingMovies = {results: [listItemInitData]};
           this.page = +this.activatedRoute.snapshot.params['page'] || 1;
           this.api.getNowPlaying(this.page)
             .subscribe(response => {
@@ -40,7 +41,7 @@ export class MoviesNowPlayingComponent implements OnInit {
                 this.container.nativeElement.scrollLeft = 0;
               }
             });
-            document.documentElement.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
 
         }
       );

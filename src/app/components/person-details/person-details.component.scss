@@ -19,8 +19,8 @@ mat-card-content {
 
 .details {
   display: inline-flex;
-  width: calc( 100% - 500px - 130px);
-  background-color: rgba(232, 234, 246,0.9);
+  width: calc(100% - 500px - 130px);
+  background-color: rgba(232, 234, 246, 0.9);
   padding: 1em;
   min-height: 770px;
 }
@@ -82,18 +82,13 @@ p {
   position: relative;
   min-height: 400px;
 
-  .dots-loader {
-    position: absolute;
-    top: 40%;
-    left: calc( 50% - 1.5em);
-  }
-
   img {
     z-index: 1000;
     position: relative;
   }
 }
-@media (max-width:960px) {
+
+@media (max-width: 960px) {
   .full {
     background-image: none !important;
     margin: 0;

@@ -1,5 +1,5 @@
-import { ApiService } from '../../services/api.service';
-import { Component, OnInit, DoCheck } from '@angular/core';
+import {ApiService} from '../../services/api.service';
+import {Component, DoCheck, OnInit} from '@angular/core';
 
 @Component({
   selector: 'mf-discover-options',
@@ -17,7 +17,8 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
 
   constructor(
     private api: ApiService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.movieYear = this.api.getMovieYearOption();
@@ -42,11 +43,11 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
       this.selectedMovieGenres.splice(this.selectedMovieGenres.findIndex(previouslySelected => previouslySelected === id), 1);
     }
     this.api.setWithGenresOption(this.selectedMovieGenres);
-  }
+  };
 
   getCheckedStatus = id => {
     const result = this.selectedMovieGenres.findIndex(previouslySelected => previouslySelected === id) !== -1 ? 'checked' : null;
     return result;
-  }
+  };
 
 }

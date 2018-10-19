@@ -1,6 +1,6 @@
-import { Images, imagesData } from '../../models/images.model';
-import { Component, OnChanges, Input } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import {Images, imagesData} from '../../models/images.model';
+import {Component, Input, OnChanges} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-person-tagged-images',
@@ -29,12 +29,16 @@ export class PersonTaggedImagesComponent implements OnChanges {
           this.images = [
             ...output.results
           ]
-            // .filter(image => {
-            //   return image.width <= 1920 && image.height <= 1500;
-            // })
+          // .filter(image => {
+          //   return image.width <= 1920 && image.height <= 1500;
+          // })
             .sort((a, b) => {
-              if (a.media.popularity < b.media.popularity) { return 1; }
-              if (a.media.popularity > b.media.popularity) { return -1; }
+              if (a.media.popularity < b.media.popularity) {
+                return 1;
+              }
+              if (a.media.popularity > b.media.popularity) {
+                return -1;
+              }
               return 0;
             });
         });

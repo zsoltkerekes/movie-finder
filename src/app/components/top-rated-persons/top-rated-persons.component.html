@@ -4,13 +4,11 @@
   {{getGlobal() ? 'Persons:':'Emberek:'}}
 </h2>
 
-<h3 class="text-center huge-margin" *ngIf="isLoading">
-  {{getGlobal() ? 'Loading...':'Betöltés...'}}
-</h3>
+<mf-loading *ngIf="isLoading"></mf-loading>
 
 <div class="item-container" #container *ngIf="!(isLoading)">
   <a *ngFor="let person of topRatedPersons.results" [routerLink]="['/person-details', person.id]">
-    <mf-list-item movie="" tvShows="" [person]="person" ></mf-list-item>
+    <mf-list-item movie="" tvShows="" [person]="person"></mf-list-item>
   </a>
 </div>
 

@@ -13,7 +13,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.params

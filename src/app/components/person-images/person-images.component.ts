@@ -1,6 +1,6 @@
-import { Images, imagesData } from '../../models/images.model';
-import { Component, OnChanges, Input } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import {Images, imagesData} from '../../models/images.model';
+import {Component, Input, OnChanges} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-person-images',
@@ -18,7 +18,7 @@ export class PersonImagesComponent implements OnChanges {
     private api: ApiService
   ) {
     this.innerWidth = window.innerWidth;
-   }
+  }
 
   ngOnChanges() {
     this.images = imagesData;
@@ -32,11 +32,15 @@ export class PersonImagesComponent implements OnChanges {
           // .filter(image => {
           //   return image.width <= 1920 && image.height <= 1500;
           // })
-          .sort((a, b) => {
-            if (a.vote_average < b.vote_average) { return 1; }
-            if (a.vote_average > b.vote_average) { return -1; }
-            return 0;
-          });
+            .sort((a, b) => {
+              if (a.vote_average < b.vote_average) {
+                return 1;
+              }
+              if (a.vote_average > b.vote_average) {
+                return -1;
+              }
+              return 0;
+            });
         });
     }
   }

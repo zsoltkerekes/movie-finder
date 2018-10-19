@@ -1,7 +1,7 @@
-import { ApiService } from '../../services/api.service';
-import { Component, OnChanges, Input } from '@angular/core';
-import { Videos, videosData } from '../../models/videos.model';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import {ApiService} from '../../services/api.service';
+import {Component, Input, OnChanges} from '@angular/core';
+import {Videos, videosData} from '../../models/videos.model';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'mf-tv-show-season-videos',
@@ -21,7 +21,8 @@ export class TvShowSeasonVideosComponent implements OnChanges {
   constructor(
     private api: ApiService,
     private sanitizer: DomSanitizer
-  ) { }
+  ) {
+  }
 
   ngOnChanges() {
     this.videoSrc = undefined;
@@ -36,7 +37,7 @@ export class TvShowSeasonVideosComponent implements OnChanges {
           };
           if (this.videos.results.length > 0) {
             this.setVideoUrl(this.videos.results[0].key + this.embedOptions);
-            this.selectedVideo = this.videos.results[0].key ;
+            this.selectedVideo = this.videos.results[0].key;
           }
         });
     }
@@ -45,7 +46,7 @@ export class TvShowSeasonVideosComponent implements OnChanges {
   setVideoUrl = key => {
     this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${key}${this.embedOptions}`);
     this.selectedVideo = key;
-  }
+  };
 
   getSelectedVideo = i => this.videos.results[i].key === this.selectedVideo;
 

@@ -4,12 +4,12 @@
   max-height: 15em;
   overflow-y: auto;
   margin-bottom: 2em;
-  width: calc( 70% - 4em - 20px );
+  width: calc(70% - 4em - 20px);
   margin: 0 auto;
-  @media (max-width:960px) {
-    width: calc( 100% -  20px );
+  @media (max-width: 960px) {
+    width: calc(100% - 20px);
     img {
-      float:left;
+      float: left;
       margin: 0em 1em 1em 0em;
     }
   }
@@ -34,9 +34,9 @@
 
     span.right {
       float: right;
-      padding:1.5em;
-      @media (max-width:960px) {
-        float:none;
+      padding: 1.5em;
+      @media (max-width: 960px) {
+        float: none;
       }
     }
 

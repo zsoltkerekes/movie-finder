@@ -6,11 +6,11 @@
   .reviews {
     text-align: left;
     margin-bottom: 1.5em;
-    width: 50% ;
+    width: 50%;
     display: inline-block;
     vertical-align: top;
 
-    @media (max-width:960px) {
+    @media (max-width: 960px) {
       width: 100%;
     }
 

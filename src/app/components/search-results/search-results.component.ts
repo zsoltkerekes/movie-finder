@@ -1,7 +1,7 @@
-import { ApiService } from '../../services/api.service';
-import { ListItem, listItemInitData } from '../../models/listItem.model';
-import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, DoCheck } from '@angular/core';
+import {ApiService} from '../../services/api.service';
+import {ListItem, listItemInitData} from '../../models/listItem.model';
+import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'mf-search-results',
@@ -25,7 +25,7 @@ export class SearchResultsComponent implements OnInit {
         name: string,
         id: number
       }
-    ]
+      ]
   };
 
   movieSearchResults: {
@@ -55,7 +55,8 @@ export class SearchResultsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private api: ApiService
-  ) { }
+  ) {
+  }
 
 
   ngOnInit() {
@@ -116,8 +117,12 @@ export class SearchResultsComponent implements OnInit {
         output.results = output.results.map(row => row || {});
         const willBeSorted = output;
         willBeSorted.results.sort((a, b) => {
-          if (a.popularity > b.popularity) { return -1; }
-          if (a.popularity < b.popularity) { return 1; }
+          if (a.popularity > b.popularity) {
+            return -1;
+          }
+          if (a.popularity < b.popularity) {
+            return 1;
+          }
           return 0;
         });
         this.movieSearchResults = willBeSorted;
@@ -141,8 +146,12 @@ export class SearchResultsComponent implements OnInit {
         output.results = output.results.map(row => row || {});
         const willBeSorted = output;
         willBeSorted.results.sort((a, b) => {
-          if (a.popularity > b.popularity) { return -1; }
-          if (a.popularity < b.popularity) { return 1; }
+          if (a.popularity > b.popularity) {
+            return -1;
+          }
+          if (a.popularity < b.popularity) {
+            return 1;
+          }
           return 0;
         });
         this.tvShowSearchResults = willBeSorted;
@@ -166,8 +175,12 @@ export class SearchResultsComponent implements OnInit {
         output.results = output.results.map(row => row || {});
         const willBeSorted = output;
         willBeSorted.results.sort((a, b) => {
-          if (a.popularity > b.popularity) { return -1; }
-          if (a.popularity < b.popularity) { return 1; }
+          if (a.popularity > b.popularity) {
+            return -1;
+          }
+          if (a.popularity < b.popularity) {
+            return 1;
+          }
           return 0;
         });
         this.personSearchResults = willBeSorted;

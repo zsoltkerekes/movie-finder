@@ -2,23 +2,18 @@
   <mat-card class="poster">
     <mat-card-content (dblclick)="open()">
       <div class="img-container" lazy-load-images>
-        <div class="dots-loader">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-
+        <mf-loading class="centerHorizontalVertical"></mf-loading>
         <img
           *ngIf="!(loading) && innerWidth <= 960"
           [attr.data-src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : 'assets/image/no-pic.jpg'"
           [alt]="tvShow.name"
-          [title]="tvShow.name" />
+          [title]="tvShow.name"/>
 
         <img
           *ngIf="!(loading) && innerWidth > 960"
           [src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : 'assets/image/no-pic.jpg'"
           [alt]="tvShow.name"
-          [title]="tvShow.name" />
+          [title]="tvShow.name"/>
 
       </div>
     </mat-card-content>
@@ -141,7 +136,8 @@
             {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
-          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.youtube.com/results?search_query='+tvShow.original_name"
+          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
+             [href]="'https://www.youtube.com/results?search_query='+tvShow.original_name"
              target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
@@ -158,7 +154,8 @@
             {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
-          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.sorozatbarat.online/video/search?s='+tvShow.original_name"
+          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
+             [href]="'https://www.sorozatbarat.online/video/search?s='+tvShow.original_name"
              target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
@@ -174,7 +171,8 @@
             {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
           </a>
           <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
-          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name" [href]="'https://www.google.hu/search?q='+tvShow.original_name"
+          <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
+             [href]="'https://www.google.hu/search?q='+tvShow.original_name"
              target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>

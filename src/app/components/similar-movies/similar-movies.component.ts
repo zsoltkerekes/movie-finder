@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { ListItem, listItemInitData } from '../../models/listItem.model';
-import { ApiService } from '../../services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ListItem, listItemInitData} from '../../models/listItem.model';
+import {ApiService} from '../../services/api.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'mf-similar-movies',
@@ -10,11 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SimilarMoviesComponent implements OnInit {
 
-  @ViewChild ('container') container;
+  @ViewChild('container') container;
 
   id: number;
 
-  similarMovies: { results: Array<ListItem> } = { results: [listItemInitData] };
+  similarMovies: { results: Array<ListItem> } = {results: [listItemInitData]};
 
   listGenres = this.api.getGenreList;
   genres = this.api.genres;
@@ -23,7 +23,8 @@ export class SimilarMoviesComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private api: ApiService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.params

@@ -13,17 +13,13 @@
   </mat-card-header>
   <mat-card-content>
     <div class="img-container" lazy-load-images>
-      <div class="dots-loader">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <mf-loading class="centerHorizontalVertical"></mf-loading>
       <img *ngIf="innerWidth <= 960" [attr.data-src]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
-       'https://image.tmdb.org/t/p/w185' + (movie.poster_path || tvShow.poster_path || person.profile_path) :
-        'assets/image/no-pic.jpg'" />
+       'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) :
+        'assets/image/no-pic.jpg'"/>
       <img *ngIf="innerWidth > 960" [src]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
-        'https://image.tmdb.org/t/p/w185' + (movie.poster_path || tvShow.poster_path || person.profile_path) :
-         'assets/image/no-pic.jpg'" />
+        'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) :
+         'assets/image/no-pic.jpg'"/>
     </div>
   </mat-card-content>
 </mat-card>

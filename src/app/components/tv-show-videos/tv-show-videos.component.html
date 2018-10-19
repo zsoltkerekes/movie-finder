@@ -10,17 +10,17 @@
       [selected]="getSelectedVideo(i)"
       (click)="setVideoUrl(video.key)"
       *ngFor="let video of videos.results; let i=index">
-        {{video.name ? video.name : (i+1) + '. videó' }}
-        {{video.iso_639_1 ? '('+video.iso_639_1.toUpperCase()+')' : ''}}
+      {{video.name ? video.name : (i+1) + '. videó' }}
+      {{video.iso_639_1 ? '('+video.iso_639_1.toUpperCase()+')' : ''}}
     </mat-chip>
   </mat-chip-list>
 
   <br>
 
   <iframe *ngIf="videoSrc"
-   class="video"
-   [src]="videoSrc"
-   border="0"
-   allowfullscreen></iframe>
+          class="video"
+          [src]="videoSrc"
+          border="0"
+          allowfullscreen></iframe>
 
 </div>

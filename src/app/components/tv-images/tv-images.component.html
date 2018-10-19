@@ -2,18 +2,16 @@
   {{getGlobal() ? 'Images' : 'Képek'}}
 </h2>
 
-<mat-tab-group class="pictures"  *ngIf="images && images.length > 0">
+<mat-tab-group class="pictures" *ngIf="images && images.length > 0">
 
   <mat-tab *ngFor="let image of images; let i=index"
-  [label]="(i+1)+'/'+ images.length + ( getGlobal() ? '. picture' : '. kép').toString()">
+           [label]="(i+1)+'/'+ images.length + ( getGlobal() ? '. picture' : '. kép').toString()">
     <div class="img-container" lazy-load-images>
-      <div class="dots-loader">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <img *ngIf="innerWidth <= 960" class="pic" [attr.data-src]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
-      <img *ngIf="innerWidth > 960"class="pic" [src]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
+      <mf-loading class="centerHorizontalVertical"></mf-loading>
+      <img *ngIf="innerWidth <= 960" class="pic"
+           [attr.data-src]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
+      <img *ngIf="innerWidth > 960" class="pic"
+           [src]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
     </div>
   </mat-tab>
 

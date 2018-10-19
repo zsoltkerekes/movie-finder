@@ -11,6 +11,7 @@ import {CoreModule} from './shared-modules/core/core.module';
 import {ScrollerService} from './services/scroller.service';
 import {CommonModule} from '@angular/common';
 
+
 @NgModule({
   declarations: [
     AppComponent

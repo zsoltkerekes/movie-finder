@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { ListItem, listItemInitData } from '../../models/listItem.model';
-import { ApiService } from '../../services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ListItem, listItemInitData} from '../../models/listItem.model';
+import {ApiService} from '../../services/api.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'mf-similar-tv-shows',
@@ -10,11 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SimilarTvShowsComponent implements OnInit {
 
-  @ViewChild ('container') container;
+  @ViewChild('container') container;
 
   id: number;
 
-  similarTvShows: { results: Array<ListItem> } = { results: [listItemInitData] };
+  similarTvShows: { results: Array<ListItem> } = {results: [listItemInitData]};
 
   listGenres = this.api.getTvGenreList;
   genres = this.api.tvGenres;
@@ -23,7 +23,8 @@ export class SimilarTvShowsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private api: ApiService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.params
