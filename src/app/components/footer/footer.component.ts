@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ApiService} from '../../services/api.service';
-import {ScrollerService} from '../../services/scroller.service';
+import {Component, OnInit} from "@angular/core";
+import {ApiService} from "../../services/api.service";
+import {ScrollerService} from "../../services/scroller.service";
 
 @Component({
   selector: 'mf-footer',
@@ -15,10 +15,8 @@ export class FooterComponent implements OnInit {
   setAdult = () => this.api.setAdult();
   getAdult = () => this.api.getAdult();
 
-  constructor(
-    private api: ApiService,
-    public scroll: ScrollerService
-  ) {
+  constructor(private api: ApiService,
+              public scroll: ScrollerService) {
   }
 
   ngOnInit() {

@@ -5,7 +5,8 @@
 
   <div class="item-container">
     <a *ngFor="let genre of tvGenres" [routerLink]="['/tv-genres', genre.id, 1]">
-      <button mat-raised-button class="button mat-elevation-z2">{{genre.name}}</button>
+      <button
+        mat-raised-button class="button mat-elevation-z2">{{genre.name}}</button>
     </a>
   </div>
 

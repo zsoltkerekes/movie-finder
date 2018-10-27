@@ -1,8 +1,8 @@
-import {ActivatedRoute} from '@angular/router';
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit, ViewChild} from "@angular/core";
 
-import {ListItem, listItemInitData} from '../../models/listItem.model';
-import {ApiService} from '../../services/api.service';
+import {ListItem, listItemInitData} from "../../models/listItem.model";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'mf-popular-tv-shows',
@@ -19,10 +19,8 @@ export class PopularTvShowsComponent implements OnInit {
   listGenres = this.api.getGenreList;
   getGlobal = this.api.getGlobal;
 
-  constructor(
-    private api: ApiService,
-    private activatedRoute: ActivatedRoute
-  ) {
+  constructor(private api: ApiService,
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {

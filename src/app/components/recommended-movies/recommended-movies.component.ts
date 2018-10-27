@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ListItem, listItemInitData} from '../../models/listItem.model';
-import {ApiService} from '../../services/api.service';
-import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit, ViewChild} from "@angular/core";
+import {ListItem, listItemInitData} from "../../models/listItem.model";
+import {ApiService} from "../../services/api.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'mf-recommended-movies',
@@ -20,10 +20,8 @@ export class RecommendedMoviesComponent implements OnInit {
   genres = this.api.genres;
   getGlobal = this.api.getGlobal;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private api: ApiService
-  ) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private api: ApiService) {
   }
 
   ngOnInit() {

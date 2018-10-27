@@ -1,6 +1,6 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import {SearchByPhraseComponent} from './search-by-phrase.component';
+import {SearchByPhraseComponent} from "./search-by-phrase.component";
 
 describe('SearchByPhraseComponent', () => {
   let component: SearchByPhraseComponent;

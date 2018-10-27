@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'mf-details',
@@ -11,9 +11,7 @@ export class DetailsComponent implements OnInit {
 
   id: number;
 
-  constructor(
-    private activatedRoute: ActivatedRoute
-  ) {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {

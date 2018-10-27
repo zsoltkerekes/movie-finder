@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Title} from '@angular/platform-browser';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'mf-page-not-found',
@@ -9,10 +9,8 @@ import {Title} from '@angular/platform-browser';
 })
 export class PageNotFoundComponent implements OnInit {
 
-  constructor(
-    private title: Title,
-    private activatedRoute: ActivatedRoute
-  ) {
+  constructor(private title: Title,
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {

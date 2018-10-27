@@ -1,6 +1,6 @@
-import {Component, HostListener, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {ApiService} from '../../services/api.service';
+import {Component, HostListener, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'mf-search-by-phrase',
@@ -21,10 +21,8 @@ export class SearchByPhraseComponent implements OnInit {
     this.changeHint(document.body.offsetWidth);
   }
 
-  constructor(
-    private router: Router,
-    private api: ApiService
-  ) {
+  constructor(private router: Router,
+              private api: ApiService) {
   }
 
   changeHint(width = 0) {

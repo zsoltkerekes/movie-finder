@@ -1,6 +1,6 @@
-import {ApiService} from '../../services/api.service';
-import {PeopleMovieCredits, peopleMovieCreditsData} from '../../models/person.model';
-import {Component, Input, OnChanges} from '@angular/core';
+import {ApiService} from "../../services/api.service";
+import {PeopleMovieCredits, peopleMovieCreditsData} from "../../models/person.model";
+import {Component, Input, OnChanges} from "@angular/core";
 
 @Component({
   selector: 'mf-person-tv-credits',
@@ -16,9 +16,7 @@ export class PersonTvCreditsComponent implements OnChanges {
   searchCast: string;
   searchCrew: string;
 
-  constructor(
-    private api: ApiService
-  ) {
+  constructor(private api: ApiService) {
   }
 
   ngOnChanges() {

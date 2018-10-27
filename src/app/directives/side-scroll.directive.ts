@@ -1,13 +1,11 @@
-import {Directive, ElementRef, HostListener} from '@angular/core';
+import {Directive, ElementRef, HostListener} from "@angular/core";
 
 @Directive({
   selector: '[mfSideScroll]'
 })
 export class SideScrollDirective {
 
-  constructor(
-    private element: ElementRef
-  ) {
+  constructor(private element: ElementRef) {
   }
 
   @HostListener('mouseover') onScroll() {

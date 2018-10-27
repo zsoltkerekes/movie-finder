@@ -6,20 +6,18 @@
       {{person && person.name ? person.name.trim() : ''}}
     </mat-card-title>
     <mat-card-subtitle>
-      {{movie && movie.genre_ids ? listGenres(movie.genre_ids).trim() : ''}}
-      {{tvShow && tvShow.genre_ids ? listTvGenres(tvShow.genre_ids).trim() : ''}}
-      {{person && person.known_for ? person.known_for[0].title.trim() : ''}}
+      {{movie && movie.genre_ids && listGenres(movie.genre_ids) ? listGenres(movie.genre_ids).trim() : ''}}
+      {{tvShow && tvShow.genre_ids && listTvGenres(tvShow.genre_ids) ? listTvGenres(tvShow.genre_ids).trim() : ''}}
+      {{person && person.known_for && person.known_for[0].title ? person.known_for[0].title.trim() : ''}}
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <div class="img-container" lazy-load-images>
       <mf-loading class="centerHorizontalVertical"></mf-loading>
-      <img *ngIf="innerWidth <= 960" [attr.data-src]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
+      <img [attr.data-src]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
        'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) :
-        'assets/image/no-pic.jpg'"/>
-      <img *ngIf="innerWidth > 960" [src]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
-        'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) :
-         'assets/image/no-pic.jpg'"/>
+        'assets/image/no-pic.jpg'" alt="{{movie && movie.title || tvShow && tvShow.name || person && person.name}}"
+           title="{{movie && movie.title || tvShow && tvShow.name || person && person.name}}"/>
     </div>
   </mat-card-content>
 </mat-card>

@@ -1,8 +1,8 @@
-import {Component, Input, OnChanges} from '@angular/core';
-import {MovieDetails, movieDetailsData} from '../../models/MovieDetails.model';
-import {ApiService} from '../../services/api.service';
-import {Title} from '@angular/platform-browser';
-import {ActivatedRoute} from '@angular/router';
+import {Component, Input, OnChanges} from "@angular/core";
+import {MovieDetails, movieDetailsData} from "../../models/MovieDetails.model";
+import {ApiService} from "../../services/api.service";
+import {Title} from "@angular/platform-browser";
+import {ActivatedRoute} from "@angular/router";
 
 declare function escape(s: string): string;
 
@@ -59,11 +59,9 @@ export class MovieDetailsComponent implements OnChanges {
     }
   };
 
-  constructor(
-    private api: ApiService,
-    private title: Title,
-    private activatedRoute: ActivatedRoute
-  ) {
+  constructor(private api: ApiService,
+              private title: Title,
+              private activatedRoute: ActivatedRoute) {
     this.innerWidth = window.innerWidth;
   }
 

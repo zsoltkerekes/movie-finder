@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {CookieService} from 'ngx-cookie-service';
+import {Injectable} from "@angular/core";
+import {CookieService} from "ngx-cookie-service";
 
 @Injectable()
 export class ConstantsService {
@@ -16,12 +16,10 @@ export class ConstantsService {
   withGenresOption: number[] = [];
   tvWithGenresOption: number[] = [];
 
-  constructor(
-    private cookieService: CookieService
-  ) {
+  constructor(private cookieService: CookieService) {
 
     this.globalOption = (this.cookieService.check('Movie-Finder-globalOption') === false ||
-      this.cookieService.get('Movie-Finder-globalOption') === 'Global') ? true : false;
+    this.cookieService.get('Movie-Finder-globalOption') === 'Global') ? true : false;
 
     this.adultOption = this.cookieService.get('Movie-Finder-adultOption') === 'true' ? true : false;
 

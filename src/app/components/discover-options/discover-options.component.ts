@@ -1,5 +1,5 @@
-import {ApiService} from '../../services/api.service';
-import {Component, DoCheck, OnInit} from '@angular/core';
+import {ApiService} from "../../services/api.service";
+import {Component, DoCheck, OnInit} from "@angular/core";
 
 @Component({
   selector: 'mf-discover-options',
@@ -15,9 +15,7 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
   selectedMovieGenres: number[];
   placeholder: string;
 
-  constructor(
-    private api: ApiService
-  ) {
+  constructor(private api: ApiService) {
   }
 
   ngOnInit() {

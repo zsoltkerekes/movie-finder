@@ -1,8 +1,8 @@
-﻿import {ApiService} from '../../services/api.service';
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {MovieDetails, movieDetailsData} from '../../models/MovieDetails.model';
-import {Title} from '@angular/platform-browser';
+﻿import {ApiService} from "../../services/api.service";
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {MovieDetails, movieDetailsData} from "../../models/MovieDetails.model";
+import {Title} from "@angular/platform-browser";
 
 
 @Component({
@@ -32,11 +32,9 @@ export class TVDetailsComponent implements OnInit {
       });
   };
 
-  constructor(
-    private title: Title,
-    private activatedRoute: ActivatedRoute,
-    private api: ApiService
-  ) {
+  constructor(private title: Title,
+              private activatedRoute: ActivatedRoute,
+              private api: ApiService) {
     this.innerWidth = window.innerWidth;
   }
 

@@ -1,7 +1,7 @@
-import {ApiService} from '../../services/api.service';
-import {ListItem, listItemInitData} from '../../models/listItem.model';
-import {ActivatedRoute} from '@angular/router';
-import {Component, OnInit} from '@angular/core';
+import {ApiService} from "../../services/api.service";
+import {ListItem, listItemInitData} from "../../models/listItem.model";
+import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from "@angular/core";
 
 @Component({
   selector: 'mf-search-results',
@@ -52,10 +52,8 @@ export class SearchResultsComponent implements OnInit {
   listGenres = this.api.getGenreList;
   getGlobal = this.api.getGlobal;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private api: ApiService
-  ) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private api: ApiService) {
   }
 
 

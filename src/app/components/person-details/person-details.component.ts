@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {People, peopleData} from '../../models/person.model';
-import {Title} from '@angular/platform-browser';
-import {ActivatedRoute} from '@angular/router';
-import {ApiService} from '../../services/api.service';
+import {Component, OnInit} from "@angular/core";
+import {People, peopleData} from "../../models/person.model";
+import {Title} from "@angular/platform-browser";
+import {ActivatedRoute} from "@angular/router";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'mf-persons-details',
@@ -19,11 +19,9 @@ export class PersonsDetailsComponent implements OnInit {
   getGlobal = this.api.getGlobal;
   innerWidth: number;
 
-  constructor(
-    private title: Title,
-    private activatedRoute: ActivatedRoute,
-    private api: ApiService
-  ) {
+  constructor(private title: Title,
+              private activatedRoute: ActivatedRoute,
+              private api: ApiService) {
     this.innerWidth = window.innerWidth;
   }
 

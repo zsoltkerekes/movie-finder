@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ApiService} from '../../services/api.service';
+import {Component, OnInit} from "@angular/core";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'mf-header',
@@ -10,9 +10,7 @@ export class HeaderComponent implements OnInit {
 
   links: Array<{ name: String, icon: String, url: String }>;
 
-  constructor(
-    private api: ApiService
-  ) {
+  constructor(private api: ApiService) {
   }
 
   ngOnInit() {

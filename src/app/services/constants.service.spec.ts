@@ -1,6 +1,6 @@
-import {inject, TestBed} from '@angular/core/testing';
+import {inject, TestBed} from "@angular/core/testing";
 
-import {ConstantsService} from './constants.service';
+import {ConstantsService} from "./constants.service";
 
 describe('ConstantsService', () => {
   beforeEach(() => {

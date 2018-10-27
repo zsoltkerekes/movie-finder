@@ -3,9 +3,7 @@
     <mat-card-content (dblclick)="open()">
       <div class="img-container" lazy-load-images>
         <mf-loading class="centerHorizontalVertical"></mf-loading>
-        <img *ngIf="!loading && innerWidth <= 960" [attr.data-src]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path :
-             'assets/image/no-pic.jpg'" [alt]="movie.title" [title]="movie.title"/>
-        <img *ngIf="!loading && innerWidth > 960" [src]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path :
+        <img [attr.data-src]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path :
              'assets/image/no-pic.jpg'" [alt]="movie.title" [title]="movie.title"/>
       </div>
     </mat-card-content>
@@ -172,6 +170,23 @@
           <span *ngIf="movie.title !== movie.original_title">|</span>
           <a *ngIf="movie.original_title && movie.title !== movie.original_title"
              [href]="'https://www.google.hu/search?q='+movie.original_title"
+             target="_blank">
+            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
+          </a>
+        </span>
+      </p>
+
+      <p class="google" *ngIf="movie.title || movie.original_title">
+        <span>
+          Netflix {{ getGlobal() ? 'search:' : 'keresés:' }}
+        </span>
+        <span>
+          <a *ngIf="movie.title" [href]="'https://www.netflix.com/search?q='+movie.title" target="_blank">
+            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
+          </a>
+          <span *ngIf="movie.title !== movie.original_title">|</span>
+          <a *ngIf="movie.original_title && movie.title !== movie.original_title"
+             [href]="'https://www.netflix.com/search?q='+movie.original_title"
              target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>

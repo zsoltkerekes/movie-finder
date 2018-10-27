@@ -1,7 +1,7 @@
-import {ActivatedRoute} from '@angular/router';
-import {ApiService} from '../../services/api.service';
-import {ListItem, listItemInitData} from '../../models/listItem.model';
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {ApiService} from "../../services/api.service";
+import {ListItem, listItemInitData} from "../../models/listItem.model";
+import {Component, OnInit, ViewChild} from "@angular/core";
 
 @Component({
   selector: 'mf-movies-now-playing',
@@ -18,10 +18,8 @@ export class MoviesNowPlayingComponent implements OnInit {
   listGenres = this.api.getGenreList;
   getGlobal = this.api.getGlobal;
 
-  constructor(
-    private api: ApiService,
-    private activatedRoute: ActivatedRoute
-  ) {
+  constructor(private api: ApiService,
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {

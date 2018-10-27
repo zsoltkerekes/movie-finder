@@ -1,9 +1,9 @@
-import {TvShowEpisodes, tvShowEpisodesData} from '../../models/tv-show-episodes.model';
-import {MovieDetails, movieDetailsData} from '../../models/MovieDetails.model';
-import {Title} from '@angular/platform-browser';
-import {ApiService} from '../../services/api.service';
-import {ActivatedRoute} from '@angular/router';
-import {Component, OnInit} from '@angular/core';
+import {TvShowEpisodes, tvShowEpisodesData} from "../../models/tv-show-episodes.model";
+import {MovieDetails, movieDetailsData} from "../../models/MovieDetails.model";
+import {Title} from "@angular/platform-browser";
+import {ApiService} from "../../services/api.service";
+import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from "@angular/core";
 
 @Component({
   selector: 'mf-tv-show-episodes-details',
@@ -21,11 +21,9 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
   tvShowEpisodes: TvShowEpisodes;
   getGlobal = this.api.getGlobal;
 
-  constructor(
-    private title: Title,
-    private activatedRoute: ActivatedRoute,
-    private api: ApiService
-  ) {
+  constructor(private title: Title,
+              private activatedRoute: ActivatedRoute,
+              private api: ApiService) {
     this.innerWidth = window.innerWidth;
   }
 

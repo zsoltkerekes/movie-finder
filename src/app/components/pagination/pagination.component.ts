@@ -1,6 +1,6 @@
-import {ActivatedRoute} from '@angular/router';
-import {Component, Input, OnChanges} from '@angular/core';
-import {ApiService} from '../../services/api.service';
+import {ActivatedRoute} from "@angular/router";
+import {Component, Input, OnChanges} from "@angular/core";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'mf-pagination',
@@ -27,10 +27,8 @@ export class PaginationComponent implements OnChanges {
 
   getGlobal = this.api.getGlobal;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private api: ApiService
-  ) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private api: ApiService) {
   }
 
   ngOnChanges() {

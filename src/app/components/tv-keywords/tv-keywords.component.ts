@@ -1,5 +1,5 @@
-import {Component, Input, OnChanges} from '@angular/core';
-import {ApiService} from '../../services/api.service';
+import {Component, Input, OnChanges} from "@angular/core";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'mf-tv-keywords',
@@ -10,9 +10,7 @@ export class TvKeywordsComponent implements OnChanges {
   @Input('id') id;
   keywords: string[];
 
-  constructor(
-    private api: ApiService
-  ) {
+  constructor(private api: ApiService) {
   }
 
   ngOnChanges() {

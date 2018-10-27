@@ -1,6 +1,6 @@
-import {Component, DoCheck, ViewChild} from '@angular/core';
+import {Component, DoCheck, ViewChild} from "@angular/core";
 
-import {ApiService} from '../../services/api.service';
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'mf-tv-recommended',
@@ -13,9 +13,7 @@ export class TvRecommendedComponent implements DoCheck {
   tvGenres: { id: Number, name: String }[];
   getGlobal = this.api.getGlobal;
 
-  constructor(
-    private api: ApiService
-  ) {
+  constructor(private api: ApiService) {
   }
 
   ngDoCheck() {

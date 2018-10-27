@@ -56,19 +56,10 @@
       </mat-expansion-panel-header>
 
       <img
-        *ngIf="innerWidth <= 960"
-        class="picture"
+         class="picture"
         title="{{tvShow.name}} - {{episode.name}}"
         alt="{{tvShow.name}} - {{episode.name}}"
         [attr.data-src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
-
-      <img
-        *ngIf="innerWidth > 960"
-        class="picture"
-        title="{{tvShow.name}} - {{episode.name}}"
-        alt="{{tvShow.name}} - {{episode.name}}"
-        [src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
-
 
       <div class="episode-body">
         <h4>
@@ -81,10 +72,12 @@
         </p>
       </div>
       <mat-action-row class="buttons">
-        <button mat-button color="primary" (click)="setEpisode(i-1)" *ngIf="i>0">
+        <button mat-button color="primary"
+                (click)="setEpisode(i-1)" *ngIf="i>0">
           {{getGlobal() ? 'Previous' : 'Előző'}}
         </button>
-        <button mat-button color="primary" (click)="setEpisode(i+1)" *ngIf="i < tvShowEpisodes.episodes.length-1">
+        <button mat-button color="primary"
+                (click)="setEpisode(i+1)" *ngIf="i < tvShowEpisodes.episodes.length-1">
           {{getGlobal() ? 'Next' : 'Következő'}}
         </button>
       </mat-action-row>

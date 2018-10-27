@@ -1,6 +1,6 @@
-import {ApiService} from '../../services/api.service';
-import {ListItem, listItemInitData} from '../../models/listItem.model';
-import {Component, Input} from '@angular/core';
+import {ApiService} from "../../services/api.service";
+import {ListItem, listItemInitData} from "../../models/listItem.model";
+import {Component, Input} from "@angular/core";
 
 @Component({
   selector: 'mf-list-item',
@@ -18,9 +18,7 @@ export class ListItemComponent {
 
   innerWidth: number;
 
-  constructor(
-    private api: ApiService
-  ) {
+  constructor(private api: ApiService) {
     this.innerWidth = window.innerWidth;
   }
 

@@ -1,7 +1,7 @@
-import {Router} from '@angular/router';
-import {ConstantsService} from './constants.service';
-import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Router} from "@angular/router";
+import {ConstantsService} from "./constants.service";
+import {Injectable} from "@angular/core";
+import {Http} from "@angular/http";
 
 @Injectable()
 export class ApiService {
@@ -13,11 +13,9 @@ export class ApiService {
   tvGenresArray: Array<{ id: Number, name: String }>;
 
 
-  constructor(
-    private http: Http,
-    private constants: ConstantsService,
-    private router: Router,
-  ) {
+  constructor(private http: Http,
+              private constants: ConstantsService,
+              private router: Router,) {
     this.getAllPossibleGenres();
   }
 

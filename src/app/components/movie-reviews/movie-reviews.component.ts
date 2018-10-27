@@ -1,5 +1,5 @@
-import {ApiService} from '../../services/api.service';
-import {Component, Input, OnChanges} from '@angular/core';
+import {ApiService} from "../../services/api.service";
+import {Component, Input, OnChanges} from "@angular/core";
 
 @Component({
   selector: 'mf-movie-reviews',
@@ -17,9 +17,7 @@ export class MovieReviewsComponent implements OnChanges {
     }>
   };
 
-  constructor(
-    private api: ApiService
-  ) {
+  constructor(private api: ApiService) {
   }
 
   ngOnChanges() {

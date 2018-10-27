@@ -1,6 +1,6 @@
-import {inject, TestBed} from '@angular/core/testing';
+import {inject, TestBed} from "@angular/core/testing";
 
-import {ScrollerService} from './scroller.service';
+import {ScrollerService} from "./scroller.service";
 
 describe('ScrollerService', () => {
   beforeEach(() => {

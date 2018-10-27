@@ -1,7 +1,7 @@
-import {ApiService} from '../../services/api.service';
-import {Component, Input, OnChanges} from '@angular/core';
-import {Videos, videosData} from '../../models/videos.model';
-import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {ApiService} from "../../services/api.service";
+import {Component, Input, OnChanges} from "@angular/core";
+import {Videos, videosData} from "../../models/videos.model";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'mf-tv-show-videos',
@@ -17,10 +17,8 @@ export class TvShowVideosComponent implements OnChanges {
   getGlobal = this.api.getGlobal;
   embedOptions = '?iv_load_policy=3&rel=0&showinfo=0';
 
-  constructor(
-    private api: ApiService,
-    private sanitizer: DomSanitizer
-  ) {
+  constructor(private api: ApiService,
+              private sanitizer: DomSanitizer) {
   }
 
   ngOnChanges() {
