@@ -3,9 +3,9 @@
 .container {
   max-height: 15em;
   overflow-y: auto;
-  margin-bottom: 2em;
   width: calc(70% - 4em - 20px);
-  margin: 0 auto;
+  margin: 0 auto 2em auto;
+
   @media (max-width: 960px) {
     width: calc(100% - 20px);
 

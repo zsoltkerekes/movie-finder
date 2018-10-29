@@ -36,6 +36,7 @@ mat-card {
 
 .img-container {
   position: relative;
+  min-height: 300px;
 
   img {
     z-index: 1000;

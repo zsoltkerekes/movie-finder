@@ -49,6 +49,7 @@ export class TvShowDetailsComponent implements OnChanges, OnInit, AfterContentCh
   }
 
   ngOnChanges() {
+    this.loading = true;
     this.title.setTitle(`${
       this.tvShow.name
       } (${

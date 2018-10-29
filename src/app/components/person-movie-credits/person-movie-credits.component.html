@@ -16,9 +16,9 @@
   </mat-form-field>
 
   <mat-radio-group (change)="onChange($event)" class="content-center">
-    <p>Sorrend:</p>
-    <mat-radio-button value="vote_average" color="primary" checked>{{ getGlobal() ? 'By votes' : 'Szavazatok alapján'
-      }}
+    <p>{{ getGlobal() ? 'Order' : 'Sorrend'}}:</p>
+    <mat-radio-button value="vote_average" color="primary" checked>
+      {{ getGlobal() ? 'By votes' : 'Szavazatok alapján'}}
     </mat-radio-button>
     <mat-radio-button value="popularity" color="primary">{{ getGlobal() ? 'By popularity' : 'Népszerűség alapján' }}
     </mat-radio-button>

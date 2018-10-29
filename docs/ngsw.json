@@ -3,19 +3,26 @@
   "index": "/movie-finder/index.html",
   "assetGroups": [
     {
-      "name": "app",
-      "installMode": "lazy",
-      "updateMode": "lazy",
+      "name": "Movie Finder",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
       "urls": [
         "/movie-finder/favicon.ico",
-        "/movie-finder/index.html"
+        "/movie-finder/index.html",
+        "/movie-finder/main.26f31dcd27518f63a3b9.js",
+        "/movie-finder/polyfills.25d02f0c67ffa69f8066.js",
+        "/movie-finder/runtime.ec2944dd8b20ec099bf3.js",
+        "/movie-finder/styles.1e6bdaa6c94390328df5.css"
       ],
-      "patterns": []
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/icon\\?family=Material\\+Icons",
+        "https:\\/\\/fonts\\.gstatic\\.com\\/.*"
+      ]
     },
     {
       "name": "assets",
       "installMode": "lazy",
-      "updateMode": "lazy",
+      "updateMode": "prefetch",
       "urls": [
         "/movie-finder/assets/icons/icon-128x128.png",
         "/movie-finder/assets/icons/icon-144x144.png",
@@ -29,7 +36,20 @@
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "apiCalls",
+      "patterns": [
+        "https:\\/\\/api\\.themoviedb\\.org\\/3\\/.*",
+        "https:\\/\\/image\\.tmdb\\.org\\/t\\/p\\/.*"
+      ],
+      "strategy": "performance",
+      "maxSize": 600,
+      "maxAge": 1209600000,
+      "timeoutMs": 3000,
+      "version": 1
+    }
+  ],
   "hashTable": {
     "/movie-finder/assets/icons/icon-128x128.png": "4977cfc454bd48023e8d225d8894468cc464eac8",
     "/movie-finder/assets/icons/icon-144x144.png": "4977cfc454bd48023e8d225d8894468cc464eac8",
@@ -40,7 +60,11 @@
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "1619e0273c734641a57caa233de09fff1b8a5a39"
+    "/movie-finder/index.html": "1b3d536ae262f3832cb05c046f78b48a67eeaab2",
+    "/movie-finder/main.26f31dcd27518f63a3b9.js": "78093bb8fe03739e8112afbd1d268a65dbd44f74",
+    "/movie-finder/polyfills.25d02f0c67ffa69f8066.js": "ce68d153e9b9b6d26b625069c0ee99ae09c6f255",
+    "/movie-finder/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/movie-finder/styles.1e6bdaa6c94390328df5.css": "802f78968a6e8c8cd403cbdc7adc887bd42ee73f"
   },
   "navigationUrls": [
     {

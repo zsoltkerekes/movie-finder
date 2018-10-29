@@ -2,7 +2,7 @@ import {Component, Input, OnChanges} from "@angular/core";
 import {MovieDetails, movieDetailsData} from "../../models/MovieDetails.model";
 import {ApiService} from "../../services/api.service";
 import {Title} from "@angular/platform-browser";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 declare function escape(s: string): string;
 
@@ -20,6 +20,18 @@ export class MovieDetailsComponent implements OnChanges {
   loading: boolean;
   getGlobal = this.api.getGlobal;
   innerWidth: number;
+
+  constructor(private api: ApiService,
+              private title: Title,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
+    this.innerWidth = window.innerWidth;
+  }
+
+  ngOnChanges() {
+    this.loadMovie();
+  }
+
   loadMovie = () => {
     this.loading = true;
     document.documentElement.scrollTop = 0;
@@ -27,18 +39,25 @@ export class MovieDetailsComponent implements OnChanges {
     this.title.setTitle(`${this.activatedRoute.snapshot.data['pageTitle']}`);
     this.api.getMovieById(this.id)
       .subscribe(result => {
-        let output = result.json();
-        output = {...this.movie, ...output};
-        this.movie = output;
-        this.title.setTitle(`${
-          this.movie.title
-          } (${
-          this.listGenres(this.movie.genres)
-          }) :: ${
-          this.activatedRoute.snapshot.data['pageTitle']
-          }`);
-        this.loading = false;
-      });
+          let output = result.json();
+          output = {...this.movie, ...output};
+          this.movie = output;
+          this.title.setTitle(`${
+            this.movie.title
+            } (${
+            this.listGenres(this.movie.genres)
+            }) :: ${
+            this.activatedRoute.snapshot.data['pageTitle']
+            }`);
+          this.loading = false;
+        },
+        error => {
+          if (error.status === 404) {
+            this.router.navigate(['/404']);
+          }
+        }
+      )
+    ;
   };
 
   listGenres = array => {
@@ -58,16 +77,6 @@ export class MovieDetailsComponent implements OnChanges {
       return `url(${this.api.getBackgroundUrl()}${this.movie.backdrop_path})`;
     }
   };
-
-  constructor(private api: ApiService,
-              private title: Title,
-              private activatedRoute: ActivatedRoute) {
-    this.innerWidth = window.innerWidth;
-  }
-
-  ngOnChanges() {
-    this.loadMovie();
-  }
 
   open() {
     window.open(`http://bithumen.be/browse.php?search=${escape(this.movie.title.toString())}`, '_blank');

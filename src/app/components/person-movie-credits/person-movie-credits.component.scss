@@ -3,10 +3,9 @@
 .container {
   max-height: 15em;
   overflow-y: auto;
-  margin-bottom: 2em;
-  margin: 0 auto;
-
+  margin: 0 auto 2em auto;
   width: calc(70% - 4em - 20px);
+
   @media (max-width: 906px) {
     width: calc(100% - 20px);
   }

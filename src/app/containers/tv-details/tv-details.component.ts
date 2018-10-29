@@ -1,8 +1,8 @@
 ﻿import {ApiService} from "../../services/api.service";
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
 import {MovieDetails, movieDetailsData} from "../../models/MovieDetails.model";
 import {Title} from "@angular/platform-browser";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -25,16 +25,23 @@ export class TVDetailsComponent implements OnInit {
     this.title.setTitle(`${this.activatedRoute.snapshot.data['pageTitle']}`);
     this.api.getTvShowById(this.id)
       .subscribe(result => {
-        let output = result.json();
-        output = {...this.tvShow, ...output};
-        this.tvShow = output;
-        this.title.setTitle(`${ this.tvShow.name } :: ${  this.activatedRoute.snapshot.data['pageTitle']      }`);
-      });
+          let output = result.json();
+          output = {...this.tvShow, ...output};
+          this.tvShow = output;
+          this.title.setTitle(`${ this.tvShow.name } :: ${  this.activatedRoute.snapshot.data['pageTitle']      }`);
+        },
+        error => {
+          if (error.status === 404) {
+            this.router.navigate(['/404']);
+          }
+        }
+      );
   };
 
   constructor(private title: Title,
               private activatedRoute: ActivatedRoute,
-              private api: ApiService) {
+              private api: ApiService,
+              private router: Router) {
     this.innerWidth = window.innerWidth;
   }
 

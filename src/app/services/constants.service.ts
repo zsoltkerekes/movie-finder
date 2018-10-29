@@ -21,7 +21,8 @@ export class ConstantsService {
     this.globalOption = (this.cookieService.check('Movie-Finder-globalOption') === false ||
     this.cookieService.get('Movie-Finder-globalOption') === 'Global') ? true : false;
 
-    this.adultOption = this.cookieService.get('Movie-Finder-adultOption') === 'true' ? true : false;
+    this.adultOption = (this.cookieService.check('Movie-Finder-adultOption') === false ||
+    this.cookieService.get('Movie-Finder-globalOption') === 'true') ? true : false;
 
     this.sortMovieByOption = this.cookieService.get('Movie-Finder-sortMovieByOption') || 'popularity.desc';
     this.sortTvShowByOption = this.cookieService.get('Movie-Finder-sortTvShowByOption') || 'popularity.desc';
@@ -38,7 +39,7 @@ export class ConstantsService {
   imageUrl = 'https://image.tmdb.org/t/p/';
   backdropSize = 'w1280';
 
-  adult = (value = false) => `&include_adult=${value}`;
+  adult = (value = true) => `&include_adult=${value}`;
 
   changeGlobal = () => {
     this.globalOption = !this.globalOption;

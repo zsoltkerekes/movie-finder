@@ -1,8 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {People, peopleData} from "../../models/person.model";
 import {Title} from "@angular/platform-browser";
-import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "../../services/api.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'mf-persons-details',
@@ -21,7 +21,8 @@ export class PersonsDetailsComponent implements OnInit {
 
   constructor(private title: Title,
               private activatedRoute: ActivatedRoute,
-              private api: ApiService) {
+              private api: ApiService,
+              private router: Router) {
     this.innerWidth = window.innerWidth;
   }
 
@@ -43,14 +44,19 @@ export class PersonsDetailsComponent implements OnInit {
     this.title.setTitle(`${this.activatedRoute.snapshot.data['pageTitle']}`);
     this.api.getPersonById(this.id)
       .subscribe(result => {
-        this.person = result.json();
-        this.title.setTitle(`${
-          this.person.name
-          } :: ${
-          this.activatedRoute.snapshot.data['pageTitle']
-          }`);
-        this.loading = false;
-      });
+          this.person = result.json();
+          this.title.setTitle(`${
+            this.person.name
+            } :: ${
+            this.activatedRoute.snapshot.data['pageTitle']
+            }`);
+          this.loading = false;
+        },
+        error => {
+          if (error.status === 404) {
+            this.router.navigate(['/404']);
+          }
+        });
   };
 
   listGenres = array => {

@@ -17,6 +17,7 @@ export class TvShowCreditsComponent implements OnChanges {
   searchCast: string;
   searchCrew: string;
   innerWidth: number;
+  isLoading: boolean;
 
   constructor(private api: ApiService) {
     this.innerWidth = window.innerWidth;
@@ -26,6 +27,7 @@ export class TvShowCreditsComponent implements OnChanges {
     this.movieCredits = peopleMovieCreditsData;
     this.searchCast = '';
     this.searchCrew = '';
+    this.isLoading = true;
     if (this.id) {
       this.api.getTvShowCredits(this.id)
         .subscribe(response => {
@@ -48,6 +50,7 @@ export class TvShowCreditsComponent implements OnChanges {
             }
             return 0;
           });
+          this.isLoading = false;
           this.movieCredits = output;
         });
     }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
 import {ApiService} from "../../services/api.service";
 import {ListItem, listItemInitData} from "../../models/listItem.model";
@@ -19,7 +19,8 @@ export class MoviesByKeywordComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private title: Title,
-              private api: ApiService) {
+              private api: ApiService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -57,6 +58,11 @@ export class MoviesByKeywordComponent implements OnInit {
         response => {
           this.movies = response.json();
           this.isLoading = false;
+        },
+        error => {
+          if (error.status === 404) {
+            this.router.navigate(['/404']);
+          }
         }
       );
 

@@ -20,7 +20,7 @@ export class GenresComponent implements OnInit {
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.title.setTitle(`${
-      this.api.genres[this.id] ? this.api.genres[this.id] : ''
+      this.api.genres[this.id] ? this.api.genres[this.id] : 'Genres'
       } :: ${this.activatedRoute.snapshot.data['pageTitle']}`);
   }
 

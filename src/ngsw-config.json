@@ -2,28 +2,44 @@
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "app",
-      "installMode": "lazy",
-      "updateMode": "lazy",
+      "name": "Movie Finder",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
       "resources": {
         "files": [
           "/favicon.ico",
           "/index.html",
-          "/*.bundle.css",
-          "/*.bundle.js",
-          "/*.chunk.js"
+          "/*.css",
+          "/*.js"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/icon?family=Material+Icons",
+          "https://fonts.gstatic.com/**"
         ]
       }
     },
     {
       "name": "assets",
       "installMode": "lazy",
-      "updateMode": "lazy",
+      "updateMode": "prefetch",
       "resources": {
         "files": [
           "/assets/**"
         ]
       }
     }
-  ]
+  ],
+  "dataGroups": [{
+    "name": "apiCalls",
+    "urls": [
+      "https://api.themoviedb.org/3/**",
+      "https://image.tmdb.org/t/p/**"
+    ],
+    "cacheConfig": {
+      "maxAge": "14d",
+      "maxSize": 600,
+      "timeout": "3s",
+      "strategy": "performance"
+    }
+  }]
 }
