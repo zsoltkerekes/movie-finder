@@ -3,7 +3,7 @@ import {TvShowReviewsComponent} from "../../components/tv-show-reviews/tv-show-r
 import {CommonModule} from "@angular/common";
 import {NgModule} from "@angular/core";
 import {HttpModule} from "@angular/http";
-import {BrowserModule} from "@angular/platform-browser";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {AppRoutingModule} from "../../app-routing.module";
 import {DiscoverOptionsComponent} from "../../components/discover-options/discover-options.component";
@@ -26,7 +26,6 @@ import {PopularPersonsComponent} from "../../components/popular-persons/popular-
 import {PopularTvShowsComponent} from "../../components/popular-tv-shows/popular-tv-shows.component";
 import {RecommendedMoviesComponent} from "../../components/recommended-movies/recommended-movies.component";
 import {RecommendedTvShowsComponent} from "../../components/recommended-tv-shows/recommended-tv-shows.component";
-import {RecommendedComponent} from "../../components/recommended/recommended.component";
 import {SearchByPhraseComponent} from "../../components/search-by-phrase/search-by-phrase.component";
 import {SearchResultsComponent} from "../../components/search-results/search-results.component";
 import {SimilarMoviesComponent} from "../../components/similar-movies/similar-movies.component";
@@ -34,7 +33,6 @@ import {SimilarTvShowsComponent} from "../../components/similar-tv-shows/similar
 import {TopRatedMoviesComponent} from "../../components/top-rated-movies/top-rated-movies.component";
 import {TopRatedTvShowsComponent} from "../../components/top-rated-tv-shows/top-rated-tv-shows.component";
 import {TvImagesComponent} from "../../components/tv-images/tv-images.component";
-import {TvRecommendedComponent} from "../../components/tv-recommended/tv-recommended.component";
 import {TvShowCreditsComponent} from "../../components/tv-show-credits/tv-show-credits.component";
 import {TvShowEpisodesDetailsComponent} from "../../components/tv-show-episodes-details/tv-show-episodes-details.component";
 import {TvShowSeasonVideosComponent} from "../../components/tv-show-season-videos/tv-show-season-videos.component";
@@ -45,7 +43,6 @@ import {UpcomingMoviesComponent} from "../../components/upcoming-movies/upcoming
 import {DetailsComponent} from "../../containers/details/details.component";
 import {DiscoverComponent} from "../../containers/discover/discover.component";
 import {GenresComponent} from "../../containers/genres/genres.component";
-import {HomeComponent} from "../../containers/home/home.component";
 import {NowPlayingComponent} from "../../containers/now-playing/now-playing.component";
 import {PageNotFoundComponent} from "../../containers/page-not-found/page-not-found.component";
 import {PersonDetailsComponent} from "../../containers/person-details/person-details.component";
@@ -73,7 +70,7 @@ import {LoadingComponent} from "../../components/loading/loading.component";
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpModule,
     MaterialModule,
@@ -81,14 +78,12 @@ import {LoadingComponent} from "../../components/loading/loading.component";
     LazyLoadImagesModule
   ],
   declarations: [
-    HomeComponent,
     PageNotFoundComponent,
     HeaderComponent,
     FooterComponent,
     DetailsComponent,
     PopularMoviesComponent,
     DiscoverComponent,
-    RecommendedComponent,
     GenresComponent,
     TopRatedComponent,
     TopRatedMoviesComponent,
@@ -107,7 +102,6 @@ import {LoadingComponent} from "../../components/loading/loading.component";
     RecommendedTvShowsComponent,
     PopularTvShowsComponent,
     TopRatedTvShowsComponent,
-    TvRecommendedComponent,
     TvGenresComponent,
     TvShowsByGenreComponent,
     DiscoverOptionsComponent,
@@ -145,14 +139,12 @@ import {LoadingComponent} from "../../components/loading/loading.component";
     LoadingComponent
   ],
   exports: [
-    HomeComponent,
     PageNotFoundComponent,
     HeaderComponent,
     FooterComponent,
     DetailsComponent,
     PopularMoviesComponent,
     DiscoverComponent,
-    RecommendedComponent,
     GenresComponent,
     TopRatedComponent,
     TopRatedMoviesComponent,
@@ -171,7 +163,6 @@ import {LoadingComponent} from "../../components/loading/loading.component";
     RecommendedTvShowsComponent,
     PopularTvShowsComponent,
     TopRatedTvShowsComponent,
-    TvRecommendedComponent,
     TvGenresComponent,
     TvShowsByGenreComponent,
     DiscoverOptionsComponent,

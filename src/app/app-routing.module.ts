@@ -4,7 +4,6 @@ import {RouterModule, Routes} from "@angular/router";
 import {DetailsComponent} from "./containers/details/details.component";
 import {DiscoverComponent} from "./containers/discover/discover.component";
 import {GenresComponent} from "./containers/genres/genres.component";
-import {HomeComponent} from "./containers/home/home.component";
 import {NowPlayingComponent} from "./containers/now-playing/now-playing.component";
 import {PageNotFoundComponent} from "./containers/page-not-found/page-not-found.component";
 import {PersonDetailsComponent} from "./containers/person-details/person-details.component";
@@ -22,7 +21,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomeComponent,
+    loadChildren: './shared-modules/home/home.module#HomeModule',
     data: {
       pageTitle: `${baseTitle}`
     }

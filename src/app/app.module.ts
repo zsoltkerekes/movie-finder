@@ -1,4 +1,5 @@
 import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
 import {ServiceWorkerModule} from "@angular/service-worker";
 import {CookieService} from "ngx-cookie-service";
 
@@ -8,19 +9,19 @@ import {AppComponent} from "./app.component";
 import {ApiService} from "./services/api.service";
 import {ConstantsService} from "./services/constants.service";
 import {CoreModule} from "./shared-modules/core/core.module";
+import {HomeModule} from "./shared-modules/home/home.module";
 import {ScrollerService} from "./services/scroller.service";
-import {CommonModule} from "@angular/common";
-
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    AppRoutingModule,
     CommonModule,
+    AppRoutingModule,
+    ServiceWorkerModule.register('/movie-finder/ngsw-worker.js', {enabled: environment.production}),
     CoreModule,
-    ServiceWorkerModule.register('/movie-finder/ngsw-worker.js', {enabled: environment.production})
+    HomeModule
   ],
   providers: [
     ConstantsService,

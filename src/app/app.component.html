@@ -1,15 +1,8 @@
-<div *ngIf="checkConnection() !== 'none' ">
-  <mf-header></mf-header>
-  <section class="container">
-    <router-outlet></router-outlet>
-  </section>
-  <mf-footer></mf-footer>
-</div>
-
-<div *ngIf="checkConnection() === 'none' ">
-  <mf-header></mf-header>
-  <h1 class="text-center huge-margin">
-    This app require internet connection!
-  </h1>
-  <mf-footer></mf-footer>
-</div>
+<mf-header></mf-header>
+<h1 *ngIf="checkConnection() === 'none'" class="text-center huge-margin">
+  This app require internet connection!
+</h1>
+<section class="container">
+  <router-outlet></router-outlet>
+</section>
+<mf-footer></mf-footer>

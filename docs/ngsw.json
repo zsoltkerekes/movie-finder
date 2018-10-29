@@ -7,11 +7,12 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
+        "/movie-finder/4.18cff057b5295081a0a5.js",
         "/movie-finder/favicon.ico",
         "/movie-finder/index.html",
-        "/movie-finder/main.26f31dcd27518f63a3b9.js",
+        "/movie-finder/main.fcb8c62c3f9a961f5629.js",
         "/movie-finder/polyfills.25d02f0c67ffa69f8066.js",
-        "/movie-finder/runtime.ec2944dd8b20ec099bf3.js",
+        "/movie-finder/runtime.ab1f1c3df6bb6a16983f.js",
         "/movie-finder/styles.1e6bdaa6c94390328df5.css"
       ],
       "patterns": [
@@ -40,8 +41,8 @@
     {
       "name": "apiCalls",
       "patterns": [
-        "https:\\/\\/api\\.themoviedb\\.org\\/3\\/.*",
-        "https:\\/\\/image\\.tmdb\\.org\\/t\\/p\\/.*"
+        "https:\\/\\/api\\.themoviedb\\.org\\/.*",
+        "https:\\/\\/image\\.tmdb\\.org\\/.*"
       ],
       "strategy": "performance",
       "maxSize": 600,
@@ -51,6 +52,7 @@
     }
   ],
   "hashTable": {
+    "/movie-finder/4.18cff057b5295081a0a5.js": "4d1ca9edc0e438eaabaa204d633c4101d7b36e59",
     "/movie-finder/assets/icons/icon-128x128.png": "4977cfc454bd48023e8d225d8894468cc464eac8",
     "/movie-finder/assets/icons/icon-144x144.png": "4977cfc454bd48023e8d225d8894468cc464eac8",
     "/movie-finder/assets/icons/icon-72x72.png": "4977cfc454bd48023e8d225d8894468cc464eac8",
@@ -60,10 +62,10 @@
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "1b3d536ae262f3832cb05c046f78b48a67eeaab2",
-    "/movie-finder/main.26f31dcd27518f63a3b9.js": "78093bb8fe03739e8112afbd1d268a65dbd44f74",
+    "/movie-finder/index.html": "cde57a7e2155c6027e1eb35cf9cb9667b7dbb49e",
+    "/movie-finder/main.fcb8c62c3f9a961f5629.js": "954f58d027b9cd92d2739ece4cabe0edad096e2f",
     "/movie-finder/polyfills.25d02f0c67ffa69f8066.js": "ce68d153e9b9b6d26b625069c0ee99ae09c6f255",
-    "/movie-finder/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/movie-finder/runtime.ab1f1c3df6bb6a16983f.js": "ccda012fca9487a7de5803b38c6864de8a274f6a",
     "/movie-finder/styles.1e6bdaa6c94390328df5.css": "802f78968a6e8c8cd403cbdc7adc887bd42ee73f"
   },
   "navigationUrls": [

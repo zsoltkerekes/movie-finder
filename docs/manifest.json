@@ -4,7 +4,7 @@
   "theme_color": "#000000",
   "background_color": "#C5CAE9",
   "display": "standalone",
-  "start_url": "https://zsoltkerekes.github.io/movie-finder/#/",
+  "start_url": "https://zsoltkerekes.github.io/movie-finder/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",

@@ -1,5 +1,4 @@
 // import 'hammerjs';
-
 import {CommonModule} from "@angular/common";
 import {NgModule} from "@angular/core";
 import {MatButtonModule} from "@angular/material/button";
@@ -16,13 +15,11 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSelectModule} from "@angular/material/select";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatTabsModule} from "@angular/material/tabs";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     MatListModule,
     MatIconModule,
     MatDividerModule,
@@ -40,7 +37,6 @@ import {MatRadioModule} from "@angular/material/radio";
     MatRadioModule
   ],
   exports: [
-    BrowserAnimationsModule,
     MatListModule,
     MatIconModule,
     MatDividerModule,
