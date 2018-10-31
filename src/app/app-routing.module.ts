@@ -1,20 +1,6 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 
-import {DetailsComponent} from "./containers/details/details.component";
-import {DiscoverComponent} from "./containers/discover/discover.component";
-import {GenresComponent} from "./containers/genres/genres.component";
-import {NowPlayingComponent} from "./containers/now-playing/now-playing.component";
-import {PageNotFoundComponent} from "./containers/page-not-found/page-not-found.component";
-import {PersonDetailsComponent} from "./containers/person-details/person-details.component";
-import {SearchComponent} from "./containers/search/search.component";
-import {TopRatedComponent} from "./containers/top-rated/top-rated.component";
-import {TVDetailsComponent} from "./containers/tv-details/tv-details.component";
-import {TvGenresComponent} from "./containers/tv-genres/tv-genres.component";
-import {TvShowEpisodesComponent} from "./containers/tv-show-episodes/tv-show-episodes.component";
-import {UpcomingComponent} from "./containers/upcoming/upcoming.component";
-import {ByKeywordsComponent} from "./containers/by-keywords/by-keywords.component";
-
 const baseTitle = 'Movie Finder';
 
 const routes: Routes = [
@@ -27,112 +13,92 @@ const routes: Routes = [
     }
   },
   {
-    path: 'discover/:moviePage/:tvShowPage/:personPage',
-    pathMatch: 'full',
-    component: DiscoverComponent,
+    path: 'discover',
+    loadChildren: './shared-modules/discover/discover.module#DiscoverModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
-    path: 'top-rated/:moviePage/:tvShowPage/:personPage',
-    pathMatch: 'full',
-    component: TopRatedComponent,
+    path: 'top-rated',
+    loadChildren: './shared-modules/top-rated/top-rated.module#TopRatedModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
     path: 'search',
-    pathMatch: 'full',
-    component: SearchComponent,
+    loadChildren: './shared-modules/search/search.module#SearchModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
-    path: 'search/:phrase/:moviePage/:tvShowPage/:personPage',
-    pathMatch: 'full',
-    component: SearchComponent,
-    data: {
-      pageTitle: `Eredmény ::  ${baseTitle}`
-    }
-  },
-  {
-    path: 'genres/:id/:page',
-    pathMatch: 'full',
-    component: GenresComponent,
+    path: 'genres',
+    loadChildren: './shared-modules/genres/genres.module#GenresModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
-    path: 'tv-genres/:id/:page',
-    pathMatch: 'full',
-    component: TvGenresComponent,
+    path: 'tv-genres',
+    loadChildren: './shared-modules/tv-genres/tv-genres.module#TvGenresModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
-    path: 'details/:id',
-    pathMatch: 'full',
-    component: DetailsComponent,
+    path: 'details',
+    loadChildren: './shared-modules/details/details.module#DetailsModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
-    path: 'tv-details/:id',
-    pathMatch: 'full',
-    component: TVDetailsComponent,
+    path: 'tv-details',
+    loadChildren: './shared-modules/tv-details/tv-details.module#TvDetailsModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
-    path: 'person-details/:id',
-    pathMatch: 'full',
-    component: PersonDetailsComponent,
+    path: 'person-details',
+    loadChildren: './shared-modules/person-details/person-details.module#PersonDetailsModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
-    path: 'tv-show-episodes/:id/:season',
-    pathMatch: 'full',
-    component: TvShowEpisodesComponent,
+    path: 'tv-show-episodes',
+    loadChildren: './shared-modules/tv-show-episodes/tv-show-episodes.module#TvShowEpisodesModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
-    path: 'now-playing/:page',
-    pathMatch: 'full',
-    component: NowPlayingComponent,
+    path: 'now-playing',
+    loadChildren: './shared-modules/now-playing/now-playing.module#NowPlayingModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
-    path: 'upcoming/:page',
-    pathMatch: 'full',
-    component: UpcomingComponent,
+    path: 'upcoming',
+    loadChildren: './shared-modules/upcoming/upcoming.module#UpcomingModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
-    path: 'by-keywords/:id/:keywordsPage',
-    pathMatch: 'full',
-    component: ByKeywordsComponent,
+    path: 'by-keywords',
+    loadChildren: './shared-modules/by-keywords/by-keywords.module#ByKeywordsModule',
     data: {
       pageTitle: `${baseTitle}`
     }
   },
   {
     path: '404',
-    component: PageNotFoundComponent,
+    loadChildren: './shared-modules/page-not-found/page-not-found.module#PageNotFoundModule',
     data: {
       pageTitle: `${baseTitle}`
     }

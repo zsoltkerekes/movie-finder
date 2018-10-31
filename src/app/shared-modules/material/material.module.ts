@@ -1,5 +1,5 @@
-// import 'hammerjs';
-import {CommonModule} from "@angular/common";
+import 'hammerjs';
+
 import {NgModule} from "@angular/core";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
@@ -19,7 +19,6 @@ import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   imports: [
-    CommonModule,
     MatListModule,
     MatIconModule,
     MatDividerModule,

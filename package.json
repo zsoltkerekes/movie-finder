@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o --source-map --watch --progress --verbose --live-reload --aot",
-    "build": "ng build --delete-output-path --prod --aot --service-worker --buildOptimizer --optimization true --base-href /movie-finder/ --output-path docs",
+    "start": "ng serve -o --aot --source-map --watch --progress --verbose --live-reload",
+    "build": "ng build --prod --aot --build-optimizer --optimization true --common-chunk --vendor-chunk --service-worker --base-href /movie-finder/ --output-path docs --delete-output-path",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

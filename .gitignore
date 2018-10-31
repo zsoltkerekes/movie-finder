@@ -4,4 +4,6 @@
 # testing
 /coverage
 
-.idea
+# IDE
+/.idea
+/.vscode

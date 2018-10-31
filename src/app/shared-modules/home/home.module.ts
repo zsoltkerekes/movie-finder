@@ -1,28 +1,24 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {RouterModule, Routes} from "@angular/router";
+import {CoreModule} from "../core/core.module";
 
 import {RecommendedComponent} from "../../components/recommended/recommended.component";
 import {TvRecommendedComponent} from "../../components/tv-recommended/tv-recommended.component";
 import {HomeComponent} from "../../containers/home/home.component";
 
-import {MaterialModule} from "../material/material.module";
-
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    children: [
-      {path: '', component: HomeComponent}
-    ]
+    component: HomeComponent
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
-    RouterModule.forChild(routes),
+    CoreModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [
     HomeComponent,
@@ -32,8 +28,7 @@ const routes: Routes = [
   exports: [
     HomeComponent,
     RecommendedComponent,
-    TvRecommendedComponent,
-    RouterModule
+    TvRecommendedComponent
   ]
 })
 export class HomeModule {
