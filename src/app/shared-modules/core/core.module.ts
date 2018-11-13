@@ -38,6 +38,7 @@ import {LoadingComponent} from "../../components/loading/loading.component";
     ListItemComponent,
     PaginationComponent,
     SearchPipe,
+    SideScrollDirective,
     LoadingComponent,
     RouterModule,
     HttpModule,

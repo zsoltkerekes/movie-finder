@@ -6,7 +6,7 @@ export class ScrollerService {
   constructor() {
   }
 
-  toTop(time = 1000, speedIndex = 12) {
+  toTop(time = 1000, speedIndex = 25) {
     const height = () => window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     const scrollVelocity = height() * (1 / time) * speedIndex;
     const interval = setInterval(
