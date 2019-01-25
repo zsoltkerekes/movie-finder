@@ -1,24 +1,16 @@
 .mat-divider {
-  margin: 3em 0;
+  margin: 2em 0;
 }
 
 .keywordslist {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 80%;
-  margin: 2.5% 10%;
-
-  div {
-    padding: .5em 0;
-  }
+  justify-content: center;
+  margin: 0;
 }
 
 .mat-chip-list {
-
-  justify-content: center;
-
   .mat-chip {
     cursor: pointer;
     margin: .5em !important;

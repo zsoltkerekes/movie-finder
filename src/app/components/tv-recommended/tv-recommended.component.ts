@@ -1,6 +1,6 @@
-import {Component, DoCheck, ViewChild} from "@angular/core";
+import {Component, DoCheck, ViewChild} from '@angular/core';
 
-import {ApiService} from "../../services/api.service";
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-tv-recommended',

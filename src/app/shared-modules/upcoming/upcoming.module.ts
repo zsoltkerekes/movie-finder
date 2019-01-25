@@ -1,10 +1,10 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {RouterModule, Routes} from "@angular/router";
-import {CoreModule} from "../core/core.module";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {CoreModule} from '../core/core.module';
 
-import {UpcomingComponent} from "../../containers/upcoming/upcoming.component";
-import {UpcomingMoviesComponent} from "../../components/upcoming-movies/upcoming-movies.component";
+import {UpcomingComponent} from '../../containers/upcoming/upcoming.component';
+import {UpcomingMoviesComponent} from '../../components/upcoming-movies/upcoming-movies.component';
 
 const routes: Routes = [
   {

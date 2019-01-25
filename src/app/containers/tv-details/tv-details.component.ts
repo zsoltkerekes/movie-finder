@@ -1,8 +1,8 @@
-﻿import {ApiService} from "../../services/api.service";
-import {Component, OnInit} from "@angular/core";
-import {MovieDetails, movieDetailsData} from "../../models/MovieDetails.model";
-import {Title} from "@angular/platform-browser";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ApiService} from '../../services/api.service';
+import {Component, OnInit} from '@angular/core';
+import {MovieDetails, movieDetailsData} from '../../models/MovieDetails.model';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -36,7 +36,7 @@ export class TVDetailsComponent implements OnInit {
           }
         }
       );
-  };
+  }
 
   constructor(private title: Title,
               private activatedRoute: ActivatedRoute,

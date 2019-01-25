@@ -1,8 +1,8 @@
-import {AfterContentChecked, Component, Input, OnChanges, OnInit} from "@angular/core";
-import {MovieDetails} from "../../models/MovieDetails.model";
-import {ApiService} from "../../services/api.service";
-import {Title} from "@angular/platform-browser";
-import {ActivatedRoute} from "@angular/router";
+import {AfterContentChecked, Component, Input, OnChanges, OnInit} from '@angular/core';
+import {MovieDetails} from '../../models/MovieDetails.model';
+import {ApiService} from '../../services/api.service';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute} from '@angular/router';
 
 declare function escape(s: string): string;
 
@@ -24,7 +24,7 @@ export class TvShowDetailsComponent implements OnChanges, OnInit, AfterContentCh
     if (this.tvShow.backdrop_path) {
       return `url(${this.api.getBackgroundUrl()}${this.tvShow.backdrop_path})`;
     }
-  };
+  }
 
   listGenres = array => {
     const output = [];
@@ -36,11 +36,11 @@ export class TvShowDetailsComponent implements OnChanges, OnInit, AfterContentCh
     } else {
       return array;
     }
-  };
+  }
 
   constructor(private api: ApiService,
               private title: Title,
-              private activatedRoute: ActivatedRoute,) {
+              private activatedRoute: ActivatedRoute, ) {
     this.innerWidth = window.innerWidth;
   }
 

@@ -1,6 +1,6 @@
-import {Images, imagesData} from "../../models/images.model";
-import {Component, Input, OnChanges} from "@angular/core";
-import {ApiService} from "../../services/api.service";
+import {Images, imagesData} from '../../models/images.model';
+import {Component, Input, OnChanges} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-tv-images',

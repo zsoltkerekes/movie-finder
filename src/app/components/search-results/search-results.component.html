@@ -9,16 +9,18 @@
 <div *ngIf="keywordsSearchResults && phrase && !(isLoadingKeywords)" class="keywordslist">
   <mat-chip-list>
     <mat-chip
-      color="primary" [selected]="true"
-      *ngFor="let keyword of keywordsSearchResults.results" [routerLink]="['/by-keywords', keyword.id, '1']">
+      color="primary"
+      [selected]="true"
+      *ngFor="let keyword of keywordsSearchResults.results"
+      [routerLink]="['/by-keywords', keyword.id, '1']">
       {{keyword.name}}
     </mat-chip>
   </mat-chip-list>
 </div>
 
-<h2 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center">
+<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center">
   {{getGlobal() ? 'No results' : 'Nincs találat'}}
-</h2>
+</h3>
 
 <mat-divider *ngIf="phrase"></mat-divider>
 
@@ -34,9 +36,9 @@
   </a>
 </div>
 
-<h2 *ngIf="movieSearchResults && !(movieSearchResults.results.length) && phrase" class="text-center">
+<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center">
   {{getGlobal() ? 'No results' : 'Nincs találat'}}
-</h2>
+</h3>
 
 <mf-pagination *ngIf="phrase" [results]="movieSearchResults" [url]="'/search/'+phrase" [type]="'movie'"></mf-pagination>
 
@@ -56,9 +58,9 @@
   </a>
 </div>
 
-<h2 *ngIf="tvShowSearchResults && !(tvShowSearchResults.results.length) && phrase" class="text-center">
+<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center">
   {{getGlobal() ? 'No results' : 'Nincs találat'}}
-</h2>
+</h3>
 
 <mf-pagination *ngIf="phrase" [results]="tvShowSearchResults" [url]="'/search/'+phrase"
                [type]="'tvShow'"></mf-pagination>

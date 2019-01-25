@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from "@angular/core";
-import {ListItem, listItemInitData} from "../../models/listItem.model";
-import {ApiService} from "../../services/api.service";
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ListItem, listItemInitData} from '../../models/listItem.model';
+import {ApiService} from '../../services/api.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'mf-recommended-movies',

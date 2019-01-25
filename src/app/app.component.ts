@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'mf-root',
@@ -9,7 +9,7 @@ export class AppComponent implements OnInit {
   checkConnection = () => {
     // @ts-ignore
     return (window.navigator.connection.type || '');
-  };
+  }
 
   ngOnInit() {
     // @ts-ignore

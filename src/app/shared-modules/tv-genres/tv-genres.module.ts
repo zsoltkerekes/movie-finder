@@ -1,10 +1,10 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {RouterModule, Routes} from "@angular/router";
-import {CoreModule} from "../core/core.module";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {CoreModule} from '../core/core.module';
 
-import {TvGenresComponent} from "../../containers/tv-genres/tv-genres.component";
-import {TvShowsByGenreComponent} from "../../components/tv-shows-by-genre/tv-shows-by-genre.component";
+import {TvGenresComponent} from '../../containers/tv-genres/tv-genres.component';
+import {TvShowsByGenreComponent} from '../../components/tv-shows-by-genre/tv-shows-by-genre.component';
 
 const routes: Routes = [
   {

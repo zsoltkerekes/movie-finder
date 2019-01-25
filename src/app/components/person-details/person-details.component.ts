@@ -1,8 +1,8 @@
-import {Component, OnInit} from "@angular/core";
-import {People, peopleData} from "../../models/person.model";
-import {Title} from "@angular/platform-browser";
-import {ApiService} from "../../services/api.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {People, peopleData} from '../../models/person.model';
+import {Title} from '@angular/platform-browser';
+import {ApiService} from '../../services/api.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'mf-persons-details',
@@ -57,7 +57,7 @@ export class PersonsDetailsComponent implements OnInit {
             this.router.navigate(['/404']);
           }
         });
-  };
+  }
 
   listGenres = array => {
     const output = [];
@@ -65,7 +65,7 @@ export class PersonsDetailsComponent implements OnInit {
       output.push(row.name);
     });
     return output.join(', ');
-  };
+  }
 
   getGender(id: number): string {
     switch (id) {

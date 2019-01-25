@@ -1,7 +1,7 @@
-import {ApiService} from "../../services/api.service";
-import {Component, Input, OnChanges} from "@angular/core";
-import {Videos, videosData} from "../../models/videos.model";
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {ApiService} from '../../services/api.service';
+import {Component, Input, OnChanges} from '@angular/core';
+import {Videos, videosData} from '../../models/videos.model';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'mf-movie-videos',
@@ -43,7 +43,7 @@ export class MovieVideosComponent implements OnChanges {
   setVideoUrl = key => {
     this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${key}${this.embedOptions}`),
       this.selectedVideo = key;
-  };
+  }
 
   getSelectedVideo = i => this.videos.results[i].key === this.selectedVideo;
 

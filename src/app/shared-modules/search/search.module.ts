@@ -1,11 +1,11 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {RouterModule, Routes} from "@angular/router";
-import {CoreModule} from "../core/core.module";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {CoreModule} from '../core/core.module';
 
-import {SearchComponent} from "../../containers/search/search.component";
-import {SearchByPhraseComponent} from "../../components/search-by-phrase/search-by-phrase.component";
-import {SearchResultsComponent} from "../../components/search-results/search-results.component";
+import {SearchComponent} from '../../containers/search/search.component';
+import {SearchByPhraseComponent} from '../../components/search-by-phrase/search-by-phrase.component';
+import {SearchResultsComponent} from '../../components/search-results/search-results.component';
 
 const routes: Routes = [
   {

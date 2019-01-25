@@ -1,5 +1,5 @@
-import {Component, Input, OnChanges} from "@angular/core";
-import {ApiService} from "../../services/api.service";
+import {Component, Input, OnChanges} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-tv-keywords',

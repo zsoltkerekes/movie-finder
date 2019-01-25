@@ -1,8 +1,8 @@
 mat-card {
-  min-height: 390px;
-  margin: 1em .5em;
+  margin: .5em;
   text-align: center;
-  width: 220px;
+  width: 185px;
+  height: 400px;
 
   mat-card-content img {
     width: 100%;
@@ -14,16 +14,17 @@ mat-card {
 
   mat-card-subtitle,
   mat-card-title {
-    min-height: 2em;
-    width: 210px;
-    white-space: normal;
+    width: 185px;
+    white-space: pre-line;
+    margin: 0 -16px;
+    height: 3em;
   }
 
   mat-card-title {
-    font-weight: bold;
-    font-size: 105%;
+    height: 4em;
+    display: table-cell;
+    vertical-align: middle;
   }
-
 }
 
 @media (max-width: 960px) {
@@ -36,7 +37,6 @@ mat-card {
 
 .img-container {
   position: relative;
-  min-height: 300px;
 
   img {
     z-index: 1000;
@@ -62,10 +62,11 @@ mat-card {
       width: calc(100% - 20px);
       height: auto;
     }
+
     mat-card-subtitle,
     mat-card-title {
-      width: 100%;
-      min-width: 200px;
+      width: 426px;
+
     }
   }
 

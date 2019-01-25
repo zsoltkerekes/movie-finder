@@ -1,5 +1,5 @@
-import {Component, Input} from "@angular/core";
-import {ApiService} from "../../services/api.service";
+import {Component, Input} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-tv-show-seasons',

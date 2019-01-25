@@ -1,6 +1,6 @@
-import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ByKeywordsComponent} from "./by-keywords.component";
+import {ByKeywordsComponent} from './by-keywords.component';
 
 describe('ByKeywordsComponent', () => {
   let component: ByKeywordsComponent;

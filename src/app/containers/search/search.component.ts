@@ -1,7 +1,7 @@
-import {ApiService} from "./../../services/api.service";
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
-import {Title} from "@angular/platform-browser";
+import {ApiService} from './../../services/api.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'mf-search',

@@ -1,8 +1,8 @@
-import {Component, Input, OnChanges} from "@angular/core";
-import {MovieDetails, movieDetailsData} from "../../models/MovieDetails.model";
-import {ApiService} from "../../services/api.service";
-import {Title} from "@angular/platform-browser";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, Input, OnChanges} from '@angular/core';
+import {MovieDetails, movieDetailsData} from '../../models/MovieDetails.model';
+import {ApiService} from '../../services/api.service';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute, Router} from '@angular/router';
 
 declare function escape(s: string): string;
 
@@ -58,7 +58,7 @@ export class MovieDetailsComponent implements OnChanges {
         }
       )
     ;
-  };
+  }
 
   listGenres = array => {
     const output = [];
@@ -70,13 +70,13 @@ export class MovieDetailsComponent implements OnChanges {
     } else {
       return array;
     }
-  };
+  }
 
   backgroundImage = () => {
     if (this.movie.backdrop_path) {
       return `url(${this.api.getBackgroundUrl()}${this.movie.backdrop_path})`;
     }
-  };
+  }
 
   open() {
     window.open(`http://bithumen.be/browse.php?search=${escape(this.movie.title.toString())}`, '_blank');

@@ -1,17 +1,17 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {RouterModule, Routes} from "@angular/router";
-import {CoreModule} from "../core/core.module";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {CoreModule} from '../core/core.module';
 
-import {DetailsComponent} from "../../containers/details/details.component";
-import {MovieDetailsComponent} from "../../components/movie-details/movie-details.component";
-import {MovieImagesComponent} from "../../components/movie-images/movie-images.component";
-import {MovieVideosComponent} from "../../components/movie-videos/movie-videos.component";
-import {MovieReviewsComponent} from "../../components/movie-reviews/movie-reviews.component";
-import {MovieCreditsComponent} from "../../components/movie-credits/movie-credits.component";
-import {RecommendedMoviesComponent} from "../../components/recommended-movies/recommended-movies.component";
-import {SimilarMoviesComponent} from "../../components/similar-movies/similar-movies.component";
-import {MovieKeywordsComponent} from "../../components/movie-keywords/movie-keywords.component";
+import {DetailsComponent} from '../../containers/details/details.component';
+import {MovieDetailsComponent} from '../../components/movie-details/movie-details.component';
+import {MovieImagesComponent} from '../../components/movie-images/movie-images.component';
+import {MovieVideosComponent} from '../../components/movie-videos/movie-videos.component';
+import {MovieReviewsComponent} from '../../components/movie-reviews/movie-reviews.component';
+import {MovieCreditsComponent} from '../../components/movie-credits/movie-credits.component';
+import {RecommendedMoviesComponent} from '../../components/recommended-movies/recommended-movies.component';
+import {SimilarMoviesComponent} from '../../components/similar-movies/similar-movies.component';
+import {MovieKeywordsComponent} from '../../components/movie-keywords/movie-keywords.component';
 
 
 const routes: Routes = [

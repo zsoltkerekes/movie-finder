@@ -1,7 +1,7 @@
-import {Router} from "@angular/router";
-import {ConstantsService} from "./constants.service";
-import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
+import {Router} from '@angular/router';
+import {ConstantsService} from './constants.service';
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
 
 @Injectable()
 export class ApiService {
@@ -15,7 +15,7 @@ export class ApiService {
 
   constructor(private http: Http,
               private constants: ConstantsService,
-              private router: Router,) {
+              private router: Router, ) {
     this.getAllPossibleGenres();
   }
 
@@ -68,7 +68,7 @@ export class ApiService {
       });
       this.getAllPossibleTvGenres();
     });
-  };
+  }
 
   getGenreList = (array: Array<Number>): String => {
     const output = [];
@@ -76,7 +76,7 @@ export class ApiService {
       output.push(this.genres[row.toString()]);
     });
     return output.join(', ');
-  };
+  }
 
   getPopularMovies = (page = 1) => this.getContent(this.constants.popularMovies(page));
 
@@ -141,7 +141,7 @@ export class ApiService {
       });
       this.tvGenresArray = output;
     });
-  };
+  }
 
   getTvGenreList = (array: Array<Number>): String => {
     const output = [];
@@ -149,7 +149,7 @@ export class ApiService {
       output.push(this.tvGenres[row.toString()]);
     });
     return output.join(', ');
-  };
+  }
 
   getTvShowSearch = (phrase, page = 1) => this.getContent(this.constants.tvShowSearch(phrase, page));
 

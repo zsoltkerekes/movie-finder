@@ -1,7 +1,7 @@
 <mat-card class="mat-elevation-z4" *ngIf="movie || tvShow || person ">
   <mat-card-header>
     <mat-card-title>
-      {{movie.title ? movie.title.trim() : ''}}
+      {{movie.title ? (movie.title.trim() | truncate : 27 : false) : ''}}
       {{tvShow.name ? tvShow.name.trim() : ''}}
       {{person.name ? person.name.trim() : ''}}
     </mat-card-title>

@@ -1,6 +1,6 @@
-import {Component, OnInit} from "@angular/core";
-import {ApiService} from "../../services/api.service";
-import {ScrollerService} from "../../services/scroller.service";
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../../services/api.service';
+import {ScrollerService} from '../../services/scroller.service';
 
 @Component({
   selector: 'mf-footer',

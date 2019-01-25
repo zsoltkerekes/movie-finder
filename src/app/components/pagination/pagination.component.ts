@@ -1,6 +1,6 @@
-import {ActivatedRoute} from "@angular/router";
-import {Component, Input, OnChanges} from "@angular/core";
-import {ApiService} from "../../services/api.service";
+import {ActivatedRoute} from '@angular/router';
+import {Component, Input, OnChanges} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'mf-pagination',

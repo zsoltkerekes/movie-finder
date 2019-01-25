@@ -1,6 +1,6 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
-import {Title} from "@angular/platform-browser";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'mf-person-details',
@@ -15,7 +15,7 @@ export class PersonDetailsComponent implements OnInit {
   loading: boolean;
 
   constructor(private title: Title,
-              private activatedRoute: ActivatedRoute,) {
+              private activatedRoute: ActivatedRoute, ) {
   }
 
   ngOnInit() {
