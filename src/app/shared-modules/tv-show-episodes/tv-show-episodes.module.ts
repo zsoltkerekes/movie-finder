@@ -4,8 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {CoreModule} from '../core/core.module';
 
 import {TvShowEpisodesComponent} from '../../containers/tv-show-episodes/tv-show-episodes.component';
-import {TvShowEpisodesDetailsComponent} from '../../components/tv-show-episodes-details/tv-show-episodes-details.component';
-import {TvShowSeasonVideosComponent} from '../../components/tv-show-season-videos/tv-show-season-videos.component';
+import {TvShowEpisodesDetailsComponent} from '../../components/tv/tv-show-episodes-details/tv-show-episodes-details.component';
+import {TvShowSeasonVideosComponent} from '../../components/tv/tv-show-season-videos/tv-show-season-videos.component';
 
 const routes: Routes = [
   {

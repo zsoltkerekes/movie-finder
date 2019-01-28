@@ -4,9 +4,9 @@ import {RouterModule, Routes} from '@angular/router';
 import {CoreModule} from '../core/core.module';
 
 import {TopRatedComponent} from '../../containers/top-rated/top-rated.component';
-import {TopRatedMoviesComponent} from '../../components/top-rated-movies/top-rated-movies.component';
-import {TopRatedTvShowsComponent} from '../../components/top-rated-tv-shows/top-rated-tv-shows.component';
-import {TopRatedPersonsComponent} from '../../components/top-rated-persons/top-rated-persons.component';
+import {TopRatedMoviesComponent} from '../../components/movie/top-rated-movies/top-rated-movies.component';
+import {TopRatedTvShowsComponent} from '../../components/tv/top-rated-tv-shows/top-rated-tv-shows.component';
+import {TopRatedPersonsComponent} from '../../components/person/top-rated-persons/top-rated-persons.component';
 
 const routes: Routes = [
   {

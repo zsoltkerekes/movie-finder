@@ -1,0 +1,20 @@
+<mat-form-field class="full-width">
+  <input
+    matInput
+    type="search"
+    #message
+    maxlength="135"
+    [placeholder]="placeholder"
+    [value]="queryPhrase.getValue()"
+    (keyup)="inputChanged($event)"
+    required="required">
+  <mat-hint align="end">{{message.value.length}} / 135</mat-hint>
+</mat-form-field>
+<button
+  mat-raised-button
+  *ngIf="showButton"
+  class="full-width"
+  color="primary"
+  (click)="onButtonClicked(message.value)">
+  <mat-icon>search</mat-icon>
+</button>

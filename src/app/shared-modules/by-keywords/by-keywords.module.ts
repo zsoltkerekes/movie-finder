@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {CoreModule} from '../core/core.module';
 
 import {ByKeywordsComponent} from '../../containers/by-keywords/by-keywords.component';
-import {MoviesByKeywordComponent} from '../../components/movies-by-keyword/movies-by-keyword.component';
+import {MoviesByKeywordComponent} from '../../components/movie/movies-by-keyword/movies-by-keyword.component';
 
 const routes: Routes = [
   {

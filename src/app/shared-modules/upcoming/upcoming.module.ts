@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {CoreModule} from '../core/core.module';
 
 import {UpcomingComponent} from '../../containers/upcoming/upcoming.component';
-import {UpcomingMoviesComponent} from '../../components/upcoming-movies/upcoming-movies.component';
+import {UpcomingMoviesComponent} from '../../components/movie/upcoming-movies/upcoming-movies.component';
 
 const routes: Routes = [
   {

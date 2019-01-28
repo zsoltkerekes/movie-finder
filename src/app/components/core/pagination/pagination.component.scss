@@ -1,0 +1,34 @@
+@import "./../../../../colors.scss";
+
+.result-links {
+  padding: .3em;
+  border: 1px solid $main-color;
+  transition: .3s ease-in-out background-color;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &.active {
+    background-color: $main-color;
+    color: $main-font-color;
+  }
+}
+
+@media (max-width: 960px) {
+  p {
+    text-align: right;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    span {
+      line-height: 2.5em;
+      &:nth-child(1) {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

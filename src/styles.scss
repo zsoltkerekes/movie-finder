@@ -3,9 +3,9 @@
 @import "colors";
 
 html {
+  background-color: $fallback-bg-color;
   font-family: 'Roboto', sans-serif;
-  background-color: #fcfcfc;
-  font-size: 16px;
+
 
   body {
     margin: 0;
@@ -27,11 +27,12 @@ html {
 }
 
 * {
+  user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
-  user-select: none;
+
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;

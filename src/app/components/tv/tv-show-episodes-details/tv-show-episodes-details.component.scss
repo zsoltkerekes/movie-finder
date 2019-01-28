@@ -1,0 +1,60 @@
+@import "./../../../../colors.scss";
+
+.episodes {
+  max-width: 60em;
+  margin: 0 auto;
+
+  .picture {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    float: left;
+    margin: 0 1em 1em 0;
+    @media (max-width: 600px) {
+      margin: 1em auto;
+      padding-left: calc(50% - 150px);
+      float: none;
+    }
+  }
+
+  .season-overview {
+    text-align: justify;
+    line-height: 120%;
+    font-size: 120%;
+    @media (max-width: 960px) {
+      font-size: 100%;
+    }
+  }
+
+  .episode-body {
+    text-align: justify;
+    line-height: 120%;
+    font-size: 120%;
+  }
+
+  .buttons {
+    clear: both;
+  }
+
+  .title-desc {
+    flex-grow: 0;
+  }
+
+  .title {
+    @media (max-width: 960px) {
+      height: auto !important;
+      padding: .6em 1em;
+    }
+
+  }
+
+  button {
+    transition: .3s ease-in-out background-color;
+    margin: .2em;
+
+    &.active,
+    &:hover {
+      background-color: $main-color;
+    }
+  }
+}

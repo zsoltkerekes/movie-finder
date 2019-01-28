@@ -1,0 +1,66 @@
+@import "./../../../../colors.scss";
+
+mat-card {
+  background-color: $main-color;
+}
+
+mat-nav-list {
+  display: flex;
+}
+
+.mat-list-item,
+.mat-nav-list,
+h1 {
+  flex-grow: 1;
+  text-align: center;
+  color: $main-font-color;
+}
+
+h1 {
+  min-width: 8em;
+  text-align: left;
+}
+
+.header {
+  background-color: $main-color;
+  display: block;
+}
+
+.mobil-header {
+  display: none;
+  background-color: $main-color;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 2.25em;
+    right: 2em;
+  }
+}
+
+@media (max-width: 599px) {
+  .mobil-header {
+    padding: 0;
+    .mobile-menu {
+      position: absolute;
+      top: 1.25em;
+      right: 1em;
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .header {
+    display: none;
+  }
+
+  .mobil-header {
+    display: block;
+  }
+}
+
+

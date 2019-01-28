@@ -4,11 +4,11 @@ import {RouterModule, Routes} from '@angular/router';
 import {CoreModule} from '../core/core.module';
 
 import {DiscoverComponent} from '../../containers/discover/discover.component';
-import {DiscoverOptionsComponent} from '../../components/discover-options/discover-options.component';
-import {PopularMoviesComponent} from '../../components/popular-movies/popular-movies.component';
-import {DiscoverTvOptionsComponent} from '../../components/discover-tv-options/discover-tv-options.component';
-import {PopularTvShowsComponent} from '../../components/popular-tv-shows/popular-tv-shows.component';
-import {PopularPersonsComponent} from '../../components/popular-persons/popular-persons.component';
+import {DiscoverOptionsComponent} from '../../components/movie/discover-options/discover-options.component';
+import {PopularMoviesComponent} from '../../components/movie/popular-movies/popular-movies.component';
+import {DiscoverTvOptionsComponent} from '../../components/tv/discover-tv-options/discover-tv-options.component';
+import {PopularTvShowsComponent} from '../../components/tv/popular-tv-shows/popular-tv-shows.component';
+import {PopularPersonsComponent} from '../../components/person/popular-persons/popular-persons.component';
 
 const routes: Routes = [
   {

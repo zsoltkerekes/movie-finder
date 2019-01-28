@@ -1,0 +1,30 @@
+@import "./../../../../colors.scss";
+
+.container {
+  max-height: 15em;
+  overflow-y: auto;
+  margin: 0 auto 2em auto;
+
+  width: calc(70% - 4em - 20px);
+  @media (max-width: 906px) {
+    width: calc(100% - 20px);
+  }
+
+  .cast,
+  .crew {
+    text-align: right;
+    padding: .3em 2em;
+    border: 1px solid $main-color;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $main-color;
+    }
+  }
+}
+
+.pull-left {
+  float: left;
+}
