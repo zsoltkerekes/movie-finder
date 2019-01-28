@@ -45,12 +45,14 @@ mat-card {
 }
 
 @media (max-width: 599px) {
-  .img-container {
-    min-height: 65vh;
-  }
   mat-card {
+    .img-container {
+      min-height: 97vw;
+    }
+
     margin: 1em .5em;
-    width: 80vw;
+    width: 70vw;
+    height: auto;
 
     mat-card-header {
       display: block;
@@ -65,7 +67,7 @@ mat-card {
 
     mat-card-subtitle,
     mat-card-title {
-      width: 426px;
+      width: 70vw;
 
     }
   }

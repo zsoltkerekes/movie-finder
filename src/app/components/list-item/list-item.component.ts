@@ -16,6 +16,10 @@ export class ListItemComponent {
   listGenres = this.api.getGenreList;
   listTvGenres = this.api.getTvGenreList;
 
+  titleLimit: 27;
+  genreLimit: 30;
+
+
   innerWidth: number;
 
   constructor(private api: ApiService) {

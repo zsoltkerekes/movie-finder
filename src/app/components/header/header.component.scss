@@ -37,8 +37,19 @@ h1 {
 
   .mobile-menu {
     position: absolute;
-    top: 1.75em;
+    top: 2.25em;
     right: 2em;
+  }
+}
+
+@media (max-width: 599px) {
+  .mobil-header {
+    padding: 0;
+    .mobile-menu {
+      position: absolute;
+      top: 1.25em;
+      right: 1em;
+    }
   }
 }
 
@@ -52,13 +63,4 @@ h1 {
   }
 }
 
-@media (max-width: 599px) {
-  .mobil-header {
-    padding: 0;
-    .mobile-menu {
-      position: absolute;
-      top: 0.5em;
-      right: 1em;
-    }
-  }
-}
+
