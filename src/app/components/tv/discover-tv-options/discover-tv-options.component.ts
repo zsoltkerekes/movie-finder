@@ -19,13 +19,19 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
+
+    if (this.api.getMovieYearOption()) {
+      this.tvShowYear = this.api.getTvShowYearOption();
+    } else {
+      this.tvShowYear = new Date().getFullYear();
+      this.api.setTvShowYearOption(this.tvShowYear);
+    }
     this.tvShowYear = this.api.getTvShowYearOption();
     this.sortByOptions = this.api.getSortByOptions();
     this.tvShowSelected = this.api.getTvShowSortByOption();
     this.tvShowGenres = this.api.tvGenresArray;
     this.selectedTvShowGenres = this.api.getTvWithGenresOption();
     this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
-    this.tvShowYear = this.tvShowYear || new Date().getFullYear();
   }
 
   ngDoCheck() {

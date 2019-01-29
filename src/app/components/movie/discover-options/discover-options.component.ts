@@ -19,13 +19,17 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    this.movieYear = this.api.getMovieYearOption();
+    if (this.api.getMovieYearOption()) {
+      this.movieYear = this.api.getMovieYearOption();
+    } else {
+      this.movieYear = new Date().getFullYear();
+      this.api.setMovieYearOption(this.movieYear);
+    }
     this.sortByOptions = this.api.getSortByOptions();
     this.movieSelected = this.api.getMovieSortByOption();
     this.movieGenres = this.api.genresArray;
     this.selectedMovieGenres = this.api.getWithGenresOption();
     this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
-    this.movieYear = this.movieYear || new Date().getFullYear();
   }
 
   ngDoCheck() {
