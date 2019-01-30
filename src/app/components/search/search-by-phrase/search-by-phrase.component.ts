@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {ApiService} from '../../../services/api.service';
-import {debounceTime /*, filter */} from 'rxjs/operators';
+import {debounceTime , filter} from 'rxjs/operators';
 import {BehaviorSubject} from 'rxjs';
 
 @Component({
@@ -13,6 +13,9 @@ export class SearchByPhraseComponent implements OnInit {
   queryPhrase = new BehaviorSubject<string>('');
   placeholder: string;
   showButton: boolean;
+  hint: string;
+  min: number;
+  max: number;
 
   constructor(
     private router: Router,
@@ -22,15 +25,19 @@ export class SearchByPhraseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.hint = '';
     this.placeholder = this.api.getGlobal() ? 'Search' : 'Keresés';
+    this.min = 2;
+    this.max = 100;
     this.showButton = this.shouldButtonShow();
     window.onresize = () => {
       this.showButton = this.shouldButtonShow();
     };
     this.queryPhrase.next(this.route.snapshot.params.phrase || '');
+    this.updateHint();
     this.queryPhrase.asObservable()
       .pipe(
-        // filter((res: any) => res.length >= 3),
+        filter((res: any) => res.length >= 2),
         debounceTime(500)
       )
       .subscribe(
@@ -44,10 +51,17 @@ export class SearchByPhraseComponent implements OnInit {
     if (!this.shouldButtonShow()) {
       this.queryPhrase.next(event.target.value);
     }
+    this.updateHint();
   }
 
   onButtonClicked = (value: string): void => this.queryPhrase.next(value);
 
   shouldButtonShow = () => window.outerWidth <= 960;
+
+  updateHint = (): void => {
+    this.hint = this.queryPhrase.getValue().length < this.min ? this.api.getGlobal() ?
+    `Minimum ${this.min} chars` : `Minimum ${this.min} karekter` : this.queryPhrase.getValue().length >= this.max ? this.api.getGlobal() ?
+    `Maximum ${this.max} chars` : `Maximum ${this.min} karekter` : '';
+  }
 
 }

@@ -3,12 +3,13 @@
     matInput
     type="search"
     #message
-    maxlength="135"
+    [attr.maxlength]="max"
     [placeholder]="placeholder"
     [value]="queryPhrase.getValue()"
     (input)="inputChanged($event)"
     required="required">
-    <mat-hint align="end" [ngClass]="{red: message.value.length !==0 >=2}">{{message.value.length}} / 135</mat-hint>
+    <mat-hint align="start">{{hint}}</mat-hint>
+    <mat-hint align="end" [ngClass]="{red: message.value.length < min || message.value.length >= max }">{{message.value.length}} / {{max}}</mat-hint>
 </mat-form-field>
 <button
   mat-raised-button
