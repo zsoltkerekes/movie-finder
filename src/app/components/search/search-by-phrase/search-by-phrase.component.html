@@ -6,9 +6,9 @@
     maxlength="135"
     [placeholder]="placeholder"
     [value]="queryPhrase.getValue()"
-    (keyup)="inputChanged($event)"
+    (input)="inputChanged($event)"
     required="required">
-  <mat-hint align="end">{{message.value.length}} / 135</mat-hint>
+    <mat-hint align="end" [ngClass]="{red: message.value.length !==0 >=2}">{{message.value.length}} / 135</mat-hint>
 </mat-form-field>
 <button
   mat-raised-button
