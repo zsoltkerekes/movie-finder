@@ -23,11 +23,11 @@
         "/movie-finder/9.893c78f95440e2a66710.js",
         "/movie-finder/favicon.ico",
         "/movie-finder/index.html",
-        "/movie-finder/main.0e4152d23775116145cf.js",
+        "/movie-finder/main.a7890fd7c6cbf6f30d68.js",
         "/movie-finder/polyfills.8849c8599a1cd2583a60.js",
         "/movie-finder/runtime.0ec25bd9af8c7592f135.js",
         "/movie-finder/styles.094cc34c1c2d85f0d720.css",
-        "/movie-finder/vendor.e061e83e5e64b32fffa9.js"
+        "/movie-finder/vendor.d3efd17b5f27c01fc334.js"
       ],
       "patterns": [
         "https:\\/\\/fonts\\.googleapis\\.com\\/icon\\?family=Material\\+Icons",
@@ -36,7 +36,7 @@
     },
     {
       "name": "assets",
-      "installMode": "lazy",
+      "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
         "/movie-finder/assets/icons/icon-128x128.png",
@@ -60,7 +60,7 @@
       ],
       "strategy": "performance",
       "maxSize": 600,
-      "maxAge": 1209600000,
+      "maxAge": 172800000,
       "timeoutMs": 3000,
       "version": 1
     }
@@ -89,12 +89,12 @@
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "d2ca38546f3dd049826087de5e9710268dd03014",
-    "/movie-finder/main.0e4152d23775116145cf.js": "36e12234c3258e4ec4da859bf8a449d87bd08128",
+    "/movie-finder/index.html": "e973195ab4457aff47ed133f3842ec33f1ea032e",
+    "/movie-finder/main.a7890fd7c6cbf6f30d68.js": "069d33c777ad060d2e5712004bd7bed08d6a42a1",
     "/movie-finder/polyfills.8849c8599a1cd2583a60.js": "6946e10a03311677a01490b8e91741668e64e17e",
     "/movie-finder/runtime.0ec25bd9af8c7592f135.js": "b3284bf09a4daa9d3c89ce9da2dea9f4d244bea3",
     "/movie-finder/styles.094cc34c1c2d85f0d720.css": "cb56a913bbfa22c7d33c16eb876e26510aed8b7b",
-    "/movie-finder/vendor.e061e83e5e64b32fffa9.js": "95cd0d56d3e98a54cc540390d22f0dafae7d2295"
+    "/movie-finder/vendor.d3efd17b5f27c01fc334.js": "7f4b0d54a2e48908304a89c9862e084307af5b5c"
   },
   "navigationUrls": [
     {

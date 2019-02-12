@@ -28,9 +28,9 @@ export class MovieImagesComponent implements OnChanges {
             ...output.backdrops,
             ...output.posters
           ]
-          // .filter(image => {
-          //   return image.width <= 1920 && image.height <= 1500;
-          // })
+            .filter(image => {
+              return (image.width <= 1920 && image.height <= 1440);
+            })
             .sort((a, b) => {
               if (a.vote_average < b.vote_average) {
                 return 1;

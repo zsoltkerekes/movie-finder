@@ -20,7 +20,7 @@
     },
     {
       "name": "assets",
-      "installMode": "lazy",
+      "installMode": "prefetch",
       "updateMode": "prefetch",
       "resources": {
         "files": [
@@ -37,7 +37,7 @@
         "https://image.tmdb.org/**"
       ],
       "cacheConfig": {
-        "maxAge": "14d",
+        "maxAge": "2d",
         "maxSize": 600,
         "timeout": "3s",
         "strategy": "performance"

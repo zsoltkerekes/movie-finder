@@ -6,15 +6,18 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  checkConnection = () => {
-    // @ts-ignore
-    return (window.navigator.connection.type || '');
+
+  constructor() {
+  }
+
+  checkConnection() {
+    return ((<any>window).navigator && (<any>window).navigator.connection ? (<any>window).navigator.connection.type : '');
   }
 
   ngOnInit() {
-    // @ts-ignore
-    window.navigator.connection.onchange = this.checkConnection;
+    (<any>window).navigator.connection.onchange = this.checkConnection;
     this.checkConnection();
   }
-
 }
+
+
