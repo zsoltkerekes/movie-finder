@@ -29,7 +29,6 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     this.movieGenres = this.api.getGenresArray();
     this.selectedMovieGenres = this.observables.withGenresOption.getValue().map((str: any) => parseInt(str, 10));
     this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
-    console.log(this.selectedMovieGenres.map( item => typeof item));
   }
 
   ngDoCheck() {
