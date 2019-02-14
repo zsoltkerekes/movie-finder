@@ -1,6 +1,7 @@
 import {ActivatedRoute} from '@angular/router';
 import {Component, Input, OnChanges} from '@angular/core';
 import {ApiService} from '../../../services/api.service';
+import {ObservablesService} from '../../../services/observables.service';
 
 @Component({
   selector: 'mf-pagination',
@@ -29,7 +30,8 @@ export class PaginationComponent implements OnChanges {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private observables: ObservablesService
   ) {
   }
 
@@ -42,7 +44,6 @@ export class PaginationComponent implements OnChanges {
     this.keywordsPage = +this.activatedRoute.snapshot.params['keywordsPage'] || 1;
 
     if (this.results) {
-
       this.pagination = {
         total_pages: +this.results.total_pages,
         total_results: +this.results.total_results,
@@ -53,6 +54,20 @@ export class PaginationComponent implements OnChanges {
       for (let i = 0; i < +this.results.total_pages; i++) {
 
         let expandedUrl = `${this.url}/${i + 1}`;
+
+        const optionsInUrl = this.url === '/discover/' ? `/${
+          this.observables.sortMovieByOption.getValue()
+          }/${
+          this.observables.movieYearOption.getValue()
+          }/${
+          this.observables.withGenresOption.getValue().join(',')
+          }/${
+          this.observables.sortTvShowByOption.getValue()
+          }/${
+          this.observables.tvShowYearOption.getValue()
+          }/${
+          this.observables.tvWithGenresOption.getValue().join(',')
+          }` : '';
 
         if (this.type === 'movie') {
           expandedUrl = `${this.url}/${i + 1}/${this.tvShowPage}/${this.personPage}`;
@@ -68,7 +83,7 @@ export class PaginationComponent implements OnChanges {
         }
 
         this.pagination.links[i] = {
-          url: expandedUrl,
+          url: expandedUrl + optionsInUrl,
           name: `${i * 20 + 1}-${(i + 1) * 20}`
         };
       }

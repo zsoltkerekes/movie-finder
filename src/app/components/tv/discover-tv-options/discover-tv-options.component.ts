@@ -1,5 +1,6 @@
 import {ApiService} from '../../../services/api.service';
 import {Component, DoCheck, OnInit} from '@angular/core';
+import {ObservablesService} from '../../../services/observables.service';
 
 @Component({
   selector: 'mf-discover-tv-options',
@@ -15,31 +16,28 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
   selectedTvShowGenres: number[];
   placeholder: string;
 
-  constructor(private api: ApiService) {
+  constructor(
+    private api: ApiService,
+    private observables: ObservablesService
+  ) {
   }
 
   ngOnInit() {
-
-    if (this.api.getMovieYearOption()) {
-      this.tvShowYear = this.api.getTvShowYearOption();
-    } else {
-      this.tvShowYear = new Date().getFullYear();
-      this.api.setTvShowYearOption(this.tvShowYear);
-    }
-    this.tvShowYear = this.api.getTvShowYearOption();
+    this.tvShowYear = this.observables.tvShowYearOption.getValue();
+    this.tvShowYear = this.observables.tvShowYearOption.getValue();
     this.sortByOptions = this.api.getSortByOptions();
-    this.tvShowSelected = this.api.getTvShowSortByOption();
-    this.tvShowGenres = this.api.tvGenresArray;
-    this.selectedTvShowGenres = this.api.getTvWithGenresOption();
+    this.tvShowSelected = this.observables.sortTvShowByOption.getValue();
+    this.tvShowGenres = this.api.getTvGenresArray();
+    this.selectedTvShowGenres = this.observables.tvWithGenresOption.getValue().map((str: any) => parseInt(str, 10));
     this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
   }
 
   ngDoCheck() {
-    this.tvShowGenres = this.api.tvGenresArray ? [...this.api.tvGenresArray] : null;
+    this.tvShowGenres = this.api.getTvGenresArray() ? [...this.api.getTvGenresArray()] : null;
   }
 
-  setTvShowSortByOption = event => this.api.setTvShowSortByOption(event.value);
-  setTvShowYearOption = event => this.api.setTvShowYearOption(event.target.value);
+  setTvShowSortByOption = event => this.observables.sortTvShowByOption.next(event.value);
+  setTvShowYearOption = event => this.observables.tvShowYearOption.next(event.target.value);
 
   setTvShowGenre = (id, event) => {
     if (event.checked) {
@@ -47,12 +45,10 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
     } else if (this.selectedTvShowGenres.length > 1) {
       this.selectedTvShowGenres.splice(this.selectedTvShowGenres.findIndex(previouslySelected => previouslySelected === id), 1);
     }
-    this.api.setTvWithGenresOption(this.selectedTvShowGenres);
+    this.observables.tvWithGenresOption.next(this.selectedTvShowGenres);
   }
 
-  getTvCheckedStatus = id => {
-    const result = this.selectedTvShowGenres.findIndex(previouslySelected => previouslySelected === id) !== -1 ? 'checked' : null;
-    return result;
-  }
+  getTvCheckedStatus = id => this.selectedTvShowGenres.findIndex(previouslySelected => previouslySelected === id) !== -1 ? 'checked' :
+    null
 
 }

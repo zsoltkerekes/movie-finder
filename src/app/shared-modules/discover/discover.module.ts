@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: ':moviePage/:tvShowPage/:personPage',
     component: DiscoverComponent
+  },
+  {
+    path: ':moviePage/:tvShowPage/:personPage/:sortMovieBy/:movieYear/:withGenres/:sortTvShowBy/:tvShowYear/:tvWithGenres',
+    component: DiscoverComponent
   }
 ];
 

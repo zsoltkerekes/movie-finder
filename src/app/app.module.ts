@@ -24,6 +24,7 @@ import {NowPlayingModule} from './shared-modules/now-playing/now-playing.module'
 import {UpcomingModule} from './shared-modules/upcoming/upcoming.module';
 import {ByKeywordsModule} from './shared-modules/by-keywords/by-keywords.module';
 import {PageNotFoundModule} from './shared-modules/page-not-found/page-not-found.module';
+import {ObservablesService} from './services/observables.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import {PageNotFoundModule} from './shared-modules/page-not-found/page-not-found
     PageNotFoundModule
   ],
   providers: [
+    ObservablesService,
     ConstantsService,
     ApiService,
     CookieService,

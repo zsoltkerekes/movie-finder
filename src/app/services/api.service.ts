@@ -1,4 +1,3 @@
-import {Router} from '@angular/router';
 import {ConstantsService} from './constants.service';
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
@@ -13,42 +12,22 @@ export class ApiService {
   tvGenresArray: Array<{ id: Number, name: String }>;
 
 
-  constructor(private http: Http,
-              private constants: ConstantsService,
-              private router: Router, ) {
+  constructor(
+    private http: Http,
+    private constants: ConstantsService
+  ) {
     this.getAllPossibleGenres();
   }
 
   getContent = url => this.http.get(url);
-
-  changeGlobal = () => this.constants.changeGlobal();
-
+  getBackgroundUrl = () => `${this.constants.imageUrl}${this.constants.backdropSize}`;
   getSortByOptions = () => this.constants.getSortByOptions();
-
-  setMovieSortByOption = value => this.constants.setMovieSortByOption(value);
-  getMovieSortByOption = () => this.constants.getMovieSortByOption();
-
-  setTvShowSortByOption = value => this.constants.setTvShowSortByOption(value);
-  getTvShowSortByOption = () => this.constants.getTvShowSortByOption();
-
   getGlobal = () => this.constants.globalOption;
-
+  changeGlobal = () => this.constants.changeGlobal();
   setAdult = () => this.constants.setAdultOption();
   getAdult = () => this.constants.getAdultOption();
-
-  setMovieYearOption = (year = undefined) => this.constants.setMovieYearOption(year);
-  getMovieYearOption = () => this.constants.getMovieYearOption();
-
-  setTvShowYearOption = (year = undefined) => this.constants.setTvShowYearOption(year);
-  getTvShowYearOption = () => this.constants.getTvShowYearOption();
-
-  setWithGenresOption = genres => this.constants.setWithGenresOption(genres);
-  getWithGenresOption = () => this.constants.getWithGenresOption();
-
-  setTvWithGenresOption = genres => this.constants.setTvWithGenresOption(genres);
-  getTvWithGenresOption = () => this.constants.getTvWithGenresOption();
-
-  getBackgroundUrl = () => `${this.constants.imageUrl}${this.constants.backdropSize}`;
+  getGenresArray = () => this.genresArray;
+  getTvGenresArray = () => this.tvGenresArray;
 
   // Movie Begins
 
@@ -68,7 +47,7 @@ export class ApiService {
       });
       this.getAllPossibleTvGenres();
     });
-  }
+  };
 
   getGenreList = (array: Array<Number>): String => {
     const output = [];
@@ -76,7 +55,7 @@ export class ApiService {
       output.push(this.genres[row.toString()]);
     });
     return output.join(', ');
-  }
+  };
 
   getPopularMovies = (page = 1) => this.getContent(this.constants.popularMovies(page));
 
@@ -141,7 +120,7 @@ export class ApiService {
       });
       this.tvGenresArray = output;
     });
-  }
+  };
 
   getTvGenreList = (array: Array<Number>): String => {
     const output = [];
@@ -149,7 +128,7 @@ export class ApiService {
       output.push(this.tvGenres[row.toString()]);
     });
     return output.join(', ');
-  }
+  };
 
   getTvShowSearch = (phrase, page = 1) => this.getContent(this.constants.tvShowSearch(phrase, page));
 
