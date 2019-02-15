@@ -26,7 +26,7 @@
         "/movie-finder/main.343b9717f9d0c4bcfd79.js",
         "/movie-finder/polyfills.8849c8599a1cd2583a60.js",
         "/movie-finder/runtime.51c50ad94c208bb9b87a.js",
-        "/movie-finder/styles.094cc34c1c2d85f0d720.css",
+        "/movie-finder/styles.269ed2696d33e43d4bad.css",
         "/movie-finder/vendor.d3efd17b5f27c01fc334.js"
       ],
       "patterns": [
@@ -89,11 +89,11 @@
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "e059a1ea95bee5264159fc3d810650b02c0b6c64",
+    "/movie-finder/index.html": "60594b3c41000d7b580b61f121a67a126f8d4e7d",
     "/movie-finder/main.343b9717f9d0c4bcfd79.js": "2adccb5d59db60ae5bc1857deec3b62b72b1c310",
     "/movie-finder/polyfills.8849c8599a1cd2583a60.js": "6946e10a03311677a01490b8e91741668e64e17e",
     "/movie-finder/runtime.51c50ad94c208bb9b87a.js": "6d6d4a1426298298f05ab7a04d8b1c7c25f34361",
-    "/movie-finder/styles.094cc34c1c2d85f0d720.css": "cb56a913bbfa22c7d33c16eb876e26510aed8b7b",
+    "/movie-finder/styles.269ed2696d33e43d4bad.css": "032d6a03676fa74789fd59b67fd8c06a5edc0cc5",
     "/movie-finder/vendor.d3efd17b5f27c01fc334.js": "7f4b0d54a2e48908304a89c9862e084307af5b5c"
   },
   "navigationUrls": [
