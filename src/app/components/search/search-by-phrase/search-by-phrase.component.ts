@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {ApiService} from '../../../services/api.service';
 import {debounceTime , filter} from 'rxjs/operators';
@@ -10,6 +10,7 @@ import {BehaviorSubject} from 'rxjs';
   styleUrls: ['./search-by-phrase.component.scss']
 })
 export class SearchByPhraseComponent implements OnInit {
+  @ViewChild('message') message: ElementRef;
   queryPhrase = new BehaviorSubject<string>('');
   placeholder: string;
   showButton: boolean;
@@ -25,6 +26,7 @@ export class SearchByPhraseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.message.nativeElement.focus();
     this.hint = '';
     this.placeholder = this.api.getGlobal() ? 'Search' : 'Keresés';
     this.min = 2;
