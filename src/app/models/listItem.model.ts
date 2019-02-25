@@ -8,6 +8,8 @@ export interface ListItem {
   known_for: Array<{
     title: string
   }>;
+  vote_average: number;
+  overview: string;
 }
 
 export const listItemInitData = {
@@ -17,5 +19,7 @@ export const listItemInitData = {
   id: 0,
   poster_path: undefined,
   profile_path: undefined,
-  known_for: undefined
+  known_for: undefined,
+  vote_average: undefined,
+  overview: undefined
 };
