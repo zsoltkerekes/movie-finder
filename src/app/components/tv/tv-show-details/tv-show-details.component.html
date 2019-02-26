@@ -3,10 +3,19 @@
     <mat-card-content (dblclick)="open()">
       <div class="img-container" lazy-load-images>
         <mf-loading class="centerHorizontalVertical"></mf-loading>
-        <img
-          [attr.data-src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : 'assets/image/no-pic.jpg'"
-          [alt]="tvShow.name"
-          [title]="tvShow.name"/>
+        <img [attr.data-src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : 'assets/image/no-pic.jpg'"
+             [alt]="tvShow.name"
+             [title]="tvShow.name"/>
+        <mat-progress-spinner
+          class="circle"
+          color="primary"
+          mode="determinate"
+          diameter="95"
+          [value]="tvShow.vote_average * 10">
+        </mat-progress-spinner>
+        <mat-chip color="primary" [selected]="true" disabled class="vote force-not-transparent">
+          {{tvShow.vote_average ? (tvShow.vote_average | number:'1.1-1') + '/10' : 'N/A'}}
+        </mat-chip>
       </div>
     </mat-card-content>
   </mat-card>
@@ -20,13 +29,11 @@
 
       <h3 class="original_title">
         {{tvShow.original_name && tvShow.name !== tvShow.original_name ? tvShow.original_name : ''}}
-        <span class="original_language">
-          {{tvShow.original_language ? '('+tvShow.original_language.toUpperCase()+')' : ''}}
-        </span>
       </h3>
 
       <p class="overview">
-        {{ getGlobal() ? 'Overview:' : 'Tartalom:' }} {{tvShow.overview ? tvShow.overview : 'N/A'}}
+        {{tvShow.overview ? tvShow.overview : 'N/A'}}
+        {{tvShow.original_language ? '(' + tvShow.original_language.toLowerCase() + ')' : ''}}
       </p>
 
       <p class="text-right">
@@ -63,10 +70,37 @@
 
       <p class="release_date">
         <span>
+          {{ getGlobal() ? 'Seasons/episodes:' : 'Évad/részek:' }}
+        </span>
+        <span>
+          {{tvShow.number_of_seasons && tvShow.number_of_episodes ? tvShow.number_of_seasons + '/' + tvShow.number_of_episodes : 'N/A'}}
+        </span>
+      </p>
+
+      <p class="release_date">
+        <span>
           {{ getGlobal() ? 'Release date:' : 'Premier dátuma:' }}
         </span>
         <span>
           {{tvShow.first_air_date ? tvShow.first_air_date : 'N/A'}}
+        </span>
+      </p>
+
+      <p class="release_date">
+        <span>
+          {{ getGlobal() ? 'Last air date:' : 'Utolsó epizód dátuma:' }}
+        </span>
+        <span>
+          {{tvShow.last_air_date ? tvShow.last_air_date : 'N/A'}}
+        </span>
+      </p>
+
+      <p class="release_date">
+        <span>
+          {{ getGlobal() ? 'Next air date:' : 'Következő epizód dátuma:' }}
+        </span>
+        <span>
+          {{tvShow.next_episode_to_air && tvShow.next_episode_to_air.air_date ? tvShow.next_episode_to_air.air_date : 'N/A'}}
         </span>
       </p>
 
@@ -79,14 +113,14 @@
         </span>
       </p>
 
-      <p class="vote">
-        <span>
-          {{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}
-        </span>
-        <span>
-          {{tvShow.vote_average ? tvShow.vote_average + '/10' : 'N/A' }}
-        </span>
-      </p>
+      <!--<p class="vote">-->
+      <!--<span>-->
+      <!--{{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}-->
+      <!--</span>-->
+      <!--<span>-->
+      <!--{{tvShow.vote_average ? tvShow.vote_average + '/10' : 'N/A' }}-->
+      <!--</span>-->
+      <!--</p>-->
 
       <p class="popularity">
         <span>
@@ -99,7 +133,7 @@
 
       <p class="homepage">
         <span>
-          {{ tvShow.homepage ? 'Homepage:':''}}
+          {{ tvShow.homepage ? 'Homepage:' : ''}}
         </span>
         <span *ngIf="tvShow.homepage">
           <a [href]="tvShow.homepage" target="_blank">
@@ -110,11 +144,11 @@
 
       <p class="imdb">
         <span>
-          {{ tvShow.imdb_id ? 'Imdb Homepage:':''}}
+          {{ tvShow.imdb_id ? 'Imdb Homepage:' : ''}}
         </span>
         <span *ngIf="tvShow.imdb_id">
           <a [href]="'https://www.imdb.com/title/'+tvShow.imdb_id" target="_blank">
-            {{'https://www.imdb.com/title/'+tvShow.imdb_id}}
+            {{'https://www.imdb.com/title/' + tvShow.imdb_id}}
           </a>
         </span>
       </p>

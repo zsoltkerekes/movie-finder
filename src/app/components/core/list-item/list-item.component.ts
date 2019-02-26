@@ -13,17 +13,17 @@ export class ListItemComponent {
   @Input() tvShow: ListItem = listItemInitData;
   @Input() person: ListItem = listItemInitData;
 
+  innerWidth: number;
   listGenres = this.api.getGenreList;
   listTvGenres = this.api.getTvGenreList;
-
   titleLimit: 27;
   genreLimit: 30;
-
-
-  innerWidth: number;
 
   constructor(private api: ApiService) {
     this.innerWidth = window.innerWidth;
   }
 
+  acts() {
+    return this.person.known_for.map(movie => movie.title).join(', ');
+  }
 }

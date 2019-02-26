@@ -16,6 +16,7 @@ export class PersonMovieCreditsComponent implements OnChanges {
   placeholder = this.api.getGlobal() ? 'Search..' : 'Keresés..';
   searchCast: string;
   searchCrew: string;
+  listGenres = this.api.getTvGenreList;
 
   constructor(private api: ApiService) {
   }

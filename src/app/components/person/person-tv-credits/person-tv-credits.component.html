@@ -2,12 +2,12 @@
   <br>
   <mat-divider></mat-divider>
   <br>
-  {{ getGlobal() ? 'Tv shows': 'Sorozatok'}}
+  {{ getGlobal() ? 'Tv shows' : 'Sorozatok'}}
 </h2>
 
 <div *ngIf="tvCredits.crew.length">
   <h3 class="text-center">
-    {{ getGlobal() ? 'Crew': 'Rendezések, forgatókönyvek, satöbbi' }}
+    {{ getGlobal() ? 'Crew' : 'Rendezések, forgatókönyvek, satöbbi' }}
   </h3>
 
   <mat-form-field class="full-width">
@@ -17,13 +17,13 @@
 
   <div class="container">
     <a *ngFor="let tv of tvCredits.crew | search:searchCrew" [routerLink]="['/tv-details', tv.id]">
-      <div class="crew">
+      <div class="crew" title="{{tv.name + ' (' + tv.vote_average+ ' / 10)\n\n' + listGenres(tv.genre_ids)+ '\n\n' + tv.overview}}">
       <span class="pull-left">
         {{tv.job ? tv.job : 'N/A'}}
-        {{tv.first_air_date  ? '(' + tv.first_air_date + ')' : ''}}
+        {{tv.first_air_date ? '(' + tv.first_air_date + ')' : ''}}
       </span>
         {{tv.name ? tv.name : 'N/A'}}
-        {{(tv.original_name && (tv.original_name !== tv.name))? '(' + tv.original_name + ')' : ''}}
+        {{(tv.original_name && (tv.original_name !== tv.name)) ? '(' + tv.original_name + ')' : ''}}
         {{tv.vote_average ? '[' + tv.vote_average + '/10 ]' : ''}}
       </div>
     </a>
@@ -32,7 +32,7 @@
 
 <div *ngIf="tvCredits.cast.length">
   <h3 class="text-center">
-    {{ getGlobal() ? 'Cast': 'TalkShow szereplések, Díjátadók, satöbbi' }}
+    {{ getGlobal() ? 'Cast' : 'TalkShow szereplések, Díjátadók, satöbbi' }}
   </h3>
 
   <mat-form-field class="full-width">
@@ -42,13 +42,13 @@
 
   <div class="container">
     <a *ngFor="let tv of tvCredits.cast | search:searchCast" [routerLink]="['/tv-details', tv.id]">
-      <div class="cast">
+      <div class="cast" title="{{tv.name + ' (' + tv.vote_average+ ' / 10)\n\n' + listGenres(tv.genre_ids)+ '\n\n' + tv.overview}}">
         <span class="pull-left">
           {{tv.character ? tv.character : ''}}
-          {{tv.first_air_date  ? tv.first_air_date : ''}}
+          {{tv.first_air_date ? '(' + tv.first_air_date + ')' : ''}}
         </span>
         {{tv.name ? tv.name : 'N/A'}}
-        {{(tv.original_name && (tv.original_name !== tv.name))? '(' + tv.original_name + ')' : ''}}
+        {{(tv.original_name && (tv.original_name !== tv.name)) ? ' (' + tv.original_name + ')' : ''}}
         {{tv.vote_average ? '[' + tv.vote_average + '/10 ]' : ''}}
       </div>
     </a>

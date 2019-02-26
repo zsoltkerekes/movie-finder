@@ -308,6 +308,8 @@ MIT
 
 @angular/material/tooltip
 
+@angular/material/progress-spinner
+
 @angular/material/radio
 
 @angular/material/tabs

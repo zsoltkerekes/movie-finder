@@ -86,6 +86,28 @@ p {
     z-index: 1000;
     position: relative;
   }
+
+  $margin: 5px;
+  $move: -20px;
+  $diameter: 95px;
+  $vote-height: 32px;
+  $vote-width: 65px;
+
+  .circle {
+    position: absolute;
+    top: $margin + $move;
+    right: $margin + $move;
+    z-index: 100000;
+    background-color: rgba(232, 234, 246, 0.9);
+    box-shadow: 0 0 $margin / 1.75 $margin / 1.75 rgba(232,234,246,0.6);
+    border-radius: 50%;
+  }
+  .vote {
+    position: absolute;
+    top: $diameter / 2  - $vote-height / 2  + $margin + $move;
+    right: $diameter / 2 - $vote-width / 2 + $margin + $move;
+    z-index: 200000;
+  }
 }
 
 @media (max-width: 960px) {

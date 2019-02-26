@@ -25,7 +25,7 @@ export class ConstantsService {
 
   adult = (value = false) => `&include_adult=${value}`;
 
-  limit = () => 14
+  limit = () => 14;
 
   changeGlobal = () => {
     this.globalOption = !this.globalOption;
@@ -154,6 +154,9 @@ export class ConstantsService {
 
   movieKeywords = id =>
     `${this.apiBaseUrl}movie/${id}/keywords?${this.options()}`;
+
+  movieCollections = id =>
+    `${this.apiBaseUrl}collection/${id}?${this.options()}`;
 
   // Movie Ends
 

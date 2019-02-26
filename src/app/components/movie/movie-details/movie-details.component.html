@@ -3,8 +3,19 @@
     <mat-card-content (dblclick)="open()">
       <div class="img-container" lazy-load-images>
         <mf-loading class="centerHorizontalVertical"></mf-loading>
-        <img [attr.data-src]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path :
-             'assets/image/no-pic.jpg'" [alt]="movie.title" [title]="movie.title"/>
+        <img [attr.data-src]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path : 'assets/image/no-pic.jpg'"
+             [alt]="movie.title"
+             [title]="movie.title"/>
+        <mat-progress-spinner
+          class="circle"
+          color="primary"
+          mode="determinate"
+          diameter="95"
+          [value]="movie.vote_average * 10">
+        </mat-progress-spinner>
+        <mat-chip color="primary" [selected]="true" disabled class="vote force-not-transparent">
+          {{movie.vote_average ? (movie.vote_average | number:'1.1-1') + '/10' : 'N/A'}}
+        </mat-chip>
       </div>
     </mat-card-content>
   </mat-card>
@@ -18,18 +29,22 @@
 
       <h3 class="original_title">
         {{movie.original_title && movie.title !== movie.original_title ? movie.original_title : ''}}
-        <span class="original_language">
-          {{movie.original_language ? '('+movie.original_language.toUpperCase()+')' : ''}}
-        </span>
+        <br/>
+        {{movie.tagline ? movie.tagline.trim() : ''}}
       </h3>
 
       <p class="overview">
         {{movie.overview ? movie.overview : 'N/A'}}
+        {{movie.original_language ? '(' + movie.original_language.toLowerCase() + ')' : ''}}
       </p>
 
       <p class="text-right">
         <mf-movie-keywords [id]="movie.id"></mf-movie-keywords>
       </p>
+
+      <div *ngIf="movie.belongs_to_collection && movie.belongs_to_collection.id">
+        <mf-movie-collection [id]="movie.belongs_to_collection.id"></mf-movie-collection>
+      </div>
 
       <p class="genres">
         <span>
@@ -85,14 +100,14 @@
         </span>
       </p>
 
-      <p class="vote">
-        <span>
-          {{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}
-        </span>
-        <span>
-          {{ movie.vote_average ? (movie.vote_average | number:'1.1-1') + '/10' : 'N/A' }}
-        </span>
-      </p>
+      <!--<p class="vote">-->
+        <!--<span>-->
+          <!--{{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}-->
+        <!--</span>-->
+        <!--<span>-->
+          <!--{{ movie.vote_average ? (movie.vote_average | number:'1.1-1') + '/10' : 'N/A' }}-->
+        <!--</span>-->
+      <!--</p>-->
 
       <p class="popularity">
         <span>
@@ -105,7 +120,7 @@
 
       <p class="homepage">
         <span>
-          {{ movie.homepage ? 'Homepage:':''}}
+          {{ movie.homepage ? 'Homepage:' : ''}}
         </span>
         <span *ngIf="movie.homepage">
           <a [href]="movie.homepage" target="_blank">
@@ -116,11 +131,11 @@
 
       <p class="imdb" *ngIf="movie.title || movie.original_title">
         <span>
-          {{movie.imdb_id ? 'Imdb Homepage:':''}}
+          {{movie.imdb_id ? 'Imdb Homepage:' : ''}}
         </span>
         <span *ngIf="movie.imdb_id">
           <a [href]="'https://www.imdb.com/title/'+movie.imdb_id" target="_blank">
-            {{'https://www.imdb.com/title/'+movie.imdb_id}}
+            {{'https://www.imdb.com/title/' + movie.imdb_id}}
           </a>
         </span>
       </p>

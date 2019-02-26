@@ -23,31 +23,52 @@ export interface MovieDetails {
   overview: string;
   id: number;
   seasons: Array<any>;
+  tagline: string;
+  last_air_date: string;
+  next_episode_to_air: {
+    air_date: string;
+  };
+  number_of_seasons: number;
+  number_of_episodes: number;
+  belongs_to_collection: {
+    id: number;
+  };
 }
 
 export const movieDetailsData = {
-  title: undefined,
-  name: undefined,
-  original_title: undefined,
-  original_name: undefined,
-  original_language: undefined,
-  status: undefined,
-  release_date: undefined,
-  first_air_date: undefined,
-  vote_average: undefined,
-  popularity: undefined,
-  runtime: undefined,
-  episode_run_time: undefined,
-  adult: undefined,
-  budget: undefined,
-  revenue: undefined,
-  created_by: undefined,
-  genres: undefined,
-  homepage: undefined,
-  imdb_id: undefined,
-  backdrop_path: undefined,
-  poster_path: undefined,
-  overview: undefined,
-  id: undefined,
-  seasons: [{}]
-};
+    title: null,
+    name: null,
+    original_title: null,
+    original_name: null,
+    original_language: null,
+    status: null,
+    release_date: null,
+    first_air_date: null,
+    vote_average: null,
+    popularity: null,
+    runtime: null,
+    episode_run_time: null,
+    adult: null,
+    budget: null,
+    revenue: null,
+    created_by: null,
+    genres: null,
+    homepage: null,
+    imdb_id: null,
+    backdrop_path: null,
+    poster_path: null,
+    overview: null,
+    id: null,
+    seasons: [{}],
+    tagline: null,
+    last_air_date: null,
+    next_episode_to_air: {
+      air_date: null
+    },
+    number_of_seasons: null,
+    number_of_episodes: null,
+    belongs_to_collection: {
+      id: null
+    }
+  }
+;

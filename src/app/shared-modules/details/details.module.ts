@@ -12,7 +12,7 @@ import {MovieCreditsComponent} from '../../components/movie/movie-credits/movie-
 import {RecommendedMoviesComponent} from '../../components/movie/recommended-movies/recommended-movies.component';
 import {SimilarMoviesComponent} from '../../components/movie/similar-movies/similar-movies.component';
 import {MovieKeywordsComponent} from '../../components/movie/movie-keywords/movie-keywords.component';
-
+import {MovieCollectionComponent} from '../../components/movie/movie-collection/movie-collection.component';
 
 const routes: Routes = [
   {
@@ -36,7 +36,8 @@ const routes: Routes = [
     MovieCreditsComponent,
     RecommendedMoviesComponent,
     SimilarMoviesComponent,
-    MovieKeywordsComponent
+    MovieKeywordsComponent,
+    MovieCollectionComponent
   ],
   exports: [
     DetailsComponent,

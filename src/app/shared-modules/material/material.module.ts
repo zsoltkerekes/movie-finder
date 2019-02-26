@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatExpansionModule,
     MatChipsModule,
     MatPaginatorModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatListModule,
@@ -49,7 +51,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatTabsModule,
     MatExpansionModule,
     MatChipsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule {

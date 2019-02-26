@@ -20,9 +20,7 @@
              [alt]="person.name" [title]="person.name"/>
         <mat-icon *ngIf="!(person.profile_path) && !isLoading" class="bigger">face</mat-icon>
         <span class="right">
-          {{person.name ? person.name : 'N/A'}}
-          {{ getGlobal() ? ' as ' : ' szerepe: ' }}
-          {{person.character ? person.character : 'N/A'}}
+          {{person.name ? person.name.trim() : 'N/A'}}{{getGlobal() ? ', act as: ' : ', szerepe: '}}{{person.character ? person.character.trim() : 'N/A'}}
         </span>
       </div>
     </a>

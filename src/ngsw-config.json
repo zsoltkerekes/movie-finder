@@ -31,13 +31,13 @@
   ],
   "dataGroups": [
     {
-      "name": "apiCalls",
+      "name": "api",
       "urls": [
         "https://api.themoviedb.org/**",
         "https://image.tmdb.org/**"
       ],
       "cacheConfig": {
-        "maxAge": "2d",
+        "maxAge": "1d",
         "maxSize": 600,
         "timeout": "3s",
         "strategy": "performance"

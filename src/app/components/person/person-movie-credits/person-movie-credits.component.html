@@ -2,12 +2,12 @@
   <br>
   <mat-divider></mat-divider>
   <br>
-  {{ getGlobal() ? 'Movies': 'Filmek'}}
+  {{ getGlobal() ? 'Movies' : 'Filmek'}}
 </h2>
 
 <div *ngIf="movieCredits.cast.length">
   <h3 class="text-center">
-    {{ getGlobal() ? 'Cast': 'Szereplések, szinkronhangok, satöbbi'}}
+    {{ getGlobal() ? 'Cast' : 'Szereplések, szinkronhangok, satöbbi'}}
   </h3>
 
   <mat-form-field class="full-width">
@@ -29,7 +29,7 @@
 
   <div class="container">
     <a *ngFor="let movie of movieCredits.cast | search:searchCast " [routerLink]="['/details', movie.id]">
-      <div class="cast">
+      <div class="cast" title="{{movie.title  +' (' + movie.vote_average+ ' / 10)\n\n' + listGenres(movie.genre_ids)+ '\n\n' + movie.overview}}">
         <span class="pull-left">
           {{movie.character ? movie.character : ''}}
           {{movie.release_date ? '(' + movie.release_date + ')' : ''}}
@@ -37,7 +37,7 @@
         <strong>
           {{movie.title ? movie.title : 'N/A'}}
         </strong>
-        {{(movie.original_title && (movie.original_title !== movie.title))?
+        {{(movie.original_title && (movie.original_title !== movie.title)) ?
         '(' + movie.original_title + ')' : ''}} {{movie.vote_average ? '[' + movie.vote_average + '/10 ]' : ''}}
       </div>
     </a>
@@ -46,7 +46,7 @@
 
 <div *ngIf="movieCredits.crew.length">
   <h3 class="text-center">
-    {{ getGlobal() ? 'Crew': 'Rendezések, forgatókönyvek, satöbbi'}}
+    {{ getGlobal() ? 'Crew' : 'Rendezések, forgatókönyvek, satöbbi'}}
   </h3>
 
   <mat-form-field class="full-width">
@@ -56,13 +56,13 @@
 
   <div class="container">
     <a *ngFor="let movie of movieCredits.crew | search:searchCrew" [routerLink]="['/details', movie.id]">
-      <div class="crew">
+      <div class="crew" title="{{movie.title +' (' + movie.vote_average+ ' / 10)\n\n'+ listGenres(movie.genre_ids)+ '\n\n' + movie.overview}}">
         <span class="pull-left">
           {{movie.job ? movie.job : '(Hiányzó adat: Munkakör)'}}
           {{movie.release_date ? '(' + movie.release_date + ')' : ''}}
         </span>
         {{movie.title ? movie.title : 'Hiányzó adat: (Film Cím)'}}
-        {{(movie.original_title && (movie.original_title !== movie.title))?
+        {{(movie.original_title && (movie.original_title !== movie.title)) ?
         '(' + movie.original_title + ')' : ''}} {{movie.vote_average ? '[' + movie.vote_average + '/10 ]' : ''}}
       </div>
     </a>

@@ -85,6 +85,8 @@ export class ApiService {
 
   getMovieKeywords = id => this.getContent(this.constants.movieKeywords(id));
 
+  getMovieCollections = id => this.getContent(this.constants.movieCollections(id));
+
   // Movie Ends
 
   // TV Show Begins
