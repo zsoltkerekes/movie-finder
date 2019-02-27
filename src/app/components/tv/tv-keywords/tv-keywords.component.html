@@ -2,6 +2,8 @@
   <mat-chip
     color="primary"
     *ngFor="let keyword of keywords">
-    {{keyword}}
+    <p class="text-center full-wide-width">
+      {{keyword | titlecase}}
+    </p>
   </mat-chip>
 </mat-chip-list>

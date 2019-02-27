@@ -20,7 +20,18 @@ export class MovieCollectionComponent implements OnChanges {
     if (this.id) {
       this.api.getMovieCollections(this.id)
         .subscribe(response => {
-          this.collection = response.json();
+          const output = response.json();
+          output.parts = output.parts.sort(
+            (a, b) => {
+              if (a.release_date < b.release_date) {
+                return -1;
+              } else if (a.release_date > b.release_date) {
+                return 1;
+              }
+              return 0;
+            }
+          );
+          this.collection = output;
         });
     }
   }

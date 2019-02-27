@@ -11,10 +11,16 @@
           color="primary"
           mode="determinate"
           diameter="95"
+          *ngIf="tvShow.vote_average"
           [value]="tvShow.vote_average * 10">
         </mat-progress-spinner>
-        <mat-chip color="primary" [selected]="true" disabled class="vote force-not-transparent">
-          {{tvShow.vote_average ? (tvShow.vote_average | number:'1.1-1') + '/10' : 'N/A'}}
+        <mat-chip
+          color="primary"
+          [selected]="true"
+          disabled
+          class="vote force-not-transparent"
+          *ngIf="tvShow.vote_average">
+          {{(tvShow.vote_average | number:'1.1-1') + '/10'}}
         </mat-chip>
       </div>
     </mat-card-content>

@@ -2,6 +2,8 @@
   <mat-chip
     color="primary" [selected]="true"
     *ngFor="let keyword of keywords" [routerLink]="['/by-keywords', keyword.id, '1']">
-    {{keyword.name}}
+    <p class="text-center full-wide-width">
+      {{keyword.name | titlecase}}
+    </p>
   </mat-chip>
 </mat-chip-list>

@@ -13,7 +13,9 @@
       [selected]="true"
       *ngFor="let keyword of keywordsSearchResults.results"
       [routerLink]="['/by-keywords', keyword.id, '1']">
-      {{keyword.name}}
+      <p class="text-center full-wide-width">
+        {{keyword.name | titlecase }}
+      </p>
     </mat-chip>
   </mat-chip-list>
 </div>

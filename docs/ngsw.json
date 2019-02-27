@@ -23,10 +23,10 @@
         "/movie-finder/9.fa285de10227b049edbe.js",
         "/movie-finder/favicon.ico",
         "/movie-finder/index.html",
-        "/movie-finder/main.5622466caa866919d440.js",
+        "/movie-finder/main.581ee8a358263ea9fa75.js",
         "/movie-finder/polyfills.8849c8599a1cd2583a60.js",
         "/movie-finder/runtime.36ffaf128c2cd2823283.js",
-        "/movie-finder/styles.28dc787899759f20bdd7.css",
+        "/movie-finder/styles.783685cd4ab7a0a586aa.css",
         "/movie-finder/vendor.ac5b23ce5c593b14721d.js"
       ],
       "patterns": [
@@ -89,11 +89,11 @@
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "87c6402cb7c7e2e083a689d9a83e8a152c80009b",
-    "/movie-finder/main.5622466caa866919d440.js": "5728f1660524a28b7ec06145f6cd4b2d3d66fd46",
+    "/movie-finder/index.html": "03925c27310f53144fe5f4c05c7c1637209465f6",
+    "/movie-finder/main.581ee8a358263ea9fa75.js": "8c6f6d7a77301ec4901a8609b77ef3bdb422b7fa",
     "/movie-finder/polyfills.8849c8599a1cd2583a60.js": "6946e10a03311677a01490b8e91741668e64e17e",
     "/movie-finder/runtime.36ffaf128c2cd2823283.js": "2bdc8aba5eaa6fee136d0e14d6a021f08ce4cbfc",
-    "/movie-finder/styles.28dc787899759f20bdd7.css": "b610dbdb1c49813f897756667c767d906faaf33c",
+    "/movie-finder/styles.783685cd4ab7a0a586aa.css": "ef5c8f3c09a5271845cbce7f0d42e4d2cdc42ace",
     "/movie-finder/vendor.ac5b23ce5c593b14721d.js": "23c9c4d4483dc637aa2f3e3b78a243c14267acc7"
   },
   "navigationUrls": [

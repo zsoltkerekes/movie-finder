@@ -10,8 +10,10 @@
       [selected]="getSelectedVideo(i)"
       (click)="setVideoUrl(video.key)"
       *ngFor="let video of videos.results; let i=index">
-      {{video.name ? video.name : (i+1) + '. videó' }}
-      {{video.iso_639_1 ? '('+video.iso_639_1.toUpperCase()+')' : ''}}
+      <p class="text-center full-wide-width">
+        {{video.name ? video.name : (i+1) + '. videó' }}
+        {{video.iso_639_1 ? '('+video.iso_639_1.toUpperCase()+')' : ''}}
+      </p>
     </mat-chip>
   </mat-chip-list>
 
