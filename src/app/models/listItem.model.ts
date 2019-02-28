@@ -10,6 +10,7 @@ export interface ListItem {
   }>;
   vote_average: number;
   overview: string;
+  release_date: string;
 }
 
 export const listItemInitData = {
@@ -21,5 +22,6 @@ export const listItemInitData = {
   profile_path: undefined,
   known_for: undefined,
   vote_average: undefined,
-  overview: undefined
+  overview: undefined,
+  release_date: undefined
 };
