@@ -54,8 +54,8 @@
           {{person.imdb_id ? 'Imdb Homepage:':''}}
         </span>
         <span *ngIf="person.imdb_id">
-          <a [href]="'https://www.imdb.com/title/'+person.imdb_id" target="_blank">
-            {{'https://www.imdb.com/title/'+person.imdb_id}}
+          <a [href]="'https://www.imdb.com/name/'+person.imdb_id" target="_blank">
+            {{'https://www.imdb.com/name/'+person.imdb_id}}
           </a>
         </span>
       </p>
