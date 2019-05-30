@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1558354997843,
+  "timestamp": 1559214243978,
   "index": "/movie-finder/index.html",
   "assetGroups": [
     {
@@ -24,11 +24,11 @@
         "/movie-finder/9.2fe909d386dbc3d1903d.js",
         "/movie-finder/favicon.ico",
         "/movie-finder/index.html",
-        "/movie-finder/main.847db9972e1052243fda.js",
+        "/movie-finder/main.aea0b8977dc6c9593467.js",
         "/movie-finder/polyfills.9657442596091660154c.js",
         "/movie-finder/runtime.08a0bc2735526ac5731b.js",
-        "/movie-finder/styles.621751bd5b0f329f6f2e.css",
-        "/movie-finder/vendor.6954bffd64537855a1be.js"
+        "/movie-finder/styles.2446aeb8f7b95ca755fc.css",
+        "/movie-finder/vendor.1c20c4f29c41532a2fa6.js"
       ],
       "patterns": [
         "https:\\/\\/fonts\\.googleapis\\.com\\/icon\\?family=Material\\+Icons",
@@ -90,12 +90,12 @@
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "31c557f8cb39a8e21581fed28e8b44bdc61cda7b",
-    "/movie-finder/main.847db9972e1052243fda.js": "1cff5db9faa9560ecd4ffdfdd5fe5ee0856b07f5",
+    "/movie-finder/index.html": "e1ea737e7b260d14e2bcc51d5dfbdf01358ad84e",
+    "/movie-finder/main.aea0b8977dc6c9593467.js": "2a004aa5db1ad94d5d487cc497f6a9ca19803343",
     "/movie-finder/polyfills.9657442596091660154c.js": "6946e10a03311677a01490b8e91741668e64e17e",
     "/movie-finder/runtime.08a0bc2735526ac5731b.js": "0c77cc606d029db5ab790dee51e2d84d947aa71d",
-    "/movie-finder/styles.621751bd5b0f329f6f2e.css": "5910b6fe8466592df62432dbb5a303c91bcce199",
-    "/movie-finder/vendor.6954bffd64537855a1be.js": "b2275cca1cb7ede83fc60fca02fe518f08005ad9"
+    "/movie-finder/styles.2446aeb8f7b95ca755fc.css": "55affde847f02776d8d35dc5a1e463e8296065b5",
+    "/movie-finder/vendor.1c20c4f29c41532a2fa6.js": "e400e805f62ea1b4146ed8137d77fa45e875c5e2"
   },
   "navigationUrls": [
     {

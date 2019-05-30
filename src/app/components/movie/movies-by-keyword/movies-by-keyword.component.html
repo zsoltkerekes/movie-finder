@@ -1,4 +1,4 @@
-<h2 class="text-center">
+<h2 class="text-center mat-h2">
   Keyword : {{keyword | uppercase }}
 </h2>
 
@@ -10,7 +10,7 @@
   </a>
 </div>
 
-<h2 *ngIf="movies && !(movies.results.length)" class="text-center">
+<h2 *ngIf="movies && !(movies.results.length)" class="text-center mat-h2">
   {{getGlobal() ? 'No results' : 'Nincs találat:'}}
 </h2>
 

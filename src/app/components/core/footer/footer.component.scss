@@ -3,6 +3,8 @@
 .footer {
   background-color: $main-color;
   color: $main-font-color;
+  padding-left: 4em;
+  padding-right: 4em;
 
   .icon {
     position: relative;
@@ -26,6 +28,7 @@
 
 p {
   padding: 0 1em;
+  margin-bottom: 1.5em !important;
 }
 
 @media (max-width: 960px) {

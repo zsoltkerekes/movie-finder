@@ -1,9 +1,11 @@
-<mat-chip-list>
-  <mat-chip
-    color="primary"
-    *ngFor="let keyword of keywords">
-    <p class="text-center full-wide-width">
-      {{keyword | titlecase}}
-    </p>
-  </mat-chip>
-</mat-chip-list>
+<div class="maximized-height">
+  <mat-chip-list>
+    <mat-chip
+      color="primary"
+      *ngFor="let keyword of keywords">
+      <p class="mat-body-1 text-center full-wide-width no-margin">
+        {{keyword | titlecase}}
+      </p>
+    </mat-chip>
+  </mat-chip-list>
+</div>

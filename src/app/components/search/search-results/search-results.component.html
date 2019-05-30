@@ -1,6 +1,5 @@
-<a href="" name="movie" id="movie"></a>
 
-<h2 *ngIf="phrase" class="text-center">
+<h2 *ngIf="phrase" class="text-center mat-h2" id="movie">
   {{getGlobal() ? 'Keywords:' : 'Keywords:'}}
 </h2>
 
@@ -13,20 +12,20 @@
       [selected]="true"
       *ngFor="let keyword of keywordsSearchResults.results"
       [routerLink]="['/by-keywords', keyword.id, '1']">
-      <p class="text-center full-wide-width">
+      <p class="mat-body-1 text-center full-wide-width">
         {{keyword.name | titlecase }}
       </p>
     </mat-chip>
   </mat-chip-list>
 </div>
 
-<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center">
+<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center mat-h3">
   {{getGlobal() ? 'No results' : 'Nincs találat'}}
 </h3>
 
 <mat-divider *ngIf="phrase"></mat-divider>
 
-<h2 *ngIf="phrase" class="text-center">
+<h2 *ngIf="phrase" class="text-center mat-h2">
   {{getGlobal() ? 'Movies:' : 'Filmek:'}}
 </h2>
 
@@ -38,7 +37,7 @@
   </a>
 </div>
 
-<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center">
+<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center mat-h3">
   {{getGlobal() ? 'No results' : 'Nincs találat'}}
 </h3>
 
@@ -46,9 +45,7 @@
 
 <mat-divider *ngIf="phrase"></mat-divider>
 
-<a href="" name="tvShow" id="tvShow"></a>
-
-<h2 *ngIf="phrase" class="text-center">
+<h2 *ngIf="phrase" class="text-center mat-h2" id="tvShow">
   {{getGlobal() ? 'Tv Shows:' : 'Sorozatok:'}}
 </h2>
 
@@ -60,7 +57,7 @@
   </a>
 </div>
 
-<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center">
+<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center mat-h3">
   {{getGlobal() ? 'No results' : 'Nincs találat'}}
 </h3>
 
@@ -69,9 +66,7 @@
 
 <mat-divider *ngIf="phrase"></mat-divider>
 
-<a href="" name="person" id="person"></a>
-
-<h2 *ngIf="phrase" class="text-center">
+<h2 *ngIf="phrase" class="text-center mat-h2" id="person">
   {{getGlobal() ? 'Persons:' : 'Emberek:'}}
 </h2>
 
@@ -83,7 +78,7 @@
   </a>
 </div>
 
-<h2 *ngIf="personSearchResults && !(personSearchResults.results.length) && phrase" class="text-center">
+<h2 *ngIf="personSearchResults && !(personSearchResults.results.length) && phrase" class="text-center mat-h2">
   {{getGlobal() ? 'No results' : 'Nincs találat'}}
 </h2>
 

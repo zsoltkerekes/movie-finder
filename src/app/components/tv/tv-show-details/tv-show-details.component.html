@@ -29,24 +29,24 @@
   <mat-card class="details">
     <mat-card-content>
 
-      <h2 class="title">
+      <h2 class="mat-h2 title">
         {{tvShow.name ? tvShow.name : 'N/A'}}
       </h2>
 
-      <h3 class="original_title">
+      <h3 class="mat-h3 original_title">
         {{tvShow.original_name && tvShow.name !== tvShow.original_name ? tvShow.original_name : ''}}
       </h3>
 
-      <p class="overview">
+      <p class="mat-body-1 overview">
         {{tvShow.overview ? tvShow.overview : 'N/A'}}
         {{tvShow.original_language ? '(' + tvShow.original_language.toLowerCase() + ')' : ''}}
       </p>
 
-      <p class="text-right">
+      <p class="mat-body-1 text-right">
         <mf-tv-keywords [id]="tvShow.id"></mf-tv-keywords>
       </p>
 
-      <p class="genres">
+      <p class="mat-body-1 genres">
         <span>
           {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
         </span>
@@ -55,7 +55,7 @@
         </span>
       </p>
 
-      <p class="runtime">
+      <p class="mat-body-1 runtime">
         <span>
           {{ getGlobal() ? 'Runtime:' : 'Hossz:' }}
         </span>
@@ -65,7 +65,7 @@
         </span>
       </p>
 
-      <p class="status">
+      <p class="mat-body-1 status">
         <span>
           {{ getGlobal() ? 'Status:' : 'Státusz:' }}
         </span>
@@ -74,7 +74,7 @@
         </span>
       </p>
 
-      <p class="release_date">
+      <p class="mat-body-1 release_date">
         <span>
           {{ getGlobal() ? 'Seasons/episodes:' : 'Évad/részek:' }}
         </span>
@@ -83,7 +83,7 @@
         </span>
       </p>
 
-      <p class="release_date">
+      <p class="mat-body-1 release_date">
         <span>
           {{ getGlobal() ? 'Release date:' : 'Premier dátuma:' }}
         </span>
@@ -92,7 +92,7 @@
         </span>
       </p>
 
-      <p class="release_date">
+      <p class="mat-body-1 release_date">
         <span>
           {{ getGlobal() ? 'Last air date:' : 'Utolsó epizód dátuma:' }}
         </span>
@@ -101,7 +101,7 @@
         </span>
       </p>
 
-      <p class="release_date">
+      <p class="mat-body-1 release_date">
         <span>
           {{ getGlobal() ? 'Next air date:' : 'Következő epizód dátuma:' }}
         </span>
@@ -110,7 +110,7 @@
         </span>
       </p>
 
-      <p class="budget">
+      <p class="mat-body-1 budget">
         <span>
           {{ getGlobal() ? 'Created By:' : 'Készítette:' }}
         </span>
@@ -119,7 +119,7 @@
         </span>
       </p>
 
-      <!--<p class="vote">-->
+      <!--<p class="mat-body-1 vote">-->
       <!--<span>-->
       <!--{{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}-->
       <!--</span>-->
@@ -128,7 +128,7 @@
       <!--</span>-->
       <!--</p>-->
 
-      <p class="popularity">
+      <p class="mat-body-1 popularity">
         <span>
           {{ getGlobal() ? 'Popularity:' : 'Relatív népszerűségi index:' }}
         </span>
@@ -137,7 +137,7 @@
         </span>
       </p>
 
-      <p class="homepage">
+      <p class="mat-body-1 homepage">
         <span>
           {{ tvShow.homepage ? 'Homepage:' : ''}}
         </span>
@@ -148,7 +148,7 @@
         </span>
       </p>
 
-      <p class="imdb">
+      <p class="mat-body-1 imdb">
         <span>
           {{ tvShow.imdb_id ? 'Imdb Homepage:' : ''}}
         </span>
@@ -159,7 +159,7 @@
         </span>
       </p>
 
-      <p class="youtube">
+      <p class="mat-body-1 youtube">
         <span>
           Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
@@ -177,7 +177,7 @@
       </p>
 
 
-      <p class="online-sorozatok">
+      <p class="mat-body-1 online-sorozatok">
         <span>
           Online {{ getGlobal() ? 'series search:' : 'sorozatok keresés:' }}
         </span>
@@ -194,7 +194,7 @@
         </span>
       </p>
 
-      <p class="google">
+      <p class="mat-body-1 google">
         <span>
           Google {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
@@ -211,7 +211,7 @@
         </span>
       </p>
 
-      <p class="google">
+      <p class="mat-body-1 google">
         <span>
           Netflix {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>

@@ -45,22 +45,24 @@ export class PopularMoviesComponent implements OnInit {
         }
       });
     if (this.activatedRoute.snapshot.fragment === 'movie') {
-      document.querySelector('#movie').scrollIntoView();
+      setTimeout(() => {
+        document.querySelector('#movie').scrollIntoView();
+      }, 0);
     }
 
-   this.location.replaceState(`/discover/${
-     +this.activatedRoute.snapshot.params['moviePage']
-     }/${
-     +this.activatedRoute.snapshot.params['tvShowPage']
-     }/${
-     +this.activatedRoute.snapshot.params['personPage']
-     }/${
-     this.observables.sortMovieByOption.getValue()}/${
-     this.observables.movieYearOption.getValue()}/${
-     this.observables.withGenresOption.getValue().join(',')}/${
-     this.observables.sortTvShowByOption.getValue()}/${
-     this.observables.tvShowYearOption.getValue()}/${
-     this.observables.tvWithGenresOption.getValue().join(',')}/#movie`);
+    this.location.replaceState(`/discover/${
+      +this.activatedRoute.snapshot.params['moviePage']
+      }/${
+      +this.activatedRoute.snapshot.params['tvShowPage']
+      }/${
+      +this.activatedRoute.snapshot.params['personPage']
+      }/${
+      this.observables.sortMovieByOption.getValue()}/${
+      this.observables.movieYearOption.getValue()}/${
+      this.observables.withGenresOption.getValue().join(',')}/${
+      this.observables.sortTvShowByOption.getValue()}/${
+      this.observables.tvShowYearOption.getValue()}/${
+      this.observables.tvWithGenresOption.getValue().join(',')}`);
   }
 
   ngOnInit() {

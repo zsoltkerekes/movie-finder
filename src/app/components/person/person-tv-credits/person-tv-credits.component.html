@@ -1,4 +1,4 @@
-<h2 *ngIf="tvCredits.cast.length || tvCredits.crew.length" class="text-center">
+<h2 *ngIf="tvCredits.cast.length || tvCredits.crew.length" class="text-center mat-h2">
   <br>
   <mat-divider></mat-divider>
   <br>
@@ -6,7 +6,7 @@
 </h2>
 
 <div *ngIf="tvCredits.crew.length">
-  <h3 class="text-center">
+  <h3 class="text-center mat-h3">
     {{ getGlobal() ? 'Crew' : 'Rendezések, forgatókönyvek, satöbbi' }}
   </h3>
 
@@ -31,7 +31,7 @@
 </div>
 
 <div *ngIf="tvCredits.cast.length">
-  <h3 class="text-center">
+  <h3 class="text-center mat-h3">
     {{ getGlobal() ? 'Cast' : 'TalkShow szereplések, Díjátadók, satöbbi' }}
   </h3>
 

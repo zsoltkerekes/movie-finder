@@ -1,5 +1,5 @@
-<p class="text-center" *ngIf="pagination.total_results>0">
-  <span>
+<p class="mat-body-1 text-center" *ngIf="pagination.total_results>0">
+  <span class="mat-body-1">
     <strong>{{pagination.total_results}}</strong> {{getGlobal() ? 'results':'találat'}},
     <strong>{{pagination.total_pages}}</strong> {{getGlobal() ? 'pages':'oldalon'}}
   </span>
@@ -9,7 +9,7 @@
       fragment="{{type}}"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{exact:true}"
-      class="result-links mat-elevation-z2">
+      class="mat-elevation-z2 mat-body-1 result-links">
       {{page.name}}
     </a>
   </span>

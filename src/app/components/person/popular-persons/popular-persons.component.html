@@ -1,6 +1,4 @@
-<a href="" name="person" id="person"></a>
-
-<h2 class="text-center">
+<h2 class="text-center mat-h2" id="person">
   {{getGlobal() ? 'Persons:':'Emberek:'}}
 </h2>
 
@@ -12,7 +10,7 @@
   </a>
 </div>
 
-<h2 class="text-center" *ngIf="popularPersons.results.length < 1">
+<h2 class="text-center mat-h2" *ngIf="popularPersons.results.length < 1">
   {{getGlobal() ? 'No results':'Nincs találat'}}
 </h2>
 

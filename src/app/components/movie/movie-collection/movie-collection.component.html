@@ -1,4 +1,4 @@
-<p>
+<p class="mat-body-1">
   <b>{{collection.name}}</b>: {{collection.overview}}
 </p>
 <div class="maximized-height">
@@ -6,7 +6,7 @@
     <mat-chip
       color="primary" [selected]="true"
       *ngFor="let part of collection.parts" [routerLink]="['/details', part.id]">
-      <p class="text-center full-wide-width">
+      <p class="mat-body-1 text-center full-wide-width">
         <b>{{part.title ? part.title.trim() : null}}</b>
         {{part.original_title !== part.title ? ' (' + part.original_title + ')' : null }}
         {{part.vote_average ? '[' + part.vote_average + '/10]' : null }}

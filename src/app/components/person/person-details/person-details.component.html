@@ -12,15 +12,15 @@
   <mat-card class="details">
     <mat-card-content>
 
-      <h2 class="title">
+      <h2 class="mat-h2 title">
         {{person.name ? person.name : 'N/A'}} {{person.gender ? getGender(person.gender) : ''}}
       </h2>
 
-      <p class="overview">
+      <p class="mat-body-1 overview">
         {{person.biography ? person.biography : 'N/A'}}
       </p>
 
-      <p class="runtime">
+      <p class="mat-body-1 runtime">
         <span>
           {{ getGlobal() ? 'Birthday:' : ' Születésnap:' }}
         </span>
@@ -29,7 +29,7 @@
         </span>
       </p>
 
-      <p class="status">
+      <p class="mat-body-1 status">
         <span>
           {{ getGlobal() ? 'Deathday:' : ' Meghalt:' }}
         </span>
@@ -38,7 +38,7 @@
         </span>
       </p>
 
-      <p class="homepage">
+      <p class="mat-body-1 homepage">
         <span>
           {{ person.homepage ? 'Homepage:':''}}
         </span>
@@ -49,7 +49,7 @@
         </span>
       </p>
 
-      <p class="imdb">
+      <p class="mat-body-1 imdb">
         <span>
           {{person.imdb_id ? 'Imdb Homepage:':''}}
         </span>
@@ -60,7 +60,7 @@
         </span>
       </p>
 
-      <p class="youtube">
+      <p class="mat-body-1 youtube">
         <span>
           Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
@@ -71,7 +71,7 @@
         </span>
       </p>
 
-      <p class="google">
+      <p class="mat-body-1 google">
         <span>
           Google {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>

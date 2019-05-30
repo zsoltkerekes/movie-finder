@@ -59,7 +59,7 @@ export class PopularTvShowsComponent implements OnInit {
       this.observables.withGenresOption.getValue().join(',')}/${
       this.observables.sortTvShowByOption.getValue()}/${
       this.observables.tvShowYearOption.getValue()}/${
-      this.observables.tvWithGenresOption.getValue().join(',')}/#movie`);
+      this.observables.tvWithGenresOption.getValue().join(',')}`);
   }
 
   ngOnInit() {

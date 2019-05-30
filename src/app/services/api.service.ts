@@ -1,6 +1,7 @@
 import {ConstantsService} from './constants.service';
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
+import { retry } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
@@ -19,7 +20,7 @@ export class ApiService {
     this.getAllPossibleGenres();
   }
 
-  getContent = url => this.http.get(url);
+  getContent = url => this.http.get(url).pipe(retry(3));
   getBackgroundUrl = () => `${this.constants.imageUrl}${this.constants.backdropSize}`;
   getSortByOptions = () => this.constants.getSortByOptions();
   getGlobal = () => this.constants.globalOption;

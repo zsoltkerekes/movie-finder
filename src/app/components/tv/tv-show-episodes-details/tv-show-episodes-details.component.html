@@ -1,24 +1,24 @@
 <section class="episodes">
   <div class="text-center">
-    <h2>
+    <h2 class="mat-h2">
       {{tvShow.name ? tvShow.name : 'N/A' }}
       {{(tvShow.name && (tvShow.original_name !== tvShow.name)) ? '(' + tvShow.original_name + ')' : ''}}
       <br/>
       {{tvShow.original_language ? tvShow.original_language.toUpperCase() : ''}}
     </h2>
 
-    <h3>
+    <h3 class="mat-h3">
       {{tvShowEpisodes.name ? tvShowEpisodes.name : ''}}
       ({{tvShowEpisodes.episodes.length}}
       {{getGlobal() ? 'episode' : 'epizód'}})
     </h3>
 
-    <h4>
+    <h4 class="mat-h4">
       {{tvShow.status ? tvShow.status : ''}}
     </h4>
 
 
-    <p class="season-overview">
+    <p class="mat-body-1 season-overview">
       {{getGlobal() ? 'Overview:' : 'Tartalom:'}}
       {{tvShowEpisodes.overview ? tvShowEpisodes.overview : 'N/A'}}
     </p>
@@ -32,7 +32,7 @@
 
   <mf-tv-show-season-videos [id]="id" [season]="season"></mf-tv-show-season-videos>
 
-  <h3 class="text-center">
+  <h3 class="text-center mat-h3">
     {{getGlobal() ? 'Episodes' : 'Epizódok:'}}
   </h3>
 
@@ -62,11 +62,11 @@
         [attr.data-src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
 
       <div class="episode-body">
-        <h4>
+        <h4 class="mat-h4">
           {{episode.name ? episode.name : 'N/A'}}
           {{episode.vote_average ? '('+ (episode.vote_average | number:'1.1-1' ) +'/10)':'(N/A)'}}
         </h4>
-        <p>
+        <p class="mat-body-1">
           {{getGlobal() ? 'Overview:' : 'Tartalom:'}}
           {{episode.overview ? episode.overview : 'N/A'}}
         </p>

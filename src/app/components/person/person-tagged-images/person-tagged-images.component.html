@@ -1,4 +1,4 @@
-<h2 class="text-center" *ngIf="images && images.length > 0">
+<h2 class="text-center mat-h2" *ngIf="images && images.length > 0">
   {{getGlobal() ? 'Tagged Images from acts' : 'Képek a szerepléseiről, filmjeiről, stb '}}
 </h2>
 
@@ -15,23 +15,23 @@
       <a [routerLink]="[ image.media_type === 'movie' ? '/details' : '/tv-details', image.media.id ]" class="overview">
         <div>
           <strong>
-            <p>
+            <p class="mat-body-1">
               {{ image.media.name ? image.media.name : ''}}
               {{ image.media.title ? image.media.title : ''}}
               {{ image.vote_average ? '('+ (image.vote_average | number: '1.1-1') +')':'' }}
             </p>
-            <p>
+            <p class="mat-body-1">
               {{ image.media.original_name && image.media.original_name !== image.media.name ? '('+
               image.media.original_name +')' : '' }}
               {{ image.media.original_title && image.media.original_title !== image.media.title ? '('+
               image.media.original_title +')' : '' }}
             </p>
           </strong>
-          <p>
+          <p class="mat-body-1">
             {{ image.media.release_date ? image.media.release_date : '' }}
             {{ image.media.first_air_date ? image.media.first_air_date : '' }}
           </p>
-          <p class="text-justify">
+          <p class="text-justify mat-body-1">
             {{ image.media.overview }}
           </p>
         </div>

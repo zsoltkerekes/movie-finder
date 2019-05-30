@@ -1,6 +1,4 @@
-<a href="" name="movie" id="movie"></a>
-
-<h2 class="text-center">
+<h2 class="text-center mat-h2" id="movie">
   {{getGlobal() ? 'Movies:':'Filmek:'}}
 </h2>
 
@@ -12,7 +10,7 @@
   </a>
 </div>
 
-<h2 class="text-center" *ngIf="popularMovies.results.length < 1">
+<h2 class="text-center mat-h2" *ngIf="popularMovies.results.length < 1">
   {{getGlobal() ? 'No results':'Nincs találat'}}
 </h2>
 

@@ -29,22 +29,22 @@
   <mat-card class="details">
     <mat-card-content>
 
-      <h2 class="title">
+      <h2 class="mat-h2 title">
         {{movie.title ? movie.title : 'N/A'}}
       </h2>
 
-      <h3 class="original_title">
+      <h3 class="mat-h3 original_title">
         {{movie.original_title && movie.title !== movie.original_title ? movie.original_title : ''}}
         <br/>
         {{movie.tagline ? movie.tagline.trim() : ''}}
       </h3>
 
-      <p class="overview">
+      <p class="mat-body-1 overview">
         {{movie.overview ? movie.overview : 'N/A'}}
         {{movie.original_language ? '(' + movie.original_language.toLowerCase() + ')' : ''}}
       </p>
 
-      <p class="text-right">
+      <p class="mat-body-1 text-right">
         <mf-movie-keywords [id]="movie.id"></mf-movie-keywords>
       </p>
 
@@ -52,7 +52,7 @@
         <mf-movie-collection [id]="movie.belongs_to_collection.id"></mf-movie-collection>
       </div>
 
-      <p class="genres">
+      <p class="mat-body-1 genres">
         <span>
           {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
         </span>
@@ -61,7 +61,7 @@
         </span>
       </p>
 
-      <p class="runtime">
+      <p class="mat-body-1 runtime">
         <span>
           {{ getGlobal() ? 'Runtime:' : 'Hossz:' }}
         </span>
@@ -70,7 +70,7 @@
         </span>
       </p>
 
-      <p class="status">
+      <p class="mat-body-1 status">
         <span>
           {{ getGlobal() ? 'Status:' : 'Státusz:' }}
         </span>
@@ -79,7 +79,7 @@
         </span>
       </p>
 
-      <p class="release_date">
+      <p class="mat-body-1 release_date">
         <span>
           {{ getGlobal() ? 'Release date:' : 'Premier dátuma:' }}
         </span>
@@ -88,7 +88,7 @@
         </span>
       </p>
 
-      <p class="budget">
+      <p class="mat-body-1 budget">
         <span>
           {{ getGlobal() ? 'Budget:' : 'Elkészítési költség:' }}
         </span>
@@ -97,7 +97,7 @@
         </span>
       </p>
 
-      <p class="budget">
+      <p class="mat-body-1 budget">
         <span>
           {{ getGlobal() ? 'Revenue:' : 'Bevétel:' }}
         </span>
@@ -106,7 +106,7 @@
         </span>
       </p>
 
-      <!--<p class="vote">-->
+      <!--<p class="mat-body-1 vote">-->
         <!--<span>-->
           <!--{{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}-->
         <!--</span>-->
@@ -115,7 +115,7 @@
         <!--</span>-->
       <!--</p>-->
 
-      <p class="popularity">
+      <p class="mat-body-1 popularity">
         <span>
           {{ getGlobal() ? 'Popularity:' : 'Relatív népszerűségi index:' }}
         </span>
@@ -124,7 +124,7 @@
         </span>
       </p>
 
-      <p class="homepage">
+      <p class="mat-body-1 homepage">
         <span>
           {{ movie.homepage ? 'Homepage:' : ''}}
         </span>
@@ -135,7 +135,7 @@
         </span>
       </p>
 
-      <p class="imdb" *ngIf="movie.title || movie.original_title">
+      <p class="mat-body-1 imdb" *ngIf="movie.title || movie.original_title">
         <span>
           {{movie.imdb_id ? 'Imdb Homepage:' : ''}}
         </span>
@@ -146,7 +146,7 @@
         </span>
       </p>
 
-      <p class="youtube" *ngIf="movie.title || movie.original_title">
+      <p class="mat-body-1 youtube" *ngIf="movie.title || movie.original_title">
         <span>
           Youtube {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
@@ -163,7 +163,7 @@
         </span>
       </p>
 
-      <p class="online-filmek" *ngIf="movie.title || movie.original_title">
+      <p class="mat-body-1 online-filmek" *ngIf="movie.title || movie.original_title">
         <span>
           Online Film {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
@@ -180,7 +180,7 @@
         </span>
       </p>
 
-      <p class="google" *ngIf="movie.title || movie.original_title">
+      <p class="mat-body-1 google" *ngIf="movie.title || movie.original_title">
         <span>
           Google {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
@@ -197,7 +197,7 @@
         </span>
       </p>
 
-      <p class="google" *ngIf="movie.title || movie.original_title">
+      <p class="mat-body-1 google" *ngIf="movie.title || movie.original_title">
         <span>
           Netflix {{ getGlobal() ? 'search:' : 'keresés:' }}
         </span>
