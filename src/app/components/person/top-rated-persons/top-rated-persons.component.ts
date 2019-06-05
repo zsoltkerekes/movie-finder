@@ -11,7 +11,7 @@ import {ApiService} from '../../../services/api.service';
 })
 export class TopRatedPersonsComponent implements OnInit {
 
-  @ViewChild('container') container;
+  @ViewChild('container', {static: false}) container;
 
   topRatedPersons: { results: Array<ListItem> };
   page: number;

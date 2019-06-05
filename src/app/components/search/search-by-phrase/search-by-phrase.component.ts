@@ -10,7 +10,7 @@ import {BehaviorSubject} from 'rxjs';
   styleUrls: ['./search-by-phrase.component.scss']
 })
 export class SearchByPhraseComponent implements OnInit {
-  @ViewChild('message') message: ElementRef;
+  @ViewChild('message', {static: true}) message: ElementRef;
   queryPhrase = new BehaviorSubject<string>('');
   placeholder: string;
   showButton: boolean;

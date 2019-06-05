@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class RecommendedMoviesComponent implements OnInit {
 
-  @ViewChild('container') container;
+  @ViewChild('container', {static: true}) container;
   id: number;
   recommendedMovies: { results: Array<ListItem> } = {results: [listItemInitData]};
   listGenres = this.api.getGenreList;

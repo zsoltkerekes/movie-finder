@@ -15,7 +15,7 @@ import {Location} from '@angular/common';
 })
 export class PopularTvShowsComponent implements OnInit {
 
-  @ViewChild('container') container;
+  @ViewChild('container', {static: false}) container;
 
   popularTvShows: { results: Array<ListItem> };
   page: number;

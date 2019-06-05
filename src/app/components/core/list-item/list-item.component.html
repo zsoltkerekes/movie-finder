@@ -7,14 +7,14 @@
                  }}">
   <mat-card-header>
     <mat-card-title>
-      {{movie.title ? (movie.title.trim() | truncate : titleLimit : false) : ''}}
-      {{tvShow.name ? (tvShow.name.trim() | truncate : titleLimit : false) : ''}}
-      {{person.name ? (person.name.trim() | truncate : titleLimit : false) : ''}}
+      {{movie && movie.title ? (movie.title.trim() | truncate : titleLimit : false) : ''}}
+      {{tvShow && tvShow.name ? (tvShow.name.trim() | truncate : titleLimit : false) : ''}}
+      {{person && person.name ? (person.name.trim() | truncate : titleLimit : false) : ''}}
     </mat-card-title>
     <mat-card-subtitle>
       {{movie.genre_ids && listGenres(movie.genre_ids) ? (listGenres(movie.genre_ids).trim() | truncate : genreLimit : false) : ''}}
       {{tvShow.genre_ids && listTvGenres(tvShow.genre_ids) ? (listTvGenres(tvShow.genre_ids).trim() | truncate : genreLimit : false) : ''}}
-      {{person.known_for && person.known_for[0].title ? (person.known_for[0].title.trim() | truncate : genreLimit : false) : ''}}
+      {{person.known_for && person.known_for[0] && person.known_for[0].title ? (person.known_for[0].title.trim() | truncate : genreLimit : false) : ''}}
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>

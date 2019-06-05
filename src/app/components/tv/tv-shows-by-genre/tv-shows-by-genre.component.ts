@@ -10,7 +10,7 @@ import {ApiService} from '../../../services/api.service';
 })
 export class TvShowsByGenreComponent implements OnInit {
 
-  @ViewChild('container') container;
+  @ViewChild('container', {static: false}) container;
 
   id: number;
   page: number;

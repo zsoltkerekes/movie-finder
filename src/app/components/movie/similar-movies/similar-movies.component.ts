@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class SimilarMoviesComponent implements OnInit {
 
-  @ViewChild('container') container;
+  @ViewChild('container', {static: true}) container;
 
   id: number;
 

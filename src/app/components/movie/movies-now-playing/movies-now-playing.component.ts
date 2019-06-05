@@ -10,7 +10,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 })
 export class MoviesNowPlayingComponent implements OnInit {
 
-  @ViewChild('container') container;
+  @ViewChild('container', {static: false}) container;
 
   nowPlayingMovies: { results: Array<ListItem> };
   page: number;

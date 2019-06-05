@@ -8,7 +8,7 @@ import {ApiService} from '../../../services/api.service';
   styleUrls: ['./tv-recommended.component.scss']
 })
 export class TvRecommendedComponent implements DoCheck {
-  @ViewChild('pic') pic;
+  @ViewChild('pic', {static: false}) pic;
 
   tvGenres: { id: Number, name: String }[];
   getGlobal = this.api.getGlobal;
