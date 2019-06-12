@@ -1,10 +1,10 @@
 <mat-card class="mat-elevation-z4" *ngIf="movie || tvShow || person"
-          title="{{
-           (movie && movie.title && (movie.title + ' ('+movie.release_date+') [' + movie.vote_average + '/10]\n\n' + listGenres(movie.genre_ids).trim() + '\n\n' + movie.overview))
-        || (tvShow && tvShow.name && (tvShow.name + ' ('+tvShow.release_date+') [' + tvShow.vote_average + '/10]\n\n' + listTvGenres(tvShow.genre_ids).trim() + '\n\n' + tvShow.overview))
+        title="{{
+          (movie && movie.title && (movie.title + (movie.release_date ? ' ('+movie.release_date+')'  : '')  + (movie.vote_average && movie.vote_average > 0 && movie.vote_average < 10 ? ' [' + movie.vote_average + '/10]' : '') + '\n\n' + listGenres(movie.genre_ids).trim() + '\n\n' + movie.overview))
+        || (tvShow && tvShow.name && (tvShow.name + (tvShow.release_date ? ' ('+tvShow.release_date+')' : '') + (tvShow.vote_average && tvShow.vote_average > 0 && tvShow.vote_average < 10 ? ' [' + tvShow.vote_average + '/10]' : '') + '\n\n' + listTvGenres(tvShow.genre_ids).trim() + '\n\n' + tvShow.overview))
         || (person && person.name && person.name + '\n\n' + acts())
         || 'N/A'
-                 }}">
+                }}">
   <mat-card-header>
     <mat-card-title>
       {{movie && movie.title ? (movie.title.trim() | truncate : titleLimit : false) : ''}}
@@ -22,7 +22,7 @@
       <mf-loading class="centerHorizontalVertical"></mf-loading>
       <img
         [attr.data-src]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
-       'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) : 'assets/image/no-pic.jpg'"
+        'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) : 'assets/image/no-pic.jpg'"
         alt="{{(movie && movie.title) || (tvShow && tvShow.name) || (person && person.name) || 'N/A'}}"/>
     </div>
   </mat-card-content>

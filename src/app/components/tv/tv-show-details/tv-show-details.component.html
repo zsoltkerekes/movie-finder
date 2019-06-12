@@ -4,14 +4,14 @@
       <div class="img-container" lazy-load-images>
         <mf-loading class="centerHorizontalVertical"></mf-loading>
         <img [attr.data-src]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : 'assets/image/no-pic.jpg'"
-             [alt]="tvShow.name"
-             [title]="tvShow.name"/>
+            [alt]="tvShow.name"
+            [title]="tvShow.name"/>
         <mat-progress-spinner
           class="circle"
           color="primary"
           mode="determinate"
           diameter="95"
-          *ngIf="tvShow.vote_average"
+          *ngIf="tvShow.vote_average && tvShow.vote_average !== 10"
           [value]="tvShow.vote_average * 10">
         </mat-progress-spinner>
         <mat-chip
@@ -19,7 +19,7 @@
           [selected]="true"
           disabled
           class="vote force-not-transparent"
-          *ngIf="tvShow.vote_average">
+          *ngIf="tvShow.vote_average && tvShow.vote_average !== 10">
           {{(tvShow.vote_average | number:'1.1-1') + '/10'}}
         </mat-chip>
       </div>
@@ -169,8 +169,8 @@
           </a>
           <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
           <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
-             [href]="'https://www.youtube.com/results?search_query='+tvShow.original_name"
-             target="_blank">
+            [href]="'https://www.youtube.com/results?search_query='+tvShow.original_name"
+            target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
@@ -187,8 +187,8 @@
           </a>
           <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
           <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
-             [href]="'https://www.sorozatbarat.online/video/search?s='+tvShow.original_name"
-             target="_blank">
+            [href]="'https://www.sorozatbarat.online/video/search?s='+tvShow.original_name"
+            target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
@@ -204,8 +204,8 @@
           </a>
           <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
           <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
-             [href]="'https://www.google.hu/search?q='+tvShow.original_name"
-             target="_blank">
+            [href]="'https://www.google.hu/search?q='+tvShow.original_name"
+            target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
@@ -221,8 +221,8 @@
           </a>
           <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
           <a *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
-             [href]="'https://www.netflix.com/search?q='+tvShow.original_name"
-             target="_blank">
+            [href]="'https://www.netflix.com/search?q='+tvShow.original_name"
+            target="_blank">
             {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
           </a>
         </span>
