@@ -59,7 +59,7 @@
         class="picture"
         title="{{tvShow.name}} - {{episode.name}}"
         alt="{{tvShow.name}} - {{episode.name}}"
-        [attr.data-src]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
+        [lazyLoad]="episode.still_path ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path : 'assets/image/no-pic.jpg'"/>
 
       <div class="episode-body">
         <h4 class="mat-h4">

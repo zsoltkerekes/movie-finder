@@ -9,7 +9,7 @@
     <div class="img-container" lazy-load-images>
       <mf-loading class="centerHorizontalVertical"></mf-loading>
       <img class="pic" title="" alt=""
-           [attr.data-src]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
+      [lazyLoad]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''">
 
     </div>
   </mat-tab>

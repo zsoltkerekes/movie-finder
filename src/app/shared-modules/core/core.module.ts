@@ -4,7 +4,7 @@ import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../material/material.module';
 import {FormsModule} from '@angular/forms';
-import {LazyLoadImagesModule} from 'ngx-lazy-load-images';
+import {LazyLoadImageModule} from 'ng-lazyload-image';
 
 import {FooterComponent} from '../../components/core/footer/footer.component';
 import {HeaderComponent} from '../../components/core/header/header.component';
@@ -22,7 +22,7 @@ import {TruncatePipe} from '../../pipes/truncate.pipe';
     HttpModule,
     MaterialModule,
     FormsModule,
-    LazyLoadImagesModule
+    LazyLoadImageModule
   ],
   declarations: [
     HeaderComponent,
@@ -46,7 +46,7 @@ import {TruncatePipe} from '../../pipes/truncate.pipe';
     HttpModule,
     MaterialModule,
     FormsModule,
-    LazyLoadImagesModule
+    LazyLoadImageModule
   ]
 })
 export class CoreModule {

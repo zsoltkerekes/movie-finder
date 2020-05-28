@@ -3,7 +3,7 @@
     <mat-card-content (dblclick)="open()">
       <div class="img-container" lazy-load-images>
         <mf-loading class="centerHorizontalVertical"></mf-loading>
-        <img [attr.data-src]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path : 'assets/image/no-pic.jpg'"
+        <img [lazyLoad]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path : 'assets/image/no-pic.jpg'"
             [alt]="movie.title"
             [title]="movie.title"/>
         <mat-progress-spinner

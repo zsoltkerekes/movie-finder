@@ -21,7 +21,7 @@
     <div class="img-container" lazy-load-images>
       <mf-loading class="centerHorizontalVertical"></mf-loading>
       <img
-        [attr.data-src]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
+      [lazyLoad]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
         'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) : 'assets/image/no-pic.jpg'"
         alt="{{(movie && movie.title) || (tvShow && tvShow.name) || (person && person.name) || 'N/A'}}"/>
     </div>
