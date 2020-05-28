@@ -1,3 +1,5 @@
+@import "./../../../../colors";
+
 mat-card {
   vertical-align: top;
   margin: 20px 10px;
@@ -20,7 +22,7 @@ mat-card-content {
 .details {
   display: inline-flex;
   width: calc(100% - 500px - 130px);
-  background-color: rgba(232, 234, 246, 0.9);
+  background-color: $details-bg-color;
   padding: 1em;
   min-height: 770px;
 }
@@ -98,7 +100,7 @@ p {
     top: $margin + $move;
     right: $margin + $move;
     z-index: 100000;
-    background-color: rgba(232, 234, 246, 0.9);
+    background-color: $details-bg-color;
     box-shadow: 0 0 $margin / 1.75 $margin / 1.75 rgba(232,234,246,0.6);
     border-radius: 50%;
   }

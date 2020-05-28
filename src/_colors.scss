@@ -1,8 +1,32 @@
-$main-color: #C5CAE9; //Indigo 100
-//$main-color: #3F51B5; //Indigo 500
-//$main-color: #303F9F; //Indigo 900
-$main-bg-color: #fff;
-$fallback-bg-color: #fcfcfc;
+/*
+Light Theme
 
-//$main-font-color: #fffffffe; //white
-$main-font-color: #000; //black
+$main-color: #C5CAE9; //Indigo 100
+$main-bg-color: #fff;
+$alternative-font-color: #000;
+$fallback-bg-color: #fcfcfc;
+$main-font-color: #000;
+$details-bg-color: rgba(232, 234, 246, 0.9);
+*/
+
+/*
+Dark Theme
+*/
+
+@import "~@angular/material/theming";
+@include mat-core();
+
+$main-color: #424242;
+$main-bg-color: #1f1b24;
+$fallback-bg-color: #999;
+$main-font-color: #fff;
+$alternative-font-color: #000;
+$details-bg-color: #424242bb;
+
+$my-app-primary: mat-palette($mat-indigo);
+$dark-primary: mat-palette($mat-indigo);
+$dark-accent: mat-palette($mat-indigo);
+$dark-warn: mat-palette($mat-deep-orange);
+
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+@include angular-material-theme($dark-theme);

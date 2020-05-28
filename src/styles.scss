@@ -1,11 +1,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 @import "colors";
 
 html {
   background-color: $fallback-bg-color;
-  font-family: 'Roboto', sans-serif;
-
+  font-family: "Roboto", sans-serif;
 
   body {
     margin: 0;
@@ -37,7 +36,14 @@ html {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
+}
+
+.main-font-color {
+  color: $main-font-color;
+}
+
+.alternative-font-color {
+  color: $alternative-font-color;
 }
 
 .text-right {
@@ -83,7 +89,7 @@ a {
 
 .full-width {
   width: 64%;
-  margin: 2.5% 18.0%;
+  margin: 2.5% 18%;
 }
 
 .maximized-height {
@@ -117,8 +123,9 @@ a {
   margin: 25vh 0;
 }
 
-.no-margin, p.no-margin {
-  margin: 0
+.no-margin,
+p.no-margin {
+  margin: 0;
 }
 
 .centerHorizontalVertical {

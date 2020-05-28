@@ -15,6 +15,7 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
   tvShowGenres: Array<any>;
   selectedTvShowGenres: number[];
   placeholder: string;
+  placeholderOrder: string;
 
   constructor(
     private api: ApiService,
@@ -30,6 +31,7 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
     this.tvShowGenres = this.api.getTvGenresArray();
     this.selectedTvShowGenres = this.observables.tvWithGenresOption.getValue().map((str: any) => parseInt(str, 10));
     this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
+    this.placeholderOrder = this.api.getGlobal() ? 'Order' : 'Sorrend';
   }
 
   ngDoCheck() {
