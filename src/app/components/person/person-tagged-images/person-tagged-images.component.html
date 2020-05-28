@@ -7,7 +7,7 @@
   <mat-tab *ngFor="let image of images; let i=index"
            [label]="(i+1)+'/'+ images.length + '. ' +
   ( (image.media.name ? image.media.name : '') + (image.media.title ? image.media.title : '') ).toString()">
-    <div class="img-container" lazy-load-images>
+    <div class="img-container">
       <mf-loading class="centerHorizontalVertical upper"></mf-loading>
       <img class="pic"
       [lazyLoad]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''"

@@ -13,7 +13,7 @@
 
   <div class="container">
     <a *ngFor="let person of movieCredits.cast | search:searchCast " [routerLink]="['/person-details', person.id]">
-      <div class="cast" lazy-load-images>
+      <div class="cast">
         <mf-loading *ngIf="person.profile_path && isLoading"></mf-loading>
         <img *ngIf="person.profile_path && !isLoading"
              [lazyLoad]="'https://image.tmdb.org/t/p/' + 'w45' +person.profile_path"

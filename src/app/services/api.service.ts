@@ -125,7 +125,7 @@ export class ApiService {
     });
   };
 
-  getTvGenreList = (array: Array<Number>): String => {
+  getTvGenreList = (array: Array<Number> = []): string => {
     const output = [];
     array.forEach(row => {
       output.push(this.tvGenres[row.toString()]);

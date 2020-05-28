@@ -1,11 +1,14 @@
 <section class="full" [style.backgroundImage]="backgroundImage()">
   <mat-card class="poster">
     <mat-card-content (dblclick)="open()">
-      <div class="img-container" lazy-load-images>
+      <div class="img-container">
         <mf-loading class="centerHorizontalVertical"></mf-loading>
-        <img [lazyLoad]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : 'assets/image/no-pic.jpg'"
-            [alt]="tvShow.name"
-            [title]="tvShow.name"/>
+        <img
+          *ngIf="tvShow.poster_path"
+          [lazyLoad]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : ''"
+          [defaultImage]="'assets/image/no-pic.jpg'"
+          [alt]="tvShow.name"
+          [title]="tvShow.name"/>
         <mat-progress-spinner
           class="circle"
           color="primary"

@@ -27,9 +27,9 @@
     </mat-radio-button>
   </mat-radio-group>
 
-  <div class="container">
+  <div class="container" *ngIf="movieCredits.cast && movieCredits.cast.length">
     <a *ngFor="let movie of movieCredits.cast | search:searchCast " [routerLink]="['/details', movie.id]">
-      <div class="cast" title="{{movie.title  +' (' + movie.vote_average+ ' / 10)\n\n' + listGenres(movie.genre_ids)+ '\n\n' + movie.overview}}">
+      <div class="cast" title="{{movie.title  +' (' + movie.vote_average+ ' / 10)\n\n' + movie.genre_ids && listGenres(movie.genre_ids)+ '\n\n' + movie.overview}}">
         <span class="pull-left">
           {{movie.character ? movie.character : ''}}
           {{movie.release_date ? '(' + movie.release_date + ')' : ''}}
@@ -44,7 +44,7 @@
   </div>
 </div>
 
-<div *ngIf="movieCredits.crew.length">
+<div *ngIf="movieCredits.crew && movieCredits.crew.length">
   <h3 class="text-center mat-h3">
     {{ getGlobal() ? 'Crew' : 'Rendezések, forgatókönyvek, satöbbi'}}
   </h3>
@@ -56,7 +56,7 @@
 
   <div class="container">
     <a *ngFor="let movie of movieCredits.crew | search:searchCrew" [routerLink]="['/details', movie.id]">
-      <div class="crew" title="{{movie.title +' (' + movie.vote_average+ ' / 10)\n\n'+ listGenres(movie.genre_ids)+ '\n\n' + movie.overview}}">
+      <div class="crew" title="{{movie.title +' (' + movie.vote_average+ ' / 10)\n\n'+ movie.genre_ids && listGenres(movie.genre_ids) + '\n\n' + movie.overview}}">
         <span class="pull-left">
           {{movie.job ? movie.job : '(Hiányzó adat: Munkakör)'}}
           {{movie.release_date ? '(' + movie.release_date + ')' : ''}}

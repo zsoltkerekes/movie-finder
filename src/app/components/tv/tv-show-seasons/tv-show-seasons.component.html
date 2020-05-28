@@ -1,4 +1,4 @@
-<mat-tab-group lazy-load-images>
+<mat-tab-group>
   <mat-tab *ngFor="let season of tvShow.seasons; let i = index"
            [label]="season.name || season.season_number || i ">
     <img class="poster"

@@ -1,10 +1,13 @@
 <section class="full">
   <mat-card class="poster">
     <mat-card-content>
-      <div class="img-container" lazy-load-images>
+      <div class="img-container">
         <mf-loading class="centerHorizontalVertical"></mf-loading>
-        <img [lazyLoad]="person.profile_path ? 'https://image.tmdb.org/t/p' + '/w500' + person.profile_path :
-             'assets/image/no-pic.jpg'" [alt]="person.name" [title]="person.name"/>
+          <img
+            [lazyLoad]="person.profile_path ? 'https://image.tmdb.org/t/p' + '/w500' + person.profile_path : ''"
+            [defaultImage]="'assets/image/no-pic.jpg'"
+            [alt]="person.name"
+            [title]="person.name"/>
       </div>
     </mat-card-content>
   </mat-card>

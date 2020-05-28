@@ -18,11 +18,12 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <div class="img-container" lazy-load-images>
+    <div class="img-container">
       <mf-loading class="centerHorizontalVertical"></mf-loading>
       <img
       [lazyLoad]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
-        'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) : 'assets/image/no-pic.jpg'"
+        'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) : ''"
+        [defaultImage]="'assets/image/no-pic.jpg'"
         alt="{{(movie && movie.title) || (tvShow && tvShow.name) || (person && person.name) || 'N/A'}}"/>
     </div>
   </mat-card-content>

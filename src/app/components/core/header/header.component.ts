@@ -8,7 +8,7 @@ import {ApiService} from '../../../services/api.service';
 })
 export class HeaderComponent implements OnInit {
 
-  links: Array<{ name: String, icon: String, url: String }>;
+  links: Array<{ name: string, icon: string, url: string }>;
 
   constructor(private api: ApiService) {
   }
