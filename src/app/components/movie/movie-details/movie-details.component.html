@@ -4,8 +4,9 @@
       <div class="img-container">
         <mf-loading class="centerHorizontalVertical"></mf-loading>
         <img
-          [lazyLoad]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path : ''"
+          [lazyLoad]="movie.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path : null"
           [defaultImage]="'assets/image/no-pic.jpg'"
+          offset="100"
           [alt]="movie.title"
           [title]="movie.title"/>
         <mat-progress-spinner

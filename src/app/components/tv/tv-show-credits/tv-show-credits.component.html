@@ -13,8 +13,10 @@
       <div class="cast">
         <mf-loading *ngIf="person.profile_path && isLoading"></mf-loading>
         <img *ngIf="person.profile_path && !isLoading"
-        [lazyLoad]="'https://image.tmdb.org/t/p/' + 'w45' +person.profile_path"
-             [title]="person.name" [alt]="person.name"/>
+          [lazyLoad]="'https://image.tmdb.org/t/p/' + 'w45' +person.profile_path"
+          offset="100"
+          [title]="person.name"
+          [alt]="person.name"/>
         <mat-icon *ngIf="!(person.profile_path) && !isLoading" class="bigger">face</mat-icon>
         <span class="right">
             {{person.name ? person.name : 'N/A'}}{{getGlobal() ? ', act as: ' : ', szerepe: '}}{{person.character ? person.character : 'N/A'}}

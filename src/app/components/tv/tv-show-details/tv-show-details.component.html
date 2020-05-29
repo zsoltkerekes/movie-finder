@@ -5,8 +5,9 @@
         <mf-loading class="centerHorizontalVertical"></mf-loading>
         <img
           *ngIf="tvShow.poster_path"
-          [lazyLoad]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : ''"
+          [lazyLoad]="tvShow.poster_path ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path : null"
           [defaultImage]="'assets/image/no-pic.jpg'"
+          offset="100"
           [alt]="tvShow.name"
           [title]="tvShow.name"/>
         <mat-progress-spinner

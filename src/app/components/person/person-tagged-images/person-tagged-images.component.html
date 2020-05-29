@@ -10,8 +10,9 @@
     <div class="img-container">
       <mf-loading class="centerHorizontalVertical upper"></mf-loading>
       <img class="pic"
-      [lazyLoad]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : ''"
-           alt="{{image.media.name || image.media.title}}" title="{{image.media.name || image.media.title}}"/>
+        [lazyLoad]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : null"
+        alt="{{image.media.name || image.media.title}}"
+        title="{{image.media.name || image.media.title}}"/>
       <a [routerLink]="[ image.media_type === 'movie' ? '/details' : '/tv-details', image.media.id ]" class="overview">
         <div>
           <strong>

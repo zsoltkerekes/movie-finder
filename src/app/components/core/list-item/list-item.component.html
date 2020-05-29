@@ -22,8 +22,9 @@
       <mf-loading class="centerHorizontalVertical"></mf-loading>
       <img
       [lazyLoad]="(movie.poster_path || tvShow.poster_path || person.profile_path) ?
-        'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) : ''"
+        'https://image.tmdb.org/t/p/w300' + (movie.poster_path || tvShow.poster_path || person.profile_path) : null"
         [defaultImage]="'assets/image/no-pic.jpg'"
+        offset="100"
         alt="{{(movie && movie.title) || (tvShow && tvShow.name) || (person && person.name) || 'N/A'}}"/>
     </div>
   </mat-card-content>

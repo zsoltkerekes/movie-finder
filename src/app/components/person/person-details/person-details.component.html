@@ -4,8 +4,9 @@
       <div class="img-container">
         <mf-loading class="centerHorizontalVertical"></mf-loading>
           <img
-            [lazyLoad]="person.profile_path ? 'https://image.tmdb.org/t/p' + '/w500' + person.profile_path : ''"
+            [lazyLoad]="person.profile_path ? 'https://image.tmdb.org/t/p' + '/w500' + person.profile_path : null"
             [defaultImage]="'assets/image/no-pic.jpg'"
+            offset="100"
             [alt]="person.name"
             [title]="person.name"/>
       </div>
