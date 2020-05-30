@@ -71,5 +71,17 @@
     "hooks": {
       "pre-push": "npm run check-all"
     }
-  }
+  },
+  "recommendations": [
+    "angular.ng-template",
+    "editorconfig.editorconfig",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "eg2.vscode-npm-script",
+    "christian-kohler.npm-intellisense",
+    "eamodio.gitlens",
+    "waderyan.gitblame"
+  ]
 }
