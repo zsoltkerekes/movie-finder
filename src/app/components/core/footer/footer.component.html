@@ -1,21 +1,25 @@
 <mat-card class="footer text-right mat-elevation-z2">
   <mat-slide-toggle
     class="toggle"
-    (change)="setGlobal()"
-    [checked]="getGlobal()"
+    (change)="api.changeGlobal()"
+    [checked]="api.getGlobal()"
   >
-    Global
+    {{ global }}
   </mat-slide-toggle>
 
-  <mat-slide-toggle class="toggle" (change)="setAdult()" [checked]="getAdult()">
-    {{ getGlobal() ? 'Adult' : 'Felnőtt' }}
+  <mat-slide-toggle
+    class="toggle"
+    (change)="api.setAdult()"
+    [checked]="api.getAdult()"
+  >
+    {{ adult }}
   </mat-slide-toggle>
 
   <p class="mat-body-1">
     <mat-icon class="icon">
       movie
     </mat-icon>
-    Movie Finder, {{ date | date: 'yyyy.MM.dd.' }}
+    {{ movieFinder }}, {{ date | date: 'yyyy.MM.dd.' }}
     <button mat-mini-fab color="primary" class="toTop">
       <mat-icon (click)="scroll.toTop()">keyboard_arrow_up</mat-icon>
     </button>

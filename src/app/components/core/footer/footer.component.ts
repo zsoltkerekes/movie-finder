@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { ScrollerService } from '../../../services/scroller.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-footer',
@@ -9,14 +10,23 @@ import { ScrollerService } from '../../../services/scroller.service';
 })
 export class FooterComponent implements OnInit {
   date: Date;
-  setGlobal = () => this.api.changeGlobal();
-  getGlobal = () => this.api.getGlobal();
-  setAdult = () => this.api.setAdult();
-  getAdult = () => this.api.getAdult();
+  adult: string;
+  global: string;
+  movieFinder: string;
 
-  constructor(private api: ApiService, public scroll: ScrollerService) {}
+  constructor(
+    public api: ApiService,
+    private language: LanguageService,
+    public scroll: ScrollerService
+  ) {}
 
   ngOnInit() {
     this.date = new Date();
+    this.adult = this.language.getText('Adult', this.api.getGlobal());
+    this.global = this.language.getNav('Global', this.api.getGlobal());
+    this.movieFinder = this.language.getNav(
+      'Movie Finder',
+      this.api.getGlobal()
+    );
   }
 }

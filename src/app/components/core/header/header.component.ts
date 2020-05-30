@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-header',
@@ -7,27 +8,43 @@ import { ApiService } from '../../../services/api.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  movieFinder: string;
   links: Array<{ name: string; icon: string; url: string }>;
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private language: LanguageService) {}
 
   ngOnInit() {
-    if (this.api.getGlobal() === true) {
-      this.links = [
-        { name: 'Search', icon: 'find_in_page', url: '/search' },
-        { name: 'Discover', icon: 'track_changes', url: '/discover/1/1/1' },
-        { name: 'Top Rated', icon: 'thumb_up', url: '/top-rated/1/1/1' },
-        { name: 'Now playing', icon: 'theaters', url: '/now-playing/1' },
-        { name: 'Upcoming', icon: 'forward', url: '/upcoming/1' },
-      ];
-    } else {
-      this.links = [
-        { name: 'Keresés', icon: 'find_in_page', url: '/search' },
-        { name: 'Felfedezés', icon: 'track_changes', url: '/discover/1/1/1' },
-        { name: 'Legjobbak', icon: 'thumb_up', url: '/top-rated/1/1/1' },
-        { name: 'Most a Mozikban', icon: 'theaters', url: '/now-playing/1' },
-        { name: 'Nemsokára a Mozikban', icon: 'forward', url: '/upcoming/1' },
-      ];
-    }
+    this.movieFinder = this.language.getNav(
+      'Movie Finder',
+      this.api.getGlobal()
+    );
+
+    this.links = [
+      {
+        name: this.language.getNav('Search', this.api.getGlobal()),
+        icon: 'find_in_page',
+        url: '/search',
+      },
+      {
+        name: this.language.getNav('Discover', this.api.getGlobal()),
+        icon: 'track_changes',
+        url: '/discover/1/1/1',
+      },
+      {
+        name: this.language.getNav('Top Rated', this.api.getGlobal()),
+        icon: 'thumb_up',
+        url: '/top-rated/1/1/1',
+      },
+      {
+        name: this.language.getNav('Now playing', this.api.getGlobal()),
+        icon: 'theaters',
+        url: '/now-playing/1',
+      },
+      {
+        name: this.language.getNav('Upcoming', this.api.getGlobal()),
+        icon: 'forward',
+        url: '/upcoming/1',
+      },
+    ];
   }
 }
