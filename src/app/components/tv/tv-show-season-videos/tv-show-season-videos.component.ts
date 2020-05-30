@@ -9,8 +9,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./tv-show-season-videos.component.scss'],
 })
 export class TvShowSeasonVideosComponent implements OnChanges {
-  @Input('id') id;
-  @Input('season') season;
+  @Input() id;
+  @Input() season;
   videos: Videos;
   videoSrc: SafeResourceUrl;
   selectedVideo: string;

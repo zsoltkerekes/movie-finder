@@ -17,6 +17,7 @@
       }
     ],
     "no-empty-source": null,
-    "at-rule-no-unknown": [true, { "ignoreAtRules": ["include"] }]
+    "at-rule-no-unknown": [true, { "ignoreAtRules": ["include"] }],
+    "declaration-colon-newline-after": null
   }
 }
