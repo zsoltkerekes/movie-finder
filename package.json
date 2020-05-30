@@ -2,7 +2,6 @@
   "name": "movie-finder",
   "version": "0.0.0",
   "license": "MIT",
-  "sideEffects": false,
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o --aot",
