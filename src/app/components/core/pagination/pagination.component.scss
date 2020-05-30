@@ -1,5 +1,10 @@
 @import './../../../../colors.scss';
 
+.pagination {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .result-links {
   padding: 0.3em;
   border: 1px solid $main-color;
