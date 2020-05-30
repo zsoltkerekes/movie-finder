@@ -5,11 +5,13 @@
   overflow-y: auto;
   width: calc(70% - 4em - 20px);
   margin: 0 auto 2em auto;
+
   @media (max-width: 960px) {
     width: calc(100% - 20px);
+
     img {
       float: left;
-      margin: 0em 1em 1em 0em;
+      margin: 0 1em 1em 0;
     }
   }
 
@@ -25,7 +27,6 @@
   .crew {
     padding: 0.3em 2em;
     border: 1px solid $main-color;
-
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
     cursor: pointer;
@@ -33,6 +34,7 @@
     span.right {
       float: right;
       padding: 1.5em;
+
       @media (max-width: 960px) {
         float: none;
       }

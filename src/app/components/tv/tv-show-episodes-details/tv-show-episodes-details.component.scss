@@ -10,6 +10,7 @@
     height: auto;
     float: left;
     margin: 0 1em 1em 0;
+
     @media (max-width: 600px) {
       margin: 1em auto;
       padding-left: calc(50% - 150px);
@@ -21,6 +22,7 @@
     text-align: justify;
     line-height: 120%;
     font-size: 120%;
+
     @media (max-width: 960px) {
       font-size: 100%;
     }

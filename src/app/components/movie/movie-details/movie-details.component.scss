@@ -103,6 +103,7 @@ p {
     box-shadow: 0 0 $margin / 1.75 $margin / 1.75 rgba(232, 234, 246, 0.6);
     border-radius: 50%;
   }
+
   .vote {
     position: absolute;
     top: $diameter / 2 - $vote-height / 2 + $margin + $move;

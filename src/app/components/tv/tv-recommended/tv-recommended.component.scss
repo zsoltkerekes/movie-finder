@@ -31,8 +31,12 @@ h2 {
   padding: 3em 1em 2em 1em;
   margin: 0;
   clear: both;
-  text-shadow: 0 0 1px $main-bg-color, 0 0 5px $main-color,
-    0 0 9px $main-bg-color, 0 0 13px $main-bg-color, 0 0 17px $main-bg-color,
+  text-shadow:
+    0 0 1px $main-bg-color,
+    0 0 5px $main-color,
+    0 0 9px $main-bg-color,
+    0 0 13px $main-bg-color,
+    0 0 17px $main-bg-color,
     0 0 30px $main-bg-color;
 }
 
