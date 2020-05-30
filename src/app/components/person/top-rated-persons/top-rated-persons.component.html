@@ -1,17 +1,24 @@
 <h2 class="text-center mat-h2" id="person">
-  {{getGlobal() ? 'Persons:':'Emberek:'}}
+  {{ getGlobal() ? 'Persons:' : 'Emberek:' }}
 </h2>
 
 <mf-loading *ngIf="isLoading"></mf-loading>
 
-<div class="item-container" #container *ngIf="!(isLoading)">
-  <a *ngFor="let person of topRatedPersons.results" [routerLink]="['/person-details', person.id]">
+<div class="item-container" #container *ngIf="!isLoading">
+  <a
+    *ngFor="let person of topRatedPersons.results"
+    [routerLink]="['/person-details', person.id]"
+  >
     <mf-list-item movie="" tvShows="" [person]="person"></mf-list-item>
   </a>
 </div>
 
 <h2 class="text-center" *ngIf="topRatedPersons.results.length < 1">
-  {{getGlobal() ? 'No results':'Nincs találat'}}
+  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
 </h2>
 
-<mf-pagination [results]="topRatedPersons" [url]="'/top-rated/'" [type]="'person'"></mf-pagination>
+<mf-pagination
+  [results]="topRatedPersons"
+  [url]="'/top-rated/'"
+  [type]="'person'"
+></mf-pagination>

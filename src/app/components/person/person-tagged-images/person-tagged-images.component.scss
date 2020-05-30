@@ -1,4 +1,4 @@
-@import "./../../../../colors.scss";
+@import './../../../../colors.scss';
 .pictures {
   text-align: center;
 }
@@ -34,7 +34,7 @@
     padding: 1em;
     line-height: 110%;
     font-size: 110%;
-    transition: .3s ease-in-out background-color;
+    transition: 0.3s ease-in-out background-color;
     min-height: 75vh;
 
     &:hover {

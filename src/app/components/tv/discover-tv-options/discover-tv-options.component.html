@@ -1,7 +1,10 @@
 <div class="container">
-
   <mat-form-field class="select">
-    <mat-select [(value)]="tvShowSelected" [placeholder]="placeholderOrder" (selectionChange)="setTvShowSortByOption($event)">
+    <mat-select
+      [(value)]="tvShowSelected"
+      [placeholder]="placeholderOrder"
+      (selectionChange)="setTvShowSortByOption($event)"
+    >
       <mat-option *ngFor="let option of sortByOptions" [value]="option.value">
         {{ option.name }}
       </mat-option>
@@ -9,24 +12,26 @@
   </mat-form-field>
 
   <mat-form-field class="year">
-    <input matInput
-           type="number"
-           [placeholder]="placeholder"
-           min="1800"
-           [value]="tvShowYear"
-           max="2100"
-           (change)="setTvShowYearOption($event)">
+    <input
+      matInput
+      type="number"
+      [placeholder]="placeholder"
+      min="1800"
+      [value]="tvShowYear"
+      max="2100"
+      (change)="setTvShowYearOption($event)"
+    />
   </mat-form-field>
 
   <div class="tvShowGenre container">
-    <mat-checkbox class="tvShowGenres"
-                  *ngFor="let tvShowGenre of tvShowGenres"
-                  color="primary"
-                  (change)="setTvShowGenre(tvShowGenre.id, $event)"
-                  [checked]="getTvCheckedStatus(tvShowGenre.id)">
-      {{tvShowGenre.name}}
+    <mat-checkbox
+      class="tvShowGenres"
+      *ngFor="let tvShowGenre of tvShowGenres"
+      color="primary"
+      (change)="setTvShowGenre(tvShowGenre.id, $event)"
+      [checked]="getTvCheckedStatus(tvShowGenre.id)"
+    >
+      {{ tvShowGenre.name }}
     </mat-checkbox>
   </div>
-
-
 </div>

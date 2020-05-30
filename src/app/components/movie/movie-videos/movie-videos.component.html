@@ -1,6 +1,5 @@
 <div class="youtubeVideos text-center">
-
-  <h2 *ngIf="this.videos.results.length>0" class="mat-h2">
+  <h2 *ngIf="this.videos.results.length > 0" class="mat-h2">
     {{ getGlobal() ? 'Recommended videos:' : 'Kapcsolódó Videók:' }}
   </h2>
 
@@ -10,21 +9,23 @@
         color="primary"
         [selected]="getSelectedVideo(i)"
         (click)="setVideoUrl(video.key)"
-        *ngFor="let video of videos.results; let i=index">
+        *ngFor="let video of videos.results; let i = index"
+      >
         <p class="mat-body-1 text-center full-wide-width mat-body">
-          {{video.name ? video.name : (i + 1) + '. videó' }}
-          {{video.iso_639_1 ? '(' + video.iso_639_1.toUpperCase() + ')' : ''}}
+          {{ video.name ? video.name : i + 1 + '. videó' }}
+          {{ video.iso_639_1 ? '(' + video.iso_639_1.toUpperCase() + ')' : '' }}
         </p>
       </mat-chip>
     </mat-chip-list>
   </div>
 
-  <br>
+  <br />
 
-  <iframe *ngIf="videoSrc"
-          class="video"
-          [src]="videoSrc"
-          border="0"
-          allowfullscreen></iframe>
-
+  <iframe
+    *ngIf="videoSrc"
+    class="video"
+    [src]="videoSrc"
+    border="0"
+    allowfullscreen
+  ></iframe>
 </div>

@@ -1,15 +1,18 @@
-import {inject, TestBed} from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 
-import {ConstantsService} from './constants.service';
+import { ConstantsService } from './constants.service';
 
 describe('ConstantsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ConstantsService]
+      providers: [ConstantsService],
     });
   });
 
-  it('should be created', inject([ConstantsService], (service: ConstantsService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should be created', inject(
+    [ConstantsService],
+    (service: ConstantsService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

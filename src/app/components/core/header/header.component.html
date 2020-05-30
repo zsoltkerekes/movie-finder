@@ -27,7 +27,11 @@
       </mat-icon>
     </button>
     <mat-menu #mobileMenu="matMenu">
-      <button mat-menu-item [routerLink]="[link.url]" *ngFor="let link of links">
+      <button
+        mat-menu-item
+        [routerLink]="[link.url]"
+        *ngFor="let link of links"
+      >
         <mat-icon>
           {{ link.icon }}
         </mat-icon>

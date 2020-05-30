@@ -1,15 +1,14 @@
-import {ApiService} from '../../../services/api.service';
-import {Component, Input, OnChanges} from '@angular/core';
-import {Videos, videosData} from '../../../models/videos.model';
-import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import { ApiService } from '../../../services/api.service';
+import { Component, Input, OnChanges } from '@angular/core';
+import { Videos, videosData } from '../../../models/videos.model';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'mf-tv-show-season-videos',
   templateUrl: './tv-show-season-videos.component.html',
-  styleUrls: ['./tv-show-season-videos.component.scss']
+  styleUrls: ['./tv-show-season-videos.component.scss'],
 })
 export class TvShowSeasonVideosComponent implements OnChanges {
-
   @Input('id') id;
   @Input('season') season;
   videos: Videos;
@@ -18,20 +17,19 @@ export class TvShowSeasonVideosComponent implements OnChanges {
   getGlobal = this.api.getGlobal;
   embedOptions = '?iv_load_policy=3&rel=0&showinfo=0';
 
-  constructor(private api: ApiService,
-              private sanitizer: DomSanitizer) {
-  }
+  constructor(private api: ApiService, private sanitizer: DomSanitizer) {}
 
   ngOnChanges() {
     this.videoSrc = undefined;
     this.videos = videosData;
     if (this.id) {
-      this.api.getTvShowsSeasonVideos(this.id, this.season)
-        .subscribe(response => {
+      this.api
+        .getTvShowsSeasonVideos(this.id, this.season)
+        .subscribe((response) => {
           const output = response.json();
           this.videos = {
             ...output,
-            results: output.results.map(row => row || {})
+            results: output.results.map((row) => row || {}),
           };
           if (this.videos.results.length > 0) {
             this.setVideoUrl(this.videos.results[0].key + this.embedOptions);
@@ -41,12 +39,12 @@ export class TvShowSeasonVideosComponent implements OnChanges {
     }
   }
 
-  setVideoUrl = key => {
-    this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${key}${this.embedOptions}`);
+  setVideoUrl = (key) => {
+    this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://www.youtube.com/embed/${key}${this.embedOptions}`
+    );
     this.selectedVideo = key;
-  }
+  };
 
-  getSelectedVideo = i => this.videos.results[i].key === this.selectedVideo;
-
-
+  getSelectedVideo = (i) => this.videos.results[i].key === this.selectedVideo;
 }

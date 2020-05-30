@@ -1,32 +1,28 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule, Routes} from '@angular/router';
-import {CoreModule} from '../core/core.module';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { CoreModule } from '../core/core.module';
 
-import {DetailsComponent} from '../../containers/details/details.component';
-import {MovieDetailsComponent} from '../../components/movie/movie-details/movie-details.component';
-import {MovieImagesComponent} from '../../components/movie/movie-images/movie-images.component';
-import {MovieVideosComponent} from '../../components/movie/movie-videos/movie-videos.component';
-import {MovieReviewsComponent} from '../../components/movie/movie-reviews/movie-reviews.component';
-import {MovieCreditsComponent} from '../../components/movie/movie-credits/movie-credits.component';
-import {RecommendedMoviesComponent} from '../../components/movie/recommended-movies/recommended-movies.component';
-import {SimilarMoviesComponent} from '../../components/movie/similar-movies/similar-movies.component';
-import {MovieKeywordsComponent} from '../../components/movie/movie-keywords/movie-keywords.component';
-import {MovieCollectionComponent} from '../../components/movie/movie-collection/movie-collection.component';
+import { DetailsComponent } from '../../containers/details/details.component';
+import { MovieDetailsComponent } from '../../components/movie/movie-details/movie-details.component';
+import { MovieImagesComponent } from '../../components/movie/movie-images/movie-images.component';
+import { MovieVideosComponent } from '../../components/movie/movie-videos/movie-videos.component';
+import { MovieReviewsComponent } from '../../components/movie/movie-reviews/movie-reviews.component';
+import { MovieCreditsComponent } from '../../components/movie/movie-credits/movie-credits.component';
+import { RecommendedMoviesComponent } from '../../components/movie/recommended-movies/recommended-movies.component';
+import { SimilarMoviesComponent } from '../../components/movie/similar-movies/similar-movies.component';
+import { MovieKeywordsComponent } from '../../components/movie/movie-keywords/movie-keywords.component';
+import { MovieCollectionComponent } from '../../components/movie/movie-collection/movie-collection.component';
 
 const routes: Routes = [
   {
     path: ':id',
-    component: DetailsComponent
-  }
+    component: DetailsComponent,
+  },
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    CoreModule,
-    RouterModule.forChild(routes)
-  ],
+  imports: [CommonModule, CoreModule, RouterModule.forChild(routes)],
   declarations: [
     DetailsComponent,
     MovieDetailsComponent,
@@ -37,7 +33,7 @@ const routes: Routes = [
     RecommendedMoviesComponent,
     SimilarMoviesComponent,
     MovieKeywordsComponent,
-    MovieCollectionComponent
+    MovieCollectionComponent,
   ],
   exports: [
     DetailsComponent,
@@ -48,7 +44,7 @@ const routes: Routes = [
     MovieCreditsComponent,
     RecommendedMoviesComponent,
     SimilarMoviesComponent,
-    MovieKeywordsComponent
-  ]
+    MovieKeywordsComponent,
+  ],
 })
-export class DetailsModule { }
+export class DetailsModule {}

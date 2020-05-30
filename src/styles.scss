@@ -1,10 +1,10 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import url("https://fonts.googleapis.com/css?family=Roboto");
-@import "colors";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import 'colors';
 
 html {
   background-color: $fallback-bg-color;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 
   body {
     margin: 0;

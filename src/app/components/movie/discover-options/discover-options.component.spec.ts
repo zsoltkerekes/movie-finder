@@ -1,6 +1,6 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {DiscoverOptionsComponent} from './discover-options.component';
+import { DiscoverOptionsComponent } from './discover-options.component';
 
 describe('DiscoverOptionsComponent', () => {
   let component: DiscoverOptionsComponent;
@@ -8,9 +8,8 @@ describe('DiscoverOptionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DiscoverOptionsComponent]
-    })
-      .compileComponents();
+      declarations: [DiscoverOptionsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

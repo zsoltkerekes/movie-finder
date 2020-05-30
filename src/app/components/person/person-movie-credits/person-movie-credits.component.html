@@ -1,44 +1,74 @@
-<h2 *ngIf="movieCredits.cast.length || movieCredits.crew.length" class="text-center mat-h2">
-  <br>
+<h2
+  *ngIf="movieCredits.cast.length || movieCredits.crew.length"
+  class="text-center mat-h2"
+>
+  <br />
   <mat-divider></mat-divider>
-  <br>
-  {{ getGlobal() ? 'Movies' : 'Filmek'}}
+  <br />
+  {{ getGlobal() ? 'Movies' : 'Filmek' }}
 </h2>
 
 <div *ngIf="movieCredits.cast.length">
   <h3 class="text-center mat-h3">
-    {{ getGlobal() ? 'Cast' : 'Szereplések, szinkronhangok, satöbbi'}}
+    {{ getGlobal() ? 'Cast' : 'Szereplések, szinkronhangok, satöbbi' }}
   </h3>
 
   <mat-form-field class="full-width">
-    <input matInput type="search" [placeholder]="placeholder" name="searchCast" id="searchCast"
-           [(ngModel)]="searchCast"/>
+    <input
+      matInput
+      type="search"
+      [placeholder]="placeholder"
+      name="searchCast"
+      id="searchCast"
+      [(ngModel)]="searchCast"
+    />
   </mat-form-field>
 
   <mat-radio-group (change)="onChange($event)" class="content-center">
-    <p class="mat-body-1">{{ getGlobal() ? 'Order' : 'Sorrend'}}:</p>
+    <p class="mat-body-1">{{ getGlobal() ? 'Order' : 'Sorrend' }}:</p>
     <mat-radio-button value="vote_average" color="primary" checked>
-      {{ getGlobal() ? 'By votes' : 'Szavazatok alapján'}}
+      {{ getGlobal() ? 'By votes' : 'Szavazatok alapján' }}
     </mat-radio-button>
-    <mat-radio-button value="popularity" color="primary">{{ getGlobal() ? 'By popularity' : 'Népszerűség alapján' }}
+    <mat-radio-button value="popularity" color="primary"
+      >{{ getGlobal() ? 'By popularity' : 'Népszerűség alapján' }}
     </mat-radio-button>
-    <mat-radio-button value="title" color="primary">{{ getGlobal() ? 'By title' : 'Cím alapján' }}</mat-radio-button>
-    <mat-radio-button value="release_date" color="primary">{{ getGlobal() ? 'By release date' : 'Év alapján' }}
+    <mat-radio-button value="title" color="primary">{{
+      getGlobal() ? 'By title' : 'Cím alapján'
+    }}</mat-radio-button>
+    <mat-radio-button value="release_date" color="primary"
+      >{{ getGlobal() ? 'By release date' : 'Év alapján' }}
     </mat-radio-button>
   </mat-radio-group>
 
   <div class="container" *ngIf="movieCredits.cast && movieCredits.cast.length">
-    <a *ngFor="let movie of movieCredits.cast | search:searchCast " [routerLink]="['/details', movie.id]">
-      <div class="cast" title="{{movie.title  +' (' + movie.vote_average+ ' / 10)\n\n' + movie.genre_ids && listGenres(movie.genre_ids)+ '\n\n' + movie.overview}}">
+    <a
+      *ngFor="let movie of movieCredits.cast | search: searchCast"
+      [routerLink]="['/details', movie.id]"
+    >
+      <div
+        class="cast"
+        title="{{
+          movie.title +
+            ' (' +
+            movie.vote_average +
+            ' / 10)\n\n' +
+            movie.genre_ids &&
+            listGenres(movie.genre_ids) + '\n\n' + movie.overview
+        }}"
+      >
         <span class="pull-left">
-          {{movie.character ? movie.character : ''}}
-          {{movie.release_date ? '(' + movie.release_date + ')' : ''}}
+          {{ movie.character ? movie.character : '' }}
+          {{ movie.release_date ? '(' + movie.release_date + ')' : '' }}
         </span>
         <strong>
-          {{movie.title ? movie.title : 'N/A'}}
+          {{ movie.title ? movie.title : 'N/A' }}
         </strong>
-        {{(movie.original_title && (movie.original_title !== movie.title)) ?
-        '(' + movie.original_title + ')' : ''}} {{movie.vote_average ? '[' + movie.vote_average + '/10 ]' : ''}}
+        {{
+          movie.original_title && movie.original_title !== movie.title
+            ? '(' + movie.original_title + ')'
+            : ''
+        }}
+        {{ movie.vote_average ? '[' + movie.vote_average + '/10 ]' : '' }}
       </div>
     </a>
   </div>
@@ -46,27 +76,48 @@
 
 <div *ngIf="movieCredits.crew && movieCredits.crew.length">
   <h3 class="text-center mat-h3">
-    {{ getGlobal() ? 'Crew' : 'Rendezések, forgatókönyvek, satöbbi'}}
+    {{ getGlobal() ? 'Crew' : 'Rendezések, forgatókönyvek, satöbbi' }}
   </h3>
 
   <mat-form-field class="full-width">
-    <input matInput type="search" [placeholder]="placeholder" name="searchCrew" id="searchCrew"
-           [(ngModel)]="searchCrew"/>
+    <input
+      matInput
+      type="search"
+      [placeholder]="placeholder"
+      name="searchCrew"
+      id="searchCrew"
+      [(ngModel)]="searchCrew"
+    />
   </mat-form-field>
 
   <div class="container">
-    <a *ngFor="let movie of movieCredits.crew | search:searchCrew" [routerLink]="['/details', movie.id]">
-      <div class="crew" title="{{movie.title +' (' + movie.vote_average+ ' / 10)\n\n'+ movie.genre_ids && listGenres(movie.genre_ids) + '\n\n' + movie.overview}}">
+    <a
+      *ngFor="let movie of movieCredits.crew | search: searchCrew"
+      [routerLink]="['/details', movie.id]"
+    >
+      <div
+        class="crew"
+        title="{{
+          movie.title +
+            ' (' +
+            movie.vote_average +
+            ' / 10)\n\n' +
+            movie.genre_ids &&
+            listGenres(movie.genre_ids) + '\n\n' + movie.overview
+        }}"
+      >
         <span class="pull-left">
-          {{movie.job ? movie.job : '(Hiányzó adat: Munkakör)'}}
-          {{movie.release_date ? '(' + movie.release_date + ')' : ''}}
+          {{ movie.job ? movie.job : '(Hiányzó adat: Munkakör)' }}
+          {{ movie.release_date ? '(' + movie.release_date + ')' : '' }}
         </span>
-        {{movie.title ? movie.title : 'Hiányzó adat: (Film Cím)'}}
-        {{(movie.original_title && (movie.original_title !== movie.title)) ?
-        '(' + movie.original_title + ')' : ''}} {{movie.vote_average ? '[' + movie.vote_average + '/10 ]' : ''}}
+        {{ movie.title ? movie.title : 'Hiányzó adat: (Film Cím)' }}
+        {{
+          movie.original_title && movie.original_title !== movie.title
+            ? '(' + movie.original_title + ')'
+            : ''
+        }}
+        {{ movie.vote_average ? '[' + movie.vote_average + '/10 ]' : '' }}
       </div>
     </a>
   </div>
 </div>
-
-

@@ -1,17 +1,24 @@
 <h2 class="text-center mat-h2" id="tvShow">
-  {{getGlobal() ? 'Top rated tv shows' : ' Legjobb Sorozatok:'}}
+  {{ getGlobal() ? 'Top rated tv shows' : ' Legjobb Sorozatok:' }}
 </h2>
 
 <mf-loading *ngIf="isLoading"></mf-loading>
 
-<div class="item-container" #container *ngIf="!(isLoading)">
-  <a *ngFor="let tvShow of topRatedTvShows.results" [routerLink]="['/tv-details', tvShow.id]">
+<div class="item-container" #container *ngIf="!isLoading">
+  <a
+    *ngFor="let tvShow of topRatedTvShows.results"
+    [routerLink]="['/tv-details', tvShow.id]"
+  >
     <mf-list-item [tvShow]="tvShow" movie="" person=""></mf-list-item>
   </a>
 </div>
 
 <h2 class="text-center mat-h2" *ngIf="topRatedTvShows.results.length < 1">
-  {{getGlobal() ? 'No results':'Nincs találat'}}
+  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
 </h2>
 
-<mf-pagination [results]="topRatedTvShows" [url]="'/top-rated/'" [type]="'tvShow'"></mf-pagination>
+<mf-pagination
+  [results]="topRatedTvShows"
+  [url]="'/top-rated/'"
+  [type]="'tvShow'"
+></mf-pagination>

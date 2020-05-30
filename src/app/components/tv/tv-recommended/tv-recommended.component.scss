@@ -1,4 +1,4 @@
-@import "./../../../../colors.scss";
+@import './../../../../colors.scss';
 
 .item-container {
   padding-bottom: 2em;
@@ -11,10 +11,10 @@
       font-weight: bold;
       width: 14em;
       height: 4em;
-      margin: .75em;
+      margin: 0.75em;
       text-align: center;
-      transition: all .3s ease-in-out;
-      background-image: url("assets/image/tv-icon.png");
+      transition: all 0.3s ease-in-out;
+      background-image: url('assets/image/tv-icon.png');
       background-position: 2% 90%;
       background-size: 10%;
       background-repeat: no-repeat;
@@ -31,12 +31,9 @@ h2 {
   padding: 3em 1em 2em 1em;
   margin: 0;
   clear: both;
-  text-shadow: 0 0 1px $main-bg-color,
-  0 0 5px $main-color,
-  0 0 9px $main-bg-color,
-  0 0 13px $main-bg-color,
-  0 0 17px $main-bg-color,
-  0 0 30px $main-bg-color;
+  text-shadow: 0 0 1px $main-bg-color, 0 0 5px $main-color,
+    0 0 9px $main-bg-color, 0 0 13px $main-bg-color, 0 0 17px $main-bg-color,
+    0 0 30px $main-bg-color;
 }
 
 @media (max-width: 960px) {
@@ -48,9 +45,8 @@ h2 {
     a {
       button {
         width: 7em;
-        margin: .25em;
+        margin: 0.25em;
         white-space: normal;
-
       }
 
       .mat-raised-button {
@@ -58,8 +54,5 @@ h2 {
         line-height: 1em;
       }
     }
-
   }
-
 }
-

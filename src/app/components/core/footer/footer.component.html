@@ -1,6 +1,9 @@
-<mat-card class='footer text-right mat-elevation-z2'>
-
-  <mat-slide-toggle class="toggle" (change)="setGlobal()" [checked]="getGlobal()">
+<mat-card class="footer text-right mat-elevation-z2">
+  <mat-slide-toggle
+    class="toggle"
+    (change)="setGlobal()"
+    [checked]="getGlobal()"
+  >
     Global
   </mat-slide-toggle>
 
@@ -12,7 +15,7 @@
     <mat-icon class="icon">
       movie
     </mat-icon>
-    Movie Finder, {{ date | date:'yyyy.MM.dd.' }}
+    Movie Finder, {{ date | date: 'yyyy.MM.dd.' }}
     <button mat-mini-fab color="primary" class="toTop">
       <mat-icon (click)="scroll.toTop()">keyboard_arrow_up</mat-icon>
     </button>

@@ -1,4 +1,4 @@
-@import "./../../../../colors.scss";
+@import './../../../../colors.scss';
 
 @keyframes dots-loader {
   from {
@@ -20,7 +20,7 @@
   width: 1rem;
   height: 1rem;
   margin: 3rem 0.2rem;
-  background: $main-color;
+  background: $main-font-color;
   border-radius: 50%;
   animation: dots-loader 0.6s infinite alternate;
 }

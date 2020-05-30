@@ -1,14 +1,13 @@
-import {ApiService} from '../../../services/api.service';
-import {ListItem, listItemInitData} from '../../../models/listItem.model';
-import {Component, Input} from '@angular/core';
+import { ApiService } from '../../../services/api.service';
+import { ListItem, listItemInitData } from '../../../models/listItem.model';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'mf-list-item',
   templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.scss']
+  styleUrls: ['./list-item.component.scss'],
 })
 export class ListItemComponent {
-
   @Input() movie: ListItem = listItemInitData;
   @Input() tvShow: ListItem = listItemInitData;
   @Input() person: ListItem = listItemInitData;
@@ -24,6 +23,6 @@ export class ListItemComponent {
   }
 
   acts() {
-    return this.person.known_for.map(movie => movie.title).join(', ');
+    return this.person.known_for.map((movie) => movie.title).join(', ');
   }
 }

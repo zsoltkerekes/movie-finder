@@ -1,10 +1,13 @@
 <div class="maximized-height">
   <mat-chip-list>
     <mat-chip
-      color="primary" [selected]="true"
-      *ngFor="let keyword of keywords" [routerLink]="['/by-keywords', keyword.id, '1']">
+      color="primary"
+      [selected]="true"
+      *ngFor="let keyword of keywords"
+      [routerLink]="['/by-keywords', keyword.id, '1']"
+    >
       <p class="mat-body-1 text-center full-wide-width no-margin">
-        {{keyword.name | titlecase}}
+        {{ keyword.name | titlecase }}
       </p>
     </mat-chip>
   </mat-chip-list>

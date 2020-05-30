@@ -1,15 +1,18 @@
-import {inject, TestBed} from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 
-import {ScrollerService} from './scroller.service';
+import { ScrollerService } from './scroller.service';
 
 describe('ScrollerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ScrollerService]
+      providers: [ScrollerService],
     });
   });
 
-  it('should be created', inject([ScrollerService], (service: ScrollerService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should be created', inject(
+    [ScrollerService],
+    (service: ScrollerService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

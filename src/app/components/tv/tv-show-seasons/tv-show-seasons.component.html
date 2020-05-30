@@ -1,26 +1,41 @@
 <mat-tab-group>
-  <mat-tab *ngFor="let season of tvShow.seasons; let i = index"
-           [label]="season.name || season.season_number || i ">
-    <img class="poster"
-      [lazyLoad]="season.poster_path ? 'https://image.tmdb.org/t/p/' +'w342'+ season.poster_path  : null"
+  <mat-tab
+    *ngFor="let season of tvShow.seasons; let i = index"
+    [label]="season.name || season.season_number || i"
+  >
+    <img
+      class="poster"
+      [lazyLoad]="
+        season.poster_path
+          ? 'https://image.tmdb.org/t/p/' + 'w342' + season.poster_path
+          : null
+      "
       [defaultImage]="'assets/image/no-pic.jpg'"
-      offset="100">
+      offset="100"
+    />
     <h4 class="mat-h4">
-      {{getGlobal() ? 'Season Name: ' : 'Alcím: '}} {{season.name ? season.name : 'N/A'}}
+      {{ getGlobal() ? 'Season Name: ' : 'Alcím: ' }}
+      {{ season.name ? season.name : 'N/A' }}
     </h4>
     <p class="mat-body-1">
-      {{getGlobal() ? 'Season Air Date: ' : 'Premier dátuma: '}} {{season.air_date ? season.air_date : 'N/A'}}
+      {{ getGlobal() ? 'Season Air Date: ' : 'Premier dátuma: ' }}
+      {{ season.air_date ? season.air_date : 'N/A' }}
     </p>
     <p class="mat-body-1">
-      {{getGlobal() ? 'Season episode count: ' : 'Epizódok száma: '}} {{season.episode_count ? season.episode_count :
-      'N/A'}}
+      {{ getGlobal() ? 'Season episode count: ' : 'Epizódok száma: ' }}
+      {{ season.episode_count ? season.episode_count : 'N/A' }}
     </p>
     <p class="mat-body-1">
-      {{getGlobal() ? 'Season overview: ' : 'Tartalom: '}} {{season.overview ? season.overview : 'N/A' }}
+      {{ getGlobal() ? 'Season overview: ' : 'Tartalom: ' }}
+      {{ season.overview ? season.overview : 'N/A' }}
     </p>
-    <button mat-raised-button color="primary" class="mat-elevation-z2"
-            [routerLink]="['/tv-show-episodes', tvShow.id, season.season_number]">
-      {{getGlobal() ? 'Episodes overview' : 'Epizódok tartalma az évadból'}}
+    <button
+      mat-raised-button
+      color="primary"
+      class="mat-elevation-z2"
+      [routerLink]="['/tv-show-episodes', tvShow.id, season.season_number]"
+    >
+      {{ getGlobal() ? 'Episodes overview' : 'Epizódok tartalma az évadból' }}
     </button>
   </mat-tab>
 </mat-tab-group>

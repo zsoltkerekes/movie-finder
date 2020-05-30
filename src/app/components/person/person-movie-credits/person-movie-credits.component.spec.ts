@@ -1,6 +1,6 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {PersonMovieCreditsComponent} from './person-movie-credits.component';
+import { PersonMovieCreditsComponent } from './person-movie-credits.component';
 
 describe('PersonMovieCreditsComponent', () => {
   let component: PersonMovieCreditsComponent;
@@ -8,9 +8,8 @@ describe('PersonMovieCreditsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PersonMovieCreditsComponent]
-    })
-      .compileComponents();
+      declarations: [PersonMovieCreditsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

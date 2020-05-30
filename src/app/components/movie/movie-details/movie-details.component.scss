@@ -1,4 +1,4 @@
-@import "./../../../../colors";
+@import './../../../../colors';
 
 mat-card {
   vertical-align: top;
@@ -39,7 +39,6 @@ mat-card-content {
 .imdb,
 .online-filmek,
 .youtube {
-
   font-weight: bold;
 
   a {
@@ -69,7 +68,7 @@ h3 {
 
 p {
   clear: both;
-  padding: .5em 0;
+  padding: 0.5em 0;
 
   span {
     float: left;
@@ -101,12 +100,12 @@ p {
     right: $margin + $move;
     z-index: 100000;
     background-color: $details-bg-color;
-    box-shadow: 0 0 $margin / 1.75 $margin / 1.75 rgba(232,234,246,0.6);
+    box-shadow: 0 0 $margin / 1.75 $margin / 1.75 rgba(232, 234, 246, 0.6);
     border-radius: 50%;
   }
   .vote {
     position: absolute;
-    top: $diameter / 2  - $vote-height / 2  + $margin + $move;
+    top: $diameter / 2 - $vote-height / 2 + $margin + $move;
     right: $diameter / 2 - $vote-width / 2 + $margin + $move;
     z-index: 200000;
   }

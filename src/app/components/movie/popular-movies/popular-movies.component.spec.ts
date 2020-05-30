@@ -1,6 +1,6 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {PopularMoviesComponent} from './popular-movies.component';
+import { PopularMoviesComponent } from './popular-movies.component';
 
 describe('PopularMoviesComponent', () => {
   let component: PopularMoviesComponent;
@@ -8,9 +8,8 @@ describe('PopularMoviesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PopularMoviesComponent]
-    })
-      .compileComponents();
+      declarations: [PopularMoviesComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

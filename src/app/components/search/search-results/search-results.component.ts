@@ -1,15 +1,14 @@
-import {ApiService} from '../../../services/api.service';
-import {ListItem, listItemInitData} from '../../../models/listItem.model';
-import {ActivatedRoute} from '@angular/router';
-import {Component, OnInit} from '@angular/core';
+import { ApiService } from '../../../services/api.service';
+import { ListItem, listItemInitData } from '../../../models/listItem.model';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mf-search-results',
   templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.scss']
+  styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
-
   phrase: string;
   moviePage: number;
   tvShowPage: number;
@@ -22,81 +21,75 @@ export class SearchResultsComponent implements OnInit {
   keywordsSearchResults: {
     results: [
       {
-        name: string,
-        id: number
+        name: string;
+        id: number;
       }
-      ]
+    ];
   };
 
   movieSearchResults: {
-    results: Array<ListItem>,
-    page: Number,
-    total_results: Number,
-    total_pages: Number
+    results: Array<ListItem>;
+    page: Number;
+    total_results: Number;
+    total_pages: Number;
   };
 
   tvShowSearchResults: {
-    results: Array<ListItem>,
-    page: Number,
-    total_results: Number,
-    total_pages: Number
+    results: Array<ListItem>;
+    page: Number;
+    total_results: Number;
+    total_pages: Number;
   };
 
   personSearchResults: {
-    results: Array<ListItem>,
-    page: Number,
-    total_results: Number,
-    total_pages: Number
+    results: Array<ListItem>;
+    page: Number;
+    total_results: Number;
+    total_pages: Number;
   };
 
   listGenres = this.api.getGenreList;
   getGlobal = this.api.getGlobal;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private api: ApiService) {
-  }
-
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private api: ApiService
+  ) {}
 
   ngOnInit() {
-    this.activatedRoute.params
-      .subscribe(
-        () => {
-          if (this.activatedRoute.snapshot.params['phrase']) {
+    this.activatedRoute.params.subscribe(() => {
+      if (this.activatedRoute.snapshot.params['phrase']) {
+        this.isLoadingMovie = true;
+        this.isLoadingPerson = true;
+        this.isLoadingTv = true;
+        this.isLoadingKeywords = true;
 
-            this.isLoadingMovie = true;
-            this.isLoadingPerson = true;
-            this.isLoadingTv = true;
-            this.isLoadingKeywords = true;
-
-            this.keywordsSearch();
-            this.movieSearch();
-            this.tvShowSearch();
-            this.personSearch();
-          }
-          if (this.activatedRoute.snapshot.fragment === 'movie') {
-            document.querySelector('#movie').scrollIntoView();
-          }
-          if (this.activatedRoute.snapshot.fragment === 'tvShow') {
-            document.querySelector('#tvShow').scrollIntoView();
-          }
-          if (this.activatedRoute.snapshot.fragment === 'person') {
-            document.querySelector('#person').scrollIntoView();
-          }
-        }
-      );
+        this.keywordsSearch();
+        this.movieSearch();
+        this.tvShowSearch();
+        this.personSearch();
+      }
+      if (this.activatedRoute.snapshot.fragment === 'movie') {
+        document.querySelector('#movie').scrollIntoView();
+      }
+      if (this.activatedRoute.snapshot.fragment === 'tvShow') {
+        document.querySelector('#tvShow').scrollIntoView();
+      }
+      if (this.activatedRoute.snapshot.fragment === 'person') {
+        document.querySelector('#person').scrollIntoView();
+      }
+    });
   }
 
   keywordsSearch() {
     this.phrase = this.activatedRoute.snapshot.params['phrase'];
     this.keywordsSearchResults = undefined;
 
-    this.api.getKeywordSearch(this.phrase)
-      .subscribe((response) => {
-        const output = response.json();
-        this.keywordsSearchResults = output;
-        this.isLoadingKeywords = false;
-      });
-
+    this.api.getKeywordSearch(this.phrase).subscribe((response) => {
+      const output = response.json();
+      this.keywordsSearchResults = output;
+      this.isLoadingKeywords = false;
+    });
   }
 
   movieSearch() {
@@ -106,13 +99,14 @@ export class SearchResultsComponent implements OnInit {
       results: [listItemInitData],
       page: 1,
       total_results: 1,
-      total_pages: 1
+      total_pages: 1,
     };
 
-    this.api.getMovieSearch(this.phrase, +this.moviePage)
+    this.api
+      .getMovieSearch(this.phrase, +this.moviePage)
       .subscribe((response) => {
         const output = response.json();
-        output.results = output.results.map(row => row || {});
+        output.results = output.results.map((row) => row || {});
         const willBeSorted = output;
         willBeSorted.results.sort((a, b) => {
           if (a.popularity > b.popularity) {
@@ -135,13 +129,14 @@ export class SearchResultsComponent implements OnInit {
       results: [listItemInitData],
       page: 1,
       total_results: 1,
-      total_pages: 1
+      total_pages: 1,
     };
 
-    this.api.getTvShowSearch(this.phrase, +this.tvShowPage)
+    this.api
+      .getTvShowSearch(this.phrase, +this.tvShowPage)
       .subscribe((response) => {
         const output = response.json();
-        output.results = output.results.map(row => row || {});
+        output.results = output.results.map((row) => row || {});
         const willBeSorted = output;
         willBeSorted.results.sort((a, b) => {
           if (a.popularity > b.popularity) {
@@ -164,13 +159,14 @@ export class SearchResultsComponent implements OnInit {
       results: [listItemInitData],
       page: 1,
       total_results: 1,
-      total_pages: 1
+      total_pages: 1,
     };
 
-    this.api.getPersonSearch(this.phrase, +this.personPage)
+    this.api
+      .getPersonSearch(this.phrase, +this.personPage)
       .subscribe((response) => {
         const output = response.json();
-        output.results = output.results.map(row => row || {});
+        output.results = output.results.map((row) => row || {});
         const willBeSorted = output;
         willBeSorted.results.sort((a, b) => {
           if (a.popularity > b.popularity) {
@@ -185,5 +181,4 @@ export class SearchResultsComponent implements OnInit {
         this.isLoadingPerson = false;
       });
   }
-
 }

@@ -1,7 +1,10 @@
 <div class="container">
-
   <mat-form-field class="select">
-    <mat-select [(value)]="movieSelected" (selectionChange)="setMovieSortByOption($event)" [placeholder]="placeholderOrder">
+    <mat-select
+      [(value)]="movieSelected"
+      (selectionChange)="setMovieSortByOption($event)"
+      [placeholder]="placeholderOrder"
+    >
       <mat-option *ngFor="let option of sortByOptions" [value]="option.value">
         {{ option.name }}
       </mat-option>
@@ -9,23 +12,26 @@
   </mat-form-field>
 
   <mat-form-field class="year">
-    <input matInput
-           type="number"
-           [placeholder]="placeholder"
-           min="1900"
-           [value]="movieYear"
-           max="2050"
-           (change)="setMovieYearOption($event)">
+    <input
+      matInput
+      type="number"
+      [placeholder]="placeholder"
+      min="1900"
+      [value]="movieYear"
+      max="2050"
+      (change)="setMovieYearOption($event)"
+    />
   </mat-form-field>
 
   <div class="mGenre container">
-    <mat-checkbox class="mGenres"
-                  *ngFor="let movieGenre of movieGenres"
-                  color="primary"
-                  (change)="setMovieGenre(movieGenre.id, $event)"
-                  [checked]="getCheckedStatus(movieGenre.id)">
-      {{movieGenre.name}}
+    <mat-checkbox
+      class="mGenres"
+      *ngFor="let movieGenre of movieGenres"
+      color="primary"
+      (change)="setMovieGenre(movieGenre.id, $event)"
+      [checked]="getCheckedStatus(movieGenre.id)"
+    >
+      {{ movieGenre.name }}
     </mat-checkbox>
   </div>
-
 </div>

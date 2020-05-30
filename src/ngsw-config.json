@@ -6,12 +6,7 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "resources": {
-        "files": [
-          "/favicon.ico",
-          "/index.html",
-          "/*.css",
-          "/*.js"
-        ],
+        "files": ["/favicon.ico", "/index.html", "/*.css", "/*.js"],
         "urls": [
           "https://fonts.googleapis.com/icon?family=Material+Icons",
           "https://fonts.gstatic.com/**"
@@ -23,19 +18,14 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "resources": {
-        "files": [
-          "/assets/**"
-        ]
+        "files": ["/assets/**"]
       }
     }
   ],
   "dataGroups": [
     {
       "name": "api",
-      "urls": [
-        "https://api.themoviedb.org/**",
-        "https://image.tmdb.org/**"
-      ],
+      "urls": ["https://api.themoviedb.org/**", "https://image.tmdb.org/**"],
       "cacheConfig": {
         "maxAge": "1d",
         "maxSize": 600,

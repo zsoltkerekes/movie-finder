@@ -1,16 +1,30 @@
 <h2 class="text-center mat-h2" *ngIf="images && images.length > 0">
-  {{getGlobal() ? 'Images' : 'Képek'}}
+  {{ getGlobal() ? 'Images' : 'Képek' }}
 </h2>
 
 <mat-tab-group class="pictures" *ngIf="images && images.length > 0">
-
-  <mat-tab *ngFor="let image of images; let i=index"
-           [label]="(i+1)+'/'+ images.length + ( getGlobal() ? '. picture' : '. kép').toString()">
+  <mat-tab
+    *ngFor="let image of images; let i = index"
+    [label]="
+      i +
+      1 +
+      '/' +
+      images.length +
+      (getGlobal() ? '. picture' : '. kép').toString()
+    "
+  >
     <div class="img-container">
       <mf-loading class="centerHorizontalVertical"></mf-loading>
-      <img class="pic" title="" alt=""
-      [lazyLoad]="image.file_path ? 'https://image.tmdb.org/t/p/'+'w1280' + image.file_path : null">
+      <img
+        class="pic"
+        title=""
+        alt=""
+        [lazyLoad]="
+          image.file_path
+            ? 'https://image.tmdb.org/t/p/' + 'w1280' + image.file_path
+            : null
+        "
+      />
     </div>
   </mat-tab>
-
 </mat-tab-group>

@@ -1,86 +1,138 @@
-
 <h2 *ngIf="phrase" class="text-center mat-h2" id="movie">
-  {{getGlobal() ? 'Keywords:' : 'Keywords:'}}
+  {{ getGlobal() ? 'Keywords:' : 'Keywords:' }}
 </h2>
 
 <mf-loading *ngIf="isLoadingKeywords"></mf-loading>
 
-<div *ngIf="keywordsSearchResults && phrase && !(isLoadingKeywords)" class="keywordslist">
+<div
+  *ngIf="keywordsSearchResults && phrase && !isLoadingKeywords"
+  class="keywordslist"
+>
   <mat-chip-list>
     <mat-chip
       color="primary"
       [selected]="true"
       *ngFor="let keyword of keywordsSearchResults.results"
-      [routerLink]="['/by-keywords', keyword.id, '1']">
+      [routerLink]="['/by-keywords', keyword.id, '1']"
+    >
       <p class="mat-body-1 text-center full-wide-width">
-        {{keyword.name | titlecase }}
+        {{ keyword.name | titlecase }}
       </p>
     </mat-chip>
   </mat-chip-list>
 </div>
 
-<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center mat-h3">
-  {{getGlobal() ? 'No results' : 'Nincs találat'}}
+<h3
+  *ngIf="
+    keywordsSearchResults && !keywordsSearchResults.results.length && phrase
+  "
+  class="text-center mat-h3"
+>
+  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
 </h3>
 
 <mat-divider *ngIf="phrase"></mat-divider>
 
 <h2 *ngIf="phrase" class="text-center mat-h2">
-  {{getGlobal() ? 'Movies:' : 'Filmek:'}}
+  {{ getGlobal() ? 'Movies:' : 'Filmek:' }}
 </h2>
 
 <mf-loading *ngIf="isLoadingMovie"></mf-loading>
 
-<div class="item-container" *ngIf="movieSearchResults && phrase && !(isLoadingMovie)">
-  <a *ngFor="let movie of movieSearchResults.results" [routerLink]="['/details', movie.id]">
+<div
+  class="item-container"
+  *ngIf="movieSearchResults && phrase && !isLoadingMovie"
+>
+  <a
+    *ngFor="let movie of movieSearchResults.results"
+    [routerLink]="['/details', movie.id]"
+  >
     <mf-list-item [movie]="movie" tvShow="" person=""></mf-list-item>
   </a>
 </div>
 
-<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center mat-h3">
-  {{getGlobal() ? 'No results' : 'Nincs találat'}}
+<h3
+  *ngIf="
+    keywordsSearchResults && !keywordsSearchResults.results.length && phrase
+  "
+  class="text-center mat-h3"
+>
+  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
 </h3>
 
-<mf-pagination *ngIf="phrase" [results]="movieSearchResults" [url]="'/search/'+phrase" [type]="'movie'"></mf-pagination>
+<mf-pagination
+  *ngIf="phrase"
+  [results]="movieSearchResults"
+  [url]="'/search/' + phrase"
+  [type]="'movie'"
+></mf-pagination>
 
 <mat-divider *ngIf="phrase"></mat-divider>
 
 <h2 *ngIf="phrase" class="text-center mat-h2" id="tvShow">
-  {{getGlobal() ? 'Tv Shows:' : 'Sorozatok:'}}
+  {{ getGlobal() ? 'Tv Shows:' : 'Sorozatok:' }}
 </h2>
 
 <mf-loading *ngIf="isLoadingTv"></mf-loading>
 
-<div class="item-container" *ngIf="tvShowSearchResults && phrase && !(isLoadingTv)">
-  <a *ngFor="let tvShow of tvShowSearchResults.results" [routerLink]="['/tv-details', tvShow.id]">
+<div
+  class="item-container"
+  *ngIf="tvShowSearchResults && phrase && !isLoadingTv"
+>
+  <a
+    *ngFor="let tvShow of tvShowSearchResults.results"
+    [routerLink]="['/tv-details', tvShow.id]"
+  >
     <mf-list-item [tvShow]="tvShow" movie="" person=""></mf-list-item>
   </a>
 </div>
 
-<h3 *ngIf="keywordsSearchResults && !(keywordsSearchResults.results.length) && phrase" class="text-center mat-h3">
-  {{getGlobal() ? 'No results' : 'Nincs találat'}}
+<h3
+  *ngIf="
+    keywordsSearchResults && !keywordsSearchResults.results.length && phrase
+  "
+  class="text-center mat-h3"
+>
+  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
 </h3>
 
-<mf-pagination *ngIf="phrase" [results]="tvShowSearchResults" [url]="'/search/'+phrase"
-               [type]="'tvShow'"></mf-pagination>
+<mf-pagination
+  *ngIf="phrase"
+  [results]="tvShowSearchResults"
+  [url]="'/search/' + phrase"
+  [type]="'tvShow'"
+></mf-pagination>
 
 <mat-divider *ngIf="phrase"></mat-divider>
 
 <h2 *ngIf="phrase" class="text-center mat-h2" id="person">
-  {{getGlobal() ? 'Persons:' : 'Emberek:'}}
+  {{ getGlobal() ? 'Persons:' : 'Emberek:' }}
 </h2>
 
 <mf-loading *ngIf="isLoadingPerson"></mf-loading>
 
-<div class="item-container" *ngIf="personSearchResults && phrase && !(isLoadingPerson)">
-  <a *ngFor="let person of personSearchResults.results" [routerLink]="['/person-details', person.id]">
+<div
+  class="item-container"
+  *ngIf="personSearchResults && phrase && !isLoadingPerson"
+>
+  <a
+    *ngFor="let person of personSearchResults.results"
+    [routerLink]="['/person-details', person.id]"
+  >
     <mf-list-item [person]="person" movie="" tvShow=""></mf-list-item>
   </a>
 </div>
 
-<h2 *ngIf="personSearchResults && !(personSearchResults.results.length) && phrase" class="text-center mat-h2">
-  {{getGlobal() ? 'No results' : 'Nincs találat'}}
+<h2
+  *ngIf="personSearchResults && !personSearchResults.results.length && phrase"
+  class="text-center mat-h2"
+>
+  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
 </h2>
 
-<mf-pagination *ngIf="phrase" [results]="personSearchResults" [url]="'/search/'+phrase"
-               [type]="'person'"></mf-pagination>
+<mf-pagination
+  *ngIf="phrase"
+  [results]="personSearchResults"
+  [url]="'/search/' + phrase"
+  [type]="'person'"
+></mf-pagination>

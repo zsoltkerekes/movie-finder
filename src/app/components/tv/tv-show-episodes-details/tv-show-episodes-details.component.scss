@@ -1,4 +1,4 @@
-@import "./../../../../colors.scss";
+@import './../../../../colors.scss';
 
 .episodes {
   max-width: 60em;
@@ -43,14 +43,13 @@
   .title {
     @media (max-width: 960px) {
       height: auto !important;
-      padding: .6em 1em;
+      padding: 0.6em 1em;
     }
-
   }
 
   button {
-    transition: .3s ease-in-out background-color;
-    margin: .2em;
+    transition: 0.3s ease-in-out background-color;
+    margin: 0.2em;
 
     &.active,
     &:hover {

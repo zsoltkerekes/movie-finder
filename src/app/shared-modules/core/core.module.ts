@@ -1,19 +1,19 @@
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
-import {HttpModule} from '@angular/http';
-import {RouterModule} from '@angular/router';
-import {MaterialModule} from '../material/material.module';
-import {FormsModule} from '@angular/forms';
-import {LazyLoadImageModule} from 'ng-lazyload-image';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material/material.module';
+import { FormsModule } from '@angular/forms';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
-import {FooterComponent} from '../../components/core/footer/footer.component';
-import {HeaderComponent} from '../../components/core/header/header.component';
-import {ListItemComponent} from '../../components/core/list-item/list-item.component';
-import {PaginationComponent} from '../../components/core/pagination/pagination.component';
-import {SearchPipe} from '../../pipes/search.pipe';
-import {SideScrollDirective} from '../../directives/side-scroll.directive';
-import {LoadingComponent} from '../../components/core/loading/loading.component';
-import {TruncatePipe} from '../../pipes/truncate.pipe';
+import { FooterComponent } from '../../components/core/footer/footer.component';
+import { HeaderComponent } from '../../components/core/header/header.component';
+import { ListItemComponent } from '../../components/core/list-item/list-item.component';
+import { PaginationComponent } from '../../components/core/pagination/pagination.component';
+import { SearchPipe } from '../../pipes/search.pipe';
+import { SideScrollDirective } from '../../directives/side-scroll.directive';
+import { LoadingComponent } from '../../components/core/loading/loading.component';
+import { TruncatePipe } from '../../pipes/truncate.pipe';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import {TruncatePipe} from '../../pipes/truncate.pipe';
     HttpModule,
     MaterialModule,
     FormsModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
   ],
   declarations: [
     HeaderComponent,
@@ -32,7 +32,7 @@ import {TruncatePipe} from '../../pipes/truncate.pipe';
     SearchPipe,
     TruncatePipe,
     SideScrollDirective,
-    LoadingComponent
+    LoadingComponent,
   ],
   exports: [
     HeaderComponent,
@@ -46,8 +46,7 @@ import {TruncatePipe} from '../../pipes/truncate.pipe';
     HttpModule,
     MaterialModule,
     FormsModule,
-    LazyLoadImageModule
-  ]
+    LazyLoadImageModule,
+  ],
 })
-export class CoreModule {
-}
+export class CoreModule {}

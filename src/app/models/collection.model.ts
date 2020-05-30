@@ -17,13 +17,15 @@ export const collectionInitData = {
   id: null,
   name: null,
   overview: null,
-  parts: [{
-    genre_ids: [],
-    id: null,
-    original_title: null,
-    title: null,
-    overview: null,
-    release_date: null,
-    vote_average: null
-  }],
+  parts: [
+    {
+      genre_ids: [],
+      id: null,
+      original_title: null,
+      title: null,
+      overview: null,
+      release_date: null,
+      vote_average: null,
+    },
+  ],
 };

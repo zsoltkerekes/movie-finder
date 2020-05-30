@@ -1,4 +1,4 @@
-@import "./../../../../colors";
+@import './../../../../colors';
 
 mat-card {
   vertical-align: top;
@@ -39,7 +39,6 @@ mat-card-content {
 .imdb,
 .online-filmek,
 .youtube {
-
   font-weight: bold;
 
   a {
@@ -69,7 +68,7 @@ h3 {
 
 p {
   clear: both;
-  padding: .5em 0;
+  padding: 0.5em 0;
 
   span {
     float: left;

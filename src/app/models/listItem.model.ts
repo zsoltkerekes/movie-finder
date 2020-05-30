@@ -6,7 +6,7 @@ export interface ListItem {
   poster_path: string;
   profile_path: string;
   known_for: Array<{
-    title: string
+    title: string;
   }>;
   vote_average: number;
   overview: string;
@@ -23,5 +23,5 @@ export const listItemInitData = {
   known_for: undefined,
   vote_average: undefined,
   overview: undefined,
-  release_date: undefined
+  release_date: undefined,
 };

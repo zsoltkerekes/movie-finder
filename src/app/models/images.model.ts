@@ -14,8 +14,8 @@ export const imagesData = [
       title: undefined,
       original_name: undefined,
       original_title: undefined,
-      overview: undefined
+      overview: undefined,
     },
-    media_type: undefined
-  }
+    media_type: undefined,
+  },
 ];

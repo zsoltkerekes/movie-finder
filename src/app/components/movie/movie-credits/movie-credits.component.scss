@@ -1,4 +1,4 @@
-@import "./../../../../colors.scss";
+@import './../../../../colors.scss';
 
 .container {
   max-height: 15em;
@@ -25,12 +25,11 @@
 
   .cast,
   .crew {
-
-    padding: .3em 2em;
+    padding: 0.3em 2em;
     border: 1px solid $main-color;
 
     cursor: pointer;
-    transition: background-color .3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
     cursor: pointer;
 
     span.right {
@@ -49,5 +48,5 @@
 
 .bigger {
   font-size: 300%;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }

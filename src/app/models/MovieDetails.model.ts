@@ -15,7 +15,7 @@ export interface MovieDetails {
   budget: number;
   revenue: number;
   created_by: Array<{ name: string }>;
-  genres: [{ id: number, name: string }];
+  genres: [{ id: number; name: string }];
   homepage: string;
   imdb_id: string;
   backdrop_path: string;
@@ -36,39 +36,38 @@ export interface MovieDetails {
 }
 
 export const movieDetailsData = {
-    title: null,
-    name: null,
-    original_title: null,
-    original_name: null,
-    original_language: null,
-    status: null,
-    release_date: null,
-    first_air_date: null,
-    vote_average: null,
-    popularity: null,
-    runtime: null,
-    episode_run_time: null,
-    adult: null,
-    budget: null,
-    revenue: null,
-    created_by: null,
-    genres: null,
-    homepage: null,
-    imdb_id: null,
-    backdrop_path: null,
-    poster_path: null,
-    overview: null,
+  title: null,
+  name: null,
+  original_title: null,
+  original_name: null,
+  original_language: null,
+  status: null,
+  release_date: null,
+  first_air_date: null,
+  vote_average: null,
+  popularity: null,
+  runtime: null,
+  episode_run_time: null,
+  adult: null,
+  budget: null,
+  revenue: null,
+  created_by: null,
+  genres: null,
+  homepage: null,
+  imdb_id: null,
+  backdrop_path: null,
+  poster_path: null,
+  overview: null,
+  id: null,
+  seasons: [{}],
+  tagline: null,
+  last_air_date: null,
+  next_episode_to_air: {
+    air_date: null,
+  },
+  number_of_seasons: null,
+  number_of_episodes: null,
+  belongs_to_collection: {
     id: null,
-    seasons: [{}],
-    tagline: null,
-    last_air_date: null,
-    next_episode_to_air: {
-      air_date: null
-    },
-    number_of_seasons: null,
-    number_of_episodes: null,
-    belongs_to_collection: {
-      id: null
-    }
-  }
-;
+  },
+};

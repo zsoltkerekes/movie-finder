@@ -1,15 +1,17 @@
-import {Component, Input, OnChanges} from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
-import {PeopleMovieCredits, peopleMovieCreditsData} from '../../../models/person.model';
-import {ApiService} from '../../../services/api.service';
+import {
+  PeopleMovieCredits,
+  peopleMovieCreditsData,
+} from '../../../models/person.model';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'mf-person-movie-credits',
   templateUrl: './person-movie-credits.component.html',
-  styleUrls: ['./person-movie-credits.component.scss']
+  styleUrls: ['./person-movie-credits.component.scss'],
 })
 export class PersonMovieCreditsComponent implements OnChanges {
-
   @Input() id: number;
   movieCredits: PeopleMovieCredits;
   getGlobal = this.api.getGlobal;
@@ -18,43 +20,40 @@ export class PersonMovieCreditsComponent implements OnChanges {
   searchCrew: string;
   listGenres = this.api.getTvGenreList;
 
-  constructor(private api: ApiService) {
-  }
+  constructor(private api: ApiService) {}
 
   ngOnChanges() {
     this.movieCredits = peopleMovieCreditsData;
     this.searchCast = '';
     this.searchCrew = '';
     if (this.id) {
-      this.api.getPersonMovieCredits(this.id)
-        .subscribe(response => {
-          const output = response.json();
-          output.cast = output.cast.sort((a, b) => {
-            if (a.vote_average < b.vote_average) {
-              return 1;
-            }
-            if (a.vote_average > b.vote_average) {
-              return -1;
-            }
-            return 0;
-          });
-          output.crew = output.crew.sort((a, b) => {
-            if (a.vote_average < b.vote_average) {
-              return 1;
-            }
-            if (a.vote_average > b.vote_average) {
-              return -1;
-            }
-            return 0;
-          });
-          this.movieCredits = output;
+      this.api.getPersonMovieCredits(this.id).subscribe((response) => {
+        const output = response.json();
+        output.cast = output.cast.sort((a, b) => {
+          if (a.vote_average < b.vote_average) {
+            return 1;
+          }
+          if (a.vote_average > b.vote_average) {
+            return -1;
+          }
+          return 0;
         });
+        output.crew = output.crew.sort((a, b) => {
+          if (a.vote_average < b.vote_average) {
+            return 1;
+          }
+          if (a.vote_average > b.vote_average) {
+            return -1;
+          }
+          return 0;
+        });
+        this.movieCredits = output;
+      });
     }
   }
 
-  onChange = event => {
+  onChange = (event) => {
     switch (event.value) {
-
       case 'vote_average':
         this.movieCredits.cast = this.movieCredits.cast.sort((a, b) => {
           if (a.vote_average < b.vote_average) {
@@ -102,8 +101,6 @@ export class PersonMovieCreditsComponent implements OnChanges {
           return 0;
         });
         break;
-
     }
-  }
-
+  };
 }

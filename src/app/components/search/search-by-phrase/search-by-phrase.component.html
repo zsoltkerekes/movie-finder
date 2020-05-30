@@ -8,15 +8,23 @@
     [placeholder]="placeholder"
     [value]="queryPhrase.getValue()"
     (input)="inputChanged($event)"
-    required="required">
-    <mat-hint align="start">{{hint}}</mat-hint>
-    <mat-hint align="end" [ngClass]="{red: message.value.length < min || message.value.length >= max }">{{message.value.length}} / {{max}}</mat-hint>
+    required="required"
+  />
+  <mat-hint align="start">{{ hint }}</mat-hint>
+  <mat-hint
+    align="end"
+    [ngClass]="{
+      red: message.value.length < min || message.value.length >= max
+    }"
+    >{{ message.value.length }} / {{ max }}</mat-hint
+  >
 </mat-form-field>
 <button
   mat-raised-button
   *ngIf="showButton"
   class="full-width"
   color="primary"
-  (click)="onButtonClicked(message.value)">
+  (click)="onButtonClicked(message.value)"
+>
   <mat-icon>search</mat-icon>
 </button>

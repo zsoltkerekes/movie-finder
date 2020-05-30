@@ -13,7 +13,7 @@ $details-bg-color: rgba(232, 234, 246, 0.9);
 Dark Theme
 */
 
-@import "~@angular/material/theming";
+@import '~@angular/material/theming';
 @include mat-core();
 
 $main-color: #424242;
