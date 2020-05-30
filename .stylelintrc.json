@@ -18,6 +18,7 @@
     ],
     "no-empty-source": null,
     "at-rule-no-unknown": [true, { "ignoreAtRules": ["include"] }],
-    "declaration-colon-newline-after": null
+    "declaration-colon-newline-after": null,
+    "value-list-comma-newline-after": null
   }
 }

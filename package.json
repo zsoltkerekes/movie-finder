@@ -15,7 +15,8 @@
     "prettier-fix": "prettier --write src",
     "stylelint-check": "stylelint \"src/**/*.scss\"",
     "stylelint-fix": "stylelint \"src/**/*.scss\" --fix",
-    "check-all": "npm run prettier-check && npm run prettier-check && npm run lint"
+    "fix-all": "npm run stylelint-fix && npm run prettier-fix",
+    "check-all": "npm run stylelint-check && npm run prettier-check && npm run lint"
   },
   "private": true,
   "dependencies": {
@@ -49,6 +50,7 @@
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~14.0.5",
     "codelyzer": "^5.2.2",
+    "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.2",
     "karma": "^5.0.9",
@@ -65,5 +67,10 @@
     "ts-node": "~8.10.1",
     "tslint": "~6.1.2",
     "typescript": "3.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run check-all"
+    }
   }
 }
