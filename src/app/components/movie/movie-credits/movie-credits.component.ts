@@ -1,35 +1,45 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 import {
   PeopleMovieCredits,
   peopleMovieCreditsData,
 } from '../../../models/person.model';
 import { ApiService } from '../../../services/api.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-movie-credits',
   templateUrl: './movie-credits.component.html',
   styleUrls: ['./movie-credits.component.scss'],
 })
-export class MovieCreditsComponent implements OnChanges {
+export class MovieCreditsComponent implements OnChanges, OnInit {
   @Input() id: number;
   movieCredits: PeopleMovieCredits;
-  getGlobal = this.api.getGlobal;
-  placeholder = this.api.getGlobal() ? 'Search..' : 'Keresés..';
+
+  placeholder: string;
   searchCast: string;
   searchCrew: string;
   innerWidth: number;
-  isLoading: boolean;
 
-  constructor(private api: ApiService) {
+  cast: string;
+  actAs: string;
+  crew: string;
+
+  constructor(private api: ApiService, public language: LanguageService) {
     this.innerWidth = window.innerWidth;
+  }
+
+  ngOnInit() {
+    this.placeholder = this.language.getText('Search', this.api.getGlobal());
+    this.cast = this.language.getText('Cast', this.api.getGlobal());
+    this.actAs = this.language.getText('act as', this.api.getGlobal());
+    this.crew = this.language.getText('Crew', this.api.getGlobal());
   }
 
   ngOnChanges() {
     this.movieCredits = peopleMovieCreditsData;
     this.searchCast = '';
     this.searchCrew = '';
-    this.isLoading = true;
     if (this.id) {
       this.api.getMovieCredits(this.id).subscribe((response) => {
         const output = response.json();
@@ -51,7 +61,6 @@ export class MovieCreditsComponent implements OnChanges {
           }
           return 0;
         });
-        this.isLoading = false;
         this.movieCredits = output;
       });
     }

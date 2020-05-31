@@ -1,6 +1,6 @@
 <div *ngIf="movieCredits.cast.length > 0">
   <h3 class="text-center mat-h3">
-    {{ getGlobal() ? 'Cast' : 'Szereplők' }}
+    {{ cast }}
   </h3>
 
   <mat-form-field class="full-width">
@@ -20,9 +20,8 @@
       [routerLink]="['/person-details', person.id]"
     >
       <div class="cast">
-        <mf-loading *ngIf="person.profile_path && isLoading"></mf-loading>
         <img
-          *ngIf="person.profile_path && !isLoading"
+          *ngIf="person.profile_path"
           [lazyLoad]="
             'https://image.tmdb.org/t/p/' + 'w45' + person.profile_path
           "
@@ -30,13 +29,11 @@
           [alt]="person.name"
           [title]="person.name"
         />
-        <mat-icon *ngIf="!person.profile_path && !isLoading" class="bigger"
-          >face</mat-icon
-        >
+
+        <mat-icon *ngIf="!person.profile_path" class="bigger">face</mat-icon>
         <span class="right">
-          {{ person.name ? person.name : 'N/A'
-          }}{{ getGlobal() ? ', act as: ' : ', szerepe: '
-          }}{{ person.character ? person.character : 'N/A' }}
+          {{ person.name ? person.name : language.na }}, {{ actAs }}:
+          {{ person.character ? person.character : language.na }}
         </span>
       </div>
     </a>
@@ -48,7 +45,7 @@
   <mat-divider></mat-divider>
   <br />
   <h3 class="text-center mat-h3">
-    {{ getGlobal() ? 'Crew' : 'Stáb' }}
+    {{ crew }}
   </h3>
 
   <mat-form-field class="full-width">
@@ -69,10 +66,10 @@
     >
       <div class="crew">
         <span class="pull-left">
-          {{ person.job ? person.job : 'N/A' }}
+          {{ person.job ? person.job : language.na }}
         </span>
         <span>
-          {{ person.name ? person.name : 'N/A' }}
+          {{ person.name ? person.name : language.na }}
         </span>
       </div>
     </a>

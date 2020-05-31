@@ -16,10 +16,9 @@
       matInput
       type="number"
       [placeholder]="placeholder"
-      min="1900"
       [value]="movieYear"
-      max="2050"
-      (change)="setMovieYearOption($event)"
+      [(ngModel)]="movieYear"
+      (input)="setMovieYearOption($event)"
     />
   </mat-form-field>
 
@@ -28,7 +27,7 @@
       class="mGenres"
       *ngFor="let movieGenre of movieGenres"
       color="primary"
-      (change)="setMovieGenre(movieGenre.id, $event)"
+      (input)="setMovieGenre(movieGenre.id, $event)"
       [checked]="getCheckedStatus(movieGenre.id)"
     >
       {{ movieGenre.name }}

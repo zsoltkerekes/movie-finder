@@ -1,5 +1,11 @@
 @import './../../../../colors.scss';
 
+h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: auto !important;
+}
+
 .container {
   max-height: 15em;
   overflow-y: auto;

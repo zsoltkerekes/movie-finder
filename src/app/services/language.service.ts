@@ -37,6 +37,30 @@ export class LanguageService implements ILanguageService {
       en: 'pages',
       hu: 'oldalon',
     },
+    Year: {
+      en: 'Year',
+      hu: 'Év',
+    },
+    Order: {
+      en: 'Order',
+      hu: 'Sorrend',
+    },
+    Search: {
+      en: 'Search',
+      hu: 'Keresés',
+    },
+    Cast: {
+      en: 'Cast',
+      hu: 'Szereplők',
+    },
+    'act as': {
+      en: 'act as',
+      hu: 'szerepe',
+    },
+    Crew: {
+      en: 'Crew',
+      hu: 'Stáb',
+    },
   });
 
   navProvider = (): IText => ({

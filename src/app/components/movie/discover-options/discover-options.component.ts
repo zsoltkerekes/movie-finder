@@ -1,6 +1,7 @@
 import { ApiService } from '../../../services/api.service';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { ObservablesService } from '../../../services/observables.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-discover-options',
@@ -18,7 +19,8 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
 
   constructor(
     private api: ApiService,
-    private observables: ObservablesService
+    private observables: ObservablesService,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
@@ -29,8 +31,11 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     this.selectedMovieGenres = this.observables.withGenresOption
       .getValue()
       .map((str: any) => parseInt(str, 10));
-    this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
-    this.placeholderOrder = this.api.getGlobal() ? 'Order' : 'Sorrend';
+    this.placeholder = this.language.getText('Year', this.api.getGlobal());
+    this.placeholderOrder = this.language.getText(
+      'Order',
+      this.api.getGlobal()
+    );
   }
 
   ngDoCheck() {
@@ -41,8 +46,19 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
 
   setMovieSortByOption = (event) =>
     this.observables.sortMovieByOption.next(event.value);
-  setMovieYearOption = (event) =>
-    this.observables.movieYearOption.next(event.target.value);
+  setMovieYearOption = (event) => {
+    const thisYear: number = new Date().getFullYear();
+    const range = 300;
+    if (
+      isNaN(event.target.value) ||
+      event.target.value > thisYear + range ||
+      event.target.value < thisYear - range
+    ) {
+      this.movieYear = thisYear;
+      return this.observables.movieYearOption.next(thisYear);
+    }
+    return this.observables.movieYearOption.next(event.target.value);
+  };
 
   setMovieGenre = (id, event) => {
     if (event.checked) {
