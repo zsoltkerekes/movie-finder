@@ -4,9 +4,9 @@
 >
   <span class="mat-body-1">
     <strong>{{ pagination.total_results }}</strong>
-    {{ getGlobal() ? 'results' : 'találat' }},
+    {{ resultsText }},
     <strong>{{ pagination.total_pages }}</strong>
-    {{ getGlobal() ? 'pages' : 'oldalon' }}
+    {{ pagesText }}
   </span>
   <span *ngFor="let page of pagination.links">
     <a

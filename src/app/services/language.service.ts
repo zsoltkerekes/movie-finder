@@ -29,6 +29,14 @@ export class LanguageService implements ILanguageService {
       en: 'Adult',
       hu: 'Felnőtt',
     },
+    results: {
+      en: 'results',
+      hu: 'találat',
+    },
+    pages: {
+      en: 'pages',
+      hu: 'oldalon',
+    },
   });
 
   navProvider = (): IText => ({

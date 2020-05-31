@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, Input, OnChanges } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { ObservablesService } from '../../../services/observables.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-pagination',
@@ -25,12 +26,16 @@ export class PaginationComponent implements OnChanges {
   personPage: number;
   keywordsPage: number;
 
+  resultsText: string;
+  pagesText: string;
+
   getGlobal = this.api.getGlobal;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private api: ApiService,
-    private observables: ObservablesService
+    private observables: ObservablesService,
+    public language: LanguageService
   ) {}
 
   ngOnChanges() {
@@ -40,6 +45,9 @@ export class PaginationComponent implements OnChanges {
     this.personPage = +this.activatedRoute.snapshot.params['personPage'] || 1;
     this.keywordsPage =
       +this.activatedRoute.snapshot.params['keywordsPage'] || 1;
+
+    this.resultsText = this.language.getText('results', this.api.getGlobal());
+    this.pagesText = this.language.getText('pages', this.api.getGlobal());
 
     if (this.results) {
       this.pagination = {
