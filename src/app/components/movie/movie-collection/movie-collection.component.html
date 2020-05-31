@@ -11,14 +11,14 @@
       [routerLink]="['/details', part.id]"
     >
       <p class="mat-body-1 text-center full-wide-width">
-        <b>{{ part.title ? part.title.trim() : null }}</b>
+        <b>{{ part.title ? part.title : '' }}</b>
         {{
           part.original_title !== part.title
             ? ' (' + part.original_title + ')'
-            : null
+            : ''
         }}
-        {{ part.vote_average ? '[' + part.vote_average + '/10]' : null }}
-        {{ part.release_date ? '(' + part.release_date + ')' : null }}
+        {{ part.vote_average ? '[' + part.vote_average + '/10]' : '' }}
+        {{ part.release_date ? '(' + part.release_date + ')' : '' }}
       </p>
     </mat-chip>
   </mat-chip-list>

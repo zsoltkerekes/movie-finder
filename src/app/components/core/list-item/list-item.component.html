@@ -7,37 +7,36 @@
     <mat-card-title>
       {{
         movie && movie.title
-          ? (movie.title.trim() | truncate: titleLengthLimit:false)
+          ? (movie.title | truncate: titleLengthLimit:false)
           : ''
       }}
       {{
         tvShow && tvShow.name
-          ? (tvShow.name.trim() | truncate: titleLengthLimit:false)
+          ? (tvShow.name | truncate: titleLengthLimit:false)
           : ''
       }}
       {{
         person && person.name
-          ? (person.name.trim() | truncate: titleLengthLimit:false)
+          ? (person.name | truncate: titleLengthLimit:false)
           : ''
       }}
     </mat-card-title>
     <mat-card-subtitle>
       {{
         movie.genre_ids && api.getGenreList(movie.genre_ids)
-          ? (api.getGenreList(movie.genre_ids).trim()
+          ? (api.getGenreList(movie.genre_ids)
             | truncate: genreLengthLimit:false)
           : ''
       }}
       {{
         tvShow.genre_ids && api.getTvGenreList(tvShow.genre_ids)
-          ? (api.getTvGenreList(tvShow.genre_ids).trim()
+          ? (api.getTvGenreList(tvShow.genre_ids)
             | truncate: genreLengthLimit:false)
           : ''
       }}
       {{
         person.known_for && person.known_for[0] && person.known_for[0].title
-          ? (person.known_for[0].title.trim()
-            | truncate: genreLengthLimit:false)
+          ? (person.known_for[0].title | truncate: genreLengthLimit:false)
           : ''
       }}
     </mat-card-subtitle>

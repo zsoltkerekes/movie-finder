@@ -28,7 +28,7 @@
         [lazyLoad]="
           image.file_path
             ? 'https://image.tmdb.org/t/p/' + 'w1280' + image.file_path
-            : null
+            : ''
         "
         alt="{{ image.media.name || image.media.title }}"
         title="{{ image.media.name || image.media.title }}"

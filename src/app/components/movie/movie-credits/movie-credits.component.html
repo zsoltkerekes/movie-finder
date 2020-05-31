@@ -34,9 +34,9 @@
           >face</mat-icon
         >
         <span class="right">
-          {{ person.name ? person.name.trim() : 'N/A'
+          {{ person.name ? person.name : 'N/A'
           }}{{ getGlobal() ? ', act as: ' : ', szerepe: '
-          }}{{ person.character ? person.character.trim() : 'N/A' }}
+          }}{{ person.character ? person.character : 'N/A' }}
         </span>
       </div>
     </a>

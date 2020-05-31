@@ -7,7 +7,7 @@
           [lazyLoad]="
             person.profile_path
               ? 'https://image.tmdb.org/t/p' + '/w500' + person.profile_path
-              : null
+              : ''
           "
           [defaultImage]="'assets/image/no-pic.jpg'"
           offset="100"

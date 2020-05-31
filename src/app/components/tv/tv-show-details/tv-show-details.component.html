@@ -8,7 +8,7 @@
           [lazyLoad]="
             tvShow.poster_path
               ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path
-              : null
+              : ''
           "
           [defaultImage]="'assets/image/no-pic.jpg'"
           offset="100"
