@@ -1,67 +1,43 @@
 <mat-card
   class="mat-elevation-z4"
   *ngIf="movie || tvShow || person"
-  title="{{
-    (movie &&
-      movie.title &&
-      movie.title +
-        (movie.release_date ? ' (' + movie.release_date + ')' : '') +
-        (movie.vote_average && movie.vote_average > 0 && movie.vote_average < 10
-          ? ' [' + movie.vote_average + '/10]'
-          : '') +
-        '\n\n' +
-        listGenres(movie.genre_ids).trim() +
-        '\n\n' +
-        movie.overview) ||
-      (tvShow &&
-        tvShow.name &&
-        tvShow.name +
-          (tvShow.release_date ? ' (' + tvShow.release_date + ')' : '') +
-          (tvShow.vote_average &&
-          tvShow.vote_average > 0 &&
-          tvShow.vote_average < 10
-            ? ' [' + tvShow.vote_average + '/10]'
-            : '') +
-          '\n\n' +
-          listTvGenres(tvShow.genre_ids).trim() +
-          '\n\n' +
-          tvShow.overview) ||
-      (person && person.name && person.name + '\n\n' + acts()) ||
-      'N/A'
-  }}"
+  [title]="title"
 >
   <mat-card-header>
     <mat-card-title>
       {{
         movie && movie.title
-          ? (movie.title.trim() | truncate: titleLimit:false)
+          ? (movie.title.trim() | truncate: titleLengthLimit:false)
           : ''
       }}
       {{
         tvShow && tvShow.name
-          ? (tvShow.name.trim() | truncate: titleLimit:false)
+          ? (tvShow.name.trim() | truncate: titleLengthLimit:false)
           : ''
       }}
       {{
         person && person.name
-          ? (person.name.trim() | truncate: titleLimit:false)
+          ? (person.name.trim() | truncate: titleLengthLimit:false)
           : ''
       }}
     </mat-card-title>
     <mat-card-subtitle>
       {{
-        movie.genre_ids && listGenres(movie.genre_ids)
-          ? (listGenres(movie.genre_ids).trim() | truncate: genreLimit:false)
+        movie.genre_ids && api.getGenreList(movie.genre_ids)
+          ? (api.getGenreList(movie.genre_ids).trim()
+            | truncate: genreLengthLimit:false)
           : ''
       }}
       {{
-        tvShow.genre_ids && listTvGenres(tvShow.genre_ids)
-          ? (listTvGenres(tvShow.genre_ids).trim() | truncate: genreLimit:false)
+        tvShow.genre_ids && api.getTvGenreList(tvShow.genre_ids)
+          ? (api.getTvGenreList(tvShow.genre_ids).trim()
+            | truncate: genreLengthLimit:false)
           : ''
       }}
       {{
         person.known_for && person.known_for[0] && person.known_for[0].title
-          ? (person.known_for[0].title.trim() | truncate: genreLimit:false)
+          ? (person.known_for[0].title.trim()
+            | truncate: genreLengthLimit:false)
           : ''
       }}
     </mat-card-subtitle>
@@ -70,19 +46,23 @@
     <div class="img-container">
       <mf-loading class="centerHorizontalVertical"></mf-loading>
       <img
-        [lazyLoad]="
-          movie.poster_path || tvShow.poster_path || person.profile_path
-            ? 'https://image.tmdb.org/t/p/w300' +
-              (movie.poster_path || tvShow.poster_path || person.profile_path)
-            : null
+        *ngIf="
+          !movie.poster_path && !tvShow.poster_path && !person.profile_path
         "
-        [defaultImage]="'assets/image/no-pic.jpg'"
+        src="assets/image/no-pic.jpg"
+        alt="{{ this.language.na }}"
+      />
+      <img
+        *ngIf="movie.poster_path || tvShow.poster_path || person.profile_path"
+        [lazyLoad]="
+          'https://image.tmdb.org/t/p/w300' +
+          (movie.poster_path || tvShow.poster_path || person.profile_path)
+        "
         offset="100"
         alt="{{
           (movie && movie.title) ||
             (tvShow && tvShow.name) ||
-            (person && person.name) ||
-            'N/A'
+            (person && person.name)
         }}"
       />
     </div>

@@ -46,7 +46,7 @@ export class ApiService {
     });
   };
 
-  getGenreList = (array: Array<Number>): String => {
+  getGenreList = (array: Array<Number> = []): String => {
     const output = [];
     array.forEach((row) => {
       output.push(this.genres[row.toString()]);
