@@ -4,13 +4,16 @@
       <div class="img-container">
         <mf-loading class="centerHorizontalVertical"></mf-loading>
         <img
-          [lazyLoad]="
-            movie.poster_path
-              ? 'https://image.tmdb.org/t/p' + '/w500' + movie.poster_path
-              : ''
-          "
-          [defaultImage]="'assets/image/no-pic.jpg'"
-          offset="100"
+          *ngIf="movie.poster_path"
+          [lazyLoad]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          [defaultImage]="'assets/image/1x1.png'"
+          [alt]="movie.title"
+          [title]="movie.title"
+        />
+        <img
+          *ngIf="!movie.poster_path"
+          [lazyLoad]="'assets/image/no-pic.jpg'"
+          [defaultImage]="'assets/image/1x1.png'"
           [alt]="movie.title"
           [title]="movie.title"
         />
@@ -38,134 +41,117 @@
 
   <mat-card class="details">
     <mat-card-content>
-      <h2 class="mat-h2 title">
-        {{ movie.title ? movie.title : 'N/A' }}
+      <mf-loading
+        class="centerHorizontalVertical"
+        *ngIf="!movie.title"
+      ></mf-loading>
+
+      <h2 class="mat-h2 title" *ngIf="movie.title">
+        {{ movie.title }}
       </h2>
 
-      <h3 class="mat-h3 original_title">
-        {{
-          movie.original_title && movie.title !== movie.original_title
-            ? movie.original_title
-            : ''
-        }}
-        <br />
-        {{ movie.tagline ? movie.tagline : '' }}
+      <h3
+        class="mat-h3 original_title"
+        *ngIf="movie.original_title && movie.title !== movie.original_title"
+      >
+        <em>{{ movie.original_title }}</em>
       </h3>
 
-      <p class="mat-body-1 overview">
-        {{ movie.overview ? movie.overview : 'N/A' }}
-        {{
-          movie.original_language
-            ? '(' + movie.original_language.toLowerCase() + ')'
-            : ''
-        }}
+      <h4 class="mat-h4 tagline" *ngIf="movie.tagline">
+        {{ movie.tagline }}
+      </h4>
+
+      <p class="mat-body-1 overview" *ngIf="movie.overview">
+        {{ movie.overview }}
       </p>
 
       <p class="mat-body-1 text-right">
         <mf-movie-keywords [id]="movie.id"></mf-movie-keywords>
       </p>
 
-      <div
+      <mf-movie-collection
         *ngIf="movie.belongs_to_collection && movie.belongs_to_collection.id"
+        [id]="movie.belongs_to_collection.id"
+      ></mf-movie-collection>
+
+      <p class="mat-body-1 genres" *ngIf="movie.genres">
+        <span> {{ genres }}: </span>
+        <span>
+          {{ listGenres(movie.genres) }}
+        </span>
+      </p>
+
+      <p class="original-language" *ngIf="movie.original_language">
+        <span> {{ originalLanguage }}: </span>
+        <span>
+          {{ movie.original_language.toLocaleUpperCase() }}
+        </span>
+      </p>
+
+      <p class="mat-body-1 runtime" *ngIf="movie.runtime">
+        <span> {{ runtime }}: </span>
+        <span>
+          {{ movie.runtime.toString() + ' ' + minutes }}
+        </span>
+      </p>
+
+      <p class="mat-body-1 status" *ngIf="movie.status">
+        <span> {{ status }}: </span>
+        <span>
+          {{ movie.status }}
+        </span>
+      </p>
+
+      <p class="mat-body-1 release_date" *ngIf="movie.release_date">
+        <span> {{ releaseDate }}: </span>
+        <span>
+          {{ movie.release_date }}
+        </span>
+      </p>
+
+      <p class="mat-body-1 budget" *ngIf="movie.budget">
+        <span> {{ budget }}: </span>
+        <span>
+          {{ movie.budget | currency: undefined:undefined:'4.0-0' }}
+        </span>
+      </p>
+
+      <p class="mat-body-1 budget" *ngIf="movie.revenue">
+        <span> {{ revenue }}: </span>
+        <span>
+          {{ movie.revenue | currency: undefined:undefined:'4.0-0' }}
+        </span>
+      </p>
+
+      <p
+        class="mat-body-1 vote"
+        *ngIf="movie.vote_average && movie.vote_average < 10"
       >
-        <mf-movie-collection
-          [id]="movie.belongs_to_collection.id"
-        ></mf-movie-collection>
-      </div>
-
-      <p class="mat-body-1 genres">
+        <span> {{ vote }}: </span>
         <span>
-          {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
-        </span>
-        <span>
-          {{ movie.genres ? listGenres(movie.genres) : 'N/A' }}
+          {{ (movie.vote_average | number: '1.1-1') + '/10' }}
         </span>
       </p>
 
-      <p class="mat-body-1 runtime">
-        <span>
-          {{ getGlobal() ? 'Runtime:' : 'Hossz:' }}
-        </span>
-        <span>
-          {{
-            movie.runtime
-              ? movie.runtime.toString() +
-                (getGlobal() ? ' minutes' : ' perc').toString()
-              : 'N/A'
-          }}
-        </span>
+      <p class="mat-body-1 popularity" *ngIf="movie.popularity">
+        <span> {{ popularity }}: </span>
+        <span> {{ movie.popularity / 10 | number: '1.1-1' }}% </span>
       </p>
 
-      <p class="mat-body-1 status">
-        <span>
-          {{ getGlobal() ? 'Status:' : 'Státusz:' }}
-        </span>
-        <span>
-          {{ movie.status ? movie.status : 'N/A' }}
-        </span>
-      </p>
+      <br />
 
-      <p class="mat-body-1 release_date">
+      <p class="mat-body-1 homepage" *ngIf="movie.homepage">
+        <span> {{ homepage }}: </span>
         <span>
-          {{ getGlobal() ? 'Release date:' : 'Premier dátuma:' }}
-        </span>
-        <span>
-          {{ movie.release_date ? movie.release_date : 'N/A' }}
-        </span>
-      </p>
-
-      <p class="mat-body-1 budget">
-        <span>
-          {{ getGlobal() ? 'Budget:' : 'Elkészítési költség:' }}
-        </span>
-        <span>
-          {{ movie.budget ? (movie.budget | currency) : 'N/A' }}
-        </span>
-      </p>
-
-      <p class="mat-body-1 budget">
-        <span>
-          {{ getGlobal() ? 'Revenue:' : 'Bevétel:' }}
-        </span>
-        <span>
-          {{ movie.revenue ? (movie.revenue | currency) : 'N/A' }}
-        </span>
-      </p>
-
-      <!--<p class="mat-body-1 vote">-->
-      <!--<span>-->
-      <!--{{ getGlobal() ? 'Vote:' : 'Nézők szavazata alapján:' }}-->
-      <!--</span>-->
-      <!--<span>-->
-      <!--{{ movie.vote_average ? (movie.vote_average | number:'1.1-1') + '/10' : 'N/A' }}-->
-      <!--</span>-->
-      <!--</p>-->
-
-      <p class="mat-body-1 popularity">
-        <span>
-          {{ getGlobal() ? 'Popularity:' : 'Relatív népszerűségi index:' }}
-        </span>
-        <span>
-          {{ movie.popularity ? movie.popularity : 'N/A' }}
-        </span>
-      </p>
-
-      <p class="mat-body-1 homepage">
-        <span>
-          {{ movie.homepage ? 'Homepage:' : '' }}
-        </span>
-        <span *ngIf="movie.homepage">
           <a [href]="movie.homepage" target="_blank">
             {{ movie.homepage }}
           </a>
         </span>
       </p>
 
-      <p class="mat-body-1 imdb" *ngIf="movie.title || movie.original_title">
+      <p class="mat-body-1 imdb" *ngIf="movie.imdb_id">
+        <span> Imdb {{ homepage }}: </span>
         <span>
-          {{ movie.imdb_id ? 'Imdb Homepage:' : '' }}
-        </span>
-        <span *ngIf="movie.imdb_id">
           <a
             [href]="'https://www.imdb.com/title/' + movie.imdb_id"
             target="_blank"
@@ -176,7 +162,7 @@
       </p>
 
       <p class="mat-body-1 youtube" *ngIf="movie.title || movie.original_title">
-        <span> Youtube {{ getGlobal() ? 'search:' : 'keresés:' }} </span>
+        <span> Youtube {{ homepage }}: </span>
         <span>
           <a
             *ngIf="movie.title"
@@ -185,18 +171,18 @@
             "
             target="_blank"
           >
-            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
+            {{ byTitle }}
           </a>
           <a *ngIf="movie.title !== movie.original_title">|</a>
           <a
-            *ngIf="movie.original_title && movie.title !== movie.original_title"
+            *ngIf="movie.title !== movie.original_title"
             [href]="
               'https://www.youtube.com/results?search_query=' +
               movie.original_title
             "
             target="_blank"
           >
-            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
+            {{ byOriginalTitle }}
           </a>
         </span>
       </p>
@@ -205,7 +191,7 @@
         class="mat-body-1 online-filmek"
         *ngIf="movie.title || movie.original_title"
       >
-        <span> Online Film {{ getGlobal() ? 'search:' : 'keresés:' }} </span>
+        <span> Online Film {{ search }}: </span>
         <span>
           <a
             *ngIf="movie.title"
@@ -218,56 +204,56 @@
           </a>
           <a *ngIf="movie.title !== movie.original_title">|</a>
           <a
-            *ngIf="movie.original_title && movie.title !== movie.original_title"
+            *ngIf="movie.title !== movie.original_title"
             [href]="
               'https://online-filmek.me/kereses.php?kereses=' +
               movie.original_title
             "
             target="_blank"
           >
-            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
+            {{ byOriginalTitle }}
           </a>
         </span>
       </p>
 
       <p class="mat-body-1 google" *ngIf="movie.title || movie.original_title">
-        <span> Google {{ getGlobal() ? 'search:' : 'keresés:' }} </span>
+        <span> Google {{ search }}: </span>
         <span>
           <a
             *ngIf="movie.title"
             [href]="'https://www.google.hu/search?q=' + movie.title"
             target="_blank"
           >
-            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
+            {{ byTitle }}
           </a>
           <a *ngIf="movie.title !== movie.original_title">|</a>
           <a
-            *ngIf="movie.original_title && movie.title !== movie.original_title"
+            *ngIf="movie.title !== movie.original_title"
             [href]="'https://www.google.hu/search?q=' + movie.original_title"
             target="_blank"
           >
-            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
+            {{ byOriginalTitle }}
           </a>
         </span>
       </p>
 
       <p class="mat-body-1 google" *ngIf="movie.title || movie.original_title">
-        <span> Netflix {{ getGlobal() ? 'search:' : 'keresés:' }} </span>
+        <span> Netflix {{ search }}: </span>
         <span>
           <a
             *ngIf="movie.title"
             [href]="'https://www.netflix.com/search?q=' + movie.title"
             target="_blank"
           >
-            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
+            {{ byTitle }}
           </a>
           <a *ngIf="movie.title !== movie.original_title">|</a>
           <a
-            *ngIf="movie.original_title && movie.title !== movie.original_title"
+            *ngIf="movie.title !== movie.original_title"
             [href]="'https://www.netflix.com/search?q=' + movie.original_title"
             target="_blank"
           >
-            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
+            {{ byOriginalTitle }}
           </a>
         </span>
       </p>

@@ -30,6 +30,8 @@ mat-card-content {
 .homepage,
 .imdb,
 .original_title,
+.original-language,
+.tagline,
 .title {
   text-align: right;
 }
@@ -47,15 +49,10 @@ mat-card-content {
   }
 }
 
-.homepage {
-  padding-top: 3em;
-}
-
 .overview {
   line-height: 140%;
   font-size: 125%;
   text-align: justify;
-  font-weight: bold;
 }
 
 h2 {
