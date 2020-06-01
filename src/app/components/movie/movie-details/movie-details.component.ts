@@ -10,6 +10,10 @@ import { LanguageService } from '../../../services/language.service';
 
 declare function escape(s: string): string;
 
+interface Query {
+  name: string;
+  url: string;
+}
 @Component({
   selector: 'mf-movie-details',
   templateUrl: './movie-details.component.html',
@@ -21,6 +25,7 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
   height: string;
   getGlobal = this.api.getGlobal;
   innerWidth: number;
+  queries: Array<Query>;
 
   genres: string;
   originalLanguage: string;
@@ -70,6 +75,16 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
       'by original title',
       this.api.getGlobal()
     );
+
+    this.queries = [
+      { name: 'Youtube', url: 'https://www.youtube.com/results?search_query=' },
+      {
+        name: 'Online Filmek',
+        url: 'https://online-filmek.me/kereses.php?kereses=',
+      },
+      { name: 'Google', url: 'https://www.google.hu/search?q=' },
+      { name: 'Netflix', url: 'https://www.netflix.com/search?q=' },
+    ];
   }
 
   ngOnChanges() {

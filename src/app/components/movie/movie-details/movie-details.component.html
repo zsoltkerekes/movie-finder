@@ -140,7 +140,7 @@
 
       <br />
 
-      <p class="mat-body-1 homepage" *ngIf="movie.homepage">
+      <p class="mat-body-1 query" *ngIf="movie.homepage">
         <span> {{ homepage }}: </span>
         <span>
           <a [href]="movie.homepage" target="_blank">
@@ -149,7 +149,7 @@
         </span>
       </p>
 
-      <p class="mat-body-1 imdb" *ngIf="movie.imdb_id">
+      <p class="mat-body-1 query" *ngIf="movie.imdb_id">
         <span> Imdb {{ homepage }}: </span>
         <span>
           <a
@@ -161,102 +161,28 @@
         </span>
       </p>
 
-      <p class="mat-body-1 youtube" *ngIf="movie.title || movie.original_title">
-        <span> Youtube {{ homepage }}: </span>
-        <span>
-          <a
-            *ngIf="movie.title"
-            [href]="
-              'https://www.youtube.com/results?search_query=' + movie.title
-            "
-            target="_blank"
-          >
-            {{ byTitle }}
-          </a>
-          <a *ngIf="movie.title !== movie.original_title">|</a>
-          <a
-            *ngIf="movie.title !== movie.original_title"
-            [href]="
-              'https://www.youtube.com/results?search_query=' +
-              movie.original_title
-            "
-            target="_blank"
-          >
-            {{ byOriginalTitle }}
-          </a>
-        </span>
-      </p>
-
-      <p
-        class="mat-body-1 online-filmek"
-        *ngIf="movie.title || movie.original_title"
-      >
-        <span> Online Film {{ search }}: </span>
-        <span>
-          <a
-            *ngIf="movie.title"
-            [href]="
-              'https://online-filmek.me/kereses.php?kereses=' + movie.title
-            "
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
-          </a>
-          <a *ngIf="movie.title !== movie.original_title">|</a>
-          <a
-            *ngIf="movie.title !== movie.original_title"
-            [href]="
-              'https://online-filmek.me/kereses.php?kereses=' +
-              movie.original_title
-            "
-            target="_blank"
-          >
-            {{ byOriginalTitle }}
-          </a>
-        </span>
-      </p>
-
-      <p class="mat-body-1 google" *ngIf="movie.title || movie.original_title">
-        <span> Google {{ search }}: </span>
-        <span>
-          <a
-            *ngIf="movie.title"
-            [href]="'https://www.google.hu/search?q=' + movie.title"
-            target="_blank"
-          >
-            {{ byTitle }}
-          </a>
-          <a *ngIf="movie.title !== movie.original_title">|</a>
-          <a
-            *ngIf="movie.title !== movie.original_title"
-            [href]="'https://www.google.hu/search?q=' + movie.original_title"
-            target="_blank"
-          >
-            {{ byOriginalTitle }}
-          </a>
-        </span>
-      </p>
-
-      <p class="mat-body-1 google" *ngIf="movie.title || movie.original_title">
-        <span> Netflix {{ search }}: </span>
-        <span>
-          <a
-            *ngIf="movie.title"
-            [href]="'https://www.netflix.com/search?q=' + movie.title"
-            target="_blank"
-          >
-            {{ byTitle }}
-          </a>
-          <a *ngIf="movie.title !== movie.original_title">|</a>
-          <a
-            *ngIf="movie.title !== movie.original_title"
-            [href]="'https://www.netflix.com/search?q=' + movie.original_title"
-            target="_blank"
-          >
-            {{ byOriginalTitle }}
-          </a>
-        </span>
-      </p>
+      <div *ngFor="let query of queries">
+        <p class="mat-body-1 query" *ngIf="movie.title || movie.original_title">
+          <span>{{ query.name }} {{ search }}: </span>
+          <span>
+            <a
+              *ngIf="movie.title"
+              [href]="query.url + movie.title"
+              target="_blank"
+            >
+              {{ byTitle }}
+            </a>
+            <a *ngIf="movie.title !== movie.original_title">|</a>
+            <a
+              *ngIf="movie.title !== movie.original_title"
+              [href]="query.url + movie.original_title"
+              target="_blank"
+            >
+              {{ byOriginalTitle }}
+            </a>
+          </span>
+        </p>
+      </div>
     </mat-card-content>
   </mat-card>
 </section>
