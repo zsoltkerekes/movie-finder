@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1590958827855,
+  "timestamp": 1591029478599,
   "index": "/movie-finder/index.html",
   "assetGroups": [
     {
@@ -10,12 +10,12 @@
       "urls": [
         "/movie-finder/favicon.ico",
         "/movie-finder/index.html",
-        "/movie-finder/main.7eb1b3b55a7de80fdaec.js",
+        "/movie-finder/main.9bc34e33294667ef7944.js",
         "/movie-finder/polyfills-es5.e5de3410eb394e66b0da.js",
         "/movie-finder/polyfills.a926e2ce79b8541d1d7c.js",
         "/movie-finder/runtime.7d7e9038a1cdbceb3d53.js",
         "/movie-finder/styles.83fee743c7b5f4b27b24.css",
-        "/movie-finder/vendor.5a9b15159a5d40b724f5.js"
+        "/movie-finder/vendor.56404967bf71b8cc68a2.js"
       ],
       "patterns": [
         "https:\\/\\/fonts\\.googleapis\\.com\\/icon\\?family=Material\\+Icons",
@@ -67,13 +67,13 @@
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "88d81a6cb0889fe45d4db817f69f30823ba768b7",
-    "/movie-finder/main.7eb1b3b55a7de80fdaec.js": "f653875c7345ae33c6121f1009c854b8446939d5",
+    "/movie-finder/index.html": "e5bb5f77befb5f8d26850a52968766cb05c08e53",
+    "/movie-finder/main.9bc34e33294667ef7944.js": "88be89f478ac62c63be712ff6c9ac620dc5be53c",
     "/movie-finder/polyfills-es5.e5de3410eb394e66b0da.js": "b1f93ab7008e8884fca369c8ba75da0440fddc3d",
     "/movie-finder/polyfills.a926e2ce79b8541d1d7c.js": "00d68f6bec8622ed1a323563d0a30dd7a541895c",
     "/movie-finder/runtime.7d7e9038a1cdbceb3d53.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/movie-finder/styles.83fee743c7b5f4b27b24.css": "e6a562e68bdc4656a77aa7045f280a1b8e77d6cd",
-    "/movie-finder/vendor.5a9b15159a5d40b724f5.js": "62d1908caf5eff35b9a715b932a18534f45b8e47"
+    "/movie-finder/vendor.56404967bf71b8cc68a2.js": "b29e224456a84aa41b15cb39db7010f5e60682ff"
   },
   "navigationUrls": [
     {
