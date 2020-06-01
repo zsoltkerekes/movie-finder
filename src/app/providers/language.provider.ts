@@ -131,4 +131,12 @@ export const textProvider: IProvider = (): IText => ({
     en: 'by original title',
     hu: 'eredeti cím alapján',
   },
+  Images: {
+    en: 'Images',
+    hu: 'Képek',
+  },
+  image: {
+    en: 'image',
+    hu: 'kép',
+  },
 });
