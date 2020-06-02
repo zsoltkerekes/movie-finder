@@ -139,4 +139,12 @@ export const textProvider: IProvider = (): IText => ({
     en: 'image',
     hu: 'kép',
   },
+  'Recommended videos': {
+    en: 'Recommended videos',
+    hu: 'Kapcsolódó Videók',
+  },
+  video: {
+    en: 'video',
+    hu: 'videó',
+  },
 });

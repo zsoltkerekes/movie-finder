@@ -1,6 +1,6 @@
 <div class="youtubeVideos text-center">
   <h2 *ngIf="this.videos.results.length > 0" class="mat-h2">
-    {{ getGlobal() ? 'Recommended videos:' : 'Kapcsolódó Videók:' }}
+    {{ recommendedVideos }}
   </h2>
 
   <div class="maximized-height">
@@ -12,7 +12,7 @@
         *ngFor="let video of videos.results; let i = index"
       >
         <p class="mat-body-1 text-center full-wide-width mat-body">
-          {{ video.name ? video.name : i + 1 + '. videó' }}
+          {{ video.name ? video.name : i + 1 + '. ' + videoText }}
           {{ video.iso_639_1 ? '(' + video.iso_639_1.toUpperCase() + ')' : '' }}
         </p>
       </mat-chip>
@@ -22,6 +22,7 @@
   <br />
 
   <iframe
+    [title]="videoSrc"
     *ngIf="videoSrc"
     class="video"
     [src]="videoSrc"
