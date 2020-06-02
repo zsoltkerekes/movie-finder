@@ -8,6 +8,7 @@
     "build": "ng build --prod --aot --build-optimizer --optimization true --common-chunk --vendor-chunk --service-worker --base-href /movie-finder/ --output-path docs --delete-output-path",
     "test": "ng test",
     "lint": "ng lint",
+    "sonarlint": "sonarlint --src src/**/*.* --tests *.test.ts",
     "e2e": "ng e2e",
     "update": "npx ng update --all --force && npm audit fix",
     "prettier-check": "prettier --check src",
@@ -60,6 +61,7 @@
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "protractor": "~7.0.0",
+    "sonarlint": "^1.1.0",
     "stylelint": "^13.5.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.17.2",
@@ -83,6 +85,7 @@
     "christian-kohler.npm-intellisense",
     "eamodio.gitlens",
     "waderyan.gitblame",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "sonarsource.sonarlint-vscode"
   ]
 }
