@@ -1,8 +1,8 @@
 import { ApiService } from '../../../services/api.service';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { Videos, videosData } from '../../../models/videos.model';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { LanguageService } from '../../../services/language.service';
+import { Videos, videosData } from '../../../interfaces/videos.interface';
 
 @Component({
   selector: 'mf-movie-videos',

@@ -1,5 +1,8 @@
 import { ApiService } from '../../../services/api.service';
-import { ListItem, listItemInitData } from '../../../models/listItem.model';
+import {
+  ListItem,
+  listItemInitData,
+} from '../../../interfaces/listItem.interface';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 

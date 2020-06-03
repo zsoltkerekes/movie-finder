@@ -3,7 +3,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import {
   PeopleMovieCredits,
   peopleMovieCreditsData,
-} from '../../../models/person.model';
+} from '../../../interfaces/person.interface';
 import { ApiService } from '../../../services/api.service';
 
 @Component({

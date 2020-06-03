@@ -1,9 +1,4 @@
-interface IText {
-  [key: string]: {
-    en: string;
-    hu: string;
-  };
-}
+import { IText } from '../interfaces/language.interface';
 
 type IProvider = () => IText;
 
@@ -146,5 +141,29 @@ export const textProvider: IProvider = (): IText => ({
   video: {
     en: 'video',
     hu: 'videó',
+  },
+  Movies: {
+    en: 'Movies',
+    hu: 'Filmek',
+  },
+  'No results': {
+    en: 'No results',
+    hu: 'Nincs találat',
+  },
+  Keyword: {
+    en: 'Keyword',
+    hu: 'Kulcsszó',
+  },
+  'Now playing': {
+    en: 'Now playing',
+    hu: 'Most a Mozikban',
+  },
+  Upcoming: {
+    en: 'Upcoming',
+    hu: 'Hamarosan a Mozikban',
+  },
+  'Choose a Movie genre': {
+    en: 'Choose a Movie genre',
+    hu: 'Válassz film műfajt',
   },
 });

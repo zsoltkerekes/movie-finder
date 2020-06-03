@@ -1,4 +1,4 @@
-<h2 class="text-center mat-h2">Keyword : {{ keyword | uppercase }}</h2>
+<h2 class="text-center mat-h2">{{ keywordText }}: {{ keyword | titlecase }}</h2>
 
 <mf-loading *ngIf="isLoading"></mf-loading>
 
@@ -9,7 +9,7 @@
 </div>
 
 <h2 *ngIf="movies && !movies.results.length" class="text-center mat-h2">
-  {{ getGlobal() ? 'No results' : 'Nincs találat:' }}
+  {{ noResultsText }}
 </h2>
 
 <mf-pagination

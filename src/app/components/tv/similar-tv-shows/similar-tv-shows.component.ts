@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ListItem, listItemInitData } from '../../../models/listItem.model';
+import {
+  ListItem,
+  listItemInitData,
+} from '../../../interfaces/listItem.interface';
 import { ApiService } from '../../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 

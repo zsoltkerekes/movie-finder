@@ -1,5 +1,5 @@
 <h2 class="text-center mat-h2">
-  {{ getGlobal() ? 'Now Playing:' : 'A mostanában mozikban lévő filmek:' }}
+  {{ nowPlaying }}
 </h2>
 
 <mf-loading *ngIf="isLoading"></mf-loading>
@@ -14,7 +14,7 @@
 </div>
 
 <h2 class="text-center mat-h2" *ngIf="nowPlayingMovies.results.length < 1">
-  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
+  {{ noResults }}
 </h2>
 
 <mf-pagination

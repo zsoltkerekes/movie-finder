@@ -1,7 +1,7 @@
-import { Images, imagesData } from '../../../models/images.model';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { LanguageService } from '../../../services/language.service';
+import { Images, imagesData } from '../../../interfaces/images.interface';
 
 @Component({
   selector: 'mf-movie-images',

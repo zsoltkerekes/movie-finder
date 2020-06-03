@@ -1,11 +1,15 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { ListItem, listItemInitData } from '../../../models/listItem.model';
+import {
+  ListItem,
+  listItemInitData,
+} from '../../../interfaces/listItem.interface';
 import { ApiService } from '../../../services/api.service';
 import { ObservablesService } from '../../../services/observables.service';
 
 import { Location } from '@angular/common';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-popular-movies',
@@ -19,14 +23,17 @@ export class PopularMoviesComponent implements OnInit {
   popularMovies: { results: Array<ListItem> };
   page: number;
   isLoading: boolean;
-  getGlobal = this.api.getGlobal;
   listGenres = this.api.getGenreList;
+
+  moviesText: string;
+  noResultText: string;
 
   constructor(
     private api: ApiService,
     private activatedRoute: ActivatedRoute,
     private observables: ObservablesService,
-    private location: Location
+    private location: Location,
+    private language: LanguageService
   ) {}
 
   loadMovies() {
@@ -64,6 +71,12 @@ export class PopularMoviesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.moviesText = this.language.getText('Movies', this.api.getGlobal());
+    this.noResultText = this.language.getText(
+      'No results',
+      this.api.getGlobal()
+    );
+
     this.observables.ngOnInit();
     this.activatedRoute.params.subscribe(() => this.loadMovies());
     this.observables.movieYearOption.subscribe(() => this.loadMovies());

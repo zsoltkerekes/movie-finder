@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { People, peopleData } from '../../../models/person.model';
+import { People, peopleData } from '../../../interfaces/person.interface';
 import { Title } from '@angular/platform-browser';
 import { ApiService } from '../../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';

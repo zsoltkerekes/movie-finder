@@ -8,7 +8,7 @@
     "build": "ng build --prod --aot --build-optimizer --optimization true --common-chunk --vendor-chunk --service-worker --base-href /movie-finder/ --output-path docs --delete-output-path",
     "test": "ng test",
     "lint": "ng lint",
-    "sonarlint": "sonarlint --src src/**/*.* --tests *.test.ts",
+    "sonarlint": "sonarlint --src src/**/*.* --exclude src/assets/**/*.*",
     "e2e": "ng e2e",
     "update": "npx ng update --all --force && npm audit fix",
     "prettier-check": "prettier --check src",

@@ -3,7 +3,7 @@ import { ApiService } from '../../../services/api.service';
 import {
   Collection,
   collectionInitData,
-} from '../../../models/collection.model';
+} from '../../../interfaces/collection.interface';
 
 @Component({
   selector: 'mf-movie-collection',

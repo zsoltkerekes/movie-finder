@@ -2,14 +2,25 @@ import { ConstantsService } from './constants.service';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { retry } from 'rxjs/operators';
+import { IGenres } from '../interfaces/genres.interface';
+
+const sortByName = (a, b) => {
+  if (a.name > b.name) {
+    return 1;
+  }
+  if (a.name < b.name) {
+    return -1;
+  }
+  return 0;
+};
 
 @Injectable()
 export class ApiService {
   genres = { name: String, id: Number };
-  genresArray: Array<{ id: Number; name: String }>;
+  genresArray: Array<IGenres>;
 
   tvGenres = { name: String, id: Number };
-  tvGenresArray: Array<{ id: Number; name: String }>;
+  tvGenresArray: Array<IGenres>;
 
   constructor(private http: Http, private constants: ConstantsService) {
     this.getAllPossibleGenres();
@@ -33,20 +44,12 @@ export class ApiService {
       response.json().genres.forEach((row) => {
         this.genres[row.id] = row.name;
       });
-      this.genresArray = response.json().genres.sort((a, b) => {
-        if (a.name > b.name) {
-          return 1;
-        }
-        if (a.name < b.name) {
-          return -1;
-        }
-        return 0;
-      });
+      this.genresArray = response.json().genres.sort(sortByName);
       this.getAllPossibleTvGenres();
     });
   };
 
-  getGenreList = (array: Array<Number> = []): String => {
+  getGenreList = (array: Array<number> = []): string => {
     const output = [];
     array.forEach((row) => {
       output.push(this.genres[row.toString()]);
@@ -105,15 +108,7 @@ export class ApiService {
         ...this.tvGenres,
       };
       const temp = [...this.genresArray, ...response.json().genres].sort(
-        (a, b) => {
-          if (a.name > b.name) {
-            return 1;
-          }
-          if (a.name < b.name) {
-            return -1;
-          }
-          return 0;
-        }
+        sortByName
       );
       const output = [];
       temp.forEach((value, index) => {
@@ -127,7 +122,7 @@ export class ApiService {
     });
   };
 
-  getTvGenreList = (array: Array<Number> = []): string => {
+  getTvGenreList = (array: Array<number> = []): string => {
     const output = [];
     array.forEach((row) => {
       output.push(this.tvGenres[row.toString()]);

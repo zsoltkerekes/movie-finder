@@ -1,7 +1,11 @@
-import { ListItem, listItemInitData } from '../../../models/listItem.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../services/api.service';
+import { LanguageService } from '../../../services/language.service';
+import {
+  ListItem,
+  listItemInitData,
+} from '../../../interfaces/listItem.interface';
 
 @Component({
   selector: 'mf-movies-by-genre',
@@ -17,14 +21,23 @@ export class MoviesByGenreComponent implements OnInit {
   moviesByGenre: { results: Array<ListItem> } = { results: [listItemInitData] };
   listGenres = this.api.getGenreList;
   genres = this.api.genres;
-  getGlobal = this.api.getGlobal;
+
+  movieText: string;
+  noResultsText: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
+    this.movieText = this.language.getText('Movies', this.api.getGlobal());
+    this.noResultsText = this.language.getText(
+      'No results',
+      this.api.getGlobal()
+    );
+
     this.activatedRoute.params.subscribe(() => {
       this.isLoading = true;
       document.documentElement.scrollTop = 0;

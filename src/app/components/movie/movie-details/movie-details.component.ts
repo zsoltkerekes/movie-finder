@@ -1,19 +1,16 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import {
-  MovieDetails,
-  movieDetailsData,
-} from '../../../models/MovieDetails.model';
 import { ApiService } from '../../../services/api.service';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LanguageService } from '../../../services/language.service';
+import {
+  MovieDetails,
+  movieDetailsData,
+} from '../../../interfaces/MovieDetails.interface';
+import { Query } from '../../../interfaces/query.interface';
 
 declare function escape(s: string): string;
 
-interface Query {
-  name: string;
-  url: string;
-}
 @Component({
   selector: 'mf-movie-details',
   templateUrl: './movie-details.component.html',

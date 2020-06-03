@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ApiService } from '../../../services/api.service';
-import { ListItem, listItemInitData } from '../../../models/listItem.model';
+import {
+  ListItem,
+  listItemInitData,
+} from '../../../interfaces/listItem.interface';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-movies-by-keyword',
@@ -15,16 +19,25 @@ export class MoviesByKeywordComponent implements OnInit {
   keyword: string;
   isLoading: boolean;
   movies: { results: Array<ListItem> };
-  getGlobal = this.api.getGlobal;
+
+  keywordText: string;
+  noResultsText: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private title: Title,
     private api: ApiService,
-    private router: Router
+    private router: Router,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
+    this.keywordText = this.language.getText('Keyword', this.api.getGlobal());
+    this.noResultsText = this.language.getText(
+      'No results',
+      this.api.getGlobal()
+    );
+
     this.activatedRoute.params.subscribe(() => {
       document.documentElement.scrollTop = 0;
       this.isLoading = true;

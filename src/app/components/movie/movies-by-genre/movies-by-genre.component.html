@@ -1,6 +1,4 @@
-<h2 class="text-center mat-h2">
-  {{ getGlobal() ? 'Movies' : 'Filmek' }} ({{ genres[id] }}):
-</h2>
+<h2 class="text-center mat-h2">{{ movieText }} ({{ genres[id] }})</h2>
 
 <mf-loading *ngIf="isLoading"></mf-loading>
 
@@ -14,7 +12,7 @@
 </div>
 
 <h2 class="text-center mat-h2" *ngIf="moviesByGenre.results.length < 1">
-  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
+  {{ noResultsText }}
 </h2>
 
 <mf-pagination

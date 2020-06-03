@@ -5,7 +5,7 @@ import {
   OnChanges,
   OnInit,
 } from '@angular/core';
-import { MovieDetails } from '../../../models/MovieDetails.model';
+import { MovieDetails } from '../../../interfaces/MovieDetails.interface';
 import { ApiService } from '../../../services/api.service';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';

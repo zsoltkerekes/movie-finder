@@ -1,7 +1,11 @@
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../services/api.service';
-import { ListItem, listItemInitData } from '../../../models/listItem.model';
+import {
+  ListItem,
+  listItemInitData,
+} from '../../../interfaces/listItem.interface';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-movies-now-playing',
@@ -15,14 +19,23 @@ export class MoviesNowPlayingComponent implements OnInit {
   page: number;
   isLoading: boolean;
   listGenres = this.api.getGenreList;
-  getGlobal = this.api.getGlobal;
+
+  nowPlaying: string;
+  noResults: string;
 
   constructor(
     private api: ApiService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
+    this.nowPlaying = this.language.getText(
+      'Now playing',
+      this.api.getGlobal()
+    );
+    this.noResults = this.language.getText('No results', this.api.getGlobal());
+
     this.activatedRoute.params.subscribe(() => {
       this.isLoading = true;
       this.nowPlayingMovies = { results: [listItemInitData] };

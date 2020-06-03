@@ -1,7 +1,11 @@
 import { ApiService } from '../../../services/api.service';
-import { ListItem, listItemInitData } from '../../../models/listItem.model';
+
 import { Component, Input, OnInit, DoCheck } from '@angular/core';
 import { LanguageService } from '../../../services/language.service';
+import {
+  ListItem,
+  listItemInitData,
+} from '../../../interfaces/listItem.interface';
 
 @Component({
   selector: 'mf-list-item',

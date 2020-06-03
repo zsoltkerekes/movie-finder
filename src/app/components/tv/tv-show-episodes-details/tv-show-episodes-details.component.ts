@@ -1,11 +1,11 @@
 import {
   TvShowEpisodes,
   tvShowEpisodesData,
-} from '../../../models/tv-show-episodes.model';
+} from '../../../interfaces/tv-show-episodes.interface';
 import {
   MovieDetails,
   movieDetailsData,
-} from '../../../models/MovieDetails.model';
+} from '../../../interfaces/MovieDetails.interface';
 import { Title } from '@angular/platform-browser';
 import { ApiService } from '../../../services/api.service';
 import { ActivatedRoute } from '@angular/router';

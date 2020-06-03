@@ -1,11 +1,11 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
+import { ApiService } from '../../../services/api.service';
+import { LanguageService } from '../../../services/language.service';
 import {
   PeopleMovieCredits,
   peopleMovieCreditsData,
-} from '../../../models/person.model';
-import { ApiService } from '../../../services/api.service';
-import { LanguageService } from '../../../services/language.service';
+} from '../../../interfaces/person.interface';
 
 @Component({
   selector: 'mf-movie-credits',
