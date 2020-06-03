@@ -16,7 +16,7 @@
     "stylelint-check": "stylelint \"src/**/*.scss\"",
     "stylelint-fix": "stylelint \"src/**/*.scss\" --fix",
     "fix-all": "npm run stylelint-fix && npm run prettier-fix",
-    "check-all": "npm run stylelint-check && npm run prettier-check && npm run lint"
+    "check-all": "npm run stylelint-check && npm run prettier-check && npm run lint && npm run sonarlint"
   },
   "private": true,
   "dependencies": {
