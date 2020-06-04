@@ -11,7 +11,6 @@ import { Images, imagesData } from '../../../interfaces/images.interface';
 export class MovieImagesComponent implements OnChanges, OnInit {
   @Input() id: number;
   images: Images[];
-  getGlobal = this.api.getGlobal;
   innerWidth: number;
 
   imagesText: string;

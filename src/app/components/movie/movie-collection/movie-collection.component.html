@@ -1,5 +1,5 @@
 <p class="mat-body-1">
-  <b>{{ collection.name }}</b
+  <strong>{{ collection.name }}</strong
   >: {{ collection.overview }}
 </p>
 <div class="maximized-height">
@@ -11,7 +11,7 @@
       [routerLink]="['/details', part.id]"
     >
       <p class="mat-body-1 text-center full-wide-width">
-        <b>{{ part.title ? part.title : '' }}</b>
+        <strong>{{ part.title ? part.title : '' }}</strong>
         {{
           part.original_title !== part.title
             ? ' (' + part.original_title + ')'

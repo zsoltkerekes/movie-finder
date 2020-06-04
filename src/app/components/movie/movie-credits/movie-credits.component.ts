@@ -25,11 +25,10 @@ export class MovieCreditsComponent implements OnChanges, OnInit {
   actAs: string;
   crew: string;
 
-  constructor(private api: ApiService, public language: LanguageService) {
-    this.innerWidth = window.innerWidth;
-  }
+  constructor(private api: ApiService, public language: LanguageService) {}
 
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
     this.placeholder = this.language.getText('Search', this.api.getGlobal());
     this.cast = this.language.getText('Cast', this.api.getGlobal());
     this.actAs = this.language.getText('act as', this.api.getGlobal());

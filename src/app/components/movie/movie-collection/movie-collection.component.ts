@@ -12,7 +12,6 @@ import {
 })
 export class MovieCollectionComponent implements OnChanges {
   @Input() id: number;
-  getGlobal = this.api.getGlobal;
   collection: Collection;
 
   constructor(private api: ApiService) {}

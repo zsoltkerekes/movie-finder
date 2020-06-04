@@ -18,7 +18,6 @@ export class MoviesNowPlayingComponent implements OnInit {
   nowPlayingMovies: { results: Array<ListItem> };
   page: number;
   isLoading: boolean;
-  listGenres = this.api.getGenreList;
 
   nowPlaying: string;
   noResults: string;

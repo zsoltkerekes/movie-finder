@@ -23,7 +23,6 @@ export class PopularMoviesComponent implements OnInit {
   popularMovies: { results: Array<ListItem> };
   page: number;
   isLoading: boolean;
-  listGenres = this.api.getGenreList;
 
   moviesText: string;
   noResultText: string;

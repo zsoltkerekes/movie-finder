@@ -166,4 +166,12 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Choose a Movie genre',
     hu: 'Válassz film műfajt',
   },
+  'Recommended movies': {
+    en: 'Recommended movies',
+    hu: 'Ajánlott filmek',
+  },
+  'Similar movies': {
+    en: 'Similar movies:',
+    hu: 'Hasonló filmek',
+  },
 });

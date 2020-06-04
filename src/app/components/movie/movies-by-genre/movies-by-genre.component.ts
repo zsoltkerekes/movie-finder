@@ -18,7 +18,7 @@ export class MoviesByGenreComponent implements OnInit {
   id: number;
   page: number;
   isLoading: boolean;
-  moviesByGenre: { results: Array<ListItem> } = { results: [listItemInitData] };
+  moviesByGenre: { results: Array<ListItem> };
   listGenres = this.api.getGenreList;
   genres = this.api.genres;
 
@@ -32,6 +32,7 @@ export class MoviesByGenreComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.moviesByGenre = { results: [listItemInitData] };
     this.movieText = this.language.getText('Movies', this.api.getGlobal());
     this.noResultsText = this.language.getText(
       'No results',
