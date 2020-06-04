@@ -174,4 +174,8 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Similar movies:',
     hu: 'Hasonló filmek',
   },
+  'Top rated movies': {
+    en: 'Similar movies:',
+    hu: 'Hasonló filmek',
+  },
 });

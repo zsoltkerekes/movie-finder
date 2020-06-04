@@ -6,6 +6,7 @@ import {
   listItemInitData,
 } from '../../../interfaces/listItem.interface';
 import { ApiService } from '../../../services/api.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-top-rated-movies',
@@ -18,15 +19,26 @@ export class TopRatedMoviesComponent implements OnInit {
   topRatedMovies: { results: Array<ListItem> };
   page: number;
   isLoading: boolean;
-  listGenres = this.api.getGenreList;
-  getGlobal = this.api.getGlobal;
+
+  topRatedMoviesText: string;
+  noResultText: string;
 
   constructor(
     private api: ApiService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
+    this.topRatedMoviesText = this.language.getText(
+      'Top rated movies',
+      this.api.getGlobal()
+    );
+    this.noResultText = this.language.getText(
+      'No results',
+      this.api.getGlobal()
+    );
+
     this.activatedRoute.params.subscribe(() => {
       this.isLoading = true;
       this.topRatedMovies = { results: [listItemInitData] };

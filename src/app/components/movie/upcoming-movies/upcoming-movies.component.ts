@@ -5,6 +5,7 @@ import {
   listItemInitData,
 } from '../../../interfaces/listItem.interface';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-upcoming-movies',
@@ -17,15 +18,23 @@ export class UpcomingMoviesComponent implements OnInit {
   upcomingMovies: { results: Array<ListItem> };
   page: number;
   isLoading: boolean;
-  listGenres = this.api.getGenreList;
-  getGlobal = this.api.getGlobal;
+
+  upcomingText: string;
+  noResultText: string;
 
   constructor(
     private api: ApiService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
+    this.upcomingText = this.language.getText('Upcoming', this.api.getGlobal());
+    this.noResultText = this.language.getText(
+      'No results',
+      this.api.getGlobal()
+    );
+
     this.activatedRoute.params.subscribe(() => {
       this.isLoading = true;
       this.upcomingMovies = { results: [listItemInitData] };
