@@ -4,13 +4,16 @@
       <div class="img-container">
         <mf-loading class="centerHorizontalVertical"></mf-loading>
         <img
-          [lazyLoad]="
-            person.profile_path
-              ? 'https://image.tmdb.org/t/p' + '/w500' + person.profile_path
-              : ''
-          "
-          [defaultImage]="'assets/image/no-pic.jpg'"
-          offset="100"
+          *ngIf="person.profile_path"
+          [lazyLoad]="'https://image.tmdb.org/t/p/w500' + person.profile_path"
+          [defaultImage]="'assets/image/1x1.png'"
+          [alt]="person.name"
+          [title]="person.name"
+        />
+        <img
+          *ngIf="!person.profile_path"
+          [lazyLoad]="'assets/image/no-pic.jpg'"
+          [defaultImage]="'assets/image/1x1.png'"
           [alt]="person.name"
           [title]="person.name"
         />
@@ -19,51 +22,55 @@
   </mat-card>
 
   <mat-card class="details">
+    <mf-loading
+      class="centerHorizontalVertical"
+      *ngIf="!person.name"
+    ></mf-loading>
     <mat-card-content>
-      <h2 class="mat-h2 title">
-        {{ person.name ? person.name : 'N/A' }}
-        {{ person.gender ? getGender(person.gender) : '' }}
+      <h2 class="mat-h2 title" *ngIf="person.name">
+        {{ person.name }}
+        {{ getGender(person.gender) }}
       </h2>
 
-      <p class="mat-body-1 overview">
-        {{ person.biography ? person.biography : 'N/A' }}
+      <p class="mat-body-1 overview" *ngIf="person.biography">
+        {{ person.biography }}
       </p>
 
-      <p class="mat-body-1 runtime">
+      <p class="mat-body-1" *ngIf="person.birthday">
         <span>
-          {{ getGlobal() ? 'Birthday:' : ' Születésnap:' }}
+          {{ birthdayText }}
         </span>
         <span>
-          {{ person.birthday ? person.birthday : 'N/A' }}
+          {{ person.birthday }}
           {{ person.place_of_birth ? '(' + person.place_of_birth + ')' : '' }}
         </span>
       </p>
 
-      <p class="mat-body-1 status">
+      <p class="mat-body-1" *ngIf="person.deathday">
         <span>
-          {{ getGlobal() ? 'Deathday:' : ' Meghalt:' }}
+          {{ deathDayText }}
         </span>
         <span>
-          {{ person.deathday ? person.deathday : 'N/A' }}
+          {{ person.deathday }}
         </span>
       </p>
 
-      <p class="mat-body-1 homepage">
+      <p class="mat-body-1 query" *ngIf="person.homepage">
         <span>
-          {{ person.homepage ? 'Homepage:' : '' }}
+          {{ homepageText }}
         </span>
-        <span *ngIf="person.homepage">
+        <span>
           <a [href]="person.homepage" target="_blank">
             {{ person.homepage }}
           </a>
         </span>
       </p>
 
-      <p class="mat-body-1 imdb">
+      <p class="mat-body-1 query" *ngIf="person.imdb_id">
         <span>
-          {{ person.imdb_id ? 'Imdb Homepage:' : '' }}
+          {{ 'Imdb ' + homepageText }}
         </span>
-        <span *ngIf="person.imdb_id">
+        <span>
           <a
             [href]="'https://www.imdb.com/name/' + person.imdb_id"
             target="_blank"
@@ -73,33 +80,20 @@
         </span>
       </p>
 
-      <p class="mat-body-1 youtube">
-        <span> Youtube {{ getGlobal() ? 'search:' : 'keresés:' }} </span>
-        <span>
-          <a
-            *ngIf="person.name"
-            [href]="
-              'https://www.youtube.com/results?search_query=' + person.name
-            "
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by name' : 'név alapján' }}
-          </a>
-        </span>
-      </p>
-
-      <p class="mat-body-1 google">
-        <span> Google {{ getGlobal() ? 'search:' : 'keresés:' }} </span>
-        <span>
-          <a
-            *ngIf="person.name"
-            [href]="'https://www.google.hu/search?q=' + person.name"
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by name' : 'név alapján' }}
-          </a>
-        </span>
-      </p>
+      <div *ngFor="let query of queries">
+        <p class="mat-body-1 query" *ngIf="person.name">
+          <span>{{ query.name }} {{ search }}: </span>
+          <span>
+            <a
+              *ngIf="person.name"
+              [href]="query.url + person.name"
+              target="_blank"
+            >
+              {{ byNameText + '(' + person.name + ')' }}
+            </a>
+          </span>
+        </p>
+      </div>
     </mat-card-content>
   </mat-card>
 </section>

@@ -126,6 +126,10 @@ export const textProvider: IProvider = (): IText => ({
     en: 'by original title',
     hu: 'eredeti cím alapján',
   },
+  'by name': {
+    en: 'by name',
+    hu: 'név alapján',
+  },
   Images: {
     en: 'Images',
     hu: 'Képek',
@@ -171,11 +175,27 @@ export const textProvider: IProvider = (): IText => ({
     hu: 'Ajánlott filmek',
   },
   'Similar movies': {
-    en: 'Similar movies:',
+    en: 'Similar movies',
     hu: 'Hasonló filmek',
   },
   'Top rated movies': {
-    en: 'Similar movies:',
+    en: 'Similar movies',
     hu: 'Hasonló filmek',
+  },
+  Man: {
+    en: 'Man',
+    hu: 'Férfi',
+  },
+  Woman: {
+    en: 'Woman',
+    hu: 'Nő',
+  },
+  Birthday: {
+    en: 'Birthday',
+    hu: 'Születésnap',
+  },
+  Deathday: {
+    en: 'Deathday',
+    hu: 'Meghalt',
   },
 });
