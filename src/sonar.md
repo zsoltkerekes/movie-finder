@@ -4,5 +4,6 @@ To use sonarqube locally:
 2. https://www.sonarqube.org/downloads/
 3. https://docs.sonarqube.org/latest/setup/get-started-2-minutes/
 4. start localhost:9000, wait to load
-5. npm run sonar
-6. check results
+5. https://www.npmjs.com/package/sonarqube-scanner maybe global install required
+6. npm run sonar
+7. check results
