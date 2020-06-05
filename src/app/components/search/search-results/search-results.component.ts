@@ -1,11 +1,15 @@
 import { ApiService } from '../../../services/api.service';
-import {
-  ListItem,
-  listItemInitData,
-} from '../../../interfaces/listItem.interface';
+import { listItemInitData } from '../../../interfaces/listItem.interface';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { setSortBy } from '../../../helpers/sort.helper';
+import { LanguageService } from '../../../services/language.service';
+import {
+  IKeywordsSearchResults,
+  IMovieSearchResults,
+  ITvShowSearchResults,
+  IPersonSearchResults,
+} from '../../../interfaces/search.interface';
 
 @Component({
   selector: 'mf-search-results',
@@ -22,45 +26,36 @@ export class SearchResultsComponent implements OnInit {
   isLoadingTv: boolean;
   isLoadingKeywords: boolean;
 
-  keywordsSearchResults: {
-    results: [
-      {
-        name: string;
-        id: number;
-      }
-    ];
-  };
+  keywordsSearchResults: IKeywordsSearchResults;
+  movieSearchResults: IMovieSearchResults;
+  tvShowSearchResults: ITvShowSearchResults;
+  personSearchResults: IPersonSearchResults;
 
-  movieSearchResults: {
-    results: Array<ListItem>;
-    page: number;
-    total_results: number;
-    total_pages: number;
-  };
-
-  tvShowSearchResults: {
-    results: Array<ListItem>;
-    page: number;
-    total_results: number;
-    total_pages: number;
-  };
-
-  personSearchResults: {
-    results: Array<ListItem>;
-    page: number;
-    total_results: number;
-    total_pages: number;
-  };
+  noResultsText: string;
+  keywordText: string;
+  MoviesText: string;
+  tvShowsText: string;
+  personsText: string;
 
   listGenres = this.api.getGenreList;
   getGlobal = this.api.getGlobal;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
+    this.noResultsText = this.language.getText(
+      'No results',
+      this.api.getGlobal()
+    );
+    this.keywordText = this.language.getText('Keywords', this.api.getGlobal());
+    this.MoviesText = this.language.getText('Movies', this.api.getGlobal());
+    this.tvShowsText = this.language.getText('Tv shows', this.api.getGlobal());
+    this.personsText = this.language.getText('Persons', this.api.getGlobal());
+
     this.activatedRoute.params.subscribe(() => {
       if (this.activatedRoute.snapshot.params['phrase']) {
         this.isLoadingMovie = true;

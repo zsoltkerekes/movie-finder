@@ -170,6 +170,10 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Keyword',
     hu: 'Kulcsszó',
   },
+  Keywords: {
+    en: 'Keywords',
+    hu: 'Kulcsszavak',
+  },
   'Now playing': {
     en: 'Now playing',
     hu: 'Most a Mozikban',
@@ -221,5 +225,9 @@ export const textProvider: IProvider = (): IText => ({
   Persons: {
     en: 'Persons',
     hu: 'Emberek',
+  },
+  chars: {
+    en: 'chars',
+    hu: 'karakter',
   },
 });

@@ -1,5 +1,5 @@
 <h2 *ngIf="phrase" class="text-center mat-h2" id="movie">
-  {{ getGlobal() ? 'Keywords:' : 'Keywords:' }}
+  {{ keywordText }}
 </h2>
 
 <mf-loading *ngIf="isLoadingKeywords"></mf-loading>
@@ -28,13 +28,13 @@
   "
   class="text-center mat-h3"
 >
-  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
+  {{ noResultsText }}
 </h3>
 
 <mat-divider *ngIf="phrase"></mat-divider>
 
 <h2 *ngIf="phrase" class="text-center mat-h2">
-  {{ getGlobal() ? 'Movies:' : 'Filmek:' }}
+  {{ MoviesText }}
 </h2>
 
 <mf-loading *ngIf="isLoadingMovie"></mf-loading>
@@ -57,7 +57,7 @@
   "
   class="text-center mat-h3"
 >
-  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
+  {{ noResultsText }}
 </h3>
 
 <mf-pagination
@@ -70,7 +70,7 @@
 <mat-divider *ngIf="phrase"></mat-divider>
 
 <h2 *ngIf="phrase" class="text-center mat-h2" id="tvShow">
-  {{ getGlobal() ? 'Tv Shows:' : 'Sorozatok:' }}
+  {{ tvShowsText }}
 </h2>
 
 <mf-loading *ngIf="isLoadingTv"></mf-loading>
@@ -93,7 +93,7 @@
   "
   class="text-center mat-h3"
 >
-  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
+  {{ noResultsText }}
 </h3>
 
 <mf-pagination
@@ -106,7 +106,7 @@
 <mat-divider *ngIf="phrase"></mat-divider>
 
 <h2 *ngIf="phrase" class="text-center mat-h2" id="person">
-  {{ getGlobal() ? 'Persons:' : 'Emberek:' }}
+  {{ personsText }}
 </h2>
 
 <mf-loading *ngIf="isLoadingPerson"></mf-loading>
@@ -127,7 +127,7 @@
   *ngIf="personSearchResults && !personSearchResults.results.length && phrase"
   class="text-center mat-h2"
 >
-  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
+  {{ noResultsText }}
 </h2>
 
 <mf-pagination

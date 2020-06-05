@@ -10,11 +10,13 @@
     (input)="inputChanged($event)"
     required="required"
   />
-  <mat-hint align="start">{{ hint }}</mat-hint>
+  <mat-hint align="start" *ngIf="message.value">{{ hint }}</mat-hint>
   <mat-hint
     align="end"
     [ngClass]="{
-      red: message.value.length < min || message.value.length >= max
+      red:
+        message.value &&
+        (message.value.length < min || message.value.length >= max)
     }"
     >{{ message.value.length }} / {{ max }}</mat-hint
   >
