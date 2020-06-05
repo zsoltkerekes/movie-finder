@@ -7,6 +7,7 @@
           *ngIf="person.profile_path"
           [lazyLoad]="'https://image.tmdb.org/t/p/w500' + person.profile_path"
           [defaultImage]="'assets/image/1x1.png'"
+          [errorImage]="'assets/image/error-image-generic.png'"
           [alt]="person.name"
           [title]="person.name"
         />
@@ -14,6 +15,7 @@
           *ngIf="!person.profile_path"
           [lazyLoad]="'assets/image/no-pic.jpg'"
           [defaultImage]="'assets/image/1x1.png'"
+          [errorImage]="'assets/image/error-image-generic.png'"
           [alt]="person.name"
           [title]="person.name"
         />

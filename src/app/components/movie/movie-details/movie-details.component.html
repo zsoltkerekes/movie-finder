@@ -7,6 +7,7 @@
           *ngIf="movie.poster_path"
           [lazyLoad]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
           [defaultImage]="'assets/image/1x1.png'"
+          [errorImage]="'assets/image/error-image-generic.png'"
           [alt]="movie.title"
           [title]="movie.title"
         />
@@ -14,6 +15,7 @@
           *ngIf="!movie.poster_path"
           [lazyLoad]="'assets/image/no-pic.jpg'"
           [defaultImage]="'assets/image/1x1.png'"
+          [errorImage]="'assets/image/error-image-generic.png'"
           [alt]="movie.title"
           [title]="movie.title"
         />

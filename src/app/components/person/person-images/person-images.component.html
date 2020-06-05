@@ -13,6 +13,7 @@
         *ngIf="image.file_path"
         class="pic"
         [lazyLoad]="'https://image.tmdb.org/t/p/w1280' + image.file_path"
+        [errorImage]="'assets/image/error-image-generic.png'"
         alt=""
       />
     </div>

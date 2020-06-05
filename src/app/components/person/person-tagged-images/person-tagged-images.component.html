@@ -22,6 +22,7 @@
         class="pic"
         [lazyLoad]="'https://image.tmdb.org/t/p/w1280' + image.file_path"
         [defaultImage]="'assets/image/1x1.png'"
+        [errorImage]="'assets/image/error-image-generic.png'"
         alt="{{ image.media.name || image.media.title }}"
         title="{{ image.media.name || image.media.title }}"
       />

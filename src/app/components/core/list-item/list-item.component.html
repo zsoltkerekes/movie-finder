@@ -50,6 +50,7 @@
         "
         [lazyLoad]="'assets/image/no-pic.jpg'"
         [defaultImage]="'assets/image/1x1.png'"
+        [errorImage]="'assets/image/error-image-generic.png'"
         alt="{{ this.language.na }}"
       />
       <img
@@ -60,6 +61,7 @@
         "
         offset="100"
         [defaultImage]="'assets/image/1x1.png'"
+        [errorImage]="'assets/image/error-image-generic.png'"
         alt="{{
           (movie && movie.title) ||
             (tvShow && tvShow.name) ||
