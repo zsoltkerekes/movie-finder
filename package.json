@@ -85,6 +85,7 @@
     "christian-kohler.npm-intellisense",
     "eamodio.gitlens",
     "waderyan.gitblame",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "sonarsource.sonarlint-vscode"
   ]
 }
