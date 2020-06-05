@@ -25,6 +25,10 @@ mat-card-content {
   background-color: $details-bg-color;
   padding: 1em;
   min-height: 500px;
+
+  &.with-poster {
+    min-height: 707px;
+  }
 }
 
 .query {

@@ -21,7 +21,7 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="details">
+  <mat-card class="details" [ngClass]="{ 'with-poster': person.profile_path }">
     <mf-loading
       class="centerHorizontalVertical"
       *ngIf="!person.name"
