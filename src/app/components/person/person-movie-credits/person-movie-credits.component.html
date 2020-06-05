@@ -5,12 +5,12 @@
   <br />
   <mat-divider></mat-divider>
   <br />
-  {{ getGlobal() ? 'Movies' : 'Filmek' }}
+  {{ moviesText }}
 </h2>
 
 <div *ngIf="movieCredits.cast.length">
   <h3 class="text-center mat-h3">
-    {{ getGlobal() ? 'Cast' : 'Szereplések, szinkronhangok, satöbbi' }}
+    {{ castText }}
   </h3>
 
   <mat-form-field class="full-width">
@@ -25,18 +25,20 @@
   </mat-form-field>
 
   <mat-radio-group (change)="onChange($event)" class="content-center">
-    <p class="mat-body-1">{{ getGlobal() ? 'Order' : 'Sorrend' }}:</p>
+    <p class="mat-body-1">
+      {{ orderText }}
+    </p>
     <mat-radio-button value="vote_average" color="primary" checked>
-      {{ getGlobal() ? 'By votes' : 'Szavazatok alapján' }}
+      {{ byVotesText }}
     </mat-radio-button>
     <mat-radio-button value="popularity" color="primary"
-      >{{ getGlobal() ? 'By popularity' : 'Népszerűség alapján' }}
+      >{{ byPopularityText }}
     </mat-radio-button>
-    <mat-radio-button value="title" color="primary">{{
-      getGlobal() ? 'By title' : 'Cím alapján'
-    }}</mat-radio-button>
+    <mat-radio-button value="title" color="primary">
+      {{ byTitleText }}
+    </mat-radio-button>
     <mat-radio-button value="release_date" color="primary"
-      >{{ getGlobal() ? 'By release date' : 'Év alapján' }}
+      >{{ byReleaseDateText }}
     </mat-radio-button>
   </mat-radio-group>
 
@@ -76,7 +78,7 @@
 
 <div *ngIf="movieCredits.crew && movieCredits.crew.length">
   <h3 class="text-center mat-h3">
-    {{ getGlobal() ? 'Crew' : 'Rendezések, forgatókönyvek, satöbbi' }}
+    {{ crewText }}
   </h3>
 
   <mat-form-field class="full-width">
@@ -107,10 +109,10 @@
         }}"
       >
         <span class="pull-left">
-          {{ movie.job ? movie.job : '(Hiányzó adat: Munkakör)' }}
+          {{ movie.job ? movie.job : language.na }}
           {{ movie.release_date ? '(' + movie.release_date + ')' : '' }}
         </span>
-        {{ movie.title ? movie.title : 'Hiányzó adat: (Film Cím)' }}
+        {{ movie.title ? movie.title : language.na }}
         {{
           movie.original_title && movie.original_title !== movie.title
             ? '(' + movie.original_title + ')'

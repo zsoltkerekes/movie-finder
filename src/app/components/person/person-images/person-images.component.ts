@@ -1,20 +1,27 @@
 import { Images, imagesData } from '../../../interfaces/images.interface';
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-person-images',
   templateUrl: './person-images.component.html',
   styleUrls: ['./person-images.component.scss'],
 })
-export class PersonImagesComponent implements OnChanges {
+export class PersonImagesComponent implements OnInit, OnChanges {
   @Input() id: number;
   images: Images[];
-  getGlobal = this.api.getGlobal;
   innerWidth: number;
 
-  constructor(private api: ApiService) {
+  imagesText: string;
+  imageText: string;
+
+  constructor(private api: ApiService, private language: LanguageService) {}
+
+  ngOnInit() {
     this.innerWidth = window.innerWidth;
+    this.imagesText = this.language.getText('Images', this.api.getGlobal());
+    this.imageText = this.language.getText('image', this.api.getGlobal());
   }
 
   ngOnChanges() {

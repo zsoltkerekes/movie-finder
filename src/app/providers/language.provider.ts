@@ -96,7 +96,7 @@ export const textProvider: IProvider = (): IText => ({
   },
   'Release date': {
     en: 'Release date',
-    hu: 'Premier dátuma',
+    hu: 'Megjelenés dátuma',
   },
   Budget: {
     en: 'Budget',
@@ -129,6 +129,18 @@ export const textProvider: IProvider = (): IText => ({
   'by name': {
     en: 'by name',
     hu: 'név alapján',
+  },
+  'by votes': {
+    en: 'by votes',
+    hu: 'szavazatok alapján',
+  },
+  'by popularity': {
+    en: 'by popularity',
+    hu: 'népszerűség alapján',
+  },
+  'by release date': {
+    en: 'by release date',
+    hu: 'Megjelenés dátuma alapján',
   },
   Images: {
     en: 'Images',
