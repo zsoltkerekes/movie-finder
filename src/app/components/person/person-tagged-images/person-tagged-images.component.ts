@@ -14,10 +14,16 @@ export class PersonTaggedImagesComponent implements OnInit, OnChanges {
   images: Images[];
   innerWidth: number;
 
-  constructor(public api: ApiService, public language: LanguageService) {}
+  taggedImagesText: string;
+
+  constructor(private api: ApiService, private language: LanguageService) {}
 
   ngOnInit() {
     this.innerWidth = window.innerWidth;
+    this.taggedImagesText = this.language.getText(
+      'Tagged Images from acts',
+      this.api.getGlobal()
+    );
   }
 
   ngOnChanges() {

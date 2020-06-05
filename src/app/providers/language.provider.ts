@@ -210,4 +210,8 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Deathday',
     hu: 'Meghalt',
   },
+  'Tagged Images from acts': {
+    en: 'Tagged Images from acts',
+    hu: 'Képek szerepléseiről',
+  },
 });
