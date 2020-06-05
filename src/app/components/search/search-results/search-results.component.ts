@@ -5,6 +5,7 @@ import {
 } from '../../../interfaces/listItem.interface';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { setSortBy } from '../../../helpers/sort.helper';
 
 @Component({
   selector: 'mf-search-results',
@@ -32,23 +33,23 @@ export class SearchResultsComponent implements OnInit {
 
   movieSearchResults: {
     results: Array<ListItem>;
-    page: Number;
-    total_results: Number;
-    total_pages: Number;
+    page: number;
+    total_results: number;
+    total_pages: number;
   };
 
   tvShowSearchResults: {
     results: Array<ListItem>;
-    page: Number;
-    total_results: Number;
-    total_pages: Number;
+    page: number;
+    total_results: number;
+    total_pages: number;
   };
 
   personSearchResults: {
     results: Array<ListItem>;
-    page: Number;
-    total_results: Number;
-    total_pages: Number;
+    page: number;
+    total_results: number;
+    total_pages: number;
   };
 
   listGenres = this.api.getGenreList;
@@ -111,15 +112,7 @@ export class SearchResultsComponent implements OnInit {
         const output = response.json();
         output.results = output.results.map((row) => row || {});
         const willBeSorted = output;
-        willBeSorted.results.sort((a, b) => {
-          if (a.popularity > b.popularity) {
-            return -1;
-          }
-          if (a.popularity < b.popularity) {
-            return 1;
-          }
-          return 0;
-        });
+        willBeSorted.results.sort(setSortBy('popularity'));
         this.movieSearchResults = willBeSorted;
         this.isLoadingMovie = false;
       });
@@ -141,15 +134,7 @@ export class SearchResultsComponent implements OnInit {
         const output = response.json();
         output.results = output.results.map((row) => row || {});
         const willBeSorted = output;
-        willBeSorted.results.sort((a, b) => {
-          if (a.popularity > b.popularity) {
-            return -1;
-          }
-          if (a.popularity < b.popularity) {
-            return 1;
-          }
-          return 0;
-        });
+        willBeSorted.results.sort(setSortBy('popularity'));
         this.tvShowSearchResults = willBeSorted;
         this.isLoadingTv = false;
       });
@@ -171,15 +156,7 @@ export class SearchResultsComponent implements OnInit {
         const output = response.json();
         output.results = output.results.map((row) => row || {});
         const willBeSorted = output;
-        willBeSorted.results.sort((a, b) => {
-          if (a.popularity > b.popularity) {
-            return -1;
-          }
-          if (a.popularity < b.popularity) {
-            return 1;
-          }
-          return 0;
-        });
+        willBeSorted.results.sort(setSortBy('popularity'));
         this.personSearchResults = willBeSorted;
         this.isLoadingPerson = false;
       });

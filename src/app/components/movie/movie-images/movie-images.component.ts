@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { LanguageService } from '../../../services/language.service';
 import { Images, imagesData } from '../../../interfaces/images.interface';
+import { setSortBy } from '../../../helpers/sort.helper';
 
 @Component({
   selector: 'mf-movie-images',
@@ -30,18 +31,10 @@ export class MovieImagesComponent implements OnChanges, OnInit {
       this.api.getMovieImages(this.id).subscribe((response) => {
         const output = response.json();
         this.images = [...output.backdrops, ...output.posters]
-          .filter((image) => {
-            return image.width <= 1920 && image.height <= 1440;
-          })
-          .sort((a, b) => {
-            if (a.vote_average < b.vote_average) {
-              return 1;
-            }
-            if (a.vote_average > b.vote_average) {
-              return -1;
-            }
-            return 0;
-          });
+          // .filter((image) => {
+          //   return image.width <= 1920 && image.height <= 1440;
+          // })
+          .sort(setSortBy('vote_average'));
       });
     }
   }

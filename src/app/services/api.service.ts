@@ -3,16 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { retry } from 'rxjs/operators';
 import { IGenres } from '../interfaces/genres.interface';
-
-const sortByName = (a, b) => {
-  if (a.name > b.name) {
-    return 1;
-  }
-  if (a.name < b.name) {
-    return -1;
-  }
-  return 0;
-};
+import { setSortBy } from '../helpers/sort.helper';
 
 @Injectable()
 export class ApiService {
@@ -44,7 +35,7 @@ export class ApiService {
       response.json().genres.forEach((row) => {
         this.genres[row.id] = row.name;
       });
-      this.genresArray = response.json().genres.sort(sortByName);
+      this.genresArray = response.json().genres.sort(setSortBy('name'));
       this.getAllPossibleTvGenres();
     });
   };
@@ -108,7 +99,7 @@ export class ApiService {
         ...this.tvGenres,
       };
       const temp = [...this.genresArray, ...response.json().genres].sort(
-        sortByName
+        setSortBy('name')
       );
       const output = [];
       temp.forEach((value, index) => {

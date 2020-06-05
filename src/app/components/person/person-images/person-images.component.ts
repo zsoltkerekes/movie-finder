@@ -2,6 +2,7 @@ import { Images, imagesData } from '../../../interfaces/images.interface';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { LanguageService } from '../../../services/language.service';
+import { setSortBy } from '../../../helpers/sort.helper';
 
 @Component({
   selector: 'mf-person-images',
@@ -33,15 +34,7 @@ export class PersonImagesComponent implements OnInit, OnChanges {
           // .filter(image => {
           //   return image.width <= 1920 && image.height <= 1500;
           // })
-          .sort((a, b) => {
-            if (a.vote_average < b.vote_average) {
-              return 1;
-            }
-            if (a.vote_average > b.vote_average) {
-              return -1;
-            }
-            return 0;
-          });
+          .sort(setSortBy('vote_average'));
       });
     }
   }

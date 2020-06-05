@@ -6,6 +6,7 @@ import {
 } from '../../../interfaces/listItem.interface';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LanguageService } from '../../../services/language.service';
+import { setSortBy } from '../../../helpers/sort.helper';
 
 @Component({
   selector: 'mf-upcoming-movies',
@@ -43,15 +44,7 @@ export class UpcomingMoviesComponent implements OnInit {
         const output = response.json();
         output.results = output.results.map((row) => row || {});
         const willBeSorted = output;
-        willBeSorted.results.sort((a, b) => {
-          if (a.popularity > b.popularity) {
-            return -1;
-          }
-          if (a.popularity < b.popularity) {
-            return 1;
-          }
-          return 0;
-        });
+        willBeSorted.results.sort(setSortBy('popularity'));
         this.upcomingMovies = willBeSorted;
         this.isLoading = false;
         if (this.container) {

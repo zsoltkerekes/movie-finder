@@ -5,6 +5,7 @@ import {
   peopleMovieCreditsData,
 } from '../../../interfaces/person.interface';
 import { ApiService } from '../../../services/api.service';
+import { setSortBy } from '../../../helpers/sort.helper';
 
 @Component({
   selector: 'mf-tv-show-credits',
@@ -33,24 +34,8 @@ export class TvShowCreditsComponent implements OnChanges {
     if (this.id) {
       this.api.getTvShowCredits(this.id).subscribe((response) => {
         const output = response.json();
-        output.cast = output.cast.sort((a, b) => {
-          if (a.order < b.order) {
-            return -1;
-          }
-          if (a.order > b.order) {
-            return 1;
-          }
-          return 0;
-        });
-        output.crew = output.crew.sort((a, b) => {
-          if (a.job < b.job) {
-            return -1;
-          }
-          if (a.job > b.job) {
-            return 1;
-          }
-          return 0;
-        });
+        output.cast = output.cast.sort(setSortBy('order'));
+        output.crew = output.crew.sort(setSortBy('job'));
         this.isLoading = false;
         this.movieCredits = output;
       });

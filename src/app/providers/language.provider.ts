@@ -64,7 +64,7 @@ export const textProvider: IProvider = (): IText => ({
   },
   Cast: {
     en: 'Cast',
-    hu: 'Szereplők',
+    hu: 'Szereplő',
   },
   'act as': {
     en: 'act as',

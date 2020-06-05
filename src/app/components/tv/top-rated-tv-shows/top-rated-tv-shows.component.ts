@@ -6,6 +6,7 @@ import {
   listItemInitData,
 } from '../../../interfaces/listItem.interface';
 import { ApiService } from '../../../services/api.service';
+import { setSortBy } from '../../../helpers/sort.helper';
 
 @Component({
   selector: 'mf-top-rated-tv-shows',
@@ -35,15 +36,7 @@ export class TopRatedTvShowsComponent implements OnInit {
         const output = response.json();
         output.results = output.results.map((row) => row || {});
         const willBeSorted = output;
-        willBeSorted.results.sort((a, b) => {
-          if (a.popularity > b.popularity) {
-            return -1;
-          }
-          if (a.popularity < b.popularity) {
-            return 1;
-          }
-          return 0;
-        });
+        willBeSorted.results.sort(setSortBy('popularity'));
         this.topRatedTvShows = willBeSorted;
         this.isLoading = false;
         if (this.container) {

@@ -1,19 +1,22 @@
 import { Images, imagesData } from '../../../interfaces/images.interface';
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
+import { LanguageService } from '../../../services/language.service';
+import { setSortBy } from '../../../helpers/sort.helper';
 
 @Component({
   selector: 'mf-person-tagged-images',
   templateUrl: './person-tagged-images.component.html',
   styleUrls: ['./person-tagged-images.component.scss'],
 })
-export class PersonTaggedImagesComponent implements OnChanges {
+export class PersonTaggedImagesComponent implements OnInit, OnChanges {
   @Input() id: number;
   images: Images[];
-  getGlobal = this.api.getGlobal;
   innerWidth: number;
 
-  constructor(private api: ApiService) {
+  constructor(public api: ApiService, public language: LanguageService) {}
+
+  ngOnInit() {
     this.innerWidth = window.innerWidth;
   }
 
@@ -26,15 +29,7 @@ export class PersonTaggedImagesComponent implements OnChanges {
           // .filter(image => {
           //   return image.width <= 1920 && image.height <= 1500;
           // })
-          .sort((a, b) => {
-            if (a.media.popularity < b.media.popularity) {
-              return 1;
-            }
-            if (a.media.popularity > b.media.popularity) {
-              return -1;
-            }
-            return 0;
-          });
+          .sort(setSortBy('popularity'));
       });
     }
   }

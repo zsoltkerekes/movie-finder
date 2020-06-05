@@ -4,6 +4,7 @@ import {
   peopleMovieCreditsData,
 } from '../../../interfaces/person.interface';
 import { Component, Input, OnChanges } from '@angular/core';
+import { setSortBy } from '../../../helpers/sort.helper';
 
 @Component({
   selector: 'mf-person-tv-credits',
@@ -28,24 +29,8 @@ export class PersonTvCreditsComponent implements OnChanges {
     if (this.id) {
       this.api.getPersonTvCredits(this.id).subscribe((response) => {
         const output = response.json();
-        output.cast = output.cast.sort((a, b) => {
-          if (a.vote_average < b.vote_average) {
-            return 1;
-          }
-          if (a.vote_average > b.vote_average) {
-            return -1;
-          }
-          return 0;
-        });
-        output.crew = output.crew.sort((a, b) => {
-          if (a.vote_average < b.vote_average) {
-            return 1;
-          }
-          if (a.vote_average > b.vote_average) {
-            return -1;
-          }
-          return 0;
-        });
+        output.cast = output.cast.sort(setSortBy('vote_average'));
+        output.crew = output.crew.sort(setSortBy('vote_average'));
         this.tvCredits = output;
       });
     }
