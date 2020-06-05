@@ -7,10 +7,10 @@ import { setSortBy } from '../helpers/sort.helper';
 
 @Injectable()
 export class ApiService {
-  genres = { name: String, id: Number };
+  genres = { name: '', id: 0 };
   genresArray: Array<IGenres>;
 
-  tvGenres = { name: String, id: Number };
+  tvGenres = { name: '', id: 0 };
   tvGenresArray: Array<IGenres>;
 
   constructor(private http: Http, private constants: ConstantsService) {

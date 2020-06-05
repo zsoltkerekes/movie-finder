@@ -9,8 +9,6 @@ import {
 } from '../../../interfaces/MovieDetails.interface';
 import { Query } from '../../../interfaces/query.interface';
 
-declare function escape(s: string): string;
-
 @Component({
   selector: 'mf-movie-details',
   templateUrl: './movie-details.component.html',
@@ -131,13 +129,13 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
 
   open() {
     window.open(
-      `http://bithumen.be/browse.php?search=${escape(
+      `http://bithumen.be/browse.php?search=${window.escape(
         this.movie.title.toString()
       )}`,
       '_blank'
     );
     window.open(
-      `https://ncore.cc/torrents.php?mire=${escape(
+      `https://ncore.cc/torrents.php?mire=${window.escape(
         this.movie.title.toString()
       )}`,
       '_blank'

@@ -1,6 +1,6 @@
 import { ApiService } from '../../../services/api.service';
 
-import { Component, Input, OnInit, DoCheck } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LanguageService } from '../../../services/language.service';
 import {
   ListItem,

@@ -1,6 +1,7 @@
 import { Component, DoCheck, ViewChild } from '@angular/core';
 
 import { ApiService } from '../../../services/api.service';
+import { IGenres } from '../../../interfaces/genres.interface';
 
 @Component({
   selector: 'mf-tv-recommended',
@@ -10,7 +11,7 @@ import { ApiService } from '../../../services/api.service';
 export class TvRecommendedComponent implements DoCheck {
   @ViewChild('pic', { static: false }) pic;
 
-  tvGenres: { id: Number; name: String }[];
+  tvGenres: IGenres[];
   getGlobal = this.api.getGlobal;
 
   constructor(private api: ApiService) {}

@@ -10,8 +10,6 @@ import { ApiService } from '../../../services/api.service';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
-declare function escape(s: string): string;
-
 @Component({
   selector: 'mf-tv-show-details',
   templateUrl: './tv-show-details.component.html',
@@ -73,13 +71,13 @@ export class TvShowDetailsComponent
 
   open() {
     window.open(
-      `http://bithumen.be/browse.php?search=${escape(
+      `http://bithumen.be/browse.php?search=${window.escape(
         this.tvShow.name.toString()
       )}`,
       '_blank'
     );
     window.open(
-      `https://ncore.cc/torrents.php?mire=${escape(
+      `https://ncore.cc/torrents.php?mire=${window.escape(
         this.tvShow.name.toString()
       )}`,
       '_blank'

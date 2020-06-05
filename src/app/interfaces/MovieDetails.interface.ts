@@ -1,3 +1,5 @@
+import { IGenres } from './genres.interface';
+
 export interface MovieDetails {
   title: string;
   name: string;
@@ -11,11 +13,11 @@ export interface MovieDetails {
   popularity: number;
   runtime: number;
   episode_run_time: number;
-  adult: Boolean;
+  adult: boolean;
   budget: number;
   revenue: number;
   created_by: Array<{ name: string }>;
-  genres: [{ id: number; name: string }];
+  genres: Array<IGenres>;
   homepage: string;
   imdb_id: string;
   backdrop_path: string;
