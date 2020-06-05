@@ -6,6 +6,7 @@ import {
   listItemInitData,
 } from '../../../interfaces/listItem.interface';
 import { ApiService } from '../../../services/api.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-top-rated-persons',
@@ -16,17 +17,26 @@ export class TopRatedPersonsComponent implements OnInit {
   @ViewChild('container', { static: false }) container;
 
   topRatedPersons: { results: Array<ListItem> };
+  listGenres = this.api.getGenreList;
   page: number;
   isLoading: boolean;
-  listGenres = this.api.getGenreList;
-  getGlobal = this.api.getGlobal;
+
+  noResultsText: string;
+  personsText: string;
 
   constructor(
     private api: ApiService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
+    this.noResultsText = this.language.getText(
+      'No results',
+      this.api.getGlobal()
+    );
+    this.personsText = this.language.getText('Persons', this.api.getGlobal());
+
     this.activatedRoute.params.subscribe(() => {
       this.isLoading = true;
       this.topRatedPersons = { results: [listItemInitData] };

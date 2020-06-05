@@ -214,4 +214,12 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Tagged Images from acts',
     hu: 'Képek szerepléseiről',
   },
+  'Tv shows': {
+    en: 'Tv shows',
+    hu: 'Sorozatok',
+  },
+  Persons: {
+    en: 'Persons',
+    hu: 'Emberek',
+  },
 });

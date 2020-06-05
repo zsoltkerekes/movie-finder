@@ -3,24 +3,35 @@ import {
   PeopleMovieCredits,
   peopleMovieCreditsData,
 } from '../../../interfaces/person.interface';
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { setSortBy } from '../../../helpers/sort.helper';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-person-tv-credits',
   templateUrl: './person-tv-credits.component.html',
   styleUrls: ['./person-tv-credits.component.scss'],
 })
-export class PersonTvCreditsComponent implements OnChanges {
+export class PersonTvCreditsComponent implements OnInit, OnChanges {
   @Input() id: number;
   tvCredits: PeopleMovieCredits;
-  getGlobal = this.api.getGlobal;
-  placeholder = this.api.getGlobal() ? 'Search..' : 'Keresés..';
-  searchCast: string;
-  searchCrew: string;
   listGenres = this.api.getTvGenreList;
 
-  constructor(private api: ApiService) {}
+  placeholder: string;
+  searchCast: string;
+  searchCrew: string;
+  crewText: string;
+  tvShowsText: string;
+  castText: string;
+
+  constructor(private api: ApiService, private language: LanguageService) {}
+
+  ngOnInit() {
+    this.placeholder = this.language.getText('Search', this.api.getGlobal());
+    this.crewText = this.language.getText('Crew', this.api.getGlobal());
+    this.tvShowsText = this.language.getText('Tv shows', this.api.getGlobal());
+    this.castText = this.language.getText('Cast', this.api.getGlobal());
+  }
 
   ngOnChanges() {
     this.tvCredits = peopleMovieCreditsData;
@@ -29,8 +40,8 @@ export class PersonTvCreditsComponent implements OnChanges {
     if (this.id) {
       this.api.getPersonTvCredits(this.id).subscribe((response) => {
         const output = response.json();
-        output.cast = output.cast.sort(setSortBy('vote_average'));
-        output.crew = output.crew.sort(setSortBy('vote_average'));
+        output.cast = [...output.cast].sort(setSortBy('vote_average'));
+        output.crew = [...output.crew].sort(setSortBy('vote_average'));
         this.tvCredits = output;
       });
     }
