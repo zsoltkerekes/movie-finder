@@ -1,10 +1,10 @@
-import { TopRatedPage } from './top-rated.po';
+import { KeywordPage } from './keyword.po';
 
-describe('movie-finder top-rated page', () => {
-  let page: TopRatedPage;
-  page = new TopRatedPage();
+describe('movie-finder keyword page', () => {
+  let page: KeywordPage;
 
   beforeAll(async () => {
+    page = new KeywordPage();
     await page.navigateTo();
   });
 
@@ -17,19 +17,9 @@ describe('movie-finder top-rated page', () => {
     expect(amount).toBeGreaterThan(1);
   });
 
-  it('should have tv cards listed', async () => {
-    const amount = await page.tvCardElements().count();
-    expect(amount).toBeGreaterThan(1);
-  });
-
-  it('should have movie cards listed', async () => {
-    const amount = await page.personCardElements().count();
-    expect(amount).toBeGreaterThan(1);
-  });
-
-  it('should have all three pagination element', async () => {
+  it('should have the pagination element', async () => {
     const amount = await page.paginationElements().count();
-    expect(amount).toEqual(3);
+    expect(amount).toEqual(1);
   });
 
   it('should display "Movie Finder" title in the footer', () => {

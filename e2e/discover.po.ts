@@ -25,6 +25,10 @@ export class DiscoverPage {
     return element(by.css('mf-root h1')).getText();
   }
 
+  buttonToTop() {
+    return element.all(by.css('button.toTop'));
+  }
+
   footerText() {
     return element(by.css('mf-root mf-footer p')).getText();
   }

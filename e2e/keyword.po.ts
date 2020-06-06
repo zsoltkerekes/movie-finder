@@ -1,8 +1,8 @@
 import { browser, by, element } from 'protractor';
 
-export class NowPlayingPage {
+export class KeywordPage {
   navigateTo() {
-    return browser.get('#/now-playing/1');
+    return browser.get('#/by-keywords/4565/1');
   }
 
   titleText() {
@@ -10,7 +10,7 @@ export class NowPlayingPage {
   }
 
   movieCardElements() {
-    return element.all(by.css('mf-now-playing mf-list-item'));
+    return element.all(by.css('mf-by-keywords mf-list-item'));
   }
 
   paginationElements() {

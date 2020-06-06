@@ -35,4 +35,9 @@ describe('movie-finder discover page', () => {
   it('should display "Movie Finder" title in the footer', () => {
     expect(page.footerText()).toContain('Movie Finder');
   });
+
+  it('should display button to top', async () => {
+    const amount = await page.buttonToTop().count();
+    expect(amount).toEqual(1);
+  });
 });

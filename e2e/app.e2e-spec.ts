@@ -26,4 +26,9 @@ describe('movie-finder main page', () => {
     const amount = await page.tvButtonElements().count();
     expect(amount).toBeGreaterThan(1);
   });
+
+  it('should display button to top', async () => {
+    const amount = await page.buttonToTop().count();
+    expect(amount).toEqual(1);
+  });
 });

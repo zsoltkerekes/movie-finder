@@ -48,6 +48,10 @@ export class SearchPage {
     );
   }
 
+  buttonToTop() {
+    return element.all(by.css('button.toTop'));
+  }
+
   footerText() {
     return element(by.css('mf-root mf-footer p')).getText();
   }

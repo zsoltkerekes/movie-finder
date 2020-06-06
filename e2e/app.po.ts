@@ -9,15 +9,19 @@ export class AppPage {
     return element(by.css('mf-root mf-header h1')).getText();
   }
 
-  footerText() {
-    return element(by.css('mf-root mf-footer p')).getText();
-  }
-
   movieButtonElements() {
     return element.all(by.css('mf-recommended button'));
   }
 
   tvButtonElements() {
     return element.all(by.css('mf-tv-recommended button'));
+  }
+
+  buttonToTop() {
+    return element.all(by.css('button.toTop'));
+  }
+
+  footerText() {
+    return element(by.css('mf-root mf-footer p')).getText();
   }
 }

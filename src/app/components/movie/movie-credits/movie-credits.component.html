@@ -14,7 +14,7 @@
     />
   </mat-form-field>
 
-  <div class="container">
+  <div class="container cast">
     <a
       *ngFor="let person of movieCredits.cast | search: searchCast"
       [routerLink]="['/person-details', person.id]"
@@ -61,7 +61,7 @@
     />
   </mat-form-field>
 
-  <div class="container">
+  <div class="container crew">
     <a
       *ngFor="let person of movieCredits.crew | search: searchCrew"
       [routerLink]="['/person-details', person.id]"
