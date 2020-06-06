@@ -1,8 +1,8 @@
-import { AppPage } from './app.po';
+import { DiscoverPage } from './discover.po';
 
-describe('movie-finder main page', () => {
-  let page: AppPage;
-  page = new AppPage();
+describe('movie-finder discover page', () => {
+  let page: DiscoverPage;
+  page = new DiscoverPage();
 
   beforeAll(async () => {
     await page.navigateTo();

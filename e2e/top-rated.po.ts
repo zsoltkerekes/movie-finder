@@ -1,12 +1,12 @@
 import { browser, by, element } from 'protractor';
 
-export class AppPage {
+export class TopRatedPage {
   navigateTo() {
-    return browser.get('/');
+    return browser.get('#/top-rated/1/1/1');
   }
 
   titleText() {
-    return element(by.css('mf-root mf-header h1')).getText();
+    return element(by.css('mf-root h1')).getText();
   }
 
   footerText() {

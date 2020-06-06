@@ -1,10 +1,10 @@
-import { AppPage } from './app.po';
+import { UpcomingPage } from './upcoming.po';
 
-describe('movie-finder main page', () => {
-  let page: AppPage;
-  page = new AppPage();
+describe('movie-finder upcoming page', () => {
+  let page: UpcomingPage;
 
   beforeAll(async () => {
+    page = new UpcomingPage();
     await page.navigateTo();
   });
 

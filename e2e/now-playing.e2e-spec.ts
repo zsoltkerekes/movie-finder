@@ -1,8 +1,8 @@
-import { AppPage } from './app.po';
+import { NowPlayingPage } from './now-playing.po';
 
-describe('movie-finder main page', () => {
-  let page: AppPage;
-  page = new AppPage();
+describe('movie-finder now playing page', () => {
+  let page: NowPlayingPage;
+  page = new NowPlayingPage();
 
   beforeAll(async () => {
     await page.navigateTo();

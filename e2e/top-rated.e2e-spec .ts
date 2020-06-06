@@ -1,8 +1,8 @@
-import { AppPage } from './app.po';
+import { TopRatedPage } from './top-rated.po';
 
-describe('movie-finder main page', () => {
-  let page: AppPage;
-  page = new AppPage();
+describe('movie-finder top-rated page', () => {
+  let page: TopRatedPage;
+  page = new TopRatedPage();
 
   beforeAll(async () => {
     await page.navigateTo();

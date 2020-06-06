@@ -1,8 +1,9 @@
-import { AppPage } from './app.po';
+import { SearchPage } from './search.po';
+import { async } from '@angular/core/testing';
 
-describe('movie-finder main page', () => {
-  let page: AppPage;
-  page = new AppPage();
+describe('movie-finder search page', () => {
+  let page: SearchPage;
+  page = new SearchPage();
 
   beforeAll(async () => {
     await page.navigateTo();
@@ -10,6 +11,10 @@ describe('movie-finder main page', () => {
 
   it('should display "Movie Finder" title in the header', () => {
     expect(page.titleText()).toEqual('Movie Finder');
+  });
+
+  it('should have a search field that is empty by default', () => {
+    expect(page.searchFieldText()).toEqual('');
   });
 
   it('should display "Movie Finder" title in the footer', () => {
