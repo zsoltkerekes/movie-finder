@@ -40,7 +40,7 @@
 <mf-loading *ngIf="isLoadingMovie"></mf-loading>
 
 <div
-  class="item-container"
+  class="movie item-container"
   *ngIf="movieSearchResults && phrase && !isLoadingMovie"
 >
   <a
@@ -76,7 +76,7 @@
 <mf-loading *ngIf="isLoadingTv"></mf-loading>
 
 <div
-  class="item-container"
+  class="tv item-container"
   *ngIf="tvShowSearchResults && phrase && !isLoadingTv"
 >
   <a
@@ -112,7 +112,7 @@
 <mf-loading *ngIf="isLoadingPerson"></mf-loading>
 
 <div
-  class="item-container"
+  class="person item-container"
   *ngIf="personSearchResults && phrase && !isLoadingPerson"
 >
   <a

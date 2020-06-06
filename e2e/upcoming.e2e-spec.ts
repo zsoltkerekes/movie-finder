@@ -12,6 +12,16 @@ describe('movie-finder upcoming page', () => {
     expect(page.titleText()).toEqual('Movie Finder');
   });
 
+  it('should have movie cards listed', async () => {
+    const amount = await page.movieCardElements().count();
+    expect(amount).toBeGreaterThan(1);
+  });
+
+  it('should have the pagination element', async () => {
+    const amount = await page.paginationElements().count();
+    expect(amount).toEqual(1);
+  });
+
   it('should display "Movie Finder" title in the footer', () => {
     expect(page.footerText()).toContain('Movie Finder');
   });
