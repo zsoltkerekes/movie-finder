@@ -230,4 +230,12 @@ export const textProvider: IProvider = (): IText => ({
     en: 'chars',
     hu: 'karakter',
   },
+  'Recommended Tv Shows': {
+    en: 'Recommended Tv Shows',
+    hu: 'Ajánlott sorozatok',
+  },
+  'Similar Tv shows': {
+    en: 'Similar Tv shows',
+    hu: 'Hasonló sorozatok',
+  },
 });

@@ -2,8 +2,8 @@
   <mat-form-field class="select">
     <mat-select
       [(value)]="tvShowSelected"
-      [placeholder]="placeholderOrder"
       (selectionChange)="setTvShowSortByOption($event)"
+      [placeholder]="placeholderOrder"
     >
       <mat-option *ngFor="let option of sortByOptions" [value]="option.value">
         {{ option.name }}
@@ -16,10 +16,9 @@
       matInput
       type="number"
       [placeholder]="placeholder"
-      min="1800"
       [value]="tvShowYear"
-      max="2100"
-      (change)="setTvShowYearOption($event)"
+      [(ngModel)]="tvShowYear"
+      (input)="setTvShowYearOption($event)"
     />
   </mat-form-field>
 

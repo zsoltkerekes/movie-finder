@@ -5,6 +5,7 @@ import {
 } from '../../../interfaces/listItem.interface';
 import { ApiService } from '../../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-similar-tv-shows',
@@ -15,21 +16,27 @@ export class SimilarTvShowsComponent implements OnInit {
   @ViewChild('container', { static: true }) container;
 
   id: number;
-
-  similarTvShows: { results: Array<ListItem> } = {
-    results: [listItemInitData],
-  };
+  similarTvShowsText: string;
+  similarTvShows: { results: Array<ListItem> };
 
   listGenres = this.api.getTvGenreList;
   genres = this.api.tvGenres;
-  getGlobal = this.api.getGlobal;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
+    this.similarTvShows = {
+      results: [listItemInitData],
+    };
+    this.similarTvShowsText = this.language.getText(
+      'Similar Tv shows',
+      this.api.getGlobal()
+    );
+
     this.activatedRoute.params.subscribe(() => {
       this.container.nativeElement.scrollLeft = 0;
       this.id = +this.activatedRoute.snapshot.params['id'];

@@ -1,6 +1,7 @@
 import { ApiService } from '../../../services/api.service';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { ObservablesService } from '../../../services/observables.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-discover-tv-options',
@@ -18,7 +19,8 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
 
   constructor(
     private api: ApiService,
-    private observables: ObservablesService
+    private observables: ObservablesService,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
@@ -30,8 +32,11 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
     this.selectedTvShowGenres = this.observables.tvWithGenresOption
       .getValue()
       .map((str: any) => parseInt(str, 10));
-    this.placeholder = this.api.getGlobal() ? 'Year' : 'Év';
-    this.placeholderOrder = this.api.getGlobal() ? 'Order' : 'Sorrend';
+    this.placeholder = this.language.getText('Year', this.api.getGlobal());
+    this.placeholderOrder = this.language.getText(
+      'Order',
+      this.api.getGlobal()
+    );
   }
 
   ngDoCheck() {
@@ -42,8 +47,20 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
 
   setTvShowSortByOption = (event) =>
     this.observables.sortTvShowByOption.next(event.value);
-  setTvShowYearOption = (event) =>
-    this.observables.tvShowYearOption.next(event.target.value);
+
+  setTvShowYearOption = (event) => {
+    const thisYear: number = new Date().getFullYear();
+    const range = 300;
+    if (
+      isNaN(event.target.value) ||
+      event.target.value > thisYear + range ||
+      event.target.value < thisYear - range
+    ) {
+      this.tvShowYear = thisYear;
+      return this.observables.tvShowYearOption.next(thisYear);
+    }
+    return this.observables.tvShowYearOption.next(event.target.value);
+  };
 
   setTvShowGenre = (id, event) => {
     if (event.checked) {

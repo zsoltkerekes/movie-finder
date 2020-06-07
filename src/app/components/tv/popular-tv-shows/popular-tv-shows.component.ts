@@ -9,6 +9,7 @@ import { ApiService } from '../../../services/api.service';
 import { ObservablesService } from '../../../services/observables.service';
 
 import { Location } from '@angular/common';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-popular-tv-shows',
@@ -22,14 +23,16 @@ export class PopularTvShowsComponent implements OnInit {
   popularTvShows: { results: Array<ListItem> };
   page: number;
   isLoading: boolean;
-  listGenres = this.api.getGenreList;
-  getGlobal = this.api.getGlobal;
+
+  tvShowsText: string;
+  noResultText: string;
 
   constructor(
     private api: ApiService,
     private activatedRoute: ActivatedRoute,
     private observables: ObservablesService,
-    private location: Location
+    private location: Location,
+    private language: LanguageService
   ) {}
 
   loadTvShows() {
@@ -65,6 +68,12 @@ export class PopularTvShowsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.tvShowsText = this.language.getText('Tv shows', this.api.getGlobal());
+    this.noResultText = this.language.getText(
+      'No results',
+      this.api.getGlobal()
+    );
+
     this.activatedRoute.params.subscribe(() => this.loadTvShows());
     this.observables.tvShowYearOption.subscribe(() => this.loadTvShows());
     this.observables.sortTvShowByOption.subscribe(() => this.loadTvShows());

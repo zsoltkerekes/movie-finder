@@ -46,6 +46,7 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
 
   setMovieSortByOption = (event) =>
     this.observables.sortMovieByOption.next(event.value);
+
   setMovieYearOption = (event) => {
     const thisYear: number = new Date().getFullYear();
     const range = 300;
