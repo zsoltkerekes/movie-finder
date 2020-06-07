@@ -12,6 +12,7 @@ import { LanguageService } from '../../../services/language.service';
 export class RecommendedComponent implements OnInit, DoCheck {
   genres: IGenres[];
   chooseMovieGenre: string;
+  loading: string;
 
   constructor(private api: ApiService, private language: LanguageService) {}
 
@@ -20,11 +21,12 @@ export class RecommendedComponent implements OnInit, DoCheck {
       'Choose a Movie genre',
       this.api.getGlobal()
     );
+    this.loading = this.language.getText('Loading', this.api.getGlobal());
   }
 
   ngDoCheck() {
     this.genres = this.api.genresArray
       ? [...this.api.genresArray]
-      : [{ id: 1, name: 'Loading...' }];
+      : [{ id: 1, name: this.loading }];
   }
 }

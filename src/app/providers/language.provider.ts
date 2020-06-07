@@ -242,4 +242,12 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Top rated tv shows',
     hu: 'Legjobb sorozatok',
   },
+  'Choose a tv series genre': {
+    en: 'Choose a tv series genre',
+    hu: 'Válassz sorozat műfajt',
+  },
+  Loading: {
+    en: 'Loading..',
+    hu: 'Töltés..',
+  },
 });
