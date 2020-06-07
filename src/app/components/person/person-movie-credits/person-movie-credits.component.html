@@ -42,7 +42,10 @@
     </mat-radio-button>
   </mat-radio-group>
 
-  <div class="container" *ngIf="movieCredits.cast && movieCredits.cast.length">
+  <div
+    class="container cast"
+    *ngIf="movieCredits.cast && movieCredits.cast.length"
+  >
     <a
       *ngFor="let movie of movieCredits.cast | search: searchCast"
       [routerLink]="['/details', movie.id]"
@@ -92,7 +95,7 @@
     />
   </mat-form-field>
 
-  <div class="container">
+  <div class="container crew">
     <a
       *ngFor="let movie of movieCredits.crew | search: searchCrew"
       [routerLink]="['/details', movie.id]"

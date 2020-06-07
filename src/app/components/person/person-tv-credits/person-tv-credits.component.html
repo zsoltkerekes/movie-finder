@@ -24,7 +24,7 @@
     />
   </mat-form-field>
 
-  <div class="container">
+  <div class="container crew">
     <a
       *ngFor="let tv of tvCredits.crew | search: searchCrew"
       [routerLink]="['/tv-details', tv.id]"
@@ -73,7 +73,7 @@
     />
   </mat-form-field>
 
-  <div class="container">
+  <div class="container cast">
     <a
       *ngFor="let tv of tvCredits.cast | search: searchCast"
       [routerLink]="['/tv-details', tv.id]"
