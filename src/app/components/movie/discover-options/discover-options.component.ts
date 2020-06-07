@@ -24,13 +24,19 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
   ) {}
 
   ngOnInit() {
-    this.movieYear = this.observables.movieYearOption.getValue();
+    this.movieYear =
+      this.observables.movieYearOption &&
+      this.observables.movieYearOption.getValue();
+    this.movieSelected =
+      this.observables.sortMovieByOption &&
+      this.observables.sortMovieByOption.getValue();
+    this.selectedMovieGenres =
+      this.observables.withGenresOption &&
+      this.observables.withGenresOption
+        .getValue()
+        .map((str: any) => parseInt(str, 10));
     this.sortByOptions = this.api.getSortByOptions();
-    this.movieSelected = this.observables.sortMovieByOption.getValue();
     this.movieGenres = this.api.getGenresArray();
-    this.selectedMovieGenres = this.observables.withGenresOption
-      .getValue()
-      .map((str: any) => parseInt(str, 10));
     this.placeholder = this.language.getText('Year', this.api.getGlobal());
     this.placeholderOrder = this.language.getText(
       'Order',

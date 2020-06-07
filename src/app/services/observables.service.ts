@@ -14,24 +14,28 @@ export class ObservablesService implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    const params = this.activatedRoute.snapshot.children['0'].firstChild.params;
+    const params =
+      this.activatedRoute &&
+      this.activatedRoute.snapshot &&
+      this.activatedRoute.snapshot.children['0'] &&
+      this.activatedRoute.snapshot.children['0'].firstChild.params;
     this.sortMovieByOption = new BehaviorSubject<string>(
-      params['sortMovieBy'] || 'popularity.desc'
+      (params && params['sortMovieBy']) || 'popularity.desc'
     );
     this.sortTvShowByOption = new BehaviorSubject<string>(
-      params['sortTvShowBy'] || 'popularity.desc'
+      (params && params['sortTvShowBy']) || 'popularity.desc'
     );
     this.movieYearOption = new BehaviorSubject<number>(
-      +params['movieYear'] || new Date().getFullYear()
+      (params && +params['movieYear']) || new Date().getFullYear()
     );
     this.tvShowYearOption = new BehaviorSubject<number>(
-      +params['tvShowYear'] || new Date().getFullYear()
+      (params && +params['tvShowYear']) || new Date().getFullYear()
     );
     this.withGenresOption = new BehaviorSubject<number[]>(
-      params['withGenres'] ? params['withGenres'].split(',') : [0]
+      params && params['withGenres'] ? params['withGenres'].split(',') : [0]
     );
     this.tvWithGenresOption = new BehaviorSubject<number[]>(
-      params['tvWithGenres'] ? params['tvWithGenres'].split(',') : [0]
+      params && params['tvWithGenres'] ? params['tvWithGenres'].split(',') : [0]
     );
   }
 }

@@ -9,6 +9,7 @@ import { ApiService } from '../../../services/api.service';
 import { ObservablesService } from '../../../services/observables.service';
 import { LanguageService } from '../../../services/language.service';
 import { ConstantsService } from '../../../services/constants.service';
+import { SearchPipe } from '../../../pipes/search.pipe';
 
 describe('PersonMovieCreditsComponent', () => {
   let component: PersonMovieCreditsComponent;
@@ -16,17 +17,17 @@ describe('PersonMovieCreditsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PersonMovieCreditsComponent],
+      declarations: [PersonMovieCreditsComponent, SearchPipe],
       imports: [
         HttpModule,
         HttpClientTestingModule,
-        MaterialModule,
+        // MaterialModule,
         RouterTestingModule,
       ],
       providers: [
         ApiService,
-        ObservablesService,
-        LanguageService,
+        // ObservablesService,
+        // LanguageService,
         ConstantsService,
         ObservablesService,
       ],

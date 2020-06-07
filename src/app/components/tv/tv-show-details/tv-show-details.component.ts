@@ -5,7 +5,10 @@ import {
   OnChanges,
   OnInit,
 } from '@angular/core';
-import { MovieDetails } from '../../../interfaces/MovieDetails.interface';
+import {
+  MovieDetails,
+  movieDetailsData,
+} from '../../../interfaces/MovieDetails.interface';
 import { ApiService } from '../../../services/api.service';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -45,12 +48,12 @@ export class TvShowDetailsComponent
     private api: ApiService,
     private title: Title,
     private activatedRoute: ActivatedRoute
-  ) {
-    this.innerWidth = window.innerWidth;
-  }
+  ) {}
 
   ngOnInit() {
     this.loading = true;
+    this.innerWidth = window.innerWidth;
+    this.tvShow = movieDetailsData;
   }
 
   ngOnChanges() {

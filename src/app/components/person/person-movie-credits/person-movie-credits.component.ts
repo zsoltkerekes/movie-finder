@@ -33,6 +33,7 @@ export class PersonMovieCreditsComponent implements OnInit, OnChanges {
   constructor(private api: ApiService, public language: LanguageService) {}
 
   ngOnInit() {
+    this.movieCredits = peopleMovieCreditsData;
     this.placeholder = this.language.getText('Search', this.api.getGlobal());
     this.moviesText = this.language.getText('Movies', this.api.getGlobal());
     this.castText = this.language.getText('Cast', this.api.getGlobal());

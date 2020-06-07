@@ -1,4 +1,4 @@
-<mat-tab-group>
+<mat-tab-group *ngIf="tvShow">
   <mat-tab
     *ngFor="let season of tvShow.seasons; let i = index"
     [label]="season.name || season.season_number || i"

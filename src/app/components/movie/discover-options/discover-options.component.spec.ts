@@ -9,6 +9,7 @@ import { ApiService } from '../../../services/api.service';
 import { ObservablesService } from '../../../services/observables.service';
 import { LanguageService } from '../../../services/language.service';
 import { ConstantsService } from '../../../services/constants.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DiscoverOptionsComponent', () => {
   let component: DiscoverOptionsComponent;
@@ -17,6 +18,7 @@ describe('DiscoverOptionsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        BrowserAnimationsModule,
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

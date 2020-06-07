@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import {
   Collection,
@@ -11,7 +11,7 @@ import { setSortBy } from '../../../helpers/sort.helper';
   templateUrl: './movie-collection.component.html',
   styleUrls: ['./movie-collection.component.scss'],
 })
-export class MovieCollectionComponent implements OnChanges {
+export class MovieCollectionComponent implements OnInit, OnChanges {
   @Input() id: number;
   collection: Collection;
 
@@ -26,6 +26,10 @@ export class MovieCollectionComponent implements OnChanges {
         this.collection = output;
       });
     }
+  }
+
+  ngOnInit() {
+    this.collection = collectionInitData;
   }
 
   ngOnChanges() {

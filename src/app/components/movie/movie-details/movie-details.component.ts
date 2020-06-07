@@ -46,6 +46,7 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit() {
+    this.movie = movieDetailsData;
     this.innerWidth = window.innerWidth;
     this.genres = this.language.getText('Genres', this.api.getGlobal());
     this.originalLanguage = this.language.getText(

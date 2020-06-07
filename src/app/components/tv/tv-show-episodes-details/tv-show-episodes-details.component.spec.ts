@@ -9,6 +9,7 @@ import { ApiService } from '../../../services/api.service';
 import { ObservablesService } from '../../../services/observables.service';
 import { LanguageService } from '../../../services/language.service';
 import { ConstantsService } from '../../../services/constants.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('TvShowEpisodesDetailsComponent', () => {
   let component: TvShowEpisodesDetailsComponent;
@@ -18,6 +19,7 @@ describe('TvShowEpisodesDetailsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [TvShowEpisodesDetailsComponent],
       imports: [
+        BrowserAnimationsModule,
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,
