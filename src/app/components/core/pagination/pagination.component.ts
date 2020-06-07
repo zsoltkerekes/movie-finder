@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { ObservablesService } from '../../../services/observables.service';
 import { LanguageService } from '../../../services/language.service';
@@ -9,7 +9,7 @@ import { LanguageService } from '../../../services/language.service';
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss'],
 })
-export class PaginationComponent implements OnChanges {
+export class PaginationComponent implements OnInit, OnChanges {
   @Input() results: any;
   @Input() url: string;
   @Input() type: string;
@@ -37,6 +37,15 @@ export class PaginationComponent implements OnChanges {
     private observables: ObservablesService,
     public language: LanguageService
   ) {}
+
+  ngOnInit() {
+    this.pagination = {
+      total_pages: 0,
+      total_results: 0,
+      page: 0,
+      links: [],
+    };
+  }
 
   ngOnChanges() {
     this.moviePage = +this.activatedRoute.snapshot.params['moviePage'] || 1;

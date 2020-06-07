@@ -1,6 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaginationComponent } from './pagination.component';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../../services/api.service';
+import { ObservablesService } from '../../../services/observables.service';
+import { LanguageService } from '../../../services/language.service';
+import { HttpModule } from '@angular/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MaterialModule } from '../../../shared-modules/material/material.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ConstantsService } from '../../../services/constants.service';
 
 describe('PaginationComponent', () => {
   let component: PaginationComponent;
@@ -8,7 +17,20 @@ describe('PaginationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        HttpModule,
+        HttpClientTestingModule,
+        MaterialModule,
+        RouterTestingModule,
+      ],
       declarations: [PaginationComponent],
+      providers: [
+        ApiService,
+        ObservablesService,
+        LanguageService,
+        ConstantsService,
+        ObservablesService,
+      ],
     }).compileComponents();
   }));
 

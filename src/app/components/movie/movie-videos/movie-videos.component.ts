@@ -40,6 +40,7 @@ export class MovieVideosComponent implements OnInit, OnChanges {
       this.api.getGlobal()
     );
     this.videoText = this.language.getText('video', this.api.getGlobal());
+    this.videos = videosData;
   }
 
   ngOnChanges() {
