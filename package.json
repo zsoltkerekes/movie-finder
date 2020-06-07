@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve -o --aot",
     "build": "ng build --prod --aot --build-optimizer --optimization true --common-chunk --vendor-chunk --service-worker --base-href /movie-finder/ --output-path docs --delete-output-path",
-    "test": "ng test --codeCoverage=true",
+    "test": "ng test --codeCoverage=true --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e --port 6200",
     "update": "npx ng update --all --force && npm audit fix",
