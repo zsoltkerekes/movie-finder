@@ -5,10 +5,6 @@ export class MovieDetailsPage {
     return browser.get('#/details/218');
   }
 
-  titleText() {
-    return element.all(by.css('mf-root h1')).first().getText();
-  }
-
   moviePoster() {
     return element.all(by.css('mat-card.poster img'));
   }
@@ -93,13 +89,5 @@ export class MovieDetailsPage {
 
   setInputToSearchCastFieldText(searchPhrase: string) {
     element(by.css('mf-movie-credits #searchCast')).sendKeys(searchPhrase);
-  }
-
-  buttonToTop() {
-    return element.all(by.css('button.toTop'));
-  }
-
-  footerText() {
-    return element(by.css('mf-root mf-footer p')).getText();
   }
 }

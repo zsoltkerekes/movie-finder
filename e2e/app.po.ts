@@ -5,23 +5,11 @@ export class AppPage {
     return browser.get('/');
   }
 
-  titleText() {
-    return element.all(by.css('mf-root h1')).first().getText();
-  }
-
   movieButtonElements() {
     return element.all(by.css('mf-recommended button'));
   }
 
   tvButtonElements() {
     return element.all(by.css('mf-tv-recommended button'));
-  }
-
-  buttonToTop() {
-    return element.all(by.css('button.toTop'));
-  }
-
-  footerText() {
-    return element(by.css('mf-root mf-footer p')).getText();
   }
 }

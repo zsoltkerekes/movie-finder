@@ -1,15 +1,18 @@
 import { KeywordPage } from './keyword.po';
+import { Common } from './common.po';
 
 describe('movie-finder keyword page', () => {
   let page: KeywordPage;
+  page = new KeywordPage();
+
+  const common = new Common();
 
   beforeAll(async () => {
-    page = new KeywordPage();
     await page.navigateTo();
   });
 
   it('should display "Movie Finder" title in the header', () => {
-    expect(page.titleText()).toEqual('Movie Finder');
+    expect(common.titleText()).toEqual('Movie Finder');
   });
 
   it('should have movie cards listed', async () => {
@@ -23,11 +26,11 @@ describe('movie-finder keyword page', () => {
   });
 
   it('should display "Movie Finder" title in the footer', () => {
-    expect(page.footerText()).toContain('Movie Finder');
+    expect(common.footerText()).toContain('Movie Finder');
   });
 
   it('should display button to top', async () => {
-    const amount = await page.buttonToTop().count();
+    const amount = await common.buttonToTop().count();
     expect(amount).toEqual(1);
   });
 });

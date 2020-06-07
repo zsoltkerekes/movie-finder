@@ -195,8 +195,8 @@ export const textProvider: IProvider = (): IText => ({
     hu: 'Hasonló filmek',
   },
   'Top rated movies': {
-    en: 'Similar movies',
-    hu: 'Hasonló filmek',
+    en: 'Top rated movies',
+    hu: 'Legjobb filmek',
   },
   Man: {
     en: 'Man',
@@ -237,5 +237,9 @@ export const textProvider: IProvider = (): IText => ({
   'Similar Tv shows': {
     en: 'Similar Tv shows',
     hu: 'Hasonló sorozatok',
+  },
+  'Top rated tv shows': {
+    en: 'Top rated tv shows',
+    hu: 'Legjobb sorozatok',
   },
 });

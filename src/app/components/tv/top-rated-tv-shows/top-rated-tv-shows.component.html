@@ -1,5 +1,5 @@
 <h2 class="text-center mat-h2" id="tvShow">
-  {{ getGlobal() ? 'Top rated tv shows' : ' Legjobb Sorozatok:' }}
+  {{ topRatedTvShowsText }}
 </h2>
 
 <mf-loading *ngIf="isLoading"></mf-loading>
@@ -14,7 +14,7 @@
 </div>
 
 <h2 class="text-center mat-h2" *ngIf="topRatedTvShows.results.length < 1">
-  {{ getGlobal() ? 'No results' : 'Nincs találat' }}
+  {{ noResultText }}
 </h2>
 
 <mf-pagination

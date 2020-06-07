@@ -1,19 +1,18 @@
 import { AppPage } from './app.po';
+import { Common } from './common.po';
 
 describe('movie-finder main page', () => {
   let page: AppPage;
   page = new AppPage();
+
+  const common = new Common();
 
   beforeAll(async () => {
     await page.navigateTo();
   });
 
   it('should display "Movie Finder" title in the header', () => {
-    expect(page.titleText()).toEqual('Movie Finder');
-  });
-
-  it('should display "Movie Finder" title in the footer', () => {
-    expect(page.footerText()).toContain('Movie Finder');
+    expect(common.titleText()).toEqual('Movie Finder');
   });
 
   it('should have movie categories listed', async () => {
@@ -27,7 +26,11 @@ describe('movie-finder main page', () => {
   });
 
   it('should display button to top', async () => {
-    const amount = await page.buttonToTop().count();
+    const amount = await common.buttonToTop().count();
     expect(amount).toEqual(1);
+  });
+
+  it('should display "Movie Finder" title in the footer', () => {
+    expect(common.footerText()).toContain('Movie Finder');
   });
 });

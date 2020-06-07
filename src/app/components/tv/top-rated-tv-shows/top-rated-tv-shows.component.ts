@@ -7,6 +7,7 @@ import {
 } from '../../../interfaces/listItem.interface';
 import { ApiService } from '../../../services/api.service';
 import { setSortBy } from '../../../helpers/sort.helper';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-top-rated-tv-shows',
@@ -19,15 +20,26 @@ export class TopRatedTvShowsComponent implements OnInit {
   topRatedTvShows: { results: Array<ListItem> };
   page: number;
   isLoading: boolean;
-  listGenres = this.api.getGenreList;
-  getGlobal = this.api.getGlobal;
+
+  topRatedTvShowsText: string;
+  noResultText: string;
 
   constructor(
     private api: ApiService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
+    this.topRatedTvShowsText = this.language.getText(
+      'Top rated tv shows',
+      this.api.getGlobal()
+    );
+    this.noResultText = this.language.getText(
+      'No results',
+      this.api.getGlobal()
+    );
+
     this.activatedRoute.params.subscribe(() => {
       this.isLoading = true;
       this.topRatedTvShows = { results: [listItemInitData] };

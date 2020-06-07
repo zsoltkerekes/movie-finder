@@ -5,10 +5,6 @@ export class SearchPage {
     return browser.get('#/search');
   }
 
-  titleText() {
-    return element.all(by.css('mf-root h1')).first().getText();
-  }
-
   searchFieldText() {
     return element(by.css('mf-root mf-search-by-phrase input')).getAttribute(
       'value'
@@ -46,13 +42,5 @@ export class SearchPage {
       ),
       600
     );
-  }
-
-  buttonToTop() {
-    return element.all(by.css('button.toTop'));
-  }
-
-  footerText() {
-    return element(by.css('mf-root mf-footer p')).getText();
   }
 }

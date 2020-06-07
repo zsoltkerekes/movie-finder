@@ -1,15 +1,18 @@
 import { NotFoundPage } from './not-found.po';
+import { Common } from './common.po';
 
 describe('movie-finder upcoming page', () => {
   let page: NotFoundPage;
+  page = new NotFoundPage();
+
+  const common = new Common();
 
   beforeAll(async () => {
-    page = new NotFoundPage();
     await page.navigateTo();
   });
 
   it('should display "Movie Finder" title in the header', () => {
-    expect(page.titleText()).toEqual('Movie Finder');
+    expect(common.titleText()).toEqual('Movie Finder');
   });
 
   it('should display page not found information', async () => {
@@ -18,11 +21,11 @@ describe('movie-finder upcoming page', () => {
   });
 
   it('should display "Movie Finder" title in the footer', () => {
-    expect(page.footerText()).toContain('Movie Finder');
+    expect(common.footerText()).toContain('Movie Finder');
   });
 
   it('should display button to top', async () => {
-    const amount = await page.buttonToTop().count();
+    const amount = await common.buttonToTop().count();
     expect(amount).toEqual(1);
   });
 });

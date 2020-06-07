@@ -1,13 +1,8 @@
 import { browser, by, element } from 'protractor';
-import { first } from 'rxjs/operators';
 
 export class PersonDetailsPage {
   navigateTo() {
     return browser.get('#/person-details/16483');
-  }
-
-  titleText() {
-    return element.all(by.css('mf-root h1')).first().getText();
   }
 
   personPoster() {
@@ -80,13 +75,5 @@ export class PersonDetailsPage {
 
   setInputToPersonTvSearchCastFieldText(searchPhrase: string) {
     element(by.css('mf-person-tv-credits #searchCast')).sendKeys(searchPhrase);
-  }
-
-  buttonToTop() {
-    return element.all(by.css('button.toTop'));
-  }
-
-  footerText() {
-    return element(by.css('mf-root mf-footer p')).getText();
   }
 }
