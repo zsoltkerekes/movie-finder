@@ -76,8 +76,18 @@ describe('movie-finder movie details page', () => {
     expect(page.movieCreditsCast().count()).toBeGreaterThanOrEqual(1);
   });
 
+  it('should have a working movie credits cast filtering', () => {
+    page.setInputToSearchCastFieldText('arnold');
+    expect(page.movieCreditsCast().count()).toEqual(1);
+  });
+
   it('should display movie credits crew', () => {
     expect(page.movieCreditsCrew().count()).toBeGreaterThanOrEqual(1);
+  });
+
+  it('should have a working movie credits crew filtering', () => {
+    page.setInputToSearchCrewFieldText('polly');
+    expect(page.movieCreditsCast().count()).toEqual(1);
   });
 
   it('should display movie recommendations', () => {

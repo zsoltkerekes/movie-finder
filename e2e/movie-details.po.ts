@@ -75,6 +75,10 @@ export class MovieDetailsPage {
     return element.all(by.css('mf-movie-credits .cast a'));
   }
 
+  setInputToSearchCrewFieldText(searchPhrase: string) {
+    element(by.css('mf-movie-credits #searchCrew')).sendKeys(searchPhrase);
+  }
+
   movieRecommendations() {
     return element.all(by.css('mf-recommended-movies mat-card'));
   }
@@ -85,6 +89,10 @@ export class MovieDetailsPage {
 
   movieCreditsCrew() {
     return element.all(by.css('mf-movie-credits .crew a'));
+  }
+
+  setInputToSearchCastFieldText(searchPhrase: string) {
+    element(by.css('mf-movie-credits #searchCast')).sendKeys(searchPhrase);
   }
 
   buttonToTop() {
