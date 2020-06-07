@@ -1,5 +1,4 @@
 import { AppPage } from './app.po';
-import { async } from '@angular/core/testing';
 
 describe('movie-finder main page', () => {
   let page: AppPage;

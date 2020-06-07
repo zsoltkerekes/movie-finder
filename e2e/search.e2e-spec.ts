@@ -1,5 +1,4 @@
 import { SearchPage } from './search.po';
-import { async } from '@angular/core/testing';
 
 describe('movie-finder search page', () => {
   let page: SearchPage;
