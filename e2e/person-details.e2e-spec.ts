@@ -59,33 +59,33 @@ describe('movie-finder person details page', () => {
 
   it('should have a working person movie credits crew filtering', () => {
     page.setInputToPersonMovieSearchCrewFieldText('story');
-    expect(page.personMovieCreditsCast().count()).toEqual(2);
+    expect(page.personMovieCreditsCrew().count()).toEqual(3);
   });
 
-  it('should display person tv credits', () => {
-    expect(page.personTvCredits().count()).toEqual(1);
-  });
-
-  it('should display person tv credits cast', () => {
-    expect(page.personTvCreditsCast().count()).toBeGreaterThanOrEqual(1);
-  });
-
-  it('should have a working person tv credits cast filtering', () => {
-    page.setInputToPersonTvSearchCastFieldText('pet');
-    expect(page.personTvCreditsCast().count()).toEqual(2);
-  });
-
-  it('should display person tv crew', () => {
+  it('should display person tv show crew', () => {
     expect(page.personTvCreditsCrew().count()).toBeGreaterThanOrEqual(1);
   });
 
-  it('should have a working person tv credits crew filtering', () => {
+  it('should have a working person tv show credits crew filtering', () => {
     page.setInputToPersonTvSearchCrewFieldText('contender');
-    expect(page.personTvCreditsCast().count()).toEqual(2);
+    expect(page.personTvCreditsCrew().count()).toEqual(1);
   });
 
   it('should display "Movie Finder" title in the footer', () => {
     expect(page.footerText()).toContain('Movie Finder');
+  });
+
+  it('should display person tv show credits', () => {
+    expect(page.personTvCredits().count()).toEqual(1);
+  });
+
+  it('should display person tv show credits cast', () => {
+    expect(page.personTvCreditsCast().count()).toBeGreaterThanOrEqual(1);
+  });
+
+  it('should have a working person tv show credits cast filtering', () => {
+    page.setInputToPersonTvSearchCastFieldText('pet');
+    expect(page.personTvCreditsCast().count()).toEqual(2);
   });
 
   it('should display button to top', async () => {

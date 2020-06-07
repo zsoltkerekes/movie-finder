@@ -6,7 +6,7 @@ export class AppPage {
   }
 
   titleText() {
-    return element(by.css('mf-root mf-header h1')).getText();
+    return element.all(by.css('mf-root h1')).first().getText();
   }
 
   movieButtonElements() {

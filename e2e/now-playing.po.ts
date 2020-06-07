@@ -6,7 +6,7 @@ export class NowPlayingPage {
   }
 
   titleText() {
-    return element(by.css('mf-root h1')).getText();
+    return element.all(by.css('mf-root h1')).first().getText();
   }
 
   movieCardElements() {

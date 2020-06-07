@@ -1,4 +1,5 @@
 import { browser, by, element } from 'protractor';
+import { first } from 'rxjs/operators';
 
 export class PersonDetailsPage {
   navigateTo() {
@@ -6,7 +7,7 @@ export class PersonDetailsPage {
   }
 
   titleText() {
-    return element(by.css('mf-root h1')).getText();
+    return element.all(by.css('mf-root h1')).first().getText();
   }
 
   personPoster() {
