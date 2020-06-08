@@ -12,7 +12,6 @@ import { LanguageService } from '../../../services/language.service';
 @Component({
   selector: 'mf-top-rated-tv-shows',
   templateUrl: './top-rated-tv-shows.component.html',
-  styleUrls: ['./top-rated-tv-shows.component.scss'],
 })
 export class TopRatedTvShowsComponent implements OnInit {
   @ViewChild('container', { static: false }) container;

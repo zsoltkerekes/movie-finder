@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'mf-now-playing',
   templateUrl: './now-playing.component.html',
-  styleUrls: ['./now-playing.component.scss'],
 })
 export class NowPlayingComponent implements OnInit {
   subTitle: string;

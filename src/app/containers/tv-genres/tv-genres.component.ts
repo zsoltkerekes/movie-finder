@@ -6,7 +6,6 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'mf-tv-genres',
   templateUrl: './tv-genres.component.html',
-  styleUrls: ['./tv-genres.component.scss'],
 })
 export class TvGenresComponent implements OnInit {
   id: string;

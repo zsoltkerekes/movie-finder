@@ -6,7 +6,6 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'mf-tv-show-episodes',
   templateUrl: './tv-show-episodes.component.html',
-  styleUrls: ['./tv-show-episodes.component.scss'],
 })
 export class TvShowEpisodesComponent implements OnInit {
   subTitle: string;

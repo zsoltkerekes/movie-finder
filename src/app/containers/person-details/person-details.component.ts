@@ -5,7 +5,6 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'mf-person-details',
   templateUrl: './person-details.component.html',
-  styleUrls: ['./person-details.component.scss'],
 })
 export class PersonDetailsComponent implements OnInit {
   id: number;

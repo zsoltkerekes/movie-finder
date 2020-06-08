@@ -6,7 +6,6 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'mf-upcoming',
   templateUrl: './upcoming.component.html',
-  styleUrls: ['./upcoming.component.scss'],
 })
 export class UpcomingComponent implements OnInit {
   subTitle: string;

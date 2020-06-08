@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'mf-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
   id: number;

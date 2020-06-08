@@ -30,11 +30,9 @@ export class MovieImagesComponent implements OnChanges, OnInit {
     if (this.id) {
       this.api.getMovieImages(this.id).subscribe((response) => {
         const output = response.json();
-        this.images = [...output.backdrops, ...output.posters]
-          // .filter((image) => {
-          //   return image.width <= 1920 && image.height <= 1440;
-          // })
-          .sort(setSortBy('vote_average'));
+        this.images = [...output.backdrops, ...output.posters].sort(
+          setSortBy('vote_average')
+        );
       });
     }
   }

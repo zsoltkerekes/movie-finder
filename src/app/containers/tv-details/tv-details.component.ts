@@ -10,7 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'mf-tv-details',
   templateUrl: './tv-details.component.html',
-  styleUrls: ['./tv-details.component.scss'],
 })
 export class TVDetailsComponent implements OnInit {
   id: number;

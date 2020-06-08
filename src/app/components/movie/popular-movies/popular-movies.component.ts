@@ -14,7 +14,6 @@ import { LanguageService } from '../../../services/language.service';
 @Component({
   selector: 'mf-popular-movies',
   templateUrl: './popular-movies.component.html',
-  styleUrls: ['./popular-movies.component.scss'],
   providers: [Location],
 })
 export class PopularMoviesComponent implements OnInit {

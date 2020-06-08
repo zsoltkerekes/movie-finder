@@ -30,11 +30,7 @@ export class PersonImagesComponent implements OnInit, OnChanges {
     if (this.id) {
       this.api.getPersonImages(this.id).subscribe((response) => {
         const output = response.json();
-        this.images = [...output.profiles]
-          // .filter(image => {
-          //   return image.width <= 1920 && image.height <= 1500;
-          // })
-          .sort(setSortBy('vote_average'));
+        this.images = [...output.profiles].sort(setSortBy('vote_average'));
       });
     }
   }

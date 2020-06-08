@@ -6,7 +6,6 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'mf-genres',
   templateUrl: './genres.component.html',
-  styleUrls: ['./genres.component.scss'],
 })
 export class GenresComponent implements OnInit {
   id: string;

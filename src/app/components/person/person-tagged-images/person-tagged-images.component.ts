@@ -31,11 +31,7 @@ export class PersonTaggedImagesComponent implements OnInit, OnChanges {
     if (this.id) {
       this.api.getPersonTaggedImages(this.id).subscribe((response) => {
         const output = response.json();
-        this.images = [...output.results]
-          // .filter(image => {
-          //   return image.width <= 1920 && image.height <= 1500;
-          // })
-          .sort(setSortBy('popularity'));
+        this.images = [...output.results].sort(setSortBy('popularity'));
       });
     }
   }
