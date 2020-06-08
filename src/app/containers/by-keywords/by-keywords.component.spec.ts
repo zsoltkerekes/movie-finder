@@ -18,6 +18,7 @@ describe('ByKeywordsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ByKeywordsComponent],
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

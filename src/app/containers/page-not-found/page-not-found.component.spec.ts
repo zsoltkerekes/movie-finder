@@ -20,6 +20,7 @@ describe('PageNotFoundComponent', () => {
     TestBed.configureTestingModule({
       declarations: [PageNotFoundComponent],
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

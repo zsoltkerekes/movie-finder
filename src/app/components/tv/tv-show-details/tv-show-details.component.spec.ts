@@ -19,6 +19,7 @@ describe('TvShowDetailsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [TvShowDetailsComponent],
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

@@ -42,7 +42,7 @@ export class MovieCreditsComponent implements OnChanges, OnInit {
     this.searchCrew = '';
     if (this.id) {
       this.api.getMovieCredits(this.id).subscribe((response) => {
-        const output = response.json();
+        const output = { cast: [], crew: [], ...response.json() };
         output.cast = [...output.cast].sort(setSortBy('order', 'asc'));
         output.crew = [...output.crew].sort(setSortBy('job', 'asc'));
         this.movieCredits = output;

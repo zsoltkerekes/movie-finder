@@ -25,7 +25,6 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this.tvShowYear = this.observables.tvShowYearOption.getValue();
-    this.tvShowYear = this.observables.tvShowYearOption.getValue();
     this.sortByOptions = this.api.getSortByOptions();
     this.tvShowSelected = this.observables.sortTvShowByOption.getValue();
     this.tvShowGenres = this.api.getTvGenresArray();

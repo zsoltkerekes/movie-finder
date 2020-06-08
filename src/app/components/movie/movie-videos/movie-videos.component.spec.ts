@@ -17,6 +17,7 @@ describe('MovieVideosComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

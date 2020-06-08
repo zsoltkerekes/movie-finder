@@ -76,7 +76,6 @@ export class PopularMoviesComponent implements OnInit {
       this.api.getGlobal()
     );
 
-    this.observables.ngOnInit();
     this.activatedRoute.params.subscribe(() => this.loadMovies());
     this.observables.movieYearOption.subscribe(() => this.loadMovies());
     this.observables.sortMovieByOption.subscribe(() => this.loadMovies());

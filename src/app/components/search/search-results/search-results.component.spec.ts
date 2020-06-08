@@ -18,6 +18,7 @@ describe('SearchResultsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [SearchResultsComponent],
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

@@ -19,6 +19,7 @@ describe('PersonMovieCreditsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [PersonMovieCreditsComponent, SearchPipe],
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         // MaterialModule,

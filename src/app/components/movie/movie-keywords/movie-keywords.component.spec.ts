@@ -18,6 +18,7 @@ describe('MovieKeywordsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [MovieKeywordsComponent],
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

@@ -1,5 +1,5 @@
 <h2
-  *ngIf="tvCredits.cast.length || tvCredits.crew.length"
+  *ngIf="tvCredits && (tvCredits.cast.length || tvCredits.crew.length)"
   class="text-center mat-h2"
 >
   <br />
@@ -8,7 +8,7 @@
   {{ tvShowsText }}
 </h2>
 
-<div *ngIf="tvCredits.crew.length">
+<div *ngIf="tvCredits && tvCredits.crew && tvCredits.crew.length">
   <h3 class="text-center mat-h3">
     {{ crewText }}
   </h3>
@@ -24,7 +24,7 @@
     />
   </mat-form-field>
 
-  <div class="container crew">
+  <div class="container crew" *ngIf="tvCredits && tvCredits.crew">
     <a
       *ngFor="let tv of tvCredits.crew | search: searchCrew"
       [routerLink]="['/tv-details', tv.id]"
@@ -57,7 +57,7 @@
   </div>
 </div>
 
-<div *ngIf="tvCredits.cast.length">
+<div *ngIf="tvCredits && tvCredits.cast && tvCredits.cast.length">
   <h3 class="text-center mat-h3">
     {{ castText }}
   </h3>

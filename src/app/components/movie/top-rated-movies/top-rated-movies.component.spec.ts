@@ -18,6 +18,7 @@ describe('TopRatedMoviesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [TopRatedMoviesComponent],
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

@@ -39,7 +39,7 @@ export class PersonTvCreditsComponent implements OnInit, OnChanges {
     this.searchCrew = '';
     if (this.id) {
       this.api.getPersonTvCredits(this.id).subscribe((response) => {
-        const output = response.json();
+        const output = { cast: [], crew: [], ...response.json() };
         output.cast = [...output.cast].sort(setSortBy('vote_average'));
         output.crew = [...output.crew].sort(setSortBy('vote_average'));
         this.tvCredits = output;

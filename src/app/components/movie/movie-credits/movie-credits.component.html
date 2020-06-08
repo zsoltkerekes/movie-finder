@@ -1,4 +1,4 @@
-<div *ngIf="movieCredits.cast.length > 0">
+<div *ngIf="movieCredits && movieCredits.cast && movieCredits.cast.length > 0">
   <h3 class="text-center mat-h3">
     {{ cast }}
   </h3>
@@ -42,7 +42,7 @@
   </div>
 </div>
 
-<div *ngIf="movieCredits.crew.length > 0">
+<div *ngIf="movieCredits && movieCredits.cast && movieCredits.crew.length > 0">
   <br />
   <mat-divider></mat-divider>
   <br />

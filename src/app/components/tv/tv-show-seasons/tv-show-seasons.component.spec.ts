@@ -18,6 +18,7 @@ describe('TvShowSeasonsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [TvShowSeasonsComponent],
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

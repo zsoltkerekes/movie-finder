@@ -20,6 +20,7 @@ describe('TvShowEpisodesDetailsComponent', () => {
       declarations: [TvShowEpisodesDetailsComponent],
       imports: [
         BrowserAnimationsModule,
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

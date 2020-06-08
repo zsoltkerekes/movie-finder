@@ -18,6 +18,7 @@ describe('PopularMoviesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [PopularMoviesComponent],
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,

@@ -19,6 +19,7 @@ import { TruncatePipe } from '../../pipes/truncate.pipe';
   imports: [
     CommonModule,
     RouterModule,
+    // tslint:disable-next-line: deprecation
     HttpModule,
     MaterialModule,
     FormsModule,
@@ -43,6 +44,7 @@ import { TruncatePipe } from '../../pipes/truncate.pipe';
     SideScrollDirective,
     LoadingComponent,
     RouterModule,
+    // tslint:disable-next-line: deprecation
     HttpModule,
     MaterialModule,
     FormsModule,

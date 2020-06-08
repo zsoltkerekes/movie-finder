@@ -20,11 +20,12 @@ export class DiscoverComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.observables.initMovie();
+    this.observables.initTv();
     document.documentElement.scrollTop = 0;
     this.subTitle = this.api.getGlobal() ? 'Discover' : 'Felfedezés';
     this.title.setTitle(
       `${this.subTitle} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
     );
-    this.observables.ngOnInit();
   }
 }

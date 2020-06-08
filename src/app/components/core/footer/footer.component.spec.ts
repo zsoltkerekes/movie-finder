@@ -16,6 +16,7 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      // tslint:disable-next-line: deprecation
       imports: [HttpModule, HttpClientTestingModule, RouterTestingModule],
       declarations: [FooterComponent],
       providers: [

@@ -13,6 +13,7 @@ describe('ObservablesService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,
@@ -29,6 +30,7 @@ describe('ObservablesService', () => {
   );
 
   it('should be created', () => {
+    // tslint:disable-next-line: deprecation
     const service: ObservablesService = TestBed.get(ObservablesService);
     expect(service).toBeTruthy();
   });

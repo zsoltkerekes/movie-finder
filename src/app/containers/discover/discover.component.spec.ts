@@ -18,6 +18,7 @@ describe('DiscoverComponent', () => {
     TestBed.configureTestingModule({
       declarations: [DiscoverComponent],
       imports: [
+        // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
         MaterialModule,
