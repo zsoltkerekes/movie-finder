@@ -27,7 +27,7 @@
       class="mGenres"
       *ngFor="let movieGenre of movieGenres"
       color="primary"
-      (input)="setMovieGenre(movieGenre.id, $event)"
+      (change)="setMovieGenre(movieGenre.id, $event)"
       [checked]="getCheckedStatus(movieGenre.id)"
     >
       {{ movieGenre.name }}
