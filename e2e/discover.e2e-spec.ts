@@ -35,6 +35,36 @@ describe('movie-finder discover page', () => {
     expect(amount).toEqual(3);
   });
 
+  it('should have working movie genre filter', async () => {
+    const originalCards = await page.movieCardElements().count();
+    await page.movieActionCheckboxElementClick();
+    await page.movieDocumentaryCheckboxElementClick();
+    const updatedCards = await page.movieCardElements().count();
+    expect(updatedCards).not.toEqual(originalCards);
+  });
+
+  it('should have a working movie year input filter', async () => {
+    const originalCards = await page.movieCardElements();
+    page.setInputToMovieYear(new Date().getFullYear() - 1);
+    const updatedCards = await page.movieCardElements();
+    expect(updatedCards).not.toEqual(originalCards);
+  });
+
+  it('should have working tv genre filter', async () => {
+    const originalCards = await page.tvCardElements().count();
+    await page.tvActionCheckboxElementClick();
+    await page.tvDocumentaryCheckboxElementClick();
+    const updatedCards = await page.tvCardElements().count();
+    expect(updatedCards).not.toEqual(originalCards);
+  });
+
+  it('should have a working tv year input filter', async () => {
+    const originalCards = await page.tvCardElements().count();
+    page.setInputToTvYear(new Date().getFullYear() - 1);
+    const updatedCards = await page.tvCardElements().count();
+    expect(updatedCards).not.toEqual(originalCards);
+  });
+
   it('should display "Movie Finder" title in the footer', () => {
     expect(common.footerText()).toContain('Movie Finder');
   });

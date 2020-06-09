@@ -1,16 +1,66 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, Key } from 'protractor';
 
 export class DiscoverPage {
+  private _timeout = 300;
+
   navigateTo() {
     return browser.get('#/discover/1/1/1');
   }
 
   movieCardElements() {
-    return element.all(by.css('mf-popular-movies mf-list-item'));
+    return element.all(by.css('mf-popular-movies mf-list-item mat-card-title'));
+  }
+
+  movieActionCheckboxElementClick() {
+    return browser.wait(
+      element(by.css('mf-discover-options #mat-checkbox-19 label')).click(),
+      this._timeout
+    );
+  }
+
+  movieDocumentaryCheckboxElementClick() {
+    return browser.wait(
+      element(by.css('mf-discover-options #mat-checkbox-14 label')).click(),
+      this._timeout
+    );
+  }
+
+  setInputToMovieYear(year) {
+    browser.sleep(this._timeout);
+    element(by.css('mf-discover-options #mat-input-0')).sendKeys(
+      Key.chord(Key.CONTROL, 'a')
+    );
+    browser.sleep(this._timeout);
+    element(by.css('mf-discover-options #mat-input-0')).sendKeys(year);
+    browser.sleep(this._timeout);
   }
 
   tvCardElements() {
     return element.all(by.css('mf-popular-tv-shows mf-list-item'));
+  }
+
+  tvActionCheckboxElementClick() {
+    return browser.wait(
+      element(by.css('mf-discover-tv-options #mat-checkbox-45 label')).click(),
+      this._timeout
+    );
+  }
+
+  tvDocumentaryCheckboxElementClick() {
+    return browser.wait(
+      element(by.css('mf-discover-tv-options #mat-checkbox-40 label')).click(),
+      this._timeout
+    );
+  }
+
+  setInputToTvYear(year) {
+    browser.sleep(this._timeout);
+    element(by.css('mf-discover-tv-options #mat-input-1')).sendKeys(
+      Key.chord(Key.CONTROL, 'a')
+    );
+    browser.sleep(this._timeout);
+    element(by.css('mf-discover-tv-options #mat-input-1')).sendKeys(year);
+    browser.sleep(this._timeout);
   }
 
   personCardElements() {
