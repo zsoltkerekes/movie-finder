@@ -24,31 +24,28 @@ mat-card-content {
   width: calc(100% - 500px - 130px);
   background-color: $details-bg-color;
   padding: 1em;
-  min-height: 770px;
+  min-height: 500px;
+
+  &.with-poster {
+    min-height: 707px;
+  }
 }
 
 .homepage,
 .imdb,
 .original_title,
+.original-language,
 .title {
   text-align: right;
 }
 
-.google,
-.homepage,
-.imdb,
-.youtube,
-.online-sorozatok {
+.query {
   font-weight: bold;
 
   a {
     color: inherit;
     text-decoration: none;
   }
-}
-
-.homepage {
-  padding-top: 3em;
 }
 
 .overview {

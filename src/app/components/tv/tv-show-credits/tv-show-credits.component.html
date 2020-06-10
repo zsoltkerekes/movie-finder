@@ -20,7 +20,6 @@
       [routerLink]="['/person-details', person.id]"
     >
       <div class="cast">
-        <mf-loading></mf-loading>
         <img
           *ngIf="person.profile_path"
           [lazyLoad]="'https://image.tmdb.org/t/p/w45' + person.profile_path"

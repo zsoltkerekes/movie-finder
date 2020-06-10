@@ -5,12 +5,8 @@
         <mf-loading class="centerHorizontalVertical"></mf-loading>
         <img
           *ngIf="tvShow.poster_path"
-          [lazyLoad]="
-            tvShow.poster_path
-              ? 'https://image.tmdb.org/t/p' + '/w500' + tvShow.poster_path
-              : ''
-          "
-          [defaultImage]="'assets/image/no-pic.jpg'"
+          [lazyLoad]="'https://image.tmdb.org/t/p/w500' + tvShow.poster_path"
+          [defaultImage]="'assets/image/1x1.png'"
           [errorImage]="'assets/image/error-image-generic.png'"
           offset="100"
           [alt]="tvShow.name"
@@ -38,150 +34,139 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="details">
+  <mat-card class="details" [ngClass]="{ 'with-poster': tvShow.poster_path }">
     <mat-card-content>
-      <h2 class="mat-h2 title">
-        {{ tvShow.name ? tvShow.name : 'N/A' }}
+      <mf-loading
+        class="centerHorizontalVertical"
+        *ngIf="!tvShow.name"
+      ></mf-loading>
+
+      <h2 class="mat-h2 title" *ngIf="tvShow.name">
+        {{ tvShow.name }}
       </h2>
 
-      <h3 class="mat-h3 original_title">
-        {{
-          tvShow.original_name && tvShow.name !== tvShow.original_name
-            ? tvShow.original_name
-            : ''
-        }}
+      <h3
+        class="mat-h3 original_title"
+        *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
+      >
+        {{ tvShow.original_name }}
       </h3>
 
-      <p class="mat-body-1 overview">
-        {{ tvShow.overview ? tvShow.overview : 'N/A' }}
-        {{
-          tvShow.original_language
-            ? '(' + tvShow.original_language.toLowerCase() + ')'
-            : ''
-        }}
+      <p class="mat-body-1 overview" *ngIf="tvShow.overview">
+        {{ tvShow.overview }}
       </p>
 
       <p class="mat-body-1 text-right">
         <mf-tv-keywords [id]="tvShow.id"></mf-tv-keywords>
       </p>
 
-      <p class="mat-body-1 genres">
+      <p class="mat-body-1 genres" *ngIf="tvShow.genres">
+        <span> {{ genres }}: </span>
         <span>
-          {{ getGlobal() ? 'Genres:' : 'Műfajok:' }}
-        </span>
-        <span>
-          {{
-            tvShow.genres && tvShow.genres.length > 0
-              ? listGenres(tvShow.genres)
-              : 'N/A'
-          }}
+          {{ listGenres(tvShow.genres) }}
         </span>
       </p>
 
-      <p class="mat-body-1 runtime">
+      <p class="original-language" *ngIf="tvShow.original_language">
+        <span> {{ originalLanguage }}: </span>
         <span>
-          {{ getGlobal() ? 'Runtime:' : 'Hossz:' }}
-        </span>
-        <span>
-          {{
-            tvShow.episode_run_time && tvShow.episode_run_time[0]
-              ? tvShow.episode_run_time[0].toString() +
-                (getGlobal() ? ' minutes' : ' perc').toString()
-              : 'N/A'
-          }}
+          {{ tvShow.original_language.toLocaleUpperCase() }}
         </span>
       </p>
 
-      <p class="mat-body-1 status">
+      <p
+        class="mat-body-1 runtime"
+        *ngIf="tvShow.episode_run_time && tvShow.episode_run_time[0]"
+      >
+        <span> {{ runtime }}: </span>
         <span>
-          {{ getGlobal() ? 'Status:' : 'Státusz:' }}
-        </span>
-        <span>
-          {{ tvShow.status ? tvShow.status : 'N/A' }}
-        </span>
-      </p>
-
-      <p class="mat-body-1 release_date">
-        <span>
-          {{ getGlobal() ? 'Seasons/episodes:' : 'Évad/részek:' }}
-        </span>
-        <span>
-          {{
-            tvShow.number_of_seasons && tvShow.number_of_episodes
-              ? tvShow.number_of_seasons + '/' + tvShow.number_of_episodes
-              : 'N/A'
-          }}
+          {{ tvShow.episode_run_time[0].toString() + ' ' + minutes }}
         </span>
       </p>
 
-      <p class="mat-body-1 release_date">
+      <p class="mat-body-1 status" *ngIf="tvShow.status">
+        <span> {{ status }}: </span>
         <span>
-          {{ getGlobal() ? 'Release date:' : 'Premier dátuma:' }}
-        </span>
-        <span>
-          {{ tvShow.first_air_date ? tvShow.first_air_date : 'N/A' }}
+          {{ tvShow.status }}
         </span>
       </p>
 
-      <p class="mat-body-1 release_date">
+      <p
+        class="mat-body-1 release_date"
+        *ngIf="tvShow.number_of_seasons && tvShow.number_of_episodes"
+      >
         <span>
-          {{ getGlobal() ? 'Last air date:' : 'Utolsó epizód dátuma:' }}
+          {{ seasonsEpisodes }}
         </span>
         <span>
-          {{ tvShow.last_air_date ? tvShow.last_air_date : 'N/A' }}
-        </span>
-      </p>
-
-      <p class="mat-body-1 release_date">
-        <span>
-          {{ getGlobal() ? 'Next air date:' : 'Következő epizód dátuma:' }}
-        </span>
-        <span>
-          {{
-            tvShow.next_episode_to_air && tvShow.next_episode_to_air.air_date
-              ? tvShow.next_episode_to_air.air_date
-              : 'N/A'
-          }}
+          {{ tvShow.number_of_seasons + '/' + tvShow.number_of_episodes }}
         </span>
       </p>
 
-      <p class="mat-body-1 budget">
+      <p class="mat-body-1 release_date" *ngIf="tvShow.first_air_date">
         <span>
-          {{ getGlobal() ? 'Created By:' : 'Készítette:' }}
+          {{ releaseDate }}
         </span>
         <span>
-          {{
-            tvShow.created_by && tvShow.created_by.length > 0
-              ? createdBy
-              : 'N/A'
-          }}
+          {{ tvShow.first_air_date }}
         </span>
       </p>
 
-      <p class="mat-body-1 popularity">
+      <p class="mat-body-1 release_date" *ngIf="tvShow.last_air_date">
         <span>
-          {{ getGlobal() ? 'Popularity:' : 'Relatív népszerűségi index:' }}
+          {{ lastAirDate }}
         </span>
         <span>
-          {{ tvShow.popularity ? tvShow.popularity : 'N/A' }}
+          {{ tvShow.last_air_date }}
         </span>
       </p>
 
-      <p class="mat-body-1 homepage">
+      <p
+        class="mat-body-1 release_date"
+        *ngIf="
+          tvShow.next_episode_to_air && tvShow.next_episode_to_air.air_date
+        "
+      >
         <span>
-          {{ tvShow.homepage ? 'Homepage:' : '' }}
+          {{ nextAirDate }}
         </span>
-        <span *ngIf="tvShow.homepage">
+        <span>
+          {{ tvShow.next_episode_to_air.air_date }}
+        </span>
+      </p>
+
+      <p
+        class="mat-body-1 budget"
+        *ngIf="tvShow.created_by && tvShow.created_by.length"
+      >
+        <span>
+          {{ createdByText }}
+        </span>
+        <span>
+          {{ createdBy }}
+        </span>
+      </p>
+
+      <p class="mat-body-1 popularity" *ngIf="tvShow.popularity">
+        <span>
+          {{ popularity }}
+        </span>
+        <span> {{ tvShow.popularity / 10 | number: '1.1-1' }}% </span>
+      </p>
+
+      <br />
+
+      <p class="mat-body-1 query" *ngIf="tvShow.homepage">
+        <span> {{ homepage }}: </span>
+        <span>
           <a [href]="tvShow.homepage" target="_blank">
             {{ tvShow.homepage }}
           </a>
         </span>
       </p>
 
-      <p class="mat-body-1 imdb">
-        <span>
-          {{ tvShow.imdb_id ? 'Imdb Homepage:' : '' }}
-        </span>
+      <p class="mat-body-1 imdb" *ngIf="tvShow.imdb_id">
+        <span> Imdb {{ homepage }}: </span>
         <span *ngIf="tvShow.imdb_id">
           <a
             [href]="'https://www.imdb.com/title/' + tvShow.imdb_id"
@@ -192,101 +177,28 @@
         </span>
       </p>
 
-      <p class="mat-body-1 youtube">
-        <span> Youtube {{ getGlobal() ? 'search:' : 'keresés:' }} </span>
-        <span>
-          <a
-            *ngIf="tvShow.name"
-            [href]="
-              'https://www.youtube.com/results?search_query=' + tvShow.name
-            "
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
-          </a>
-          <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
-          <a
-            *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
-            [href]="
-              'https://www.youtube.com/results?search_query=' +
-              tvShow.original_name
-            "
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
-          </a>
-        </span>
-      </p>
-
-      <p class="mat-body-1 online-sorozatok">
-        <span>
-          Online {{ getGlobal() ? 'series search:' : 'sorozatok keresés:' }}
-        </span>
-        <span>
-          <a
-            *ngIf="tvShow.name"
-            [href]="
-              'https://www.sorozatbarat.online/video/search?s=' + tvShow.name
-            "
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
-          </a>
-          <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
-          <a
-            *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
-            [href]="
-              'https://www.sorozatbarat.online/video/search?s=' +
-              tvShow.original_name
-            "
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
-          </a>
-        </span>
-      </p>
-
-      <p class="mat-body-1 google">
-        <span> Google {{ getGlobal() ? 'search:' : 'keresés:' }} </span>
-        <span>
-          <a
-            *ngIf="tvShow.name"
-            [href]="'https://www.google.hu/search?q=' + tvShow.name"
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
-          </a>
-          <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
-          <a
-            *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
-            [href]="'https://www.google.hu/search?q=' + tvShow.original_name"
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
-          </a>
-        </span>
-      </p>
-
-      <p class="mat-body-1 google">
-        <span> Netflix {{ getGlobal() ? 'search:' : 'keresés:' }} </span>
-        <span>
-          <a
-            *ngIf="tvShow.name"
-            [href]="'https://www.netflix.com/search?q=' + tvShow.name"
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by title' : 'magyar cím alapján' }}
-          </a>
-          <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
-          <a
-            *ngIf="tvShow.original_name && tvShow.name !== tvShow.original_name"
-            [href]="'https://www.netflix.com/search?q=' + tvShow.original_name"
-            target="_blank"
-          >
-            {{ getGlobal() ? 'by original title' : 'eredeti cím alapján' }}
-          </a>
-        </span>
-      </p>
+      <div *ngFor="let query of queries">
+        <p class="mat-body-1 query" *ngIf="tvShow.name || tvShow.original_name">
+          <span>{{ query.name }} {{ search }}: </span>
+          <span>
+            <a
+              *ngIf="tvShow.name"
+              [href]="query.url + tvShow.name"
+              target="_blank"
+            >
+              {{ byTitle }}
+            </a>
+            <a *ngIf="tvShow.name !== tvShow.original_name">|</a>
+            <a
+              *ngIf="tvShow.name !== tvShow.original_name"
+              [href]="query.url + tvShow.original_name"
+              target="_blank"
+            >
+              {{ byOriginalTitle }}
+            </a>
+          </span>
+        </p>
+      </div>
     </mat-card-content>
   </mat-card>
 </section>

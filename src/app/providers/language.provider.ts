@@ -250,4 +250,20 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Loading..',
     hu: 'Töltés..',
   },
+  'Seasons/episodes': {
+    en: 'Seasons/episodes',
+    hu: 'Évadok/részek:',
+  },
+  'Last air date': {
+    en: 'Last air date',
+    hu: 'Utolsó epizód dátuma',
+  },
+  'Next air date': {
+    en: 'Last air date',
+    hu: 'Következő epizód dátuma',
+  },
+  'Created by': {
+    en: 'Created by',
+    hu: 'Készítette',
+  },
 });
