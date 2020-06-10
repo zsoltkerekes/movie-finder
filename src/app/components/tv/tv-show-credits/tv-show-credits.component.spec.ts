@@ -1,24 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PersonMovieCreditsComponent } from './person-movie-credits.component';
 import { HttpModule } from '@angular/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MaterialModule } from '../../../shared-modules/material/material.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ApiService } from '../../../services/api.service';
 import { ObservablesService } from '../../../services/observables.service';
-import { ConstantsService } from '../../../services/constants.service';
-import { SearchPipe } from '../../../pipes/search.pipe';
-import { MaterialModule } from '../../../shared-modules/material/material.module';
 import { LanguageService } from '../../../services/language.service';
+import { ConstantsService } from '../../../services/constants.service';
+import { TvShowCreditsComponent } from './tv-show-credits.component';
+import { SearchPipe } from '../../../pipes/search.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-describe('PersonMovieCreditsComponent', () => {
-  let component: PersonMovieCreditsComponent;
-  let fixture: ComponentFixture<PersonMovieCreditsComponent>;
+describe('TvShowCreditsComponent', () => {
+  let component: TvShowCreditsComponent;
+  let fixture: ComponentFixture<TvShowCreditsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PersonMovieCreditsComponent, SearchPipe],
+      declarations: [TvShowCreditsComponent, SearchPipe],
       imports: [
         BrowserAnimationsModule,
         // tslint:disable-next-line: deprecation
@@ -29,6 +29,7 @@ describe('PersonMovieCreditsComponent', () => {
       ],
       providers: [
         ApiService,
+        ObservablesService,
         LanguageService,
         ConstantsService,
         ObservablesService,
@@ -37,7 +38,7 @@ describe('PersonMovieCreditsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PersonMovieCreditsComponent);
+    fixture = TestBed.createComponent(TvShowCreditsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

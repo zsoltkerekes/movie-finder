@@ -22,9 +22,7 @@
       <div class="cast">
         <img
           *ngIf="person.profile_path"
-          [lazyLoad]="
-            'https://image.tmdb.org/t/p/' + 'w45' + person.profile_path
-          "
+          [lazyLoad]="'https://image.tmdb.org/t/p/w45' + person.profile_path"
           offset="100"
           [defaultImage]="'assets/image/1x1.png'"
           [errorImage]="'assets/image/error-image-generic.png'"

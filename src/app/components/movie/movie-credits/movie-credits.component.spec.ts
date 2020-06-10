@@ -9,6 +9,8 @@ import { ObservablesService } from '../../../services/observables.service';
 import { LanguageService } from '../../../services/language.service';
 import { ConstantsService } from '../../../services/constants.service';
 import { MovieCreditsComponent } from './movie-credits.component';
+import { SearchPipe } from '../../../pipes/search.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('MovieCollectionComponent', () => {
   let component: MovieCreditsComponent;
@@ -16,8 +18,9 @@ describe('MovieCollectionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MovieCreditsComponent],
+      declarations: [MovieCreditsComponent, SearchPipe],
       imports: [
+        BrowserAnimationsModule,
         // tslint:disable-next-line: deprecation
         HttpModule,
         HttpClientTestingModule,
@@ -26,7 +29,6 @@ describe('MovieCollectionComponent', () => {
       ],
       providers: [
         ApiService,
-        ObservablesService,
         LanguageService,
         ConstantsService,
         ObservablesService,
