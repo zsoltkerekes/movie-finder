@@ -45,6 +45,14 @@ export class TvShowDetailsPage {
     return element.all(by.css('mf-tv-show-videos iframe'));
   }
 
+  tvShowSeasons() {
+    return element.all(by.css('mf-tv-show-seasons'));
+  }
+
+  tvShowSeasonsPoster() {
+    return element.all(by.css('mf-tv-show-seasons img'));
+  }
+
   tvShowReviews() {
     return element.all(by.css('mf-tv-show-reviews mat-card'));
   }

@@ -34,17 +34,17 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
 
-  setEpisode = (index) => (this.episodeNumber = index);
+  setEpisode = (index: number): number => (this.episodeNumber = index);
 
   ngOnInit() {
     this.tvShow = movieDetailsData;
     this.tvShowEpisodes = tvShowEpisodesData;
 
-    this.episodeNumber = -1;
+    this.episodeNumber = 0;
 
     this.activatedRoute.params.subscribe(() => {
       document.documentElement.scrollTop = 0;
-      this.episodeNumber = -1;
+      this.episodeNumber = 0;
 
       this.id = this.activatedRoute.snapshot.params['id'];
       this.season = this.activatedRoute.snapshot.params['season'];

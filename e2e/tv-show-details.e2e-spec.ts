@@ -55,6 +55,14 @@ describe('movie-finder tv show details page', () => {
     expect(page.tvShowVideos().count()).toEqual(1);
   });
 
+  it('should display tv show seasons', () => {
+    expect(page.tvShowSeasons().count()).toEqual(1);
+  });
+
+  it('should display tv show season poster', () => {
+    expect(page.tvShowSeasonsPoster().count()).toEqual(1);
+  });
+
   it('should display tv show reviews', () => {
     expect(page.tvShowReviews().count()).toBeGreaterThanOrEqual(1);
   });

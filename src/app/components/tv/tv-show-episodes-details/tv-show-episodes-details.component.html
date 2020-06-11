@@ -1,41 +1,47 @@
 <section class="episodes">
   <div class="text-center">
-    <h2 class="mat-h2">
-      {{ tvShow.name ? tvShow.name : 'N/A' }}
-      {{
-        tvShow.name && tvShow.original_name !== tvShow.name
-          ? '(' + tvShow.original_name + ')'
-          : ''
-      }}
-      <br />
-      {{
-        tvShow.original_language ? tvShow.original_language.toUpperCase() : ''
-      }}
+    <mf-loading
+      class="centerHorizontalVertical"
+      *ngIf="!tvShow.name"
+    ></mf-loading>
+
+    <h2 class="mat-h2" *ngIf="tvShow.name">
+      {{ tvShow.name }}
     </h2>
 
-    <h3 class="mat-h3">
-      {{ tvShowEpisodes.name ? tvShowEpisodes.name : '' }}
-      ({{ tvShowEpisodes.episodes.length }}
-      {{ getGlobal() ? 'episode' : 'epizód' }})
-    </h3>
-
-    <h4 class="mat-h4">
-      {{ tvShow.status ? tvShow.status : '' }}
+    <h4
+      class="mat-h4"
+      *ngIf="tvShow.name && tvShow.original_name !== tvShow.name"
+    >
+      <em>
+        {{ tvShow.original_name }}
+        {{
+          tvShow.original_language ? ' (' + tvShow.original_language + ')' : ''
+        }}
+      </em>
     </h4>
 
-    <p class="mat-body-1 season-overview">
-      {{ getGlobal() ? 'Overview:' : 'Tartalom:' }}
-      {{ tvShowEpisodes.overview ? tvShowEpisodes.overview : 'N/A' }}
+    <h4 class="mat-h4" *ngIf="tvShowEpisodes.name">
+      {{ tvShowEpisodes.name }}
+      ({{ tvShowEpisodes.episodes.length }}
+      {{ getGlobal() ? 'episode' : 'epizód' }})
+      {{ tvShow.status ? ' - ' + tvShow.status : '' }}
+    </h4>
+
+    <p class="mat-body-1 season-overview" *ngIf="tvShowEpisodes.overview">
+      {{ tvShowEpisodes.overview }}
     </p>
 
-    <button
-      *ngFor="let link of tvShow.seasons; let i = index"
-      mat-raised-button
-      [routerLink]="['/tv-show-episodes', id, link.season_number]"
-      routerLinkActive="active"
-    >
-      {{ link.name ? link.name : i + '/' + tvShow.seasons.length }}
-    </button>
+    <div *ngIf="tvShow.seasons">
+      <button
+        *ngFor="let link of tvShow.seasons; let i = index"
+        mat-raised-button
+        [routerLink]="['/tv-show-episodes', id, link.season_number]"
+        routerLinkActive="active"
+      >
+        {{ link.name ? link.name : i + '/' + tvShow.seasons.length }}
+      </button>
+    </div>
   </div>
 
   <mf-tv-show-season-videos
@@ -43,11 +49,14 @@
     [season]="season"
   ></mf-tv-show-season-videos>
 
-  <h3 class="text-center mat-h3">
+  <h3
+    class="text-center mat-h3"
+    *ngIf="tvShowEpisodes && tvShowEpisodes.episodes"
+  >
     {{ getGlobal() ? 'Episodes' : 'Epizódok:' }}
   </h3>
 
-  <mat-accordion>
+  <mat-accordion *ngIf="tvShowEpisodes && tvShowEpisodes.episodes">
     <mat-expansion-panel
       [expanded]="episodeNumber === i"
       (opened)="setEpisode(i)"
@@ -70,15 +79,24 @@
       </mat-expansion-panel-header>
 
       <img
+        *ngIf="episode.still_path"
+        class="picture"
+        title="{{ tvShow.name }} -
+      {{ episode.name }}"
+        alt="{{ tvShow.name }} - {{ episode.name }}"
+        [lazyLoad]="'https://image.tmdb.org/t/p/w300' + episode.still_path"
+        [defaultImage]="'assets/image/1x1.png'"
+        [errorImage]="'assets/image/error-image-generic.png'"
+        offset="100"
+      />
+
+      <img
+        *ngIf="!episode.still_path"
         class="picture"
         title="{{ tvShow.name }} - {{ episode.name }}"
         alt="{{ tvShow.name }} - {{ episode.name }}"
-        [lazyLoad]="
-          episode.still_path
-            ? 'https://image.tmdb.org/t/p/' + 'w300' + episode.still_path
-            : ''
-        "
-        [defaultImage]="'assets/image/no-pic.jpg'"
+        [lazyLoad]="'assets/image/no-pic.jpg'"
+        [defaultImage]="'assets/image/1x1.png'"
         [errorImage]="'assets/image/error-image-generic.png'"
         offset="100"
       />
@@ -117,4 +135,6 @@
       </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>
+  <br />
+  <br />
 </section>
