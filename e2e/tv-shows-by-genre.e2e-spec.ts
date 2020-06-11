@@ -1,9 +1,9 @@
-import { UpcomingPage } from './upcoming.po';
+import { TvShoWByGenres } from './tv-shows-by-genre.po';
 import { Common } from './common.po';
 
 describe('movie-finder upcoming page', () => {
-  let page: UpcomingPage;
-  page = new UpcomingPage();
+  let page: TvShoWByGenres;
+  page = new TvShoWByGenres();
 
   const common = new Common();
 
@@ -16,7 +16,7 @@ describe('movie-finder upcoming page', () => {
   });
 
   it('should have movie cards listed', async () => {
-    const amount = await page.movieCardElements().count();
+    const amount = await page.tvShowCardElements().count();
     expect(amount).toBeGreaterThan(1);
   });
 

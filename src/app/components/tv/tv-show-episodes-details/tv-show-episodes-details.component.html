@@ -32,7 +32,7 @@
       {{ tvShowEpisodes.overview }}
     </p>
 
-    <div *ngIf="tvShow.seasons">
+    <div *ngIf="tvShow.seasons" class="seasons">
       <button
         *ngFor="let link of tvShow.seasons; let i = index"
         mat-raised-button
