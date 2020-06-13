@@ -266,4 +266,20 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Created by',
     hu: 'Készítette',
   },
+  episode: {
+    en: 'episode',
+    hu: 'epizód',
+  },
+  Episodes: {
+    en: 'Episodes',
+    hu: 'Epizódok',
+  },
+  Previous: {
+    en: 'Previous',
+    hu: 'Előző',
+  },
+  Next: {
+    en: 'Next',
+    hu: 'Következő',
+  },
 });

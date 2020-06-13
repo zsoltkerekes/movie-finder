@@ -10,6 +10,7 @@ import { Title } from '@angular/platform-browser';
 import { ApiService } from '../../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-tv-show-episodes-details',
@@ -24,12 +25,17 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
 
   tvShow: MovieDetails;
   tvShowEpisodes: TvShowEpisodes;
-  getGlobal = this.api.getGlobal;
+
+  episodeText: string;
+  episodesText: string;
+  previousText: string;
+  nextText: string;
 
   constructor(
     private title: Title,
     private activatedRoute: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private language: LanguageService
   ) {
     this.innerWidth = window.innerWidth;
   }
@@ -39,6 +45,11 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
   ngOnInit() {
     this.tvShow = movieDetailsData;
     this.tvShowEpisodes = tvShowEpisodesData;
+
+    this.episodeText = this.language.getText('episode', this.api.getGlobal());
+    this.episodesText = this.language.getText('Episodes', this.api.getGlobal());
+    this.previousText = this.language.getText('Previous', this.api.getGlobal());
+    this.nextText = this.language.getText('Next', this.api.getGlobal());
 
     this.episodeNumber = 0;
 

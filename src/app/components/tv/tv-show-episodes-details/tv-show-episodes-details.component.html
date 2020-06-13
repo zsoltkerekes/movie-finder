@@ -23,8 +23,7 @@
 
     <h4 class="mat-h4" *ngIf="tvShowEpisodes.name">
       {{ tvShowEpisodes.name }}
-      ({{ tvShowEpisodes.episodes.length }}
-      {{ getGlobal() ? 'episode' : 'epizód' }})
+      ({{ tvShowEpisodes.episodes.length }} {{ episodeText }})
       {{ tvShow.status ? ' - ' + tvShow.status : '' }}
     </h4>
 
@@ -32,7 +31,7 @@
       {{ tvShowEpisodes.overview }}
     </p>
 
-    <div *ngIf="tvShow.seasons" class="seasons">
+    <div *ngIf="tvShow.seasons && tvShow.seasons.length > 1" class="seasons">
       <button
         *ngFor="let link of tvShow.seasons; let i = index"
         mat-raised-button
@@ -51,12 +50,22 @@
 
   <h3
     class="text-center mat-h3"
-    *ngIf="tvShowEpisodes && tvShowEpisodes.episodes"
+    *ngIf="
+      tvShowEpisodes &&
+      tvShowEpisodes.episodes &&
+      tvShowEpisodes.episodes.length
+    "
   >
-    {{ getGlobal() ? 'Episodes' : 'Epizódok:' }}
+    {{ episodesText }}
   </h3>
 
-  <mat-accordion *ngIf="tvShowEpisodes && tvShowEpisodes.episodes">
+  <mat-accordion
+    *ngIf="
+      tvShowEpisodes &&
+      tvShowEpisodes.episodes &&
+      tvShowEpisodes.episodes.length
+    "
+  >
     <mat-expansion-panel
       [expanded]="episodeNumber === i"
       (opened)="setEpisode(i)"
@@ -73,8 +82,8 @@
               : ''
           }}
         </mat-panel-title>
-        <mat-panel-description class="title-desc">
-          {{ episode.air_date ? episode.air_date : '' }}
+        <mat-panel-description class="title-desc" *ngIf="episode.air_date">
+          {{ episode.air_date }}
         </mat-panel-description>
       </mat-expansion-panel-header>
 
@@ -84,7 +93,7 @@
         title="{{ tvShow.name }} -
       {{ episode.name }}"
         alt="{{ tvShow.name }} - {{ episode.name }}"
-        [lazyLoad]="'https://image.tmdb.org/t/p/w300' + episode.still_path"
+        [lazyLoad]="'https://image.tmdb.org/t/p/w500' + episode.still_path"
         [defaultImage]="'assets/image/1x1.png'"
         [errorImage]="'assets/image/error-image-generic.png'"
         offset="100"
@@ -102,17 +111,11 @@
       />
 
       <div class="episode-body">
-        <h4 class="mat-h4">
-          {{ episode.name ? episode.name : 'N/A' }}
-          {{
-            episode.vote_average
-              ? '(' + (episode.vote_average | number: '1.1-1') + '/10)'
-              : '(N/A)'
-          }}
+        <h4 class="mat-h4" *ngIf="episode.name">
+          {{ episode.name }}
         </h4>
-        <p class="mat-body-1">
-          {{ getGlobal() ? 'Overview:' : 'Tartalom:' }}
-          {{ episode.overview ? episode.overview : 'N/A' }}
+        <p class="mat-body-1" *ngIf="episode.overview">
+          {{ episode.overview }}
         </p>
       </div>
       <mat-action-row class="buttons">
@@ -122,7 +125,7 @@
           (click)="setEpisode(i - 1)"
           *ngIf="i > 0"
         >
-          {{ getGlobal() ? 'Previous' : 'Előző' }}
+          {{ previousText }}
         </button>
         <button
           mat-button
@@ -130,11 +133,9 @@
           (click)="setEpisode(i + 1)"
           *ngIf="i < tvShowEpisodes.episodes.length - 1"
         >
-          {{ getGlobal() ? 'Next' : 'Következő' }}
+          {{ nextText }}
         </button>
       </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>
-  <br />
-  <br />
 </section>
