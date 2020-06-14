@@ -1,6 +1,6 @@
 <div class="youtubeVideos text-center">
   <h2 *ngIf="this.videos.results.length > 0" class="mat-h2">
-    {{ getGlobal() ? 'Recommended videos:' : 'Kapcsolódó Videók:' }}
+    {{ recommendedVideosText }}
   </h2>
 
   <div class="maximized-height">
@@ -13,7 +13,11 @@
       >
         <p class="mat-body-1 text-center full-wide-width">
           {{ video.name ? video.name : i + 1 + '. videó' }}
-          {{ video.iso_639_1 ? '(' + video.iso_639_1.toUpperCase() + ')' : '' }}
+          {{
+            video.iso_639_1
+              ? '[' + video.iso_639_1.toLocaleUpperCase() + ']'
+              : ''
+          }}
         </p>
       </mat-chip>
     </mat-chip-list>

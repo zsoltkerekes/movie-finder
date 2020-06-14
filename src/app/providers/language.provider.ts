@@ -282,4 +282,20 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Next',
     hu: 'Következő',
   },
+  'Season Name': {
+    en: 'Season Name',
+    hu: 'Évad cím',
+  },
+  'Season Air Date': {
+    en: 'Season Air Date',
+    hu: 'Évad megjelenésének dátuma',
+  },
+  'Season episode count': {
+    en: 'Season episode count',
+    hu: 'Évad epizódok száma',
+  },
+  'Episodes overview': {
+    en: 'Episodes overview',
+    hu: 'Epizódok tartalma',
+  },
 });
