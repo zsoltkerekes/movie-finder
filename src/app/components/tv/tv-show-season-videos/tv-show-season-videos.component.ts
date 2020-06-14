@@ -51,7 +51,8 @@ export class TvShowSeasonVideosComponent implements OnInit, OnChanges {
           const output = response.json();
           this.videos = {
             ...output,
-            results: output.results.map((row) => row || {}),
+            results:
+              (output.results && output.results.map((row) => row || {})) || [],
           };
           if (this.videos.results.length > 0) {
             this.setVideoUrl(this.videos.results[0].key + this.embedOptions);

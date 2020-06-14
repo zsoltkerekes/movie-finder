@@ -1,5 +1,8 @@
-<div class="youtubeVideos text-center">
-  <h2 *ngIf="this.videos.results.length > 0" class="mat-h2">
+<div
+  class="youtubeVideos text-center"
+  *ngIf="videos && videos.results && videos.results.length > 0"
+>
+  <h2 class="mat-h2">
     {{ recommendedVideosText }}
   </h2>
 
