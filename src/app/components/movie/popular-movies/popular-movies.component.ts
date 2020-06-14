@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 
 import {
   ListItem,
@@ -10,13 +10,14 @@ import { ObservablesService } from '../../../services/observables.service';
 
 import { Location } from '@angular/common';
 import { LanguageService } from '../../../services/language.service';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'mf-popular-movies',
   templateUrl: './popular-movies.component.html',
   providers: [Location],
 })
-export class PopularMoviesComponent implements OnInit {
+export class PopularMoviesComponent implements OnInit, OnDestroy {
   @ViewChild('container', { static: false }) container;
 
   popularMovies: { results: Array<ListItem> };
@@ -25,6 +26,11 @@ export class PopularMoviesComponent implements OnInit {
 
   moviesText: string;
   noResultText: string;
+
+  paramsSubscription: Subscription;
+  movieYearOptionSubscription: Subscription;
+  sortMovieByOptionSubscription: Subscription;
+  withGenresOptionSubscription: Subscription;
 
   constructor(
     private api: ApiService,
@@ -75,9 +81,24 @@ export class PopularMoviesComponent implements OnInit {
       this.api.getGlobal()
     );
 
-    this.activatedRoute.params.subscribe(() => this.loadMovies());
-    this.observables.movieYearOption.subscribe(() => this.loadMovies());
-    this.observables.sortMovieByOption.subscribe(() => this.loadMovies());
-    this.observables.withGenresOption.subscribe(() => this.loadMovies());
+    this.paramsSubscription = this.activatedRoute.params.subscribe(() =>
+      this.loadMovies()
+    );
+    this.movieYearOptionSubscription = this.observables.movieYearOption.subscribe(
+      () => this.loadMovies()
+    );
+    this.sortMovieByOptionSubscription = this.observables.sortMovieByOption.subscribe(
+      () => this.loadMovies()
+    );
+    this.withGenresOptionSubscription = this.observables.withGenresOption.subscribe(
+      () => this.loadMovies()
+    );
+  }
+
+  ngOnDestroy() {
+    this.paramsSubscription.unsubscribe();
+    this.movieYearOptionSubscription.unsubscribe();
+    this.sortMovieByOptionSubscription.unsubscribe();
+    this.withGenresOptionSubscription.unsubscribe();
   }
 }

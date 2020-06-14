@@ -66,7 +66,7 @@
           {{ movie.release_date ? '(' + movie.release_date + ')' : '' }}
         </span>
         <strong>
-          {{ movie.title ? movie.title : 'N/A' }}
+          {{ movie.title ? movie.title : language.na }}
         </strong>
         {{
           movie.original_title && movie.original_title !== movie.title

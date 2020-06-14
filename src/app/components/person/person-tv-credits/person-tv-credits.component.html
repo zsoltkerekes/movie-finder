@@ -42,10 +42,10 @@
         }}"
       >
         <span class="pull-left">
-          {{ tv.job ? tv.job : 'N/A' }}
+          {{ tv.job ? tv.job : language.na }}
           {{ tv.first_air_date ? '(' + tv.first_air_date + ')' : '' }}
         </span>
-        {{ tv.name ? tv.name : 'N/A' }}
+        {{ tv.name ? tv.name : language.na }}
         {{
           tv.original_name && tv.original_name !== tv.name
             ? '(' + tv.original_name + ')'
@@ -94,7 +94,7 @@
           {{ tv.character ? tv.character : '' }}
           {{ tv.first_air_date ? '(' + tv.first_air_date + ')' : '' }}
         </span>
-        {{ tv.name ? tv.name : 'N/A' }}
+        {{ tv.name ? tv.name : language.na }}
         {{
           tv.original_name && tv.original_name !== tv.name
             ? ' (' + tv.original_name + ')'

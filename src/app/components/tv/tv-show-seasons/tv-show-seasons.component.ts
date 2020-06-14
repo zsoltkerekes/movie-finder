@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { LanguageService } from '../../../services/language.service';
 
@@ -7,7 +7,7 @@ import { LanguageService } from '../../../services/language.service';
   templateUrl: './tv-show-seasons.component.html',
   styleUrls: ['./tv-show-seasons.component.scss'],
 })
-export class TvShowSeasonsComponent implements OnInit {
+export class TvShowSeasonsComponent implements OnInit, OnChanges {
   @Input() tvShow;
   innerWidth: number;
 
@@ -17,7 +17,7 @@ export class TvShowSeasonsComponent implements OnInit {
   seasonOverview: string;
   episodesOverview: string;
 
-  constructor(private api: ApiService, private language: LanguageService) {}
+  constructor(private api: ApiService, public language: LanguageService) {}
 
   ngOnInit() {
     this.innerWidth = window.innerWidth;
@@ -41,5 +41,17 @@ export class TvShowSeasonsComponent implements OnInit {
       'Episodes overview',
       this.api.getGlobal()
     );
+  }
+
+  ngOnChanges() {
+    if (this.tvShow && this.tvShow.seasons && this.tvShow.seasons.length > 1) {
+      if (
+        this.tvShow.seasons[0].name === 'Specials' ||
+        this.tvShow.seasons[0].name === 'Speciális epizódok'
+      ) {
+        const specials = this.tvShow.seasons.shift();
+        this.tvShow.seasons.push(specials);
+      }
+    }
   }
 }

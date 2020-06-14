@@ -6,7 +6,7 @@ import { ILanguageService, IGet } from '../interfaces/language.interface';
   providedIn: 'root',
 })
 export class LanguageService implements ILanguageService {
-  na = 'N/A';
+  na = 'n/a';
 
   getText: IGet = (key, global) => {
     return (

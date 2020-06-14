@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 
 import {
   ListItem,
@@ -10,6 +10,7 @@ import { ObservablesService } from '../../../services/observables.service';
 
 import { Location } from '@angular/common';
 import { LanguageService } from '../../../services/language.service';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'mf-popular-tv-shows',
@@ -17,7 +18,7 @@ import { LanguageService } from '../../../services/language.service';
   styleUrls: ['./popular-tv-shows.component.scss'],
   providers: [Location],
 })
-export class PopularTvShowsComponent implements OnInit {
+export class PopularTvShowsComponent implements OnInit, OnDestroy {
   @ViewChild('container', { static: false }) container;
 
   popularTvShows: { results: Array<ListItem> };
@@ -26,6 +27,11 @@ export class PopularTvShowsComponent implements OnInit {
 
   tvShowsText: string;
   noResultText: string;
+
+  paramsSubscription: Subscription;
+  tvShowYearOptionSubscription: Subscription;
+  sortTvShowByOptionSubscription: Subscription;
+  withGenresOptionSubscription: Subscription;
 
   constructor(
     private api: ApiService,
@@ -74,9 +80,24 @@ export class PopularTvShowsComponent implements OnInit {
       this.api.getGlobal()
     );
 
-    this.activatedRoute.params.subscribe(() => this.loadTvShows());
-    this.observables.tvShowYearOption.subscribe(() => this.loadTvShows());
-    this.observables.sortTvShowByOption.subscribe(() => this.loadTvShows());
-    this.observables.tvWithGenresOption.subscribe(() => this.loadTvShows());
+    this.paramsSubscription = this.activatedRoute.params.subscribe(() =>
+      this.loadTvShows()
+    );
+    this.tvShowYearOptionSubscription = this.observables.tvShowYearOption.subscribe(
+      () => this.loadTvShows()
+    );
+    this.sortTvShowByOptionSubscription = this.observables.sortTvShowByOption.subscribe(
+      () => this.loadTvShows()
+    );
+    this.withGenresOptionSubscription = this.observables.tvWithGenresOption.subscribe(
+      () => this.loadTvShows()
+    );
+  }
+
+  ngOnDestroy() {
+    this.paramsSubscription.unsubscribe();
+    this.tvShowYearOptionSubscription.unsubscribe();
+    this.sortTvShowByOptionSubscription.unsubscribe();
+    this.withGenresOptionSubscription.unsubscribe();
   }
 }

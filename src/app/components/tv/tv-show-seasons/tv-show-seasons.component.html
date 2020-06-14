@@ -29,19 +29,19 @@
 
     <h4 class="mat-h4">
       {{ seasonName }}:
-      {{ season.name ? season.name : 'N/A' }}
+      {{ season.name ? season.name : language.na }}
     </h4>
     <p class="mat-body-1">
       {{ seasonAirDate }}:
-      {{ season.air_date ? season.air_date : 'N/A' }}
+      {{ season.air_date ? season.air_date : language.na }}
     </p>
     <p class="mat-body-1">
       {{ seasonEpisodeCount }}:
-      {{ season.episode_count ? season.episode_count : 'N/A' }}
+      {{ season.episode_count ? season.episode_count : language.na }}
     </p>
     <p class="mat-body-1" *ngIf="season.overview">
-      {{ seasonOverview }}
-      {{ season.overview ? season.overview : 'N/A' }}
+      {{ seasonOverview }}:
+      {{ season.overview ? season.overview : language.na }}
     </p>
     <button
       mat-raised-button

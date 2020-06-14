@@ -36,7 +36,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
     private title: Title,
     private activatedRoute: ActivatedRoute,
     private api: ApiService,
-    private language: LanguageService
+    public language: LanguageService
   ) {
     this.innerWidth = window.innerWidth;
   }
