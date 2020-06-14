@@ -53,9 +53,9 @@ export class TvShowDetailsComponent implements OnChanges, OnInit {
       array.forEach((row) => {
         output.push(row.name);
       });
-      return output.join(', ');
+      return `(${output.join(', ')})`;
     } else {
-      return array;
+      return '';
     }
   };
 
@@ -122,7 +122,7 @@ export class TvShowDetailsComponent implements OnChanges, OnInit {
 
   ngOnChanges() {
     this.title.setTitle(
-      `${this.tvShow.name} (${this.listGenres(this.tvShow.genres)}) :: ${
+      `${this.tvShow.name} ${this.listGenres(this.tvShow.genres)} :: ${
         this.activatedRoute.snapshot.data['pageTitle']
       }`
     );

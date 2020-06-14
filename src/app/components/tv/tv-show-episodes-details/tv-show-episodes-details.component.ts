@@ -31,6 +31,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
   previousText: string;
   nextText: string;
   backToDetails: string;
+  seasonText: string;
 
   constructor(
     private title: Title,
@@ -55,6 +56,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
       'Back to tv show details',
       this.api.getGlobal()
     );
+    this.seasonText = this.language.getText('season', this.api.getGlobal());
 
     this.episodeNumber = 0;
 
@@ -70,7 +72,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
         output = { ...this.tvShow, ...output };
         this.tvShow = output;
         this.title.setTitle(
-          `${this.season}. évad :: ${this.tvShow.name} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
+          `${this.season}. ${this.seasonText} :: ${this.tvShow.name} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
         );
       });
 

@@ -2,6 +2,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'mf-upcoming',
@@ -13,12 +14,13 @@ export class UpcomingComponent implements OnInit {
   constructor(
     private title: Title,
     private activatedRoute: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
     document.documentElement.scrollTop = 0;
-    this.subTitle = this.api.getGlobal() ? 'Upcoming' : 'Nemsokára a Mozikban';
+    this.subTitle = this.language.getNav('Upcoming', this.api.getGlobal());
     this.title.setTitle(
       `${this.subTitle} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
     );

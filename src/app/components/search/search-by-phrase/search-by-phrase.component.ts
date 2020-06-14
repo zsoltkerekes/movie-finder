@@ -51,7 +51,7 @@ export class SearchByPhraseComponent implements OnInit {
     this.charsText = this.language.getText('chars', this.api.getGlobal());
     this.message.nativeElement.focus();
     this.hint = '';
-    this.placeholder = this.api.getGlobal() ? 'Search' : 'Keresés';
+    this.placeholder = this.language.getText('Search', this.api.getGlobal());
     this.min = 2;
     this.max = 100;
     this.showButton = this.shouldButtonShown();

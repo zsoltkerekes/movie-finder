@@ -97,7 +97,7 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
         output = { ...this.movie, ...output };
         this.movie = output;
         this.title.setTitle(
-          `${this.movie.title} (${this.listGenres(this.movie.genres)}) :: ${
+          `${this.movie.title} ${this.listGenres(this.movie.genres)} :: ${
             this.activatedRoute.snapshot.data['pageTitle']
           }`
         );
@@ -116,9 +116,9 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
       array.forEach((row) => {
         output.push(row.name);
       });
-      return output.join(', ');
+      return `(${output.join(', ')}`;
     } else {
-      return array;
+      return '';
     }
   };
 

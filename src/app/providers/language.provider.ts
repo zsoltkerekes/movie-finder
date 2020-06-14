@@ -306,4 +306,8 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Back to tv show details',
     hu: 'Vissza a sorozat leírásához',
   },
+  season: {
+    en: 'season',
+    hu: 'évad',
+  },
 });
