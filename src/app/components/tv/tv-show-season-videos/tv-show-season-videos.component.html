@@ -15,7 +15,7 @@
         *ngFor="let video of videos.results; let i = index"
       >
         <p class="mat-body-1 text-center full-wide-width">
-          {{ video.name ? video.name : i + 1 + '. videó' }}
+          {{ video.name ? video.name : i + 1 + '. ' + videoText }}
           {{
             video.iso_639_1
               ? '[' + video.iso_639_1.toLocaleUpperCase() + ']'

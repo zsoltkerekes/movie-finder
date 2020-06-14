@@ -18,6 +18,7 @@ export class TvShowSeasonVideosComponent implements OnInit, OnChanges {
   getGlobal = this.api.getGlobal;
   embedOptions = '?iv_load_policy=3&rel=0&showinfo=0';
   recommendedVideosText: string;
+  videoText: string;
 
   setVideoUrl = (key) => {
     this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -39,6 +40,7 @@ export class TvShowSeasonVideosComponent implements OnInit, OnChanges {
       'Recommended videos',
       this.api.getGlobal()
     );
+    this.videoText = this.language.getText('video', this.api.getGlobal());
   }
 
   ngOnChanges() {

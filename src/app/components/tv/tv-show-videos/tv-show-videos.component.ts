@@ -1,22 +1,37 @@
 import { ApiService } from '../../../services/api.service';
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Videos, videosData } from '../../../interfaces/videos.interface';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-tv-show-videos',
   templateUrl: './tv-show-videos.component.html',
   styleUrls: ['./tv-show-videos.component.scss'],
 })
-export class TvShowVideosComponent implements OnChanges {
+export class TvShowVideosComponent implements OnChanges, OnInit {
   @Input() id: number;
   videos: Videos;
   videoSrc: SafeResourceUrl;
   selectedVideo: string;
   getGlobal = this.api.getGlobal;
   embedOptions = '?iv_load_policy=3&rel=0&showinfo=0';
+  recommendedVideosText: string;
+  videoText: string;
 
-  constructor(private api: ApiService, private sanitizer: DomSanitizer) {}
+  constructor(
+    private api: ApiService,
+    private sanitizer: DomSanitizer,
+    private language: LanguageService
+  ) {}
+
+  ngOnInit() {
+    this.recommendedVideosText = this.language.getText(
+      'Recommended videos',
+      this.api.getGlobal()
+    );
+    this.videoText = this.language.getText('video', this.api.getGlobal());
+  }
 
   ngOnChanges() {
     this.videoSrc = undefined;

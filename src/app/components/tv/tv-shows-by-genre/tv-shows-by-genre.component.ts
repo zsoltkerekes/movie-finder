@@ -5,6 +5,7 @@ import {
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../services/api.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'mf-tv-shows-by-genre',
@@ -22,14 +23,26 @@ export class TvShowsByGenreComponent implements OnInit {
   };
   listTvGenres = this.api.getTvGenreList;
   tvGenres = this.api.tvGenres;
-  getGlobal = this.api.getGlobal;
+
+  tvShowsText: string;
+  noResultsText: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private language: LanguageService
   ) {}
 
   ngOnInit() {
+    this.tvShowsByGenre = {
+      results: [listItemInitData],
+    };
+    this.tvShowsText = this.language.getText('Tv shows', this.api.getGlobal());
+    this.noResultsText = this.language.getText(
+      'No results',
+      this.api.getGlobal()
+    );
+
     this.activatedRoute.params.subscribe(() => {
       this.isLoading = true;
       document.documentElement.scrollTop = 0;
