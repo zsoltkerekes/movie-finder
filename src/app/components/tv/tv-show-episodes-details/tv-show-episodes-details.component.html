@@ -138,4 +138,25 @@
       </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>
+
+  <br />
+
+  <div *ngIf="tvShow.seasons && tvShow.seasons.length > 1" class="text-center">
+    <button
+      *ngFor="let link of tvShow.seasons; let i = index"
+      mat-raised-button
+      [routerLink]="['/tv-show-episodes', id, link.season_number]"
+      routerLinkActive="active"
+    >
+      {{ link.name ? link.name : i + '/' + tvShow.seasons.length }}
+    </button>
+  </div>
+
+  <br />
+
+  <div class="text-center">
+    <button mat-raised-button [routerLink]="['/tv-details', id]">
+      {{ backToDetails }}
+    </button>
+  </div>
 </section>

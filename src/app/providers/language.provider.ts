@@ -298,4 +298,8 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Episodes overview',
     hu: 'Epizódok tartalma',
   },
+  'Back to tv show details': {
+    en: 'Back to tv show details',
+    hu: 'Vissza a sorozat leírásához',
+  },
 });

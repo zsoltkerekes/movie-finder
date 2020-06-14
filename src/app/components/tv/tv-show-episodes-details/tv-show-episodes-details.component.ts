@@ -30,6 +30,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
   episodesText: string;
   previousText: string;
   nextText: string;
+  backToDetails: string;
 
   constructor(
     private title: Title,
@@ -50,6 +51,10 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
     this.episodesText = this.language.getText('Episodes', this.api.getGlobal());
     this.previousText = this.language.getText('Previous', this.api.getGlobal());
     this.nextText = this.language.getText('Next', this.api.getGlobal());
+    this.backToDetails = this.language.getText(
+      'Back to tv show details',
+      this.api.getGlobal()
+    );
 
     this.episodeNumber = 0;
 
