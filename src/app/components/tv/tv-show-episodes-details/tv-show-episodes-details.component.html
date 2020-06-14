@@ -99,17 +99,6 @@
         offset="100"
       />
 
-      <img
-        *ngIf="!episode.still_path"
-        class="picture"
-        title="{{ tvShow.name }} - {{ episode.name }}"
-        alt="{{ tvShow.name }} - {{ episode.name }}"
-        [lazyLoad]="'assets/image/no-pic.jpg'"
-        [defaultImage]="'assets/image/1x1.png'"
-        [errorImage]="'assets/image/error-image-generic.png'"
-        offset="100"
-      />
-
       <div class="episode-body">
         <h4 class="mat-h4" *ngIf="episode.name">
           {{ episode.name }}
@@ -159,4 +148,7 @@
       {{ backToDetails }}
     </button>
   </div>
+
+  <br />
+  <br />
 </section>
