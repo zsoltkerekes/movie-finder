@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { PageNotFoundComponent } from '../../containers/page-not-found/page-not-found.component';
 
@@ -11,8 +12,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [LazyLoadImageModule, RouterModule.forChild(routes)],
   declarations: [PageNotFoundComponent],
-  exports: [PageNotFoundComponent],
+  exports: [LazyLoadImageModule, PageNotFoundComponent],
 })
 export class PageNotFoundModule {}
