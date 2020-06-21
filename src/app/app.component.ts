@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 
 @Component({
   selector: 'mf-root',
@@ -6,16 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor() {}
+  online: boolean;
+
+  constructor(private ngZone: NgZone) {}
 
   checkConnection() {
-    return (<any>window).navigator && (<any>window).navigator.connection
-      ? (<any>window).navigator.connection.type
-      : '';
+    this.ngZone.run(() => {
+      this.online = (<any>window).navigator && (<any>window).navigator.onLine;
+    });
   }
 
   ngOnInit() {
-    (<any>window).navigator.connection.onchange = this.checkConnection;
+    this.online = false;
+    (<any>window).navigator.connection.onchange = this.checkConnection.bind(
+      this
+    );
     this.checkConnection();
   }
 }
