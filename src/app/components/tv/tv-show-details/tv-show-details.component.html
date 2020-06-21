@@ -159,7 +159,7 @@
       <p class="mat-body-1 query" *ngIf="tvShow.homepage">
         <span> {{ homepage }}: </span>
         <span>
-          <a [href]="tvShow.homepage" target="_blank">
+          <a [href]="tvShow.homepage" target="_blank" rel="noopener noreferrer">
             {{ tvShow.homepage }}
           </a>
         </span>
@@ -193,6 +193,7 @@
               *ngIf="tvShow.name !== tvShow.original_name"
               [href]="query.url + tvShow.original_name"
               target="_blank"
+              rel="noopener noreferrer"
             >
               {{ byOriginalTitle }}
             </a>

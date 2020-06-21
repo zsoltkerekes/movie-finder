@@ -145,7 +145,7 @@
       <p class="mat-body-1 query" *ngIf="movie.homepage">
         <span> {{ homepage }}: </span>
         <span>
-          <a [href]="movie.homepage" target="_blank">
+          <a [href]="movie.homepage" target="_blank" rel="noopener noreferrer">
             {{ movie.homepage }}
           </a>
         </span>
@@ -179,6 +179,7 @@
               *ngIf="movie.title !== movie.original_title"
               [href]="query.url + movie.original_title"
               target="_blank"
+              rel="noopener noreferrer"
             >
               {{ byOriginalTitle }}
             </a>
