@@ -114,12 +114,10 @@ export class PaginationComponent implements OnInit, OnChanges {
       if (this.pagination.page < 5) {
         this.pagination.links = this.pagination.links.slice(0, 10);
       } else {
-        if (this.pagination.page >= 5) {
-          this.pagination.links = this.pagination.links.slice(
-            this.pagination.page - 5,
-            this.pagination.page + 5
-          );
-        }
+        this.pagination.links = this.pagination.links.slice(
+          this.pagination.page - 5,
+          this.pagination.page + 5
+        );
       }
     }
   }
