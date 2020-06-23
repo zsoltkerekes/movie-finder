@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 describe('DiscoverOptionsComponent', () => {
   let component: DiscoverOptionsComponent;
   let fixture: ComponentFixture<DiscoverOptionsComponent>;
+  let api: ApiService;
+  let observable: ObservablesService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -31,7 +33,6 @@ describe('DiscoverOptionsComponent', () => {
         ObservablesService,
         LanguageService,
         ConstantsService,
-        ObservablesService,
       ],
     }).compileComponents();
   }));
@@ -40,9 +41,67 @@ describe('DiscoverOptionsComponent', () => {
     fixture = TestBed.createComponent(DiscoverOptionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    api = TestBed.inject(ApiService);
+    observable = TestBed.inject(ObservablesService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should handle changes', () => {
+    const genres = [{ id: 1, name: 'id' }];
+    api.getGenresArray = () => genres;
+    component.ngDoCheck();
+    fixture.detectChanges();
+    expect(component.movieGenres).toEqual(genres);
+  });
+
+  it('should have a functional "setMovieSortByOption" function', () => {
+    const event = { value: 'dd' };
+    component.setMovieSortByOption(event);
+    expect(observable.sortMovieByOption.getValue()).toEqual(event.value);
+  });
+
+  it('should have a functional "setMovieYearOption" function', () => {
+    let event;
+    event = { target: { value: 1000 } };
+    component.setMovieYearOption(event);
+    fixture.detectChanges();
+    expect(observable.movieYearOption.getValue()).toEqual(
+      new Date().getFullYear()
+    );
+    event = { target: { value: new Date().getFullYear() } };
+    component.setMovieYearOption(event);
+    fixture.detectChanges();
+    expect(observable.movieYearOption.getValue()).toEqual(event.target.value);
+  });
+
+  it('should have a functional "setMovieGenre" function', () => {
+    let id;
+    let event;
+    id = 1;
+    event = { checked: true };
+    component.setMovieGenre(id, event);
+    fixture.detectChanges();
+    expect(observable.withGenresOption.getValue()).toEqual([0, id]);
+    id = 2;
+    event = { checked: false };
+    component.setMovieGenre(id, event);
+    fixture.detectChanges();
+    expect(observable.withGenresOption.getValue()).toEqual([0]);
+    component.selectedMovieGenres = [];
+    event = { checked: false };
+    component.setMovieGenre(id, event);
+    fixture.detectChanges();
+    expect(observable.withGenresOption.getValue()).toEqual([]);
+  });
+
+  it('should have a functional "getCheckedStatus" function', () => {
+    let result;
+    result = component.getCheckedStatus(0);
+    expect(result).toEqual('checked');
+    result = component.getCheckedStatus(1);
+    expect(result).toEqual(null);
   });
 });

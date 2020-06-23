@@ -9,10 +9,13 @@ import { ObservablesService } from '../../services/observables.service';
 import { LanguageService } from '../../services/language.service';
 import { ConstantsService } from '../../services/constants.service';
 import { TvGenresComponent } from './tv-genres.component';
+import { Title } from '@angular/platform-browser';
 
 describe('TvGenresComponent', () => {
   let component: TvGenresComponent;
   let fixture: ComponentFixture<TvGenresComponent>;
+  let api: ApiService;
+  let title: Title;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -38,9 +41,17 @@ describe('TvGenresComponent', () => {
     fixture = TestBed.createComponent(TvGenresComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    api = TestBed.inject(ApiService);
+    title = TestBed.inject(Title);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should set the right title', () => {
+    api.tvGenres[this.id] = 'something';
+    component.ngOnInit();
+    expect(title.getTitle()).toBe('something :: undefined');
   });
 });

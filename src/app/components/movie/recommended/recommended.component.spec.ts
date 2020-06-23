@@ -13,6 +13,7 @@ import { ConstantsService } from '../../../services/constants.service';
 describe('RecommendedComponent', () => {
   let component: RecommendedComponent;
   let fixture: ComponentFixture<RecommendedComponent>;
+  let api: ApiService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -29,7 +30,6 @@ describe('RecommendedComponent', () => {
         ObservablesService,
         LanguageService,
         ConstantsService,
-        ObservablesService,
       ],
     }).compileComponents();
   }));
@@ -38,9 +38,18 @@ describe('RecommendedComponent', () => {
     fixture = TestBed.createComponent(RecommendedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    api = TestBed.inject(ApiService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should handle changes', () => {
+    const genres = [{ id: 1, name: 'id' }];
+    api.genresArray = genres;
+    component.ngDoCheck();
+    fixture.detectChanges();
+    expect(component.genres).toEqual(genres);
   });
 });

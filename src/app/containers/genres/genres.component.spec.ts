@@ -9,10 +9,13 @@ import { ApiService } from '../../services/api.service';
 import { ObservablesService } from '../../services/observables.service';
 import { LanguageService } from '../../services/language.service';
 import { ConstantsService } from '../../services/constants.service';
+import { Title } from '@angular/platform-browser';
 
 describe('GenresComponent', () => {
   let component: GenresComponent;
   let fixture: ComponentFixture<GenresComponent>;
+  let api: ApiService;
+  let title: Title;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -30,6 +33,7 @@ describe('GenresComponent', () => {
         LanguageService,
         ConstantsService,
         ObservablesService,
+        Title,
       ],
     }).compileComponents();
   }));
@@ -38,9 +42,17 @@ describe('GenresComponent', () => {
     fixture = TestBed.createComponent(GenresComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    api = TestBed.inject(ApiService);
+    title = TestBed.inject(Title);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should set the right title', () => {
+    api.genres[component.id] = 'something';
+    component.ngOnInit();
+    expect(title.getTitle()).toBe('something :: undefined');
   });
 });

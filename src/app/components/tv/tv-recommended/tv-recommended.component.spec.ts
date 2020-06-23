@@ -13,6 +13,7 @@ import { TvRecommendedComponent } from './tv-recommended.component';
 describe('TvRecommendedComponent', () => {
   let component: TvRecommendedComponent;
   let fixture: ComponentFixture<TvRecommendedComponent>;
+  let api: ApiService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -38,9 +39,18 @@ describe('TvRecommendedComponent', () => {
     fixture = TestBed.createComponent(TvRecommendedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    api = TestBed.inject(ApiService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should handle changes', () => {
+    const genres = [{ id: 1, name: 'id' }];
+    api.tvGenresArray = genres;
+    component.ngDoCheck();
+    fixture.detectChanges();
+    expect(component.tvGenres).toEqual(genres);
   });
 });
