@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.online = false;
+    this.online = true;
     (<any>window).navigator.connection.onchange = this.checkConnection.bind(
       this
     );
