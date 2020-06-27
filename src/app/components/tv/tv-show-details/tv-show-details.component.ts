@@ -53,7 +53,7 @@ export class TvShowDetailsComponent implements OnChanges, OnInit {
       array.forEach((row) => {
         output.push(row.name);
       });
-      return `(${output.join(', ')})`;
+      return ` ${output.join(', ')}`;
     } else {
       return '';
     }
