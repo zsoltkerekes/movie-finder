@@ -9,10 +9,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ObservablesService } from '../../../services/observables.service';
 import { LanguageService } from '../../../services/language.service';
 import { ConstantsService } from '../../../services/constants.service';
+import { collectionInitData } from '../../../interfaces/collection.interface';
+import { Observable } from 'rxjs/internal/Observable';
 
 describe('MovieCollectionComponent', () => {
   let component: MovieCollectionComponent;
   let fixture: ComponentFixture<MovieCollectionComponent>;
+  let api: ApiService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -32,6 +35,8 @@ describe('MovieCollectionComponent', () => {
         ObservablesService,
       ],
     }).compileComponents();
+
+    api = TestBed.inject(ApiService);
   }));
 
   beforeEach(() => {
@@ -42,5 +47,22 @@ describe('MovieCollectionComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should react changes', () => {
+    spyOn(component, 'loadCollectionData').and.callThrough();
+    component.ngOnChanges();
+    fixture.detectChanges();
+    expect(component.loadCollectionData).toHaveBeenCalled();
+  });
+
+  it('should get data with every change', () => {
+    component.id = 1;
+    spyOn(api, 'getMovieCollections').and.returnValues(({
+      subscribe: () => {},
+    } as unknown) as Observable<any>);
+    component.loadCollectionData();
+    fixture.detectChanges();
+    expect(component.collection).toEqual(collectionInitData);
   });
 });
