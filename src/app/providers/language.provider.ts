@@ -259,7 +259,7 @@ export const textProvider: IProvider = (): IText => ({
     hu: 'Utolsó epizód dátuma',
   },
   'Next air date': {
-    en: 'Last air date',
+    en: 'Next air date',
     hu: 'Következő epizód dátuma',
   },
   'Created by': {
