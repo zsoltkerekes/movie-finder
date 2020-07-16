@@ -72,7 +72,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
         output = { ...this.tvShow, ...output };
         this.tvShow = output;
         this.title.setTitle(
-          `${this.season}. ${this.seasonText} :: ${this.tvShow.name} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
+          `${this.season}. ${this.seasonText} ::: ${this.tvShow.name} ::: ${this.activatedRoute.snapshot.data['pageTitle']}`
         );
       });
 

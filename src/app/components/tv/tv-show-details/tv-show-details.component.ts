@@ -122,7 +122,7 @@ export class TvShowDetailsComponent implements OnChanges, OnInit {
 
   ngOnChanges() {
     this.title.setTitle(
-      `${this.tvShow.name} ${this.listGenres(this.tvShow.genres)} :: ${
+      `${this.tvShow.name} ${this.listGenres(this.tvShow.genres)} ::: ${
         this.activatedRoute.snapshot.data['pageTitle']
       }`
     );

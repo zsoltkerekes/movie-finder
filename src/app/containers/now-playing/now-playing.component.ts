@@ -20,9 +20,9 @@ export class NowPlayingComponent implements OnInit {
 
   ngOnInit() {
     document.documentElement.scrollTop = 0;
-    this.subTitle = this.language.getNav('Now Playing', this.api.getGlobal());
+    this.subTitle = this.language.getNav('Now playing', this.api.getGlobal());
     this.title.setTitle(
-      `${this.subTitle} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
+      `${this.subTitle} ::: ${this.activatedRoute.snapshot.data['pageTitle']}`
     );
   }
 }

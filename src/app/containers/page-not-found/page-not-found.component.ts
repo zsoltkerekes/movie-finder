@@ -13,7 +13,7 @@ export class PageNotFoundComponent implements OnInit {
   ngOnInit() {
     document.documentElement.scrollTop = 0;
     this.title.setTitle(
-      `404 :: ${this.activatedRoute.snapshot.data['pageTitle']}`
+      `404 ::: ${this.activatedRoute.snapshot.data['pageTitle']}`
     );
   }
 }

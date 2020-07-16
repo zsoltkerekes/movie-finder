@@ -97,7 +97,7 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
         output = { ...this.movie, ...output };
         this.movie = output;
         this.title.setTitle(
-          `${this.movie.title} ${this.listGenres(this.movie.genres)} :: ${
+          `${this.movie.title} ${this.listGenres(this.movie.genres)} ::: ${
             this.activatedRoute.snapshot.data['pageTitle']
           }`
         );

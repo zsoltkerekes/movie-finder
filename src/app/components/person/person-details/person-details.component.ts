@@ -67,7 +67,7 @@ export class PersonsDetailsComponent implements OnInit {
       (result) => {
         this.person = result.json();
         this.title.setTitle(
-          `${this.person.name} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
+          `${this.person.name} ::: ${this.activatedRoute.snapshot.data['pageTitle']}`
         );
         this.loading = false;
       },

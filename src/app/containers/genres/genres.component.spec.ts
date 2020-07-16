@@ -53,6 +53,6 @@ describe('GenresComponent', () => {
   it('should set the right title', () => {
     api.genres[component.id] = 'something';
     component.ngOnInit();
-    expect(title.getTitle()).toBe('something :: undefined');
+    expect(title.getTitle()).toBe('something ::: undefined');
   });
 });

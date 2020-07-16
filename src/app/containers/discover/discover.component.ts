@@ -27,7 +27,7 @@ export class DiscoverComponent implements OnInit {
     document.documentElement.scrollTop = 0;
     this.subTitle = this.language.getNav('Discover', this.api.getGlobal());
     this.title.setTitle(
-      `${this.subTitle} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
+      `${this.subTitle} ::: ${this.activatedRoute.snapshot.data['pageTitle']}`
     );
   }
 }

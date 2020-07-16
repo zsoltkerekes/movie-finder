@@ -23,7 +23,7 @@ export class TopRatedComponent implements OnInit {
     document.documentElement.scrollTop = 0;
     this.subTitle = this.language.getNav('Top Rated', this.api.getGlobal());
     this.title.setTitle(
-      `${this.subTitle} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
+      `${this.subTitle} ::: ${this.activatedRoute.snapshot.data['pageTitle']}`
     );
   }
 }

@@ -42,7 +42,7 @@ export class MoviesByKeywordComponent implements OnInit {
       document.documentElement.scrollTop = 0;
       this.isLoading = true;
       this.title.setTitle(
-        `${this.keywordText} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
+        `${this.keywordText} ::: ${this.activatedRoute.snapshot.data['pageTitle']}`
       );
       if (this.activatedRoute.snapshot.params['id']) {
         this.id = +this.activatedRoute.snapshot.params['id'];
@@ -60,7 +60,7 @@ export class MoviesByKeywordComponent implements OnInit {
       this.title.setTitle(
         `${this.keywordText}: ${
           this.keyword[0].toLocaleUpperCase() + this.keyword.substr(1)
-        } :: ${this.activatedRoute.snapshot.data['pageTitle']}`
+        } ::: ${this.activatedRoute.snapshot.data['pageTitle']}`
       );
     });
 

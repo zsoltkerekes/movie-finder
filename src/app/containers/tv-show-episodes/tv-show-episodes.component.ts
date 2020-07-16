@@ -21,7 +21,7 @@ export class TvShowEpisodesComponent implements OnInit {
   ngOnInit() {
     this.subTitle = this.language.getNav('Episodes', this.api.getGlobal());
     this.title.setTitle(
-      `${this.subTitle} :: ${this.activatedRoute.snapshot.data['pageTitle']}`
+      `${this.subTitle} ::: ${this.activatedRoute.snapshot.data['pageTitle']}`
     );
   }
 }
