@@ -1,3 +1,4 @@
+import { browser } from 'protractor';
 import { AppPage } from './app.po';
 import { Common } from './common.po';
 
@@ -9,6 +10,7 @@ describe('movie-finder main page', () => {
 
   beforeAll(async () => {
     await page.navigateTo();
+    browser.driver.manage().window().maximize();
   });
 
   it('should display "Movie Finder" title in the header', () => {

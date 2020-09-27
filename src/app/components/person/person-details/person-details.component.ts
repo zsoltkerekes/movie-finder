@@ -87,7 +87,7 @@ export class PersonsDetailsComponent implements OnInit {
     return output.join(', ');
   };
 
-  getGender(id: number = 0): string {
+  getGender(id = 0): string {
     switch (id) {
       case 1:
         return `(${this.language.getText('Woman', this.api.getGlobal())})`;

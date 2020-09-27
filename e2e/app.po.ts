@@ -2,6 +2,7 @@ import { browser, by, element } from 'protractor';
 
 export class AppPage {
   navigateTo() {
+    browser.driver.manage().window().maximize();
     return browser.get('/');
   }
 
