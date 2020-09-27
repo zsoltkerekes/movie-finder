@@ -19,7 +19,7 @@ export class TvShowSeasonsComponent implements OnInit, OnChanges {
 
   constructor(private api: ApiService, public language: LanguageService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.innerWidth = window.innerWidth;
     this.seasonName = this.language.getText(
       'Season Name',
@@ -43,15 +43,16 @@ export class TvShowSeasonsComponent implements OnInit, OnChanges {
     );
   }
 
-  ngOnChanges() {
-    if (this.tvShow && this.tvShow.seasons && this.tvShow.seasons.length > 1) {
-      if (
-        this.tvShow.seasons[0].name === 'Specials' ||
-        this.tvShow.seasons[0].name === 'Speciális epizódok'
-      ) {
-        const specials = this.tvShow.seasons.shift();
-        this.tvShow.seasons.push(specials);
-      }
+  ngOnChanges(): void {
+    if (
+      this.tvShow &&
+      this.tvShow.seasons &&
+      this.tvShow.seasons.length > 1 &&
+      (this.tvShow.seasons[0].name === 'Specials' ||
+        this.tvShow.seasons[0].name === 'Speciális epizódok')
+    ) {
+      const specials = this.tvShow.seasons.shift();
+      this.tvShow.seasons.push(specials);
     }
   }
 }

@@ -103,10 +103,8 @@ export class ApiService {
       );
       const output = [];
       temp.forEach((value, index) => {
-        if (index > 0) {
-          if (temp[index].id !== temp[index - 1].id) {
-            output.push(temp[index - 1]);
-          }
+        if (index > 0 && temp[index].id !== temp[index - 1].id) {
+          output.push(temp[index - 1]);
         }
       });
       this.tvGenresArray = output;

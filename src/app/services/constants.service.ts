@@ -11,16 +11,22 @@ export class ConstantsService {
   apiBaseUrl = 'https://api.themoviedb.org/3/';
   imageUrl = 'https://image.tmdb.org/t/p/';
   backdropSize = 'w1280';
+  popularity = 'popularity.';
+  order = {
+    desc: `${this.popularity}desc`,
+  };
+  globalOptionCookie = 'Movie-Finder-globalOption';
+  adultOptionCookie = 'Movie-Finder-adultOption';
 
   constructor(
     private cookieService: CookieService,
     private observables: ObservablesService
   ) {
     this.globalOption =
-      this.cookieService.check('Movie-Finder-globalOption') === false ||
-      this.cookieService.get('Movie-Finder-globalOption') === 'Global';
+      this.cookieService.check(this.globalOptionCookie) === false ||
+      this.cookieService.get(this.globalOptionCookie) === 'Global';
 
-    this.adultOption = this.cookieService.check('Movie-Finder-adultOption');
+    this.adultOption = this.cookieService.check(this.adultOptionCookie);
   }
 
   adult = (value = false) => `&include_adult=${value}`;
@@ -30,19 +36,19 @@ export class ConstantsService {
   changeGlobal = () => {
     this.globalOption = !this.globalOption;
     this.cookieService.set(
-      'Movie-Finder-globalOption',
+      this.globalOptionCookie,
       this.globalOption ? 'Global' : 'Local',
       this.limit()
     );
     window.location.reload();
   };
 
-  sortBy = (option = 'popularity.desc') => `&sort_by=${option}`;
+  sortBy = (option = this.order.desc) => `&sort_by=${option}`;
 
   getSortByOptions = () => {
     if (this.globalOption === false) {
       return [
-        { name: 'Népszerűség alapján csökkenő', value: 'popularity.desc' },
+        { name: 'Népszerűség alapján csökkenő', value: this.order.desc },
         { name: 'Népszerűség alapján növekvő', value: 'popularity.asc' },
         { name: 'Premier dátuma alapján csökkenő', value: 'release_date.desc' },
         { name: 'Premier dátuma alapján növekvő', value: 'release_date.asc' },
@@ -53,7 +59,7 @@ export class ConstantsService {
       ];
     } else {
       return [
-        { name: 'Popularity (desc)', value: 'popularity.desc' },
+        { name: 'Popularity (desc)', value: this.order.desc },
         { name: 'Popularity (asc)', value: 'popularity.asc' },
         { name: 'Release Date (desc)', value: 'release_date.desc' },
         { name: 'Release Date (asc)', value: 'release_date.asc' },
@@ -69,9 +75,9 @@ export class ConstantsService {
   setAdultOption = () => {
     this.adultOption = !this.adultOption;
     if (this.adultOption) {
-      this.cookieService.set('Movie-Finder-adultOption', 'Adult', this.limit());
+      this.cookieService.set(this.adultOptionCookie, 'Adult', this.limit());
     } else {
-      this.cookieService.delete('Movie-Finder-adultOption');
+      this.cookieService.delete(this.adultOptionCookie);
     }
     window.location.reload();
   };

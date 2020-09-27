@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ScrollerService {
-  constructor() {}
-
-  toTop(time = 1000, speedIndex = 25) {
+  toTop(time = 1000, speedIndex = 25): void {
     const height = () =>
       window.innerHeight ||
       document.documentElement.clientHeight ||
