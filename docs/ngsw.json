@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1594917398244,
+  "timestamp": 1601236119974,
   "index": "/movie-finder/index.html",
   "assetGroups": [
     {
@@ -10,12 +10,12 @@
       "urls": [
         "/movie-finder/favicon.ico",
         "/movie-finder/index.html",
-        "/movie-finder/main.337291fc58aa870059fa.js",
-        "/movie-finder/polyfills-es5.e5de3410eb394e66b0da.js",
-        "/movie-finder/polyfills.a926e2ce79b8541d1d7c.js",
-        "/movie-finder/runtime.7d7e9038a1cdbceb3d53.js",
-        "/movie-finder/styles.14da9578c3d7c5a08968.css",
-        "/movie-finder/vendor.195e063f1a4f04b20b24.js"
+        "/movie-finder/main.2d9c752e4a4f06fc8671.js",
+        "/movie-finder/polyfills-es5.dd77d763c1e06bf45c65.js",
+        "/movie-finder/polyfills.1d0964220180fd88f929.js",
+        "/movie-finder/runtime.c51bd5b1c616d9ffddc1.js",
+        "/movie-finder/styles.fe7f3a1615d612f7862f.css",
+        "/movie-finder/vendor.d134364329a8e825c8fa.js"
       ],
       "patterns": [
         "https:\\/\\/fonts\\.googleapis\\.com\\/icon\\?family=Material\\+Icons",
@@ -69,13 +69,13 @@
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "698db1681bf22dd693673fe8bdee925d7c1d11b9",
-    "/movie-finder/main.337291fc58aa870059fa.js": "6d9b61b9fbab68b8e9d788bc627b7602899e3d4a",
-    "/movie-finder/polyfills-es5.e5de3410eb394e66b0da.js": "b1f93ab7008e8884fca369c8ba75da0440fddc3d",
-    "/movie-finder/polyfills.a926e2ce79b8541d1d7c.js": "00d68f6bec8622ed1a323563d0a30dd7a541895c",
-    "/movie-finder/runtime.7d7e9038a1cdbceb3d53.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/movie-finder/styles.14da9578c3d7c5a08968.css": "76ac6eb7c21f044407301e10c489374a393b06cb",
-    "/movie-finder/vendor.195e063f1a4f04b20b24.js": "b68d734461b5a5c041414aa8e4d4f37cc0df983b"
+    "/movie-finder/index.html": "4cf61f14c9d5bc46ea034cd2ffca3dbde3c002ca",
+    "/movie-finder/main.2d9c752e4a4f06fc8671.js": "54f1de606146b79a495659577b20c278fbd4b627",
+    "/movie-finder/polyfills-es5.dd77d763c1e06bf45c65.js": "b1f93ab7008e8884fca369c8ba75da0440fddc3d",
+    "/movie-finder/polyfills.1d0964220180fd88f929.js": "00d68f6bec8622ed1a323563d0a30dd7a541895c",
+    "/movie-finder/runtime.c51bd5b1c616d9ffddc1.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/movie-finder/styles.fe7f3a1615d612f7862f.css": "4854b848f1c65f6203602f4d5b5f0f431285b84c",
+    "/movie-finder/vendor.d134364329a8e825c8fa.js": "7735c07cd422a2d1685b2d56898f62cc91675d1f"
   },
   "navigationUrls": [
     {
