@@ -10,7 +10,11 @@ import { LanguageService } from '../../../services/language.service';
   styleUrls: ['./pagination.component.scss'],
 })
 export class PaginationComponent implements OnInit, OnChanges {
-  @Input() results: any;
+  @Input() results: {
+    total_pages: number;
+    total_results: number;
+    page: number;
+  };
   @Input() url: string;
   @Input() type: string;
 
@@ -18,7 +22,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     total_pages: number;
     total_results: number;
     page: number;
-    links: Array<any>;
+    links: Array<{ name: string; url: string }>;
   };
 
   moviePage: number;
@@ -38,7 +42,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     public language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.pagination = {
       total_pages: 0,
       total_results: 0,
@@ -47,7 +51,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     };
   }
 
-  ngOnChanges() {
+  setParams(): void {
     this.moviePage = +this.activatedRoute.snapshot.params['moviePage'] || 1;
     this.tvShowPage = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
     this.personPage = +this.activatedRoute.snapshot.params['personPage'] || 1;
@@ -57,6 +61,22 @@ export class PaginationComponent implements OnInit, OnChanges {
 
     this.resultsText = this.language.getText('results', this.api.getGlobal());
     this.pagesText = this.language.getText('pages', this.api.getGlobal());
+  }
+
+  optionsInUrl(): string {
+    return this.url === '/discover/'
+      ? `/${this.observables.sortMovieByOption.getValue()}/${this.observables.movieYearOption.getValue()}/${this.observables.withGenresOption
+          .getValue()
+          .join(
+            ','
+          )}/${this.observables.sortTvShowByOption.getValue()}/${this.observables.tvShowYearOption.getValue()}/${this.observables.tvWithGenresOption
+          .getValue()
+          .join(',')}`
+      : '';
+  }
+
+  ngOnChanges(): void {
+    this.setParams();
 
     if (this.results) {
       this.pagination = {
@@ -69,38 +89,29 @@ export class PaginationComponent implements OnInit, OnChanges {
       for (let i = 0; i < +this.results.total_pages; i++) {
         let expandedUrl = `${this.url}/${i + 1}`;
 
-        const optionsInUrl =
-          this.url === '/discover/'
-            ? `/${this.observables.sortMovieByOption.getValue()}/${this.observables.movieYearOption.getValue()}/${this.observables.withGenresOption
-                .getValue()
-                .join(
-                  ','
-                )}/${this.observables.sortTvShowByOption.getValue()}/${this.observables.tvShowYearOption.getValue()}/${this.observables.tvWithGenresOption
-                .getValue()
-                .join(',')}`
-            : '';
-
-        if (this.type === 'movie') {
-          expandedUrl = `${this.url}/${i + 1}/${this.tvShowPage}/${
-            this.personPage
-          }`;
-        }
-        if (this.type === 'tvShow') {
-          expandedUrl = `${this.url}/${this.moviePage}/${i + 1}/${
-            this.personPage
-          }`;
-        }
-        if (this.type === 'person') {
-          expandedUrl = `${this.url}/${this.moviePage}/${this.tvShowPage}/${
-            i + 1
-          }`;
-        }
-        if (this.type === 'keyword') {
-          expandedUrl = `${this.url}/${i + 1}`;
+        switch (this.type) {
+          case 'movie':
+            expandedUrl = `${this.url}/${i + 1}/${this.tvShowPage}/${
+              this.personPage
+            }`;
+            break;
+          case 'tvShow':
+            expandedUrl = `${this.url}/${this.moviePage}/${i + 1}/${
+              this.personPage
+            }`;
+            break;
+          case 'person':
+            expandedUrl = `${this.url}/${this.moviePage}/${this.tvShowPage}/${
+              i + 1
+            }`;
+            break;
+          case 'keyword':
+            expandedUrl = `${this.url}/${i + 1}`;
+            break;
         }
 
         this.pagination.links[i] = {
-          url: expandedUrl + optionsInUrl,
+          url: expandedUrl + this.optionsInUrl(),
           name: `${i * 20 + 1}-${(i + 1) * 20}`,
         };
       }
