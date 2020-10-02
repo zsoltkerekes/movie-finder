@@ -31,7 +31,7 @@ export class MoviesByKeywordComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.keywordText = this.language.getText('Keyword', this.api.getGlobal());
     this.noResultsText = this.language.getText(
       'No results',
@@ -52,7 +52,7 @@ export class MoviesByKeywordComponent implements OnInit {
     });
   }
 
-  loadKeywordsRelatedContent = () => {
+  loadKeywordsRelatedContent = (): void => {
     this.movies = { results: [listItemInitData] };
 
     this.api.getKeywordDetails(this.id).subscribe((result) => {

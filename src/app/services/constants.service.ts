@@ -29,11 +29,11 @@ export class ConstantsService {
     this.adultOption = this.cookieService.check(this.adultOptionCookie);
   }
 
-  adult = (value = false) => `&include_adult=${value}`;
+  adult = (value = false): string => `&include_adult=${value}`;
 
-  limit = () => 14;
+  limit = (): number => 14;
 
-  changeGlobal = () => {
+  changeGlobal = (): void => {
     this.globalOption = !this.globalOption;
     this.cookieService.set(
       this.globalOptionCookie,
@@ -43,9 +43,9 @@ export class ConstantsService {
     window.location.reload();
   };
 
-  sortBy = (option = this.order.desc) => `&sort_by=${option}`;
+  sortBy = (option = this.order.desc): string => `&sort_by=${option}`;
 
-  getSortByOptions = () => {
+  getSortByOptions = (): { name: string; value: string }[] => {
     if (this.globalOption === false) {
       return [
         { name: 'Népszerűség alapján csökkenő', value: this.order.desc },
@@ -71,8 +71,8 @@ export class ConstantsService {
     }
   };
 
-  getAdultOption = () => this.adultOption;
-  setAdultOption = () => {
+  getAdultOption = (): boolean => this.adultOption;
+  setAdultOption = (): void => {
     this.adultOption = !this.adultOption;
     if (this.adultOption) {
       this.cookieService.set(this.adultOptionCookie, 'Adult', this.limit());
@@ -82,18 +82,18 @@ export class ConstantsService {
     window.location.reload();
   };
 
-  language = () => (this.globalOption ? '' : '&language=hu');
+  language = (): string => (this.globalOption ? '' : '&language=hu');
 
-  page = (pageNumber) => `&page=${pageNumber}`;
+  page = (pageNumber: number): string => `&page=${pageNumber}`;
 
-  region = () => (this.globalOption ? '' : '&region=hu');
+  region = (): string => (this.globalOption ? '' : '&region=hu');
 
-  year = () => `&year=${this.observables.movieYearOption.getValue()}`;
+  year = (): string => `&year=${this.observables.movieYearOption.getValue()}`;
 
-  tvYear = () =>
+  tvYear = (): string =>
     `&first_air_date_year=${this.observables.tvShowYearOption.getValue()}`;
 
-  withGenres = () => {
+  withGenres = (): string => {
     const withGenresOption = this.observables.withGenresOption.getValue();
     if (withGenresOption.length === 1 && withGenresOption[0] === 0) {
       return '';
@@ -102,7 +102,7 @@ export class ConstantsService {
     }
   };
 
-  withTvGenres = () => {
+  withTvGenres = (): string => {
     const tvWithGenresOption = this.observables.tvWithGenresOption.getValue();
     if (tvWithGenresOption.length === 1 && tvWithGenresOption[0] === 0) {
       return '';
@@ -111,166 +111,174 @@ export class ConstantsService {
     }
   };
 
-  options = () =>
+  options = (): string =>
     `${this.apiKey}${this.language()}${this.adult(this.getAdultOption())}`;
 
   // Movie Begins
 
-  apiGenres = () => `${this.apiBaseUrl}genre/movie/list?${this.options()}`;
+  apiGenres = (): string =>
+    `${this.apiBaseUrl}genre/movie/list?${this.options()}`;
 
-  popularMovies = (page) =>
+  popularMovies = (page: number): string =>
     `${this.apiBaseUrl}discover/movie?${this.options()}${this.page(
       page
     )}${this.year()}${this.sortBy(
       this.observables.sortMovieByOption.getValue()
     )}${this.withGenres()}`;
 
-  movieById = (id) => `${this.apiBaseUrl}movie/${id}?${this.options()}`;
+  movieById = (id: number): string =>
+    `${this.apiBaseUrl}movie/${id}?${this.options()}`;
 
-  topRatedMovies = (page) =>
+  topRatedMovies = (page: number): string =>
     `${this.apiBaseUrl}movie/top_rated?${this.options()}${this.page(page)}`;
 
-  movieByGenre = (genre, page) =>
+  movieByGenre = (genre: string, page: number): string =>
     `${this.apiBaseUrl}genre/${genre}/movies?${this.options()}${this.page(
       page
     )}`;
 
-  movieSearch = (phrase, page) =>
+  movieSearch = (phrase: string, page: number): string =>
     `${
       this.apiBaseUrl
     }search/movie?${this.options()}&query=${phrase}${this.page(page)}`;
 
-  recommendedMovies = (id) =>
+  recommendedMovies = (id: number): string =>
     `${this.apiBaseUrl}movie/${id}/recommendations?${this.options()}`;
 
-  similarMovies = (id) =>
+  similarMovies = (id: number): string =>
     `${this.apiBaseUrl}movie/${id}/similar?${this.options()}`;
 
-  nowPlaying = (page) =>
+  nowPlaying = (page: number): string =>
     `${this.apiBaseUrl}movie/now_playing?${this.options()}${this.page(
       page
     )}${this.region()}`;
 
-  upcoming = (page) =>
+  upcoming = (page: number): string =>
     `${this.apiBaseUrl}movie/upcoming?${this.options()}${this.page(
       page
     )}${this.region()}`;
 
-  movieImages = (id) =>
+  movieImages = (id: number): string =>
     `${
       this.apiBaseUrl
     }movie/${id}/images?${this.options()}&include_image_language=hu,eng,null`;
 
-  movieVideos = (id) =>
+  movieVideos = (id: number): string =>
     `${this.apiBaseUrl}movie/${id}/videos?${this.options()}`;
 
-  movieCredits = (id) =>
+  movieCredits = (id: number): string =>
     `${this.apiBaseUrl}movie/${id}/credits?${this.options()}`;
 
-  movieReviews = (id) =>
+  movieReviews = (id: number): string =>
     `${this.apiBaseUrl}movie/${id}/reviews?${this.options()}`;
 
-  movieKeywords = (id) =>
+  movieKeywords = (id: number): string =>
     `${this.apiBaseUrl}movie/${id}/keywords?${this.options()}`;
 
-  movieCollections = (id) =>
+  movieCollections = (id: number): string =>
     `${this.apiBaseUrl}collection/${id}?${this.options()}`;
 
   // Movie Ends
 
   // TV Show Begins
 
-  apiTvGenres = () => `${this.apiBaseUrl}genre/tv/list?${this.options()}`;
+  apiTvGenres = (): string =>
+    `${this.apiBaseUrl}genre/tv/list?${this.options()}`;
 
-  tvShowSearch = (phrase, page) =>
+  tvShowSearch = (phrase: string, page: number): string =>
     `${this.apiBaseUrl}search/tv?${this.options()}&query=${phrase}${this.page(
       page
     )}`;
 
-  tvShowById = (id) => `${this.apiBaseUrl}tv/${id}?${this.options()}`;
+  tvShowById = (id: number): string =>
+    `${this.apiBaseUrl}tv/${id}?${this.options()}`;
 
-  recommendedTvShows = (id) =>
+  recommendedTvShows = (id: number): string =>
     `${this.apiBaseUrl}tv/${id}/recommendations?${this.options()}`;
 
-  similarTvShows = (id) =>
+  similarTvShows = (id: number): string =>
     `${this.apiBaseUrl}tv/${id}/similar?${this.options()}`;
 
-  popularTvShows = (page) =>
+  popularTvShows = (page: number): string =>
     `${this.apiBaseUrl}discover/tv?${this.options()}${this.page(
       page
     )}${this.tvYear()}${this.sortBy(
       this.observables.sortTvShowByOption.getValue()
     )}${this.withTvGenres()}`;
 
-  topRatedTvShows = (page) =>
+  topRatedTvShows = (page: number): string =>
     `${this.apiBaseUrl}tv/top_rated?${this.options()}${this.page(page)}`;
 
-  tvShowByGenre = (genre, page) =>
+  tvShowByGenre = (genre: string, page: number): string =>
     `${
       this.apiBaseUrl
     }discover/tv?&with_genres=${genre}&${this.options()}${this.page(page)}`;
 
-  tvShowEpisodes = (id, season) =>
+  tvShowEpisodes = (id: number, season: string): string =>
     `${this.apiBaseUrl}tv/${id}/season/${season}?${this.options()}`;
 
-  tvImages = (id) =>
+  tvImages = (id: number): string =>
     `${
       this.apiBaseUrl
     }tv/${id}/images?${this.options()}&include_image_language=hu,eng,null`;
 
-  tvShowVideos = (id) => `${this.apiBaseUrl}tv/${id}/videos?${this.options()}`;
+  tvShowVideos = (id: number): string =>
+    `${this.apiBaseUrl}tv/${id}/videos?${this.options()}`;
 
-  tvShowSeasonVideos = (id, season) =>
+  tvShowSeasonVideos = (id: number, season: string): string =>
     `${this.apiBaseUrl}tv/${id}/season/${season}/videos?${this.options()}`;
 
-  tvShowCredits = (id) =>
+  tvShowCredits = (id: number): string =>
     `${this.apiBaseUrl}tv/${id}/credits?${this.options()}`;
 
-  tvShowReviews = (id) =>
+  tvShowReviews = (id: number): string =>
     `${this.apiBaseUrl}tv/${id}/reviews?${this.options()}`;
 
-  tvKeywords = (id) => `${this.apiBaseUrl}tv/${id}/keywords?${this.options()}`;
+  tvKeywords = (id: number): string =>
+    `${this.apiBaseUrl}tv/${id}/keywords?${this.options()}`;
 
   // TV Show Ends
 
   // People Begins
 
-  personById = (id) => `${this.apiBaseUrl}person/${id}?${this.options()}`;
+  personById = (id: number): string =>
+    `${this.apiBaseUrl}person/${id}?${this.options()}`;
 
-  personMovieCredits = (id) =>
+  personMovieCredits = (id: number): string =>
     `${this.apiBaseUrl}person/${id}/movie_credits?${this.options()}`;
 
-  personTvCredits = (id) =>
+  personTvCredits = (id: number): string =>
     `${this.apiBaseUrl}person/${id}/tv_credits?${this.options()}`;
 
-  personImages = (id) =>
+  personImages = (id: number): string =>
     `${
       this.apiBaseUrl
     }person/${id}/images?${this.options()}&include_image_language=hu,eng,null`;
 
-  popularPersons = (page) =>
+  popularPersons = (page: number): string =>
     `${this.apiBaseUrl}person/popular?${this.options()}${this.page(page)}`;
 
-  personSearch = (phrase, page) =>
+  personSearch = (phrase: string, page: number): string =>
     `${
       this.apiBaseUrl
     }search/person?${this.options()}&query=${phrase}${this.page(page)}`;
 
-  personTaggedImages = (id) =>
+  personTaggedImages = (id: number): string =>
     `${this.apiBaseUrl}person/${id}/tagged_images?${this.options()}`;
 
   // People Ends
 
   // Keywords Begins
 
-  keywordDetails = (id) => `${this.apiBaseUrl}keyword/${id}?${this.options()}`;
+  keywordDetails = (id: number): string =>
+    `${this.apiBaseUrl}keyword/${id}?${this.options()}`;
 
-  moviesByKeyword = (id, page) =>
+  moviesByKeyword = (id: number, page: number): string =>
     `${this.apiBaseUrl}keyword/${id}/movies?${this.options()}${this.page(
       page
     )}`;
 
-  keywordSearch = (phrase) =>
+  keywordSearch = (phrase: string): string =>
     `${this.apiBaseUrl}search/keyword?${this.options()}&query=${phrase}`;
 
   // Keywords Ends

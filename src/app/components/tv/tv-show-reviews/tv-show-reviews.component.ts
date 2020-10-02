@@ -18,7 +18,7 @@ export class TvShowReviewsComponent implements OnChanges {
 
   constructor(private api: ApiService) {}
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     if (this.id) {
       this.api.getTvShowReviews(this.id).subscribe((response) => {
         const output = response.json();

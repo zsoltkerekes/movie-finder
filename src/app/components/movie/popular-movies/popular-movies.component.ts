@@ -40,7 +40,7 @@ export class PopularMoviesComponent implements OnInit, OnDestroy {
     private language: LanguageService
   ) {}
 
-  loadMovies() {
+  loadMovies(): void {
     this.isLoading = true;
     this.popularMovies = { results: [listItemInitData] };
     this.page = +this.activatedRoute.snapshot.params['moviePage'] || 1;
@@ -74,7 +74,7 @@ export class PopularMoviesComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.moviesText = this.language.getText('Movies', this.api.getGlobal());
     this.noResultText = this.language.getText(
       'No results',
@@ -95,7 +95,7 @@ export class PopularMoviesComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.paramsSubscription.unsubscribe();
     this.movieYearOptionSubscription.unsubscribe();
     this.sortMovieByOptionSubscription.unsubscribe();

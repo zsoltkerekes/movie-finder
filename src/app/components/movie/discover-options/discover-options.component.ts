@@ -2,6 +2,7 @@ import { ApiService } from '../../../services/api.service';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { ObservablesService } from '../../../services/observables.service';
 import { LanguageService } from '../../../services/language.service';
+import { IGenres } from '../../../interfaces/genres.interface';
 
 @Component({
   selector: 'mf-discover-options',
@@ -12,7 +13,7 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
   sortByOptions: Array<{ name: string; value: string }>;
   movieSelected: string;
   movieYear: number;
-  movieGenres: Array<any>;
+  movieGenres: Array<IGenres>;
   selectedMovieGenres: number[];
   placeholder: string;
   placeholderOrder: string;
@@ -23,12 +24,12 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.movieYear = this.observables.movieYearOption.getValue();
     this.movieSelected = this.observables.sortMovieByOption.getValue();
     this.selectedMovieGenres = this.observables.withGenresOption
       .getValue()
-      .map((str: any) => parseInt(str, 10));
+      .map((str: never): number => parseInt(str, 10));
     this.sortByOptions = this.api.getSortByOptions();
     this.movieGenres = this.api.getGenresArray();
     this.placeholder = this.language.getText('Year', this.api.getGlobal());
@@ -38,16 +39,16 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     );
   }
 
-  ngDoCheck() {
+  ngDoCheck(): void {
     this.movieGenres = this.api.getGenresArray()
       ? [...this.api.getGenresArray()]
       : null;
   }
 
-  setMovieSortByOption = (event) =>
+  setMovieSortByOption = (event): void =>
     this.observables.sortMovieByOption.next(event.value);
 
-  setMovieYearOption = (event) => {
+  setMovieYearOption = (event): void => {
     const thisYear: number = new Date().getFullYear();
     const range = 300;
     if (
@@ -61,7 +62,7 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     return this.observables.movieYearOption.next(event.target.value);
   };
 
-  setMovieGenre = (id, event) => {
+  setMovieGenre = (id: number, event): void => {
     if (event.checked) {
       this.selectedMovieGenres.push(id);
     } else if (this.selectedMovieGenres.length > 1) {
@@ -75,7 +76,7 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     this.observables.withGenresOption.next(this.selectedMovieGenres);
   };
 
-  getCheckedStatus = (id) =>
+  getCheckedStatus = (id: number): string | null =>
     this.selectedMovieGenres.findIndex(
       (previouslySelected) => previouslySelected === id
     ) !== -1

@@ -32,7 +32,7 @@ export class PersonMovieCreditsComponent implements OnInit, OnChanges {
 
   constructor(private api: ApiService, public language: LanguageService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.movieCredits = peopleMovieCreditsData;
     this.placeholder = this.language.getText('Search', this.api.getGlobal());
     this.moviesText = this.language.getText('Movies', this.api.getGlobal());
@@ -51,7 +51,7 @@ export class PersonMovieCreditsComponent implements OnInit, OnChanges {
     this.crewText = this.language.getText('Crew', this.api.getGlobal());
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.movieCredits = peopleMovieCreditsData;
     this.searchCast = '';
     this.searchCrew = '';
@@ -65,7 +65,7 @@ export class PersonMovieCreditsComponent implements OnInit, OnChanges {
     }
   }
 
-  onChange = (event: any) => {
+  onChange = (event): void => {
     switch (event.value) {
       case 'vote_average':
         this.movieCredits.cast.sort(setSortBy('vote_average'));

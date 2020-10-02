@@ -10,7 +10,7 @@ export class DetailsComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.activatedRoute.params.subscribe(() => {
       if (this.activatedRoute.snapshot.params['id']) {
         this.id = +this.activatedRoute.snapshot.params['id'];

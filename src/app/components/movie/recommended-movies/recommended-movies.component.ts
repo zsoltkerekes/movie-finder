@@ -25,7 +25,7 @@ export class RecommendedMoviesComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.recommendedMovies = {
       results: [listItemInitData],
     };

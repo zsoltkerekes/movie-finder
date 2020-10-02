@@ -21,7 +21,7 @@ export class DiscoverComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.observables.initMovie();
     this.observables.initTv();
     document.documentElement.scrollTop = 0;

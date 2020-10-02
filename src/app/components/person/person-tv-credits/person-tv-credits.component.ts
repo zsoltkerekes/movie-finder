@@ -26,14 +26,14 @@ export class PersonTvCreditsComponent implements OnInit, OnChanges {
 
   constructor(private api: ApiService, public language: LanguageService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.placeholder = this.language.getText('Search', this.api.getGlobal());
     this.crewText = this.language.getText('Crew', this.api.getGlobal());
     this.tvShowsText = this.language.getText('Tv shows', this.api.getGlobal());
     this.castText = this.language.getText('Cast', this.api.getGlobal());
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.tvCredits = peopleMovieCreditsData;
     this.searchCast = '';
     this.searchCrew = '';

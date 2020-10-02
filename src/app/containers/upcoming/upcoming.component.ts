@@ -18,7 +18,7 @@ export class UpcomingComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     document.documentElement.scrollTop = 0;
     this.subTitle = this.language.getNav('Upcoming', this.api.getGlobal());
     this.title.setTitle(

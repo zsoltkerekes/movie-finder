@@ -10,17 +10,18 @@ export class AppComponent implements OnInit {
 
   constructor(private ngZone: NgZone) {}
 
-  checkConnection() {
+  checkConnection(): void {
     this.ngZone.run(() => {
-      this.online = (<any>window).navigator && (<any>window).navigator.onLine;
+      this.online =
+        (<Window>window).navigator && (<Window>window).navigator.onLine;
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.online = true;
-    (<any>window).navigator.connection.onchange = this.checkConnection.bind(
-      this
-    );
+    (<Window>window)['navigator'][
+      'connection'
+    ].onchange = this.checkConnection.bind(this);
     this.checkConnection();
   }
 }

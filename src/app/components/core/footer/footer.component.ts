@@ -20,7 +20,7 @@ export class FooterComponent implements OnInit {
     public scroll: ScrollerService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.date = new Date();
     this.adult = this.language.getText('Adult', this.api.getGlobal());
     this.global = this.language.getNav('Global', this.api.getGlobal());

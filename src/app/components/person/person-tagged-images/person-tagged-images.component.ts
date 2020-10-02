@@ -18,7 +18,7 @@ export class PersonTaggedImagesComponent implements OnInit, OnChanges {
 
   constructor(private api: ApiService, private language: LanguageService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.innerWidth = window.innerWidth;
     this.taggedImagesText = this.language.getText(
       'Tagged Images from acts',
@@ -26,7 +26,7 @@ export class PersonTaggedImagesComponent implements OnInit, OnChanges {
     );
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.images = imagesData;
     if (this.id) {
       this.api.getPersonTaggedImages(this.id).subscribe((response) => {

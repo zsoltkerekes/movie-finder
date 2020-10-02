@@ -31,7 +31,7 @@ export class PopularPersonsComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.noResultsText = this.language.getText(
       'No results',
       this.api.getGlobal()

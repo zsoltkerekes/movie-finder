@@ -28,7 +28,7 @@ export class SimilarTvShowsComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.similarTvShows = {
       results: [listItemInitData],
     };

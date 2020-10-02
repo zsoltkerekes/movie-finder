@@ -7,7 +7,7 @@ export class SideScrollDirective {
   constructor(private element: ElementRef) {}
 
   @HostListener('mouseover')
-  onScroll() {
+  onScroll(): void {
     this.element.nativeElement.onwheel = (event) => {
       event.preventDefault();
       this.element.nativeElement.scrollLeft += event.deltaY / 1.5;

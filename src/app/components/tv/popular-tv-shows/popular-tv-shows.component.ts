@@ -41,7 +41,7 @@ export class PopularTvShowsComponent implements OnInit, OnDestroy {
     private language: LanguageService
   ) {}
 
-  loadTvShows() {
+  loadTvShows(): void {
     this.isLoading = true;
     this.popularTvShows = { results: [listItemInitData] };
     this.page = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
@@ -73,7 +73,7 @@ export class PopularTvShowsComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.tvShowsText = this.language.getText('Tv shows', this.api.getGlobal());
     this.noResultText = this.language.getText(
       'No results',
@@ -94,7 +94,7 @@ export class PopularTvShowsComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.paramsSubscription.unsubscribe();
     this.tvShowYearOptionSubscription.unsubscribe();
     this.sortTvShowByOptionSubscription.unsubscribe();

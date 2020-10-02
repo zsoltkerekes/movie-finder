@@ -19,14 +19,15 @@ export class MovieVideosComponent implements OnInit, OnChanges {
   recommendedVideos: string;
   videoText: string;
 
-  setVideoUrl = (key: string) => {
+  setVideoUrl = (key: string): void => {
     this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(
       `https://www.youtube.com/embed/${key}${this.embedOptions}`
     );
     this.selectedVideo = key;
   };
 
-  getSelectedVideo = (i) => this.videos.results[i].key === this.selectedVideo;
+  getSelectedVideo = (i: number): boolean =>
+    this.videos.results[i].key === this.selectedVideo;
 
   constructor(
     private api: ApiService,
@@ -34,7 +35,7 @@ export class MovieVideosComponent implements OnInit, OnChanges {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.recommendedVideos = this.language.getText(
       'Recommended videos',
       this.api.getGlobal()
@@ -43,7 +44,7 @@ export class MovieVideosComponent implements OnInit, OnChanges {
     this.videos = videosData;
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.videoSrc = undefined;
     this.videos = videosData;
     if (this.id) {

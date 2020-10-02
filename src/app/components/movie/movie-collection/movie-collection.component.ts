@@ -17,7 +17,7 @@ export class MovieCollectionComponent implements OnInit, OnChanges {
 
   constructor(private api: ApiService) {}
 
-  loadCollectionData() {
+  loadCollectionData(): void {
     this.collection = collectionInitData;
     if (this.id) {
       this.api.getMovieCollections(this.id).subscribe((response) => {
@@ -28,11 +28,11 @@ export class MovieCollectionComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.collection = collectionInitData;
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.loadCollectionData();
   }
 }

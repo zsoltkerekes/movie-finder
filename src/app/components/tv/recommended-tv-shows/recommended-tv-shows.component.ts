@@ -28,7 +28,7 @@ export class RecommendedTvShowsComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.recommendedTvShowsText = this.language.getText(
       'Recommended Tv Shows',
       this.api.getGlobal()

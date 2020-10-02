@@ -25,7 +25,7 @@ export class SimilarMoviesComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.similarMovies = { results: [listItemInitData] };
 
     this.similarMoviesText = this.language.getText(

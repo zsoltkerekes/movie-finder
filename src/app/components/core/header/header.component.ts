@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private api: ApiService, private language: LanguageService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.movieFinder = this.language.getNav(
       'Movie Finder',
       this.api.getGlobal()

@@ -15,7 +15,7 @@ export class MovieKeywordsComponent implements OnChanges {
 
   constructor(private api: ApiService) {}
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.keywords = [];
     if (this.id) {
       this.api.getMovieKeywords(this.id).subscribe((response) => {

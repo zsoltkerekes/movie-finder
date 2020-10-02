@@ -33,7 +33,7 @@ export class TvShowsByGenreComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.tvShowsByGenre = {
       results: [listItemInitData],
     };
@@ -49,15 +49,17 @@ export class TvShowsByGenreComponent implements OnInit {
       this.tvShowsByGenre = { results: [listItemInitData] };
       this.id = +this.activatedRoute.snapshot.params['id'];
       this.page = +this.activatedRoute.snapshot.params['page'];
-      this.api.getTvShowByGenre(this.id, this.page).subscribe((response) => {
-        const output = response.json();
-        output.results = output.results.map((row) => row || {});
-        this.tvShowsByGenre = output;
-        this.isLoading = false;
-        if (this.container) {
-          this.container.nativeElement.scrollLeft = 0;
-        }
-      });
+      this.api
+        .getTvShowByGenre(this.id.toString(), this.page)
+        .subscribe((response) => {
+          const output = response.json();
+          output.results = output.results.map((row) => row || {});
+          this.tvShowsByGenre = output;
+          this.isLoading = false;
+          if (this.container) {
+            this.container.nativeElement.scrollLeft = 0;
+          }
+        });
     });
   }
 }

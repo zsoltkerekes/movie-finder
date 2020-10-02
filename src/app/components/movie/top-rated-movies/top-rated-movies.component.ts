@@ -30,7 +30,7 @@ export class TopRatedMoviesComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.topRatedMoviesText = this.language.getText(
       'Top rated movies',
       this.api.getGlobal()

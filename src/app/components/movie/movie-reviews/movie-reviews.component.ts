@@ -18,7 +18,7 @@ export class MovieReviewsComponent implements OnChanges {
 
   constructor(private api: ApiService) {}
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     if (this.id) {
       this.api.getMovieReviews(this.id).subscribe((response) => {
         const output = response.json();

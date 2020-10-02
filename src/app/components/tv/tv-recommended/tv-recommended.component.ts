@@ -18,7 +18,7 @@ export class TvRecommendedComponent implements OnInit, DoCheck {
 
   constructor(private api: ApiService, private language: LanguageService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.chooseText = this.language.getText(
       'Choose a tv series genre',
       this.api.getGlobal()
@@ -26,7 +26,7 @@ export class TvRecommendedComponent implements OnInit, DoCheck {
     this.loading = this.language.getText('Loading', this.api.getGlobal());
   }
 
-  ngDoCheck() {
+  ngDoCheck(): void {
     this.tvGenres = this.api.tvGenresArray
       ? [...this.api.tvGenresArray]
       : [{ id: 1, name: this.loading }];

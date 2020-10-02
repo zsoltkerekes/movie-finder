@@ -18,7 +18,7 @@ export class NowPlayingComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     document.documentElement.scrollTop = 0;
     this.subTitle = this.language.getNav('Now playing', this.api.getGlobal());
     this.title.setTitle(

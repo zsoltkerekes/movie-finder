@@ -29,7 +29,7 @@ export class UpcomingMoviesComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.upcomingText = this.language.getText('Upcoming', this.api.getGlobal());
     this.noResultText = this.language.getText(
       'No results',

@@ -25,7 +25,7 @@ export class TvShowVideosComponent implements OnChanges, OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.recommendedVideosText = this.language.getText(
       'Recommended videos',
       this.api.getGlobal()
@@ -33,7 +33,7 @@ export class TvShowVideosComponent implements OnChanges, OnInit {
     this.videoText = this.language.getText('video', this.api.getGlobal());
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.videoSrc = undefined;
     this.videos = videosData;
     if (this.id) {
@@ -51,12 +51,13 @@ export class TvShowVideosComponent implements OnChanges, OnInit {
     }
   }
 
-  setVideoUrl = (key) => {
+  setVideoUrl = (key: string): void => {
     this.videoSrc = this.sanitizer.bypassSecurityTrustResourceUrl(
       `https://www.youtube.com/embed/${key}${this.embedOptions}`
     );
     this.selectedVideo = key;
   };
 
-  getSelectedVideo = (i) => this.videos.results[i].key === this.selectedVideo;
+  getSelectedVideo = (i: number): boolean =>
+    this.videos.results[i].key === this.selectedVideo;
 }

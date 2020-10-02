@@ -19,7 +19,7 @@ export class TopRatedComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     document.documentElement.scrollTop = 0;
     this.subTitle = this.language.getNav('Top Rated', this.api.getGlobal());
     this.title.setTitle(

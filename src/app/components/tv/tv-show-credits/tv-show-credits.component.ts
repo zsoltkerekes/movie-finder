@@ -28,7 +28,7 @@ export class TvShowCreditsComponent implements OnInit, OnChanges {
 
   constructor(private api: ApiService, public language: LanguageService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.innerWidth = window.innerWidth;
     this.movieCredits = peopleMovieCreditsData;
     this.innerWidth = window.innerWidth;
@@ -38,7 +38,7 @@ export class TvShowCreditsComponent implements OnInit, OnChanges {
     this.crew = this.language.getText('Crew', this.api.getGlobal());
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.movieCredits = peopleMovieCreditsData;
     this.searchCast = '';
     this.searchCrew = '';

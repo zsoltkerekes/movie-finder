@@ -34,7 +34,7 @@ export class PersonsDetailsComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.search = this.language.getText('Search', this.api.getGlobal());
     this.byNameText = this.language.getText('Search', this.api.getGlobal());
     this.birthdayText = this.language.getText('Birthday', this.api.getGlobal());
@@ -58,7 +58,7 @@ export class PersonsDetailsComponent implements OnInit {
     ];
   }
 
-  loadPerson = () => {
+  loadPerson = (): void => {
     this.loading = true;
     document.documentElement.scrollTop = 0;
     this.person = peopleData;
@@ -79,7 +79,7 @@ export class PersonsDetailsComponent implements OnInit {
     );
   };
 
-  listGenres = (array = []) => {
+  listGenres = (array = []): string => {
     const output = [];
     array.forEach((row) => {
       output.push(row.name);

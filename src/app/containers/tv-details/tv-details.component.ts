@@ -18,7 +18,7 @@ export class TVDetailsComponent implements OnInit {
   getGlobal = this.api.getGlobal;
   innerWidth: number;
 
-  loadTvShow = () => {
+  loadTvShow = (): void => {
     document.documentElement.scrollTop = 0;
     this.tvShow = movieDetailsData;
     this.title.setTitle(`${this.activatedRoute.snapshot.data['pageTitle']}`);
@@ -48,7 +48,7 @@ export class TVDetailsComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.activatedRoute.params.subscribe(() => {
       this.id = +this.activatedRoute.snapshot.params['id'];
       this.loadTvShow();

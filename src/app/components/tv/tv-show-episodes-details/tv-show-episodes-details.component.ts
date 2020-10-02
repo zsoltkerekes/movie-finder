@@ -44,7 +44,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
 
   setEpisode = (index: number): number => (this.episodeNumber = index);
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.tvShow = movieDetailsData;
     this.tvShowEpisodes = tvShowEpisodesData;
 
@@ -67,7 +67,7 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
       this.id = this.activatedRoute.snapshot.params['id'];
       this.season = this.activatedRoute.snapshot.params['season'];
 
-      this.api.getTvShowById(this.id).subscribe((result) => {
+      this.api.getTvShowById(+this.id).subscribe((result) => {
         let output = result.json();
         output = { ...this.tvShow, ...output };
         this.tvShow = output;
@@ -76,11 +76,13 @@ export class TvShowEpisodesDetailsComponent implements OnInit {
         );
       });
 
-      this.api.getTvShowEpisodes(this.id, this.season).subscribe((response) => {
-        const output = response.json();
-        output.episodes = output.episodes.map((row) => row || {});
-        this.tvShowEpisodes = output;
-      });
+      this.api
+        .getTvShowEpisodes(+this.id, this.season)
+        .subscribe((response) => {
+          const output = response.json();
+          output.episodes = output.episodes.map((row) => row || {});
+          this.tvShowEpisodes = output;
+        });
     });
   }
 }

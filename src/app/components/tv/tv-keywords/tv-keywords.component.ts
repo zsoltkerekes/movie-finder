@@ -12,7 +12,7 @@ export class TvKeywordsComponent implements OnChanges {
 
   constructor(private api: ApiService) {}
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.keywords = [];
     if (this.id) {
       this.api.getTvKeywords(this.id).subscribe((response) => {

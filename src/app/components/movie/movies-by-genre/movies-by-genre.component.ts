@@ -31,7 +31,7 @@ export class MoviesByGenreComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.moviesByGenre = { results: [listItemInitData] };
     this.movieText = this.language.getText('Movies', this.api.getGlobal());
     this.noResultsText = this.language.getText(
@@ -45,15 +45,17 @@ export class MoviesByGenreComponent implements OnInit {
       this.moviesByGenre = { results: [listItemInitData] };
       this.id = +this.activatedRoute.snapshot.params['id'];
       this.page = +this.activatedRoute.snapshot.params['page'];
-      this.api.getMovieByGenre(this.id, this.page).subscribe((response) => {
-        const output = response.json();
-        output.results = output.results.map((row) => row || {});
-        this.moviesByGenre = output;
-        this.isLoading = false;
-        if (this.container) {
-          this.container.nativeElement.scrollLeft = 0;
-        }
-      });
+      this.api
+        .getMovieByGenre(this.id.toString(), this.page)
+        .subscribe((response) => {
+          const output = response.json();
+          output.results = output.results.map((row) => row || {});
+          this.moviesByGenre = output;
+          this.isLoading = false;
+          if (this.container) {
+            this.container.nativeElement.scrollLeft = 0;
+          }
+        });
     });
   }
 }

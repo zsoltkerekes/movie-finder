@@ -45,7 +45,7 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.movie = movieDetailsData;
     this.innerWidth = window.innerWidth;
     this.genres = this.language.getText('Genres', this.api.getGlobal());
@@ -83,11 +83,11 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
     ];
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.loadMovie();
   }
 
-  loadMovie = () => {
+  loadMovie = (): void => {
     document.documentElement.scrollTop = 0;
     this.movie = movieDetailsData;
     this.title.setTitle(`${this.activatedRoute.snapshot.data['pageTitle']}`);
@@ -110,7 +110,7 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
     );
   };
 
-  listGenres = (array) => {
+  listGenres = (array: { name: string }[]): string => {
     const output = [];
     if (array) {
       array.forEach((row) => {
@@ -122,13 +122,13 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
     }
   };
 
-  backgroundImage = () => {
+  backgroundImage = (): string | undefined => {
     if (this.movie.backdrop_path) {
       return `url(${this.api.getBackgroundUrl()}${this.movie.backdrop_path})`;
     }
   };
 
-  open() {
+  open(): void {
     window.open(
       `http://bithumen.be/browse.php?search=${window.escape(
         this.movie.title.toString()

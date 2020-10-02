@@ -13,7 +13,7 @@ export class PersonDetailsComponent implements OnInit {
 
   constructor(private title: Title, private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.activatedRoute.params.subscribe(() => {
       document.documentElement.scrollTop = 0;
       this.id = +this.activatedRoute.snapshot.params['id'];

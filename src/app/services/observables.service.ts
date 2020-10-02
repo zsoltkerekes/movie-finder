@@ -20,7 +20,7 @@ export class ObservablesService {
     this.tvWithGenresOption = new BehaviorSubject<number[]>([0]);
   }
 
-  initMovie() {
+  initMovie(): void {
     const params =
       this.activatedRoute &&
       this.activatedRoute.snapshot &&
@@ -37,7 +37,7 @@ export class ObservablesService {
     );
   }
 
-  initTv() {
+  initTv(): void {
     const params =
       this.activatedRoute &&
       this.activatedRoute.snapshot &&

@@ -20,7 +20,7 @@ export class SearchByPhraseComponent implements OnInit {
   max: number;
   charsText: string;
 
-  shouldButtonShown = () => window.outerWidth <= 960;
+  shouldButtonShown = (): boolean => window.outerWidth <= 960;
 
   inputChanged = (event: { target: { value: string } }): void => {
     if (!this.shouldButtonShown()) {
@@ -47,7 +47,7 @@ export class SearchByPhraseComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.charsText = this.language.getText('chars', this.api.getGlobal());
     this.message.nativeElement.focus();
     this.hint = '';
@@ -63,7 +63,7 @@ export class SearchByPhraseComponent implements OnInit {
     this.queryPhrase
       .asObservable()
       .pipe(
-        filter((res: any) => res.length >= 2),
+        filter((res: string) => res.length >= 2),
         debounceTime(500)
       )
       .subscribe(() => {

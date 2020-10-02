@@ -41,13 +41,13 @@ export class TvShowDetailsComponent implements OnChanges, OnInit {
   nextAirDate: string;
   createdByText: string;
 
-  backgroundImage = () => {
+  backgroundImage = (): string | undefined => {
     if (this.tvShow.backdrop_path) {
       return `url(${this.api.getBackgroundUrl()}${this.tvShow.backdrop_path})`;
     }
   };
 
-  listGenres = (array) => {
+  listGenres = (array: { name: string }[]): string => {
     const output = [];
     if (array) {
       array.forEach((row) => {
@@ -66,7 +66,7 @@ export class TvShowDetailsComponent implements OnChanges, OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.innerWidth = window.innerWidth;
     this.tvShow = movieDetailsData;
     this.genres = this.language.getText('Genres', this.api.getGlobal());
@@ -120,7 +120,7 @@ export class TvShowDetailsComponent implements OnChanges, OnInit {
     ];
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.title.setTitle(
       `${this.tvShow.name} ${this.listGenres(this.tvShow.genres)} ::: ${
         this.activatedRoute.snapshot.data['pageTitle']
@@ -131,7 +131,7 @@ export class TvShowDetailsComponent implements OnChanges, OnInit {
     }
   }
 
-  open() {
+  open(): void {
     window.open(
       `http://bithumen.be/browse.php?search=${window.escape(
         this.tvShow.name.toString()

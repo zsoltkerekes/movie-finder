@@ -19,13 +19,13 @@ export class PersonImagesComponent implements OnInit, OnChanges {
 
   constructor(private api: ApiService, private language: LanguageService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.innerWidth = window.innerWidth;
     this.imagesText = this.language.getText('Images', this.api.getGlobal());
     this.imageText = this.language.getText('image', this.api.getGlobal());
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.images = imagesData;
     if (this.id) {
       this.api.getPersonImages(this.id).subscribe((response) => {

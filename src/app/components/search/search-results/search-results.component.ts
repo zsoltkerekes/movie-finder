@@ -46,7 +46,7 @@ export class SearchResultsComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.noResultsText = this.language.getText(
       'No results',
       this.api.getGlobal()
@@ -80,7 +80,7 @@ export class SearchResultsComponent implements OnInit {
     });
   }
 
-  keywordsSearch() {
+  keywordsSearch(): void {
     this.phrase = this.activatedRoute.snapshot.params['phrase'];
     this.keywordsSearchResults = undefined;
 
@@ -91,7 +91,7 @@ export class SearchResultsComponent implements OnInit {
     });
   }
 
-  movieSearch() {
+  movieSearch(): void {
     this.phrase = this.activatedRoute.snapshot.params['phrase'];
     this.moviePage = +this.activatedRoute.snapshot.params['moviePage'] || 1;
     this.movieSearchResults = {
@@ -113,7 +113,7 @@ export class SearchResultsComponent implements OnInit {
       });
   }
 
-  tvShowSearch() {
+  tvShowSearch(): void {
     this.phrase = this.activatedRoute.snapshot.params['phrase'];
     this.tvShowPage = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
     this.tvShowSearchResults = {
@@ -135,7 +135,7 @@ export class SearchResultsComponent implements OnInit {
       });
   }
 
-  personSearch() {
+  personSearch(): void {
     this.phrase = this.activatedRoute.snapshot.params['phrase'];
     this.personPage = +this.activatedRoute.snapshot.params['personPage'] || 1;
     this.personSearchResults = {

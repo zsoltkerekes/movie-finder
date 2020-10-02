@@ -10,7 +10,7 @@ import { Title } from '@angular/platform-browser';
 export class PageNotFoundComponent implements OnInit {
   constructor(private title: Title, private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     document.documentElement.scrollTop = 0;
     this.title.setTitle(
       `404 ::: ${this.activatedRoute.snapshot.data['pageTitle']}`

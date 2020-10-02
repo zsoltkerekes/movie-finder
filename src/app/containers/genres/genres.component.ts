@@ -16,7 +16,7 @@ export class GenresComponent implements OnInit {
     private api: ApiService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.title.setTitle(
       `${this.api.genres[this.id] ? this.api.genres[this.id] : 'Genres'} ::: ${

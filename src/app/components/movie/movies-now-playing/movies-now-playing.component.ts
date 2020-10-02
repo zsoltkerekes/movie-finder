@@ -28,7 +28,7 @@ export class MoviesNowPlayingComponent implements OnInit {
     private language: LanguageService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.nowPlaying = this.language.getText(
       'Now playing',
       this.api.getGlobal()
