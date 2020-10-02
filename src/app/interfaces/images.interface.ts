@@ -1,7 +1,7 @@
 export interface Images {
   file_path: string;
   vote_average: number;
-  media: any;
+  media: unknown;
   media_type: string;
 }
 

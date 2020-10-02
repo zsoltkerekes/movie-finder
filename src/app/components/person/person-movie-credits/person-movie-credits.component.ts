@@ -65,7 +65,7 @@ export class PersonMovieCreditsComponent implements OnInit, OnChanges {
     }
   }
 
-  onChange = (event): void => {
+  onChange = (event: { value: string }): void => {
     switch (event.value) {
       case 'vote_average':
         this.movieCredits.cast.sort(setSortBy('vote_average'));

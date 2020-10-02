@@ -4,6 +4,13 @@ import { ObservablesService } from '../../../services/observables.service';
 import { LanguageService } from '../../../services/language.service';
 import { IGenres } from '../../../interfaces/genres.interface';
 
+interface EventWithValue {
+  value?: string;
+  target?: {
+    value: number;
+  };
+  checked?: boolean;
+}
 @Component({
   selector: 'mf-discover-options',
   templateUrl: './discover-options.component.html',
@@ -45,10 +52,10 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
       : null;
   }
 
-  setMovieSortByOption = (event): void =>
+  setMovieSortByOption = (event: EventWithValue): void =>
     this.observables.sortMovieByOption.next(event.value);
 
-  setMovieYearOption = (event): void => {
+  setMovieYearOption = (event: EventWithValue): void => {
     const thisYear: number = new Date().getFullYear();
     const range = 300;
     if (
@@ -62,7 +69,7 @@ export class DiscoverOptionsComponent implements OnInit, DoCheck {
     return this.observables.movieYearOption.next(event.target.value);
   };
 
-  setMovieGenre = (id: number, event): void => {
+  setMovieGenre = (id: number, event: EventWithValue): void => {
     if (event.checked) {
       this.selectedMovieGenres.push(id);
     } else if (this.selectedMovieGenres.length > 1) {

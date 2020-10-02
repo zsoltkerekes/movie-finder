@@ -24,7 +24,7 @@ export interface MovieDetails {
   poster_path: string;
   overview: string;
   id: number;
-  seasons: Array<any>;
+  seasons: Array<unknown>;
   tagline: string;
   last_air_date: string;
   next_episode_to_air: {

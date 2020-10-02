@@ -4,6 +4,13 @@ import { ObservablesService } from '../../../services/observables.service';
 import { LanguageService } from '../../../services/language.service';
 import { IGenres } from '../../../interfaces/genres.interface';
 
+interface EventWithValue {
+  value?: string;
+  target?: {
+    value: number;
+  };
+  checked?: boolean;
+}
 @Component({
   selector: 'mf-discover-tv-options',
   templateUrl: './discover-tv-options.component.html',
@@ -31,7 +38,7 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
     this.tvShowGenres = this.api.getTvGenresArray();
     this.selectedTvShowGenres = this.observables.tvWithGenresOption
       .getValue()
-      .map((str: any) => parseInt(str, 10));
+      .map((str: number) => parseInt(str.toString(), 10));
     this.placeholder = this.language.getText('Year', this.api.getGlobal());
     this.placeholderOrder = this.language.getText(
       'Order',
@@ -45,10 +52,10 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
       : null;
   }
 
-  setTvShowSortByOption = (event): void =>
+  setTvShowSortByOption = (event: EventWithValue): void =>
     this.observables.sortTvShowByOption.next(event.value);
 
-  setTvShowYearOption = (event): void => {
+  setTvShowYearOption = (event: EventWithValue): void => {
     const thisYear: number = new Date().getFullYear();
     const range = 300;
     if (
@@ -62,7 +69,7 @@ export class DiscoverTvOptionsComponent implements OnInit, DoCheck {
     return this.observables.tvShowYearOption.next(event.target.value);
   };
 
-  setTvShowGenre = (id: number, event): void => {
+  setTvShowGenre = (id: number, event: EventWithValue): void => {
     if (event.checked) {
       this.selectedTvShowGenres.push(id);
     } else if (this.selectedTvShowGenres.length > 1) {

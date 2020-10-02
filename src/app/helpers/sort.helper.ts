@@ -12,7 +12,10 @@ export interface ISort {
   [key: string]: string | number;
 }
 
-export const setSortBy = (key: TBy, by: TOrder = 'desc'): any =>
+export const setSortBy = (
+  key: TBy,
+  by: TOrder = 'desc'
+): ((a: unknown, b: unknown) => number) =>
   by === 'desc'
     ? function (a: ISort, b: ISort): number {
         if (a[key] < b[key]) {
