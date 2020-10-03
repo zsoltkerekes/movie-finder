@@ -35,6 +35,10 @@ export const navProvider: IProvider = (): IText => ({
     en: 'Upcoming',
     hu: 'Hamarosan a Mozikban',
   },
+  Trending: {
+    en: 'Trending',
+    hu: 'Feltörekvők',
+  },
 });
 
 export const textProvider: IProvider = (): IText => ({
@@ -309,5 +313,9 @@ export const textProvider: IProvider = (): IText => ({
   season: {
     en: 'season',
     hu: 'évad',
+  },
+  Trending: {
+    en: 'Trending',
+    hu: 'Feltörekvők',
   },
 });

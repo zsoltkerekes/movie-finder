@@ -82,6 +82,9 @@ export class ApiService {
   getUpcoming = (page = 1): Observable<ApiResponse> =>
     this.getContent(this.constants.upcoming(page));
 
+  getTrendingMovies = (page = 1): Observable<ApiResponse> =>
+    this.getContent(this.constants.trendingMovies(page));
+
   getMovieImages = (id: number): Observable<ApiResponse> =>
     this.getContent(this.constants.movieImages(id));
 

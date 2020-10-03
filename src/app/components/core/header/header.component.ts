@@ -26,6 +26,11 @@ export class HeaderComponent implements OnInit {
         url: '/search',
       },
       {
+        name: this.language.getNav('Trending', this.api.getGlobal()),
+        icon: 'trending_up',
+        url: '/trending/1',
+      },
+      {
         name: this.language.getNav('Discover', this.api.getGlobal()),
         icon: 'track_changes',
         url: '/discover/1/1/1',

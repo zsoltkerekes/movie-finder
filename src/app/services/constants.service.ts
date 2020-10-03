@@ -158,6 +158,11 @@ export class ConstantsService {
       page
     )}${this.region()}`;
 
+  trendingMovies = (page: number): string =>
+    `${this.apiBaseUrl}trending/movie/day?${this.options()}${this.page(
+      page
+    )}${this.region()}`;
+
   movieImages = (id: number): string =>
     `${
       this.apiBaseUrl

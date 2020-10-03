@@ -94,6 +94,13 @@ const routes: Routes = [
     },
   },
   {
+    path: 'trending',
+    loadChildren: './shared-modules/trending/trending.module#TrendingModule',
+    data: {
+      pageTitle: `${baseTitle}`,
+    },
+  },
+  {
     path: 'by-keywords',
     loadChildren:
       './shared-modules/by-keywords/by-keywords.module#ByKeywordsModule',
