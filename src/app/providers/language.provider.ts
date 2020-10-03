@@ -314,8 +314,12 @@ export const textProvider: IProvider = (): IText => ({
     en: 'season',
     hu: 'évad',
   },
-  Trending: {
-    en: 'Trending',
-    hu: 'Feltörekvők',
+  'Trending Movies': {
+    en: 'Trending Movies',
+    hu: 'Feltörekvő Filmek',
+  },
+  'Trending Tv Shows': {
+    en: 'Trending Tv Shows',
+    hu: 'Feltörekvő Sorozatok',
   },
 });

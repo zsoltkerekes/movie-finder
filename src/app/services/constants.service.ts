@@ -163,6 +163,11 @@ export class ConstantsService {
       page
     )}${this.region()}`;
 
+  trendingTvShows = (page: number): string =>
+    `${this.apiBaseUrl}trending/tv/day?${this.options()}${this.page(
+      page
+    )}${this.region()}`;
+
   movieImages = (id: number): string =>
     `${
       this.apiBaseUrl

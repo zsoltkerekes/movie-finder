@@ -9,15 +9,15 @@ import { LanguageService } from '../../../services/language.service';
 import { setSortBy } from '../../../helpers/sort.helper';
 
 @Component({
-  selector: 'mf-trending-movies',
-  templateUrl: './trending-movies.component.html',
-  styleUrls: ['./trending-movies.component.scss'],
+  selector: 'mf-trending-tv-shows',
+  templateUrl: './trending-tv-shows.component.html',
+  styleUrls: ['./trending-tv-shows.component.scss'],
 })
-export class TrendingMoviesComponent implements OnInit {
+export class TrendingTvShowComponent implements OnInit {
   @ViewChild('container', { static: false }) container;
 
-  trendingMovies: { results: Array<ListItem> };
-  moviePage: number;
+  trendingTvShows: { results: Array<ListItem> };
+  tvShowPage: number;
   isLoading: boolean;
 
   trendingText: string;
@@ -31,7 +31,7 @@ export class TrendingMoviesComponent implements OnInit {
 
   ngOnInit(): void {
     this.trendingText = this.language.getText(
-      'Trending Movies',
+      'Trending Tv Shows',
       this.api.getGlobal()
     );
     this.noResultText = this.language.getText(
@@ -41,21 +41,21 @@ export class TrendingMoviesComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(() => {
       this.isLoading = true;
-      this.trendingMovies = { results: [listItemInitData] };
-      this.moviePage = +this.activatedRoute.snapshot.params['moviePage'] || 1;
-      this.api.getTrendingMovies(this.moviePage).subscribe((response) => {
+      this.trendingTvShows = { results: [listItemInitData] };
+      this.tvShowPage = +this.activatedRoute.snapshot.params['tvShowPage'] || 1;
+      this.api.getTrendingTvShows(this.tvShowPage).subscribe((response) => {
         const output = response.json();
         output.results = output.results.map((row) => row || {});
         const willBeSorted = output;
         willBeSorted.results.sort(setSortBy('popularity'));
-        this.trendingMovies = willBeSorted;
+        this.trendingTvShows = willBeSorted;
         this.isLoading = false;
         if (this.container) {
           this.container.nativeElement.scrollLeft = 0;
         }
       });
-      if (this.activatedRoute.snapshot.fragment === 'movie') {
-        document.querySelector('#movie').scrollIntoView();
+      if (this.activatedRoute.snapshot.fragment === 'tvShow') {
+        document.querySelector('#tvShow').scrollIntoView();
       }
     });
   }

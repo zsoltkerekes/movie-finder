@@ -19,7 +19,6 @@ export class TrendingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    document.documentElement.scrollTop = 0;
     this.subTitle = this.language.getNav('Trending', this.api.getGlobal());
     this.title.setTitle(
       `${this.subTitle} ::: ${this.activatedRoute.snapshot.data['pageTitle']}`

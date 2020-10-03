@@ -19,9 +19,14 @@ describe('movie-finder trending page', () => {
     expect(amount).toBeGreaterThan(1);
   });
 
+  it('should have tv show cards listed', async () => {
+    const amount = await page.tvShowCardElements().count();
+    expect(amount).toBeGreaterThan(1);
+  });
+
   it('should have the pagination element', async () => {
     const amount = await page.paginationElements().count();
-    expect(amount).toEqual(1);
+    expect(amount).toEqual(2);
   });
 
   it('should display "Movie Finder" title in the footer', () => {
