@@ -1,0 +1,4 @@
+[1004/112911.316:ERROR:process_reader_win.cc(123)] NtOpenThread: {Hozzáférés megtagadva} A folyamat hozzáférést kért egy objektumhoz, de ehhez nem volt engedélye. (0xc0000022)
+[1004/112911.322:ERROR:exception_snapshot_win.cc(99)] thread ID 8620 not found in process
+[1004/112911.357:ERROR:process_reader_win.cc(123)] NtOpenThread: {Hozzáférés megtagadva} A folyamat hozzáférést kért egy objektumhoz, de ehhez nem volt engedélye. (0xc0000022)
+[1004/112911.357:ERROR:exception_snapshot_win.cc(99)] thread ID 8788 not found in process
