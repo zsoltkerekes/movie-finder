@@ -32,6 +32,7 @@
       <h2 class="mat-h2 title" *ngIf="person.name">
         {{ person.name }}
         {{ getGender(person.gender) }}
+        {{ age ? '[' + age + ']' : '' }}
       </h2>
 
       <p class="mat-body-1 overview" *ngIf="person.biography">
@@ -45,6 +46,7 @@
         <span>
           {{ person.birthday }}
           {{ person.place_of_birth ? '(' + person.place_of_birth + ')' : '' }}
+          {{ age ? '[' + age + ']' : '' }}
         </span>
       </p>
 

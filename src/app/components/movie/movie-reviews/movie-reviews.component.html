@@ -1,7 +1,10 @@
 <div class="container" *ngIf="movieReviews && movieReviews.results.length > 0">
   <span *ngFor="let review of movieReviews.results" class="reviews">
     <mat-card *ngIf="review.content">
-      <mat-card-content>
+      <mat-card-content *ngIf="review.author">
+        <h3 class="mat-h3 mat-subheading-2 .mat-body-2">
+          {{ review.author }}
+        </h3>
         <p class="mat-body-1">
           {{ review.content }}
         </p>

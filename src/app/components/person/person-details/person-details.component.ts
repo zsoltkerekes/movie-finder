@@ -25,6 +25,7 @@ export class PersonsDetailsComponent implements OnInit {
   birthdayText: string;
   deathDayText: string;
   homepageText: string;
+  age: number;
 
   constructor(
     private title: Title,
@@ -69,6 +70,12 @@ export class PersonsDetailsComponent implements OnInit {
         this.title.setTitle(
           `${this.person.name} ::: ${this.activatedRoute.snapshot.data['pageTitle']}`
         );
+        this.age = this.person.birthday
+          ? (this.person.deathday
+              ? new Date(this.person.deathday).getFullYear()
+              : new Date().getFullYear()) -
+            new Date(this.person.birthday).getFullYear()
+          : 0;
         this.loading = false;
       },
       (error) => {

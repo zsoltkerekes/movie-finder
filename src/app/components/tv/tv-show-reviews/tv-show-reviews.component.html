@@ -5,6 +5,9 @@
   <span *ngFor="let review of tvShowReviews.results" class="reviews">
     <mat-card *ngIf="review.content">
       <mat-card-content>
+        <h3 class="mat-h3 mat-subheading-2 .mat-body-2">
+          {{ review.author }}
+        </h3>
         <p class="mat-body-1">
           {{ review.content }}
         </p>

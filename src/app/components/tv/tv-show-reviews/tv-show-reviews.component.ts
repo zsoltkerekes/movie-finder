@@ -13,6 +13,7 @@ export class TvShowReviewsComponent implements OnChanges {
     page: number;
     results: Array<{
       content: string;
+      author: string;
     }>;
   };
 
