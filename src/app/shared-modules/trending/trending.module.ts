@@ -6,6 +6,7 @@ import { CoreModule } from '../core/core.module';
 import { TrendingComponent } from '../../containers/trending/trending.component';
 import { TrendingMoviesComponent } from '../../components/movie/trending-movies/trending-movies.component';
 import { TrendingTvShowComponent } from '../../components/tv/trending-tv-shows/trending-tv-shows.component';
+import { TrendingPersonComponent } from '../../components/person/trending-persons/trending-persons.component';
 
 const routes: Routes = [
   {
@@ -20,11 +21,13 @@ const routes: Routes = [
     TrendingComponent,
     TrendingMoviesComponent,
     TrendingTvShowComponent,
+    TrendingPersonComponent,
   ],
   exports: [
     TrendingComponent,
     TrendingMoviesComponent,
     TrendingTvShowComponent,
+    TrendingPersonComponent,
   ],
 })
 export class TrendingModule {}

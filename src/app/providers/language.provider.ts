@@ -322,4 +322,8 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Trending Tv Shows',
     hu: 'Feltörekvő Sorozatok',
   },
+  'Trending Persons': {
+    en: 'Trending Persons',
+    hu: 'Feltörekvő Szereplők',
+  },
 });

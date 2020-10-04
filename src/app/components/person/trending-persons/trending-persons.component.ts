@@ -8,15 +8,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LanguageService } from '../../../services/language.service';
 
 @Component({
-  selector: 'mf-trending-movies',
-  templateUrl: './trending-movies.component.html',
-  styleUrls: ['./trending-movies.component.scss'],
+  selector: 'mf-trending-persons',
+  templateUrl: './trending-persons.component.html',
+  styleUrls: ['./trending-persons.component.scss'],
 })
-export class TrendingMoviesComponent implements OnInit {
+export class TrendingPersonComponent implements OnInit {
   @ViewChild('container', { static: false }) container;
 
-  trendingMovies: { results: Array<ListItem> };
-  moviePage: number;
+  trendingPersons: { results: Array<ListItem> };
+  personPage: number;
   isLoading: boolean;
 
   trendingText: string;
@@ -30,7 +30,7 @@ export class TrendingMoviesComponent implements OnInit {
 
   ngOnInit(): void {
     this.trendingText = this.language.getText(
-      'Trending Movies',
+      'Trending Persons',
       this.api.getGlobal()
     );
     this.noResultText = this.language.getText(
@@ -40,19 +40,19 @@ export class TrendingMoviesComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(() => {
       this.isLoading = true;
-      this.trendingMovies = { results: [listItemInitData] };
-      this.moviePage = +this.activatedRoute.snapshot.params['moviePage'] || 1;
-      this.api.getTrendingMovies(this.moviePage).subscribe((response) => {
+      this.trendingPersons = { results: [listItemInitData] };
+      this.personPage = +this.activatedRoute.snapshot.params['personPage'] || 1;
+      this.api.getTrendingPersons(this.personPage).subscribe((response) => {
         const output = response.json();
         output.results = output.results.map((row) => row || {});
-        this.trendingMovies = output;
+        this.trendingPersons = output;
         this.isLoading = false;
         if (this.container) {
           this.container.nativeElement.scrollLeft = 0;
         }
       });
-      if (this.activatedRoute.snapshot.fragment === 'movie') {
-        document.querySelector('#movie').scrollIntoView();
+      if (this.activatedRoute.snapshot.fragment === 'person') {
+        document.querySelector('#person').scrollIntoView();
       }
     });
   }

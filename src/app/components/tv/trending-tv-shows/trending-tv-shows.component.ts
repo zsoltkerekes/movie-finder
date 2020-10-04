@@ -6,7 +6,6 @@ import {
 } from '../../../interfaces/listItem.interface';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LanguageService } from '../../../services/language.service';
-import { setSortBy } from '../../../helpers/sort.helper';
 
 @Component({
   selector: 'mf-trending-tv-shows',
@@ -46,9 +45,7 @@ export class TrendingTvShowComponent implements OnInit {
       this.api.getTrendingTvShows(this.tvShowPage).subscribe((response) => {
         const output = response.json();
         output.results = output.results.map((row) => row || {});
-        const willBeSorted = output;
-        willBeSorted.results.sort(setSortBy('popularity'));
-        this.trendingTvShows = willBeSorted;
+        this.trendingTvShows = output;
         this.isLoading = false;
         if (this.container) {
           this.container.nativeElement.scrollLeft = 0;
