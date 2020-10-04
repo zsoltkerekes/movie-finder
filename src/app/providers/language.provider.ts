@@ -326,4 +326,12 @@ export const textProvider: IProvider = (): IText => ({
     en: 'Trending Persons',
     hu: 'Feltörekvő Szereplők',
   },
+  day: {
+    en: 'day',
+    hu: 'nap',
+  },
+  week: {
+    en: 'week',
+    hu: 'hét',
+  },
 });

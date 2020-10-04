@@ -1,3 +1,9 @@
+<div class="toggle-container">
+  {{ day }}
+  <mat-slide-toggle (change)="onChange($event)"></mat-slide-toggle>
+  {{ week }}
+</div>
+
 <mf-trending-movies></mf-trending-movies>
 <mat-divider></mat-divider>
 <mf-trending-tv-shows></mf-trending-tv-shows>

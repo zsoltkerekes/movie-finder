@@ -10,6 +10,7 @@ export class ObservablesService {
   tvShowYearOption: BehaviorSubject<number>;
   withGenresOption: BehaviorSubject<number[]>;
   tvWithGenresOption: BehaviorSubject<number[]>;
+  time: BehaviorSubject<boolean>;
 
   constructor(private activatedRoute: ActivatedRoute) {
     this.sortMovieByOption = new BehaviorSubject<string>('');
@@ -18,6 +19,7 @@ export class ObservablesService {
     this.tvShowYearOption = new BehaviorSubject<number>(0);
     this.withGenresOption = new BehaviorSubject<number[]>([0]);
     this.tvWithGenresOption = new BehaviorSubject<number[]>([0]);
+    this.time = new BehaviorSubject<boolean>(false);
   }
 
   initMovie(): void {

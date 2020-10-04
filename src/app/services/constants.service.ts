@@ -158,10 +158,10 @@ export class ConstantsService {
       page
     )}${this.region()}`;
 
-  trendingMovies = (page: number): string =>
-    `${this.apiBaseUrl}trending/movie/day?${this.options()}${this.page(
-      page
-    )}${this.region()}`;
+  trendingMovies = (page: number, isWeek: boolean): string =>
+    `${this.apiBaseUrl}trending/movie/${
+      isWeek ? 'week' : 'day'
+    }?${this.options()}${this.page(page)}${this.region()}`;
 
   movieImages = (id: number): string =>
     `${
@@ -242,10 +242,10 @@ export class ConstantsService {
   tvKeywords = (id: number): string =>
     `${this.apiBaseUrl}tv/${id}/keywords?${this.options()}`;
 
-  trendingTvShows = (page: number): string =>
-    `${this.apiBaseUrl}trending/tv/day?${this.options()}${this.page(
-      page
-    )}${this.region()}`;
+  trendingTvShows = (page: number, isWeek: boolean): string =>
+    `${this.apiBaseUrl}trending/tv/${
+      isWeek ? 'week' : 'day'
+    }?${this.options()}${this.page(page)}${this.region()}`;
 
   // TV Show Ends
 
@@ -276,10 +276,10 @@ export class ConstantsService {
   personTaggedImages = (id: number): string =>
     `${this.apiBaseUrl}person/${id}/tagged_images?${this.options()}`;
 
-  trendingPersons = (page: number): string =>
-    `${this.apiBaseUrl}trending/person/day?${this.options()}${this.page(
-      page
-    )}${this.region()}`;
+  trendingPersons = (page: number, isWeek: boolean): string =>
+    `${this.apiBaseUrl}trending/person/${
+      isWeek ? 'week' : 'day'
+    }?${this.options()}${this.page(page)}${this.region()}`;
 
   // People Ends
 

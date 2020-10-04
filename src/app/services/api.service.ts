@@ -82,8 +82,8 @@ export class ApiService {
   getUpcoming = (page = 1): Observable<ApiResponse> =>
     this.getContent(this.constants.upcoming(page));
 
-  getTrendingMovies = (page = 1): Observable<ApiResponse> =>
-    this.getContent(this.constants.trendingMovies(page));
+  getTrendingMovies = (page = 1, isWeek = false): Observable<ApiResponse> =>
+    this.getContent(this.constants.trendingMovies(page, isWeek));
 
   getMovieImages = (id: number): Observable<ApiResponse> =>
     this.getContent(this.constants.movieImages(id));
@@ -161,8 +161,8 @@ export class ApiService {
   getTvShowEpisodes = (id: number, season: string): Observable<ApiResponse> =>
     this.getContent(this.constants.tvShowEpisodes(id, season));
 
-  getTrendingTvShows = (page = 1): Observable<ApiResponse> =>
-    this.getContent(this.constants.trendingTvShows(page));
+  getTrendingTvShows = (page = 1, isWeek = false): Observable<ApiResponse> =>
+    this.getContent(this.constants.trendingTvShows(page, isWeek));
 
   getTvImages = (id: number): Observable<ApiResponse> =>
     this.getContent(this.constants.tvImages(id));
@@ -210,8 +210,8 @@ export class ApiService {
   getPersonTaggedImages = (id: number): Observable<ApiResponse> =>
     this.getContent(this.constants.personTaggedImages(id));
 
-  getTrendingPersons = (page = 1): Observable<ApiResponse> =>
-    this.getContent(this.constants.trendingPersons(page));
+  getTrendingPersons = (page = 1, isWeek = false): Observable<ApiResponse> =>
+    this.getContent(this.constants.trendingPersons(page, isWeek));
 
   // People Ends
 
