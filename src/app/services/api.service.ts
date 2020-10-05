@@ -213,6 +213,9 @@ export class ApiService {
   getTrendingPersons = (page = 1, isWeek = false): Observable<ApiResponse> =>
     this.getContent(this.constants.trendingPersons(page, isWeek));
 
+  getCombinedPersonCredits = (id: number): Observable<ApiResponse> =>
+    this.getContent(this.constants.combinedPersonCredits(id));
+
   // People Ends
 
   // Keywords Begins

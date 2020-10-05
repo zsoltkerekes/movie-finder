@@ -334,4 +334,8 @@ export const textProvider: IProvider = (): IText => ({
     en: 'week',
     hu: 'hét',
   },
+  'Combined Credits': {
+    en: 'Combined Credits',
+    hu: 'Szereplései',
+  },
 });

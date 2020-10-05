@@ -1,0 +1,15 @@
+h2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.combined-credits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 96%;
+  overflow-x: auto;
+  margin: 2vw;
+  max-height: 36em;
+}

@@ -9,6 +9,7 @@ import { PersonImagesComponent } from '../../components/person/person-images/per
 import { PersonTaggedImagesComponent } from '../../components/person/person-tagged-images/person-tagged-images.component';
 import { PersonMovieCreditsComponent } from '../../components/person/person-movie-credits/person-movie-credits.component';
 import { PersonTvCreditsComponent } from '../../components/person/person-tv-credits/person-tv-credits.component';
+import { PersonCombinedCreditsComponent } from '../../components/person/person-combined-credits/person-combined-credits.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
     PersonTaggedImagesComponent,
     PersonMovieCreditsComponent,
     PersonTvCreditsComponent,
+    PersonCombinedCreditsComponent,
   ],
   exports: [
     PersonDetailsComponent,
@@ -34,6 +36,7 @@ const routes: Routes = [
     PersonTaggedImagesComponent,
     PersonMovieCreditsComponent,
     PersonTvCreditsComponent,
+    PersonCombinedCreditsComponent,
   ],
 })
 export class PersonDetailsModule {}

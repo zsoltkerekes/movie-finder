@@ -2,8 +2,7 @@ import { PersonDetailsPage } from './person-details.po';
 import { Common } from './common.po';
 
 describe('movie-finder person details page', () => {
-  let page: PersonDetailsPage;
-  page = new PersonDetailsPage();
+  const page: PersonDetailsPage = new PersonDetailsPage();
 
   const common = new Common();
 
@@ -49,6 +48,10 @@ describe('movie-finder person details page', () => {
 
   it('should display person movie credits cast', () => {
     expect(page.personMovieCreditsCast().count()).toBeGreaterThanOrEqual(1);
+  });
+
+  it('should display person combined credits cast', () => {
+    expect(page.personCombinedCredits().count()).toBeGreaterThanOrEqual(1);
   });
 
   it('should have a working person movie credits cast filtering', () => {

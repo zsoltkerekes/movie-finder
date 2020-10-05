@@ -1,79 +1,83 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ElementArrayFinder } from 'protractor';
 
 export class PersonDetailsPage {
-  navigateTo() {
+  navigateTo(): unknown {
     return browser.get('#/person-details/16483');
   }
 
-  personPoster() {
+  personPoster(): ElementArrayFinder {
     return element.all(by.css('mat-card.poster img'));
   }
 
-  personDetails() {
+  personDetails(): ElementArrayFinder {
     return element.all(by.css('mat-card.details'));
   }
 
-  personName() {
+  personName(): ElementArrayFinder {
     return element.all(by.css('mat-card.details h2.title'));
   }
 
-  personOverview() {
+  personOverview(): ElementArrayFinder {
     return element.all(by.css('mat-card.details p.overview'));
   }
 
-  personQueries() {
+  personQueries(): ElementArrayFinder {
     return element.all(by.css('mat-card.details .query'));
   }
 
-  personImages() {
+  personImages(): ElementArrayFinder {
     return element.all(by.css('mf-person-images img'));
   }
 
-  personTaggedImages() {
+  personTaggedImages(): ElementArrayFinder {
     return element.all(by.css('mf-person-tagged-images img'));
   }
 
-  personMovieCredits() {
+  personMovieCredits(): ElementArrayFinder {
     return element.all(by.css('mf-person-movie-credits'));
   }
 
-  personMovieCreditsCast() {
+  personMovieCreditsCast(): ElementArrayFinder {
     return element.all(by.css('mf-person-movie-credits .cast a'));
   }
 
-  setInputToPersonMovieSearchCrewFieldText(searchPhrase: string) {
+  personCombinedCredits(): ElementArrayFinder {
+    return element.all(by.css('mf-person-combined-credits a'));
+  }
+
+  setInputToPersonMovieSearchCrewFieldText(searchPhrase: string): void {
     element(by.css('mf-person-movie-credits #searchCrew')).sendKeys(
       searchPhrase
     );
   }
 
-  personMovieCreditsCrew() {
+  personMovieCreditsCrew(): ElementArrayFinder {
     return element.all(by.css('mf-person-movie-credits .crew a'));
   }
 
-  setInputToPersonMovieSearchCastFieldText(searchPhrase: string) {
+  setInputToPersonMovieSearchCastFieldText(searchPhrase: string): void {
     element(by.css('mf-person-movie-credits #searchCast')).sendKeys(
       searchPhrase
     );
   }
 
-  personTvCredits() {
+  personTvCredits(): ElementArrayFinder {
     return element.all(by.css('mf-person-tv-credits'));
   }
 
-  personTvCreditsCast() {
+  personTvCreditsCast(): ElementArrayFinder {
     return element.all(by.css('mf-person-tv-credits .cast a'));
   }
 
-  setInputToPersonTvSearchCrewFieldText(searchPhrase: string) {
+  setInputToPersonTvSearchCrewFieldText(searchPhrase: string): void {
     element(by.css('mf-person-tv-credits #searchCrew')).sendKeys(searchPhrase);
   }
 
-  personTvCreditsCrew() {
+  personTvCreditsCrew(): ElementArrayFinder {
     return element.all(by.css('mf-person-tv-credits .crew a'));
   }
 
-  setInputToPersonTvSearchCastFieldText(searchPhrase: string) {
+  setInputToPersonTvSearchCastFieldText(searchPhrase: string): void {
     element(by.css('mf-person-tv-credits #searchCast')).sendKeys(searchPhrase);
   }
 }

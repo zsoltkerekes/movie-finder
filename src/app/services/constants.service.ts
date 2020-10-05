@@ -281,6 +281,9 @@ export class ConstantsService {
       isWeek ? 'week' : 'day'
     }?${this.options()}${this.page(page)}${this.region()}`;
 
+  combinedPersonCredits = (id: number): string =>
+    `${this.apiBaseUrl}person/${id}/combined_credits?${this.options()}`;
+
   // People Ends
 
   // Keywords Begins
