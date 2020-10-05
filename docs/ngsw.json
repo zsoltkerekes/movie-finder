@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1601834840823,
+  "timestamp": 1601888983464,
   "index": "/movie-finder/index.html",
   "assetGroups": [
     {
@@ -11,7 +11,7 @@
         "/movie-finder/6.4e86a1a9724448a6a974.js",
         "/movie-finder/favicon.ico",
         "/movie-finder/index.html",
-        "/movie-finder/main.220f27b1cde93b154e5e.js",
+        "/movie-finder/main.bf9bc141d0188e50cd76.js",
         "/movie-finder/polyfills-es5.dd77d763c1e06bf45c65.js",
         "/movie-finder/polyfills.1d0964220180fd88f929.js",
         "/movie-finder/runtime.d62e0c1691aa53f22d85.js",
@@ -71,8 +71,8 @@
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "9beefce46cf3d7325cd83a8cec9f5f8c48ea146e",
-    "/movie-finder/main.220f27b1cde93b154e5e.js": "876998c6b2a21dd1557dd13adfd1fd7461ce9d8c",
+    "/movie-finder/index.html": "4b3f0e13f183f3033ee5b5ba30023c7e844f7bb0",
+    "/movie-finder/main.bf9bc141d0188e50cd76.js": "c89deb86cf342f194c3aa609ab599f024260e04b",
     "/movie-finder/polyfills-es5.dd77d763c1e06bf45c65.js": "b1f93ab7008e8884fca369c8ba75da0440fddc3d",
     "/movie-finder/polyfills.1d0964220180fd88f929.js": "00d68f6bec8622ed1a323563d0a30dd7a541895c",
     "/movie-finder/runtime.d62e0c1691aa53f22d85.js": "edce4e9516947a7a36660a3efb57984e4b696528",
