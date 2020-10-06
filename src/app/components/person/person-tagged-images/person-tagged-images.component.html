@@ -19,69 +19,69 @@
       (image.media && image.media.title ? image.media.title : '')
     "
   >
-    <div class="img-container">
-      <mf-loading class="centerHorizontalVertical upper"></mf-loading>
-      <img
-        *ngIf="image.file_path"
-        class="pic"
-        [lazyLoad]="'https://image.tmdb.org/t/p/w1280' + image.file_path"
-        [defaultImage]="'assets/image/1x1.png'"
-        [errorImage]="'assets/image/error-image-generic.png'"
-        alt="{{ image.media.name || image.media.title }}"
-        title="{{ image.media.name || image.media.title }}"
-      />
-      <a
-        [routerLink]="[
-          image.media_type === 'movie' ? '/details' : '/tv-details',
-          image.media.id
-        ]"
-        class="overview"
-      >
-        <div>
-          <strong>
-            <p class="mat-body-1">
-              {{ image.media && image.media.name ? image.media.name : '' }}
-              {{ image.media && image.media.title ? image.media.title : '' }}
-              {{
-                image.vote_average
-                  ? '(' + (image.vote_average | number: '1.1-1') + ')'
-                  : ''
-              }}
-            </p>
-            <p class="mat-body-1">
-              {{
-                image.media &&
-                image.media.original_name &&
-                image.media.original_name !== image.media.name
-                  ? '(' + image.media.original_name + ')'
-                  : ''
-              }}
-              {{
-                image.media &&
-                image.media.original_title &&
-                image.media.original_title !== image.media.title
-                  ? '(' + image.media.original_title + ')'
-                  : ''
-              }}
-            </p>
-          </strong>
-          <p class="mat-body-1">
+    <a
+      [routerLink]="[
+        image.media_type === 'movie' ? '/details' : '/tv-details',
+        image.media.id
+      ]"
+      class="link"
+    >
+      <div class="content">
+        <strong>
+          <p class="center mat-body-1">
+            {{ image.media && image.media.name ? image.media.name : '' }}
+            {{ image.media && image.media.title ? image.media.title : '' }}
             {{
-              image.media && image.media.release_date
-                ? image.media.release_date
-                : ''
-            }}
-            {{
-              image.media && image.media.first_air_date
-                ? image.media.first_air_date
+              image.vote_average
+                ? '(' + (image.vote_average | number: '1.1-1') + ')'
                 : ''
             }}
           </p>
-          <p class="text-justify mat-body-1">
-            {{ image.media && image.media.overview }}
+          <p class="center mat-body-1">
+            {{
+              image.media &&
+              image.media.original_name &&
+              image.media.original_name !== image.media.name
+                ? '(' + image.media.original_name + ')'
+                : ''
+            }}
+            {{
+              image.media &&
+              image.media.original_title &&
+              image.media.original_title !== image.media.title
+                ? '(' + image.media.original_title + ')'
+                : ''
+            }}
           </p>
-        </div>
-      </a>
-    </div>
+        </strong>
+        <p class="center mat-body-1">
+          {{
+            image.media && image.media.release_date
+              ? image.media.release_date
+              : ''
+          }}
+          {{
+            image.media && image.media.first_air_date
+              ? image.media.first_air_date
+              : ''
+          }}
+        </p>
+        <p class="mat-body-1">
+          {{ image.media && image.media.overview }}
+        </p>
+      </div>
+      <div class="pic-container">
+        <mf-loading class="centerHorizontalVertical upper"></mf-loading>
+        <img
+          *ngIf="image.file_path"
+          class="pic"
+          [lazyLoad]="'https://image.tmdb.org/t/p/w1280' + image.file_path"
+          [defaultImage]="'assets/image/1x1.png'"
+          [errorImage]="'assets/image/error-image-generic.png'"
+          alt="{{ image.media.name || image.media.title }}"
+          title="{{ image.media.name || image.media.title }}"
+        />
+      </div>
+    </a>
   </mat-tab>
 </mat-tab-group>
