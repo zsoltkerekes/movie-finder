@@ -27,8 +27,6 @@
   .crew {
     padding: 0.3em 2em;
     border: 1px solid $main-color;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
 
     span.right {
       float: right;
@@ -37,10 +35,6 @@
       @media (max-width: 960px) {
         float: none;
       }
-    }
-
-    &:hover {
-      background-color: $main-color;
     }
   }
 }

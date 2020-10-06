@@ -46,12 +46,28 @@
     class="container cast"
     *ngIf="movieCredits.cast && movieCredits.cast.length"
   >
-    <a
+    <div
       *ngFor="let movie of movieCredits.cast | search: searchCast"
-      [routerLink]="['/details', movie.id]"
+      class="cast"
     >
-      <div
-        class="cast"
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Google: {{ movie.character }} {{ movie.title }}"
+        [href]="
+          'https://www.google.hu/search?q=' +
+          movie.character +
+          ' ' +
+          movie.title
+        "
+      >
+        <span class="pull-left">
+          {{ movie.character ? movie.character : '' }}
+          {{ movie.release_date ? '(' + movie.release_date + ')' : '' }}
+        </span>
+      </a>
+      <a
+        [routerLink]="['/details', movie.id]"
         title="{{
           movie.title +
             ' (' +
@@ -61,10 +77,6 @@
             listGenres(movie.genre_ids) + '\n\n' + movie.overview
         }}"
       >
-        <span class="pull-left">
-          {{ movie.character ? movie.character : '' }}
-          {{ movie.release_date ? '(' + movie.release_date + ')' : '' }}
-        </span>
         <strong>
           {{ movie.title ? movie.title : language.na }}
         </strong>
@@ -74,8 +86,8 @@
             : ''
         }}
         {{ movie.vote_average ? '[' + movie.vote_average + '/10 ]' : '' }}
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </div>
 

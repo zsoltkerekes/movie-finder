@@ -15,11 +15,11 @@
   </mat-form-field>
 
   <div class="container cast">
-    <a
+    <div
+      class="cast"
       *ngFor="let person of movieCredits.cast | search: searchCast"
-      [routerLink]="['/person-details', person.id]"
     >
-      <div class="cast">
+      <a [routerLink]="['/person-details', person.id]">
         <img
           *ngIf="person.profile_path"
           [lazyLoad]="'https://image.tmdb.org/t/p/w45' + person.profile_path"
@@ -29,13 +29,30 @@
           [title]="person.name"
           [alt]="person.name"
         />
-        <mat-icon *ngIf="!person.profile_path" class="bigger">face</mat-icon>
+        <mat-icon
+          *ngIf="!person.profile_path"
+          class="bigger"
+          [title]="person.name"
+          >face</mat-icon
+        >
+      </a>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Google: {{ person.name }} {{ person.character }}"
+        [href]="
+          'https://www.google.hu/search?q=' +
+          person.name +
+          ' ' +
+          person.character
+        "
+      >
         <span class="right">
           {{ person.name ? person.name : language.na }}, {{ actAs }}:
           {{ person.character ? person.character : language.na }}
         </span>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </div>
 

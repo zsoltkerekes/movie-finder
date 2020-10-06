@@ -10,9 +10,8 @@
 
 <div *ngIf="tvCredits && tvCredits.crew && tvCredits.crew.length">
   <h3 class="text-center mat-h3">
-    {{ crewText }}
+    {{ castText }}
   </h3>
-
   <mat-form-field class="full-width">
     <input
       matInput
@@ -25,26 +24,31 @@
   </mat-form-field>
 
   <div class="container crew" *ngIf="tvCredits && tvCredits.crew">
-    <a
+    <div
       *ngFor="let tv of tvCredits.crew | search: searchCrew"
-      [routerLink]="['/tv-details', tv.id]"
+      class="crew"
+      title="{{
+        tv.name +
+          ' (' +
+          tv.vote_average +
+          ' / 10)\n\n' +
+          listGenres(tv.genre_ids) +
+          '\n\n' +
+          tv.overview
+      }}"
     >
-      <div
-        class="crew"
-        title="{{
-          tv.name +
-            ' (' +
-            tv.vote_average +
-            ' / 10)\n\n' +
-            listGenres(tv.genre_ids) +
-            '\n\n' +
-            tv.overview
-        }}"
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Google: {{ tv.job }} {{ tv.name }}"
+        [href]="'https://www.google.hu/search?q=' + tv.job + ' ' + tv.name"
       >
         <span class="pull-left">
           {{ tv.job ? tv.job : language.na }}
           {{ tv.first_air_date ? '(' + tv.first_air_date + ')' : '' }}
         </span>
+      </a>
+      <a [routerLink]="['/tv-details', tv.id]">
         {{ tv.name ? tv.name : language.na }}
         {{
           tv.original_name && tv.original_name !== tv.name
@@ -52,33 +56,29 @@
             : ''
         }}
         {{ tv.vote_average ? '[' + tv.vote_average + '/10 ]' : '' }}
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
-</div>
 
-<div *ngIf="tvCredits && tvCredits.cast && tvCredits.cast.length">
   <h3 class="text-center mat-h3">
-    {{ castText }}
+    {{ crewText }}
   </h3>
 
-  <mat-form-field class="full-width">
-    <input
-      matInput
-      type="search"
-      [placeholder]="placeholder"
-      name="searchCast"
-      id="searchCast"
-      [(ngModel)]="searchCast"
-    />
-  </mat-form-field>
+  <div *ngIf="tvCredits && tvCredits.cast && tvCredits.cast.length > 0">
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        type="search"
+        [placeholder]="placeholder"
+        name="searchCast"
+        id="searchCast"
+        [(ngModel)]="searchCast"
+      />
+    </mat-form-field>
 
-  <div class="container cast">
-    <a
-      *ngFor="let tv of tvCredits.cast | search: searchCast"
-      [routerLink]="['/tv-details', tv.id]"
-    >
+    <div class="container cast">
       <div
+        *ngFor="let tv of tvCredits.cast | search: searchCast"
         class="cast"
         title="{{
           tv.name +
@@ -90,18 +90,21 @@
             tv.overview
         }}"
       >
-        <span class="pull-left">
-          {{ tv.character ? tv.character : '' }}
-          {{ tv.first_air_date ? '(' + tv.first_air_date + ')' : '' }}
-        </span>
-        {{ tv.name ? tv.name : language.na }}
-        {{
-          tv.original_name && tv.original_name !== tv.name
-            ? ' (' + tv.original_name + ')'
-            : ''
-        }}
-        {{ tv.vote_average ? '[' + tv.vote_average + '/10 ]' : '' }}
+        <a [routerLink]="['/tv-details', tv.id]">
+          <span class="pull-left">
+            {{ tv.character ? tv.character : '' }}
+            {{ tv.first_air_date ? '(' + tv.first_air_date + ')' : '' }}
+          </span>
+
+          {{ tv.name ? tv.name : language.na }}
+          {{
+            tv.original_name && tv.original_name !== tv.name
+              ? ' (' + tv.original_name + ')'
+              : ''
+          }}
+          {{ tv.vote_average ? '[' + tv.vote_average + '/10 ]' : '' }}
+        </a>
       </div>
-    </a>
+    </div>
   </div>
 </div>
