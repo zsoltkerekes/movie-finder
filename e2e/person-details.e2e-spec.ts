@@ -56,7 +56,7 @@ describe('movie-finder person details page', () => {
 
   it('should have a working person movie credits cast filtering', () => {
     page.setInputToPersonMovieSearchCastFieldText('syl');
-    expect(page.personMovieCreditsCast().count()).toEqual(2);
+    expect(page.personMovieCreditsCast().count()).toEqual(4);
   });
 
   it('should display person movie credits crew', () => {
@@ -91,7 +91,7 @@ describe('movie-finder person details page', () => {
 
   it('should have a working person tv show credits cast filtering', () => {
     page.setInputToPersonTvSearchCastFieldText('pet');
-    expect(page.personTvCreditsCast().count()).toEqual(2);
+    expect(page.personTvCreditsCast().count()).toEqual(4);
   });
 
   it('should display button to top', async () => {

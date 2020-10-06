@@ -77,16 +77,16 @@ describe('movie-finder tv show details page', () => {
 
   it('should have a working tv show credits cast filtering', () => {
     page.setInputToSearchCastFieldText('richard');
-    expect(page.tvShowCreditsCast().count()).toEqual(1);
+    expect(page.tvShowCreditsCast().count()).toEqual(2);
   });
 
   it('should display tv show credits crew', () => {
-    expect(page.tvShowCreditsCrew().count()).toBeGreaterThanOrEqual(1);
+    expect(page.tvShowCreditsCrew().count()).toBeGreaterThanOrEqual(2);
   });
 
   it('should have a working tv show credits crew filtering', () => {
     page.setInputToSearchCrewFieldText('amanda');
-    expect(page.tvShowCreditsCast().count()).toEqual(1);
+    expect(page.tvShowCreditsCrew().count()).toEqual(1);
   });
 
   it('should display tv show recommendations', () => {

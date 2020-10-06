@@ -81,7 +81,7 @@ describe('movie-finder movie details page', () => {
 
   it('should have a working movie credits cast filtering', () => {
     page.setInputToSearchCastFieldText('arnold');
-    expect(page.movieCreditsCast().count()).toEqual(1);
+    expect(page.movieCreditsCast().count()).toEqual(2);
   });
 
   it('should display movie credits crew', () => {
@@ -90,7 +90,7 @@ describe('movie-finder movie details page', () => {
 
   it('should have a working movie credits crew filtering', () => {
     page.setInputToSearchCrewFieldText('polly');
-    expect(page.movieCreditsCast().count()).toEqual(1);
+    expect(page.movieCreditsCrew().count()).toEqual(1);
   });
 
   it('should display movie recommendations', () => {
