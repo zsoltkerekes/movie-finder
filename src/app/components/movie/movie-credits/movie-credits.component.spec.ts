@@ -11,8 +11,6 @@ import { ConstantsService } from '../../../services/constants.service';
 import { MovieCreditsComponent } from './movie-credits.component';
 import { SearchPipe } from '../../../pipes/search.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Observable } from 'rxjs';
-import { peopleMovieCreditsData } from '../../../interfaces/person.interface';
 
 describe('MovieCollectionComponent', () => {
   let component: MovieCreditsComponent;
@@ -51,7 +49,7 @@ describe('MovieCollectionComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should react changes', () => {
+  it('should react change, even with no id', () => {
     spyOn(api, 'getMovieCredits');
     component.ngOnChanges();
     fixture.detectChanges();
@@ -60,11 +58,20 @@ describe('MovieCollectionComponent', () => {
 
   it('should get data with every change', () => {
     component.id = 1;
-    spyOn(api, 'getMovieCredits').and.returnValues(({
-      subscribe: () => {},
-    } as unknown) as Observable<any>);
+    const response = {
+      cast: [{ order: 1 }, { order: 2 }],
+      crew: [{ job: 1 }, { job: 2 }],
+    };
+    Object.prototype['json'] = () => response;
+    const mockSubscribe = new Object();
+    mockSubscribe['subscribe'] = (cb: any) => {
+      cb(response);
+    };
+
+    spyOn(api, 'getMovieCredits').and.returnValues(mockSubscribe as any);
     component.ngOnChanges();
     fixture.detectChanges();
-    expect(component.movieCredits).toEqual(peopleMovieCreditsData);
+    expect(component.movieCredits.cast).toEqual(response.cast as any);
+    expect(component.movieCredits.crew).toEqual(response.crew as any);
   });
 });

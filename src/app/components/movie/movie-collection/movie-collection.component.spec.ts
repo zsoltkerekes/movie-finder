@@ -9,8 +9,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ObservablesService } from '../../../services/observables.service';
 import { LanguageService } from '../../../services/language.service';
 import { ConstantsService } from '../../../services/constants.service';
-import { collectionInitData } from '../../../interfaces/collection.interface';
-import { Observable } from 'rxjs/internal/Observable';
 
 describe('MovieCollectionComponent', () => {
   let component: MovieCollectionComponent;
@@ -56,13 +54,20 @@ describe('MovieCollectionComponent', () => {
     expect(component.loadCollectionData).toHaveBeenCalled();
   });
 
-  it('should get data with every change', () => {
+  it('should get data with every change', (done) => {
     component.id = 1;
-    spyOn(api, 'getMovieCollections').and.returnValues(({
-      subscribe: () => {},
-    } as unknown) as Observable<any>);
-    component.loadCollectionData();
+    const response = { parts: [{ release_date: 2 }, { release_date: 1 }] };
+    Object.prototype['json'] = () => response;
+    const mockSubscribe = new Object();
+    mockSubscribe['subscribe'] = (cb: any) => {
+      cb(response);
+    };
+
+    spyOn(api, 'getMovieCollections').and.returnValues(mockSubscribe as any);
+    component.ngOnChanges();
+    done();
+
     fixture.detectChanges();
-    expect(component.collection).toEqual(collectionInitData);
+    expect(component.collection.parts).toEqual(response.parts as any);
   });
 });
