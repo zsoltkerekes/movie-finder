@@ -15,16 +15,6 @@ describe('SearchResultsComponent', () => {
   let fixture: ComponentFixture<SearchResultsComponent>;
   let api: ApiService;
 
-  const response = {
-    results: [{ popularity: 1 }, { popularity: 2 }],
-  };
-
-  Object.prototype['json'] = () => response;
-  const mockSubscribe = new Object();
-  mockSubscribe['subscribe'] = (cb: any) => {
-    cb(response);
-  };
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SearchResultsComponent],
@@ -58,6 +48,16 @@ describe('SearchResultsComponent', () => {
   });
 
   it('should have a working keywords search', () => {
+    const response = {
+      results: [{ popularity: 1 }, { popularity: 2 }],
+    };
+
+    Object.prototype['json'] = () => response;
+    const mockSubscribe = new Object();
+    mockSubscribe['subscribe'] = (cb: any) => {
+      cb(response);
+    };
+
     spyOn(api, 'getKeywordSearch').and.returnValues(mockSubscribe as any);
     component.keywordsSearch();
     fixture.detectChanges();
@@ -65,6 +65,16 @@ describe('SearchResultsComponent', () => {
   });
 
   it('should have a working movie search', () => {
+    const response = {
+      results: [{ popularity: 1 }, { popularity: 2 }],
+    };
+
+    Object.prototype['json'] = () => response;
+    const mockSubscribe = new Object();
+    mockSubscribe['subscribe'] = (cb: any) => {
+      cb(response);
+    };
+
     spyOn(api, 'getMovieSearch').and.returnValues(mockSubscribe as any);
     component.movieSearch();
     fixture.detectChanges();
@@ -72,6 +82,16 @@ describe('SearchResultsComponent', () => {
   });
 
   it('should have a working tvShow search', () => {
+    const response = {
+      results: [{ popularity: 1 }, { popularity: 2 }],
+    };
+
+    Object.prototype['json'] = () => response;
+    const mockSubscribe = new Object();
+    mockSubscribe['subscribe'] = (cb: any) => {
+      cb(response);
+    };
+
     spyOn(api, 'getTvShowSearch').and.returnValues(mockSubscribe as any);
     component.tvShowSearch();
     fixture.detectChanges();
@@ -79,6 +99,16 @@ describe('SearchResultsComponent', () => {
   });
 
   it('should have a working person search', () => {
+    const response = {
+      results: [{ popularity: 1 }, { popularity: 2 }],
+    };
+
+    Object.prototype['json'] = () => response;
+    const mockSubscribe = new Object();
+    mockSubscribe['subscribe'] = (cb: any) => {
+      cb(response);
+    };
+
     spyOn(api, 'getPersonSearch').and.returnValues(mockSubscribe as any);
     component.personSearch();
     fixture.detectChanges();
