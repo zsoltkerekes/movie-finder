@@ -20,14 +20,14 @@
   <span *ngFor="let item of combinedCredits.cast">
     <a
       [routerLink]="[
-        item.media_type === 'movie' ? '/details' : 'tv-details',
+        item.media_type === 'movie' ? '/details' : '/tv-details',
         item.id
       ]"
     >
       <mf-list-item
         [movie]="item.media_type === 'movie' ? item : {}"
         [tvShow]="item.media_type === 'tv' ? item : {}"
-        person=""
+        [person]="{}"
       ></mf-list-item>
     </a>
   </span>
@@ -42,7 +42,7 @@
       <mf-list-item
         [movie]="item.media_type === 'movie' ? item : {}"
         [tvShow]="item.media_type === 'tv' ? item : {}"
-        person=""
+        [person]="{}"
       ></mf-list-item>
     </a>
   </span>
