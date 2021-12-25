@@ -2,8 +2,7 @@ import { DiscoverPage } from './discover.po';
 import { Common } from './common.po';
 
 describe('movie-finder discover page', () => {
-  let page: DiscoverPage;
-  page = new DiscoverPage();
+  const page: DiscoverPage = new DiscoverPage();
 
   const common = new Common();
 
@@ -39,6 +38,7 @@ describe('movie-finder discover page', () => {
     const originalCards = await page.movieCardElements().count();
     await page.movieActionCheckboxElementClick();
     await page.movieDocumentaryCheckboxElementClick();
+    await page.movieDramaCheckboxElementClick();
     const updatedCards = await page.movieCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
   });
@@ -60,7 +60,7 @@ describe('movie-finder discover page', () => {
 
   it('should have a working tv year input filter', async () => {
     const originalCards = await page.tvCardElements().count();
-    page.setInputToTvYear(new Date().getFullYear() - 1);
+    page.setInputToTvYear(new Date().getFullYear() - 2);
     const updatedCards = await page.tvCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
   });

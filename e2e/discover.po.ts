@@ -25,6 +25,13 @@ export class DiscoverPage {
     );
   }
 
+  movieDramaCheckboxElementClick() {
+    return browser.wait(
+      element(by.css('mf-discover-options #mat-checkbox-13 label')).click(),
+      this._timeout
+    );
+  }
+
   setInputToMovieYear(year) {
     browser.sleep(this._timeout);
     element(by.css('mf-discover-options #mat-input-0')).sendKeys(
