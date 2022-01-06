@@ -8,7 +8,7 @@
   {{ tvShowsText }}
 </h2>
 
-<div *ngIf="tvCredits && tvCredits.crew && tvCredits.crew.length">
+<div *ngIf="tvCredits && tvCredits.cast && tvCredits.cast.length > 0">
   <h3 class="text-center mat-h3">
     {{ castText }}
   </h3>
@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  <h3 class="text-center mat-h3">
+  <h3 class="text-center mat-h3" *ngIf="tvCredits && tvCredits.crew">
     {{ crewText }}
   </h3>
   <mat-form-field class="full-width">
