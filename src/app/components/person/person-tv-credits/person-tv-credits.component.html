@@ -69,7 +69,10 @@
   >
     {{ crewText }}
   </h3>
-  <mat-form-field class="full-width">
+  <mat-form-field
+    class="full-width"
+    *ngIf="tvCredits && tvCredits.crew && tvCredits.crew.length > 0"
+  >
     <input
       matInput
       type="search"
