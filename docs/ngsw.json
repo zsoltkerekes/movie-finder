@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1603646879357,
+  "timestamp": 1641506109215,
   "index": "/movie-finder/index.html",
   "assetGroups": [
     {
@@ -11,11 +11,11 @@
         "/movie-finder/6.4e86a1a9724448a6a974.js",
         "/movie-finder/favicon.ico",
         "/movie-finder/index.html",
-        "/movie-finder/main.3dc5ef25188b58293e61.js",
+        "/movie-finder/main.7c27cad63fb5b2565f3d.js",
         "/movie-finder/polyfills-es5.dd77d763c1e06bf45c65.js",
         "/movie-finder/polyfills.1d0964220180fd88f929.js",
         "/movie-finder/runtime.d62e0c1691aa53f22d85.js",
-        "/movie-finder/styles.fe7f3a1615d612f7862f.css",
+        "/movie-finder/styles.40c4eaa9241c10d0edd6.css",
         "/movie-finder/vendor.d134364329a8e825c8fa.js"
       ],
       "patterns": [
@@ -71,12 +71,12 @@
     "/movie-finder/assets/image/no-pic.jpg": "b54aa8b38920ff6f07077f7e6c2bc534cac99164",
     "/movie-finder/assets/image/tv-icon.png": "fb6cbfd9c4c685cf9f94824f6de71dc4cbad6da2",
     "/movie-finder/favicon.ico": "a4c8c83f17502b14f5b41ea49375d9164d2a9fff",
-    "/movie-finder/index.html": "77c7b715e19b4417003e5dd3acdd07ba531dcf7f",
-    "/movie-finder/main.3dc5ef25188b58293e61.js": "7ccf9c28185c5979d749102ca4c66425ac347295",
+    "/movie-finder/index.html": "3cc8384495432e46022e01382bd1ee8a62587642",
+    "/movie-finder/main.7c27cad63fb5b2565f3d.js": "cc8c2f99a02c1c25b824c1592b19300b9795934c",
     "/movie-finder/polyfills-es5.dd77d763c1e06bf45c65.js": "b1f93ab7008e8884fca369c8ba75da0440fddc3d",
     "/movie-finder/polyfills.1d0964220180fd88f929.js": "00d68f6bec8622ed1a323563d0a30dd7a541895c",
     "/movie-finder/runtime.d62e0c1691aa53f22d85.js": "edce4e9516947a7a36660a3efb57984e4b696528",
-    "/movie-finder/styles.fe7f3a1615d612f7862f.css": "4854b848f1c65f6203602f4d5b5f0f431285b84c",
+    "/movie-finder/styles.40c4eaa9241c10d0edd6.css": "4854b848f1c65f6203602f4d5b5f0f431285b84c",
     "/movie-finder/vendor.d134364329a8e825c8fa.js": "7735c07cd422a2d1685b2d56898f62cc91675d1f"
   },
   "navigationUrls": [
