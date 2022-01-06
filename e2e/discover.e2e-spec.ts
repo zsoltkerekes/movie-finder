@@ -1,5 +1,6 @@
 import { DiscoverPage } from './discover.po';
 import { Common } from './common.po';
+import { browser } from 'protractor';
 
 describe('movie-finder discover page', () => {
   const page: DiscoverPage = new DiscoverPage();
@@ -44,9 +45,11 @@ describe('movie-finder discover page', () => {
   });
 
   it('should have a working movie year input filter', async () => {
-    const originalCards = await page.movieCardElements();
+    browser.driver.sleep(3000);
+    const originalCards = await page.movieCardElements().count();
     page.setInputToMovieYear(new Date().getFullYear() - 1);
-    const updatedCards = await page.movieCardElements();
+    browser.driver.sleep(3000);
+    const updatedCards = await page.movieCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
   });
 
