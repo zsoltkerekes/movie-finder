@@ -31,6 +31,6 @@ jobs:
     - run: chrome --version
     - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - run: sudo apt install ./google-chrome-stable_current_amd64.deb
-    - run: export DISPLAY=unix:0.0
+    - run: export DISPLAY=:1.0
     - run: npm run check-all
     - run: npm run build --if-present
