@@ -28,9 +28,8 @@ jobs:
         cache: 'npm'
     - run: npm i
     - uses: browser-actions/setup-chrome@latest
-    - run: chrome --version
     - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - run: sudo apt install ./google-chrome-stable_current_amd64.deb
-    - run: export DISPLAY=:1.0
+    - run: chrome --headless --disable-gpu
     - run: npm run check-all
     - run: npm run build --if-present
