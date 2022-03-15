@@ -29,5 +29,6 @@ jobs:
     - run: npm i
     - uses: browser-actions/setup-chrome@latest
     - run: chrome --version
+    - run: sudo apt install ./google-chrome-stable_current_amd64.deb
     - run: npm run check-all
     - run: npm run build --if-present
