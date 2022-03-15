@@ -30,6 +30,7 @@ jobs:
     - uses: browser-actions/setup-chrome@latest
     - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - run: sudo apt install ./google-chrome-stable_current_amd64.deb
-    - run: chrome --headless --disable-gpu
+    - run: chrome -v
+    - run: chrome --headless --disable-gpu --no-sandbox --disable-setuid-sandbox
     - run: npm run check-all
     - run: npm run build --if-present
