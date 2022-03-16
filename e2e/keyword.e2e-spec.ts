@@ -2,8 +2,7 @@ import { KeywordPage } from './keyword.po';
 import { Common } from './common.po';
 
 describe('movie-finder keyword page', () => {
-  let page: KeywordPage;
-  page = new KeywordPage();
+  const page: KeywordPage = new KeywordPage();
 
   const common = new Common();
 

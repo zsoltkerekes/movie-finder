@@ -7,6 +7,8 @@ describe('movie-finder discover page', () => {
 
   const common = new Common();
 
+  const waitTime = 3000;
+
   beforeAll(async () => {
     await page.navigateTo();
   });
@@ -45,25 +47,32 @@ describe('movie-finder discover page', () => {
   });
 
   it('should have a working movie year input filter', async () => {
-    browser.driver.sleep(3000);
+    const yearWhenNoMixedActionDramaDocumentaryMovieWasCreated = 2001;
+    browser.driver.sleep(waitTime);
     const originalCards = await page.movieCardElements().count();
-    page.setInputToMovieYear(new Date().getFullYear() - 1);
-    browser.driver.sleep(3000);
+    page.setInputToMovieYear(
+      yearWhenNoMixedActionDramaDocumentaryMovieWasCreated
+    );
+    browser.driver.sleep(waitTime);
     const updatedCards = await page.movieCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
   });
 
   it('should have working tv genre filter', async () => {
     const originalCards = await page.tvCardElements().count();
+    browser.driver.sleep(waitTime);
     await page.tvActionCheckboxElementClick();
     await page.tvDocumentaryCheckboxElementClick();
+    browser.driver.sleep(waitTime);
     const updatedCards = await page.tvCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
   });
 
   it('should have a working tv year input filter', async () => {
+    browser.driver.sleep(waitTime);
     const originalCards = await page.tvCardElements().count();
     page.setInputToTvYear(new Date().getFullYear() - 2);
+    browser.driver.sleep(waitTime);
     const updatedCards = await page.tvCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
   });

@@ -136,7 +136,7 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
       '_blank'
     );
     window.open(
-      `https://ncore.cc/torrents.php?mire=${window.escape(
+      `https://ncore.pro/torrents.php?mire=${window.escape(
         this.movie.title.toString()
       )}`,
       '_blank'
