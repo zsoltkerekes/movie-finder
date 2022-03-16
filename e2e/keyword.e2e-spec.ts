@@ -1,5 +1,6 @@
 import { KeywordPage } from './keyword.po';
 import { Common } from './common.po';
+import { browser } from 'protractor';
 
 describe('movie-finder keyword page', () => {
   const page: KeywordPage = new KeywordPage();
@@ -8,6 +9,11 @@ describe('movie-finder keyword page', () => {
 
   beforeAll(async () => {
     await page.navigateTo();
+    browser.ignoreSynchronization = true;
+  });
+
+  afterAll(async () => {
+    browser.ignoreSynchronization = false;
   });
 
   it('should display "Movie Finder" title in the header', () => {

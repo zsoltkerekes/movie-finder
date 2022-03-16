@@ -2,8 +2,7 @@ import { NowPlayingPage } from './now-playing.po';
 import { Common } from './common.po';
 
 describe('movie-finder now playing page', () => {
-  let page: NowPlayingPage;
-  page = new NowPlayingPage();
+  const page: NowPlayingPage = new NowPlayingPage();
 
   const common = new Common();
 

@@ -2,8 +2,7 @@ import { MoviesByGenrePage } from './movies-by-genre.po';
 import { Common } from './common.po';
 
 describe('movie-finder upcoming page', () => {
-  let page: MoviesByGenrePage;
-  page = new MoviesByGenrePage();
+  const page: MoviesByGenrePage = new MoviesByGenrePage();
 
   const common = new Common();
 

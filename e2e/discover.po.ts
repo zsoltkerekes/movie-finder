@@ -33,13 +33,13 @@ export class DiscoverPage {
   }
 
   setInputToMovieYear(year) {
-    browser.sleep(this._timeout);
     element(by.css('mf-discover-options #mat-input-0')).sendKeys(
       Key.chord(Key.CONTROL, 'a')
     );
-    browser.sleep(this._timeout);
-    element(by.css('mf-discover-options #mat-input-0')).sendKeys(year);
-    browser.sleep(this._timeout);
+    return browser.wait(
+      element(by.css('mf-discover-options #mat-input-0')).sendKeys(year),
+      this._timeout
+    );
   }
 
   tvCardElements() {
@@ -61,13 +61,13 @@ export class DiscoverPage {
   }
 
   setInputToTvYear(year) {
-    browser.sleep(this._timeout);
     element(by.css('mf-discover-tv-options #mat-input-1')).sendKeys(
       Key.chord(Key.CONTROL, 'a')
     );
-    browser.sleep(this._timeout);
-    element(by.css('mf-discover-tv-options #mat-input-1')).sendKeys(year);
-    browser.sleep(this._timeout);
+    return browser.wait(
+      element(by.css('mf-discover-tv-options #mat-input-1')).sendKeys(year),
+      this._timeout
+    );
   }
 
   personCardElements() {

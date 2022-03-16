@@ -3,8 +3,7 @@ import { AppPage } from './app.po';
 import { Common } from './common.po';
 
 describe('movie-finder main page', () => {
-  let page: AppPage;
-  page = new AppPage();
+  const page: AppPage = new AppPage();
 
   const common = new Common();
 

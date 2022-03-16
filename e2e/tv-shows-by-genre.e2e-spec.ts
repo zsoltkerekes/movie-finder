@@ -2,8 +2,7 @@ import { TvShoWByGenres } from './tv-shows-by-genre.po';
 import { Common } from './common.po';
 
 describe('movie-finder upcoming page', () => {
-  let page: TvShoWByGenres;
-  page = new TvShoWByGenres();
+  const page: TvShoWByGenres = new TvShoWByGenres();
 
   const common = new Common();
 

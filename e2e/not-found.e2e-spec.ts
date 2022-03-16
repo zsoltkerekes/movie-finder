@@ -2,8 +2,7 @@ import { NotFoundPage } from './not-found.po';
 import { Common } from './common.po';
 
 describe('movie-finder upcoming page', () => {
-  let page: NotFoundPage;
-  page = new NotFoundPage();
+  const page: NotFoundPage = new NotFoundPage();
 
   const common = new Common();
 

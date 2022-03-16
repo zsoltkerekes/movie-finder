@@ -2,9 +2,8 @@ import { SearchPage } from './search.po';
 import { Common } from './common.po';
 
 describe('movie-finder search page', () => {
-  let page: SearchPage;
   let amount: number;
-  page = new SearchPage();
+  const page: SearchPage = new SearchPage();
 
   const common = new Common();
 

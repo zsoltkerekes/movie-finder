@@ -2,8 +2,7 @@ import { TopRatedPage } from './top-rated.po';
 import { Common } from './common.po';
 
 describe('movie-finder top-rated page', () => {
-  let page: TopRatedPage;
-  page = new TopRatedPage();
+  const page: TopRatedPage = new TopRatedPage();
 
   const common = new Common();
 

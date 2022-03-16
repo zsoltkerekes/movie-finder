@@ -2,8 +2,7 @@ import { TvShowDetailsPage } from './tv-show-details.po';
 import { Common } from './common.po';
 
 describe('movie-finder tv show details page', () => {
-  let page: TvShowDetailsPage;
-  page = new TvShowDetailsPage();
+  const page: TvShowDetailsPage = new TvShowDetailsPage();
 
   const common = new Common();
 

@@ -2,8 +2,7 @@ import { TvShowEpisodes } from './tv-shows-episodes.po';
 import { Common } from './common.po';
 
 describe('movie-finder upcoming page', () => {
-  let page: TvShowEpisodes;
-  page = new TvShowEpisodes();
+  const page: TvShowEpisodes = new TvShowEpisodes();
 
   const common = new Common();
 

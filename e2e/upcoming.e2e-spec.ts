@@ -2,8 +2,7 @@ import { UpcomingPage } from './upcoming.po';
 import { Common } from './common.po';
 
 describe('movie-finder upcoming page', () => {
-  let page: UpcomingPage;
-  page = new UpcomingPage();
+  const page: UpcomingPage = new UpcomingPage();
 
   const common = new Common();
 

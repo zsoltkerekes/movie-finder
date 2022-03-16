@@ -47,12 +47,9 @@ describe('movie-finder discover page', () => {
   });
 
   it('should have a working movie year input filter', async () => {
-    const yearWhenNoMixedActionDramaDocumentaryMovieWasCreated = 2001;
     browser.driver.sleep(waitTime);
     const originalCards = await page.movieCardElements().count();
-    page.setInputToMovieYear(
-      yearWhenNoMixedActionDramaDocumentaryMovieWasCreated
-    );
+    await page.setInputToMovieYear(1800);
     browser.driver.sleep(waitTime);
     const updatedCards = await page.movieCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
@@ -71,7 +68,7 @@ describe('movie-finder discover page', () => {
   it('should have a working tv year input filter', async () => {
     browser.driver.sleep(waitTime);
     const originalCards = await page.tvCardElements().count();
-    page.setInputToTvYear(new Date().getFullYear() - 2);
+    await page.setInputToTvYear(1800);
     browser.driver.sleep(waitTime);
     const updatedCards = await page.tvCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
