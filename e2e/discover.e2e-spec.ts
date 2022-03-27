@@ -47,29 +47,29 @@ describe('movie-finder discover page', () => {
   });
 
   it('should have a working movie year input filter', async () => {
-    browser.driver.sleep(waitTime);
+    await browser.sleep(waitTime);
     const originalCards = await page.movieCardElements().count();
     await page.setInputToMovieYear(1800);
-    browser.driver.sleep(waitTime);
+    await browser.sleep(waitTime);
     const updatedCards = await page.movieCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
   });
 
   it('should have working tv genre filter', async () => {
     const originalCards = await page.tvCardElements().count();
-    browser.driver.sleep(waitTime);
+    await browser.sleep(waitTime);
     await page.tvActionCheckboxElementClick();
     await page.tvDocumentaryCheckboxElementClick();
-    browser.driver.sleep(waitTime);
+    await browser.sleep(waitTime);
     const updatedCards = await page.tvCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
   });
 
   it('should have a working tv year input filter', async () => {
-    browser.driver.sleep(waitTime);
+    await browser.sleep(waitTime);
     const originalCards = await page.tvCardElements().count();
     await page.setInputToTvYear(1800);
-    browser.driver.sleep(waitTime);
+    await browser.sleep(waitTime);
     const updatedCards = await page.tvCardElements().count();
     expect(updatedCards).not.toEqual(originalCards);
   });

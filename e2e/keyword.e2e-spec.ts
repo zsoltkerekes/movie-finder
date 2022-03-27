@@ -21,6 +21,7 @@ describe('movie-finder keyword page', () => {
   });
 
   it('should have movie cards listed', async () => {
+    await browser.sleep(1000);
     const amount = await page.movieCardElements().count();
     expect(amount).toBeGreaterThan(1);
   });
