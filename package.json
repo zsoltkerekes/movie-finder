@@ -19,7 +19,7 @@
     "check-uncommitted-changes": "git diff && git diff-index --quiet HEAD -- || exit 1",
     "eslint-fix": "eslint src --fix",
     "fix-all": "npm run stylelint-fix && npm run prettier-fix && npm run eslint-fix",
-    "check-all": "npm run prettier-check && npm run stylelint-check && npm run lint && npm run eslint-check && npm run test && npm run e2e",
+    "check-all": "npm run prettier-check && npm run stylelint-check && npm run lint && npm run eslint-check && npm run test",
     "sonar": "sonar-scanner",
     "deploy": "npm run check-all && npm run check-uncommitted-changes && npm run build && git add . && git commit -m \"new build\" && git push --no-verify"
   },

@@ -1,0 +1,42 @@
+#services
+apiVersion: v1
+kind: Service
+metadata:
+  name: movie-finder-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: movie-finder-pod
+  ports:
+  - port: 80
+    targetPort: 80
+---
+#deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-finder-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: movie-finder-pod
+  template:
+    metadata:
+      labels:
+        app: movie-finder-pod
+    spec:
+      containers:
+      - name: movie-finder-container
+        image: kerekeszsolt/movie-finder
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          periodSeconds: 5
+          initialDelaySeconds: 5
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
