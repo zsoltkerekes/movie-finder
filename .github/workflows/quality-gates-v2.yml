@@ -16,7 +16,7 @@ jobs:
       - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
         with:
-          chrome-version: dev
+          chrome-version: canary
         id: setup-chrome
       - name: Display Chrome Version
         run: |
