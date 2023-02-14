@@ -1,0 +1,41 @@
+name: Quality Gates v2
+
+on:
+  workflow_dispatch
+
+jobs:
+  quality-gates-v2:
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: Install Node Js v12
+        uses: actions/setup-node@v3
+        with:
+          node-version: 12
+          
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@latest
+        
+      - name: Get Code From Git Repository
+        uses: actions/checkout@v3
+        
+      - name: Install Dependencies / Third party packages
+        run: npm ci
+        
+      - name: Run Prettier check
+        run: npm run prettier-check
+        
+      - name: Run Style Lint
+        run: npm run stylelint-check
+        
+      - name: Linting project
+        run: npm run lint
+        
+      - name: Run Eslint
+        run:  npm run eslint-check
+        
+      - name: Run Unit Tests
+        run: npm run test
+        
+      - name: Eun E2E tests
+        run: npm run e2e
