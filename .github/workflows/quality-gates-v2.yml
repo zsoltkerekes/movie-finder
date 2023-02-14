@@ -16,12 +16,15 @@ jobs:
       - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
         with:
-          chrome-version: latest
+          chrome-version: stable
         id: setup-chrome
       - name: Display Chrome Version
         run: |
           echo Installed chromium version: ${{ steps.setup-chrome.outputs.chrome-version }}
           chrome --version
+          
+      - uses: nanasess/setup-chromedriver@v1
+      - run: chromedriver --url-base=/wd/hub &
         
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
