@@ -48,4 +48,4 @@ jobs:
         run: npm run test
         
       - name: Eun E2E tests
-        run: npm ng e2e --webdriver-update=false
+        run: npm run ng e2e --webdriver-update=false
