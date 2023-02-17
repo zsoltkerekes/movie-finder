@@ -43,6 +43,9 @@ describe('movie-finder discover page', () => {
     await page.movieDocumentaryCheckboxElementClick();
     await page.movieDramaCheckboxElementClick();
     const updatedCards = await page.movieCardElements().count();
+    await page.movieActionCheckboxElementClick();
+    await page.movieDocumentaryCheckboxElementClick();
+    await page.movieDramaCheckboxElementClick();
     expect(updatedCards).not.toEqual(originalCards);
   });
 
