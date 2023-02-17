@@ -12,7 +12,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
-          cache: 'npm'
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
       - name: Cache Dependencies
@@ -33,7 +32,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
-          cache: 'npm'
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
       - name: Cache Dependencies
@@ -54,7 +52,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
-          cache: 'npm'
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
       - name: Cache Dependencies
@@ -75,7 +72,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
-          cache: 'npm'
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
       - name: Cache Dependencies
@@ -96,7 +92,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
-          cache: 'npm'
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
       - name: Cache Dependencies
@@ -117,7 +112,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
-          cache: 'npm'
       - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
         with:
@@ -147,7 +141,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
-          cache: 'npm'
       - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
         with:
