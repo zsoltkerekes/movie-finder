@@ -17,12 +17,14 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~\AppData\npm-cache
+          path: ./node_modules
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
       - name: Install Dependencies
         run: npm ci
+      - name: Display File/Dir Structure
+        run: dir
 
   Prettier-check:
     needs: Cache-Dependencies
@@ -37,7 +39,7 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~\AppData\npm-cache
+          path: ./node_modules
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
@@ -57,7 +59,7 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~\AppData\npm-cache
+          path: ./node_modules
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
@@ -77,7 +79,7 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~\AppData\npm-cache
+          path: ./node_modules
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
@@ -97,7 +99,7 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~\AppData\npm-cache
+          path: ./node_modules
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
@@ -126,7 +128,7 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~\AppData\npm-cache
+          path: ./node_modules
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
@@ -157,7 +159,7 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~\AppData\npm-cache
+          path: ./node_modules
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
