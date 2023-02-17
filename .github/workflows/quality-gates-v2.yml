@@ -4,7 +4,8 @@ on:
   workflow_dispatch
 
 jobs:
-  Prettier-check:
+
+  Cache-Dependencies:
     runs-on: windows-latest
     steps:
       - name: Install Node Js v12
@@ -13,6 +14,31 @@ jobs:
           node-version: 12
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.nvm
+          key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
+      - name: Install Dependencies / Third party packages
+        run: npm ci
+      - name: Install Dependencies
+        run: npm ci
+
+  Prettier-check:
+    needs: Cache-Dependencies
+    runs-on: windows-latest
+    steps:
+      - name: Install Node Js v12
+        uses: actions/setup-node@v3
+        with:
+          node-version: 12
+      - name: Get Code From Git Repository
+        uses: actions/checkout@v3
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.nvm
+          key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
       - name: Run Prettier check
@@ -20,6 +46,7 @@ jobs:
         
        
   Style-Lint:
+    needs: Cache-Dependencies
     runs-on: windows-latest
     steps:
       - name: Install Node Js v12
@@ -28,12 +55,18 @@ jobs:
           node-version: 12
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.nvm
+          key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
       - name: Run Style Lint
         run: npm run stylelint-check
         
   Eslint-Check:
+    needs: Cache-Dependencies
     runs-on: windows-latest
     steps:
       - name: Install Node Js v12
@@ -42,12 +75,18 @@ jobs:
           node-version: 12     
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.nvm
+          key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
       - name: Run Eslint
         run:  npm run eslint-check
         
   Run-Linting:
+    needs: Cache-Dependencies
     runs-on: windows-latest
     steps:
       - name: Install Node Js v12
@@ -56,6 +95,11 @@ jobs:
           node-version: 12     
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.nvm
+          key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
       - name: Linting project
@@ -63,6 +107,7 @@ jobs:
     
         
   Run-Unit-Tests:
+    needs: Cache-Dependencies
     runs-on: windows-latest
     steps:
       - name: Install Node Js v12
@@ -80,12 +125,18 @@ jobs:
           chrome --version
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.nvm
+          key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
       - name: Run Unit Tests
         run: npm run test
         
   Run-E2E-tests:
+    needs: Cache-Dependencies
     runs-on: windows-latest
     steps:
       - name: Install Node Js v12
@@ -105,6 +156,11 @@ jobs:
       - run: chromedriver --url-base=/wd/hub &
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.nvm
+          key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
       - name: Run E2E tests
