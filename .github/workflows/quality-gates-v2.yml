@@ -4,15 +4,71 @@ on:
   workflow_dispatch
 
 jobs:
-  quality-gates-v2:
+  Prettier-check:
     runs-on: windows-latest
     steps:
-    
       - name: Install Node Js v12
         uses: actions/setup-node@v3
         with:
           node-version: 12
-          
+      - name: Get Code From Git Repository
+        uses: actions/checkout@v3
+      - name: Install Dependencies / Third party packages
+        run: npm ci
+      - name: Run Prettier check
+        run: npm run prettier-check
+        
+       
+  Style-Lint:
+    runs-on: windows-latest
+    steps:
+      - name: Install Node Js v12
+        uses: actions/setup-node@v3
+        with:
+          node-version: 12
+      - name: Get Code From Git Repository
+        uses: actions/checkout@v3
+      - name: Install Dependencies / Third party packages
+        run: npm ci
+      - name: Run Style Lint
+        run: npm run stylelint-check
+        
+  Eslint-Check:
+    runs-on: windows-latest
+    steps:
+      - name: Install Node Js v12
+        uses: actions/setup-node@v3
+        with:
+          node-version: 12     
+      - name: Get Code From Git Repository
+        uses: actions/checkout@v3
+      - name: Install Dependencies / Third party packages
+        run: npm ci
+      - name: Run Eslint
+        run:  npm run eslint-check
+        
+  Run-Linting:
+    runs-on: windows-latest
+    steps:
+      - name: Install Node Js v12
+        uses: actions/setup-node@v3
+        with:
+          node-version: 12     
+      - name: Get Code From Git Repository
+        uses: actions/checkout@v3
+      - name: Install Dependencies / Third party packages
+        run: npm ci
+      - name: Linting project
+        run: npm run lint
+    
+        
+  Run-Unit-Tests:
+    runs-on: windows-latest
+    steps:
+      - name: Install Node Js v12
+        uses: actions/setup-node@v3
+        with:
+          node-version: 12
       - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
         with:
@@ -22,30 +78,35 @@ jobs:
         run: |
           echo Installed chromium version: ${{ steps.setup-chrome.outputs.chrome-version }}
           chrome --version
-          
-      - uses: nanasess/setup-chromedriver@v1
-      - run: chromedriver --url-base=/wd/hub &
-        
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
-        
       - name: Install Dependencies / Third party packages
         run: npm ci
-        
-      - name: Run Prettier check
-        run: npm run prettier-check
-        
-      - name: Run Style Lint
-        run: npm run stylelint-check
-        
-      - name: Linting project
-        run: npm run lint
-        
-      - name: Run Eslint
-        run:  npm run eslint-check
-        
       - name: Run Unit Tests
         run: npm run test
         
-      - name: Eun E2E tests
+  Run-E2E-tests:
+    runs-on: windows-latest
+    steps:
+      - name: Install Node Js v12
+        uses: actions/setup-node@v3
+        with:
+          node-version: 12
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: stable
+        id: setup-chrome
+      - name: Display Chrome Version
+        run: |
+          echo Installed chromium version: ${{ steps.setup-chrome.outputs.chrome-version }}
+          chrome --version
+      - uses: nanasess/setup-chromedriver@v1
+      - run: chromedriver --url-base=/wd/hub &
+      - name: Get Code From Git Repository
+        uses: actions/checkout@v3
+      - name: Install Dependencies / Third party packages
+        run: npm ci
+      - name: Run E2E tests
         run: npm run ng e2e --webdriver-update=false
+        
