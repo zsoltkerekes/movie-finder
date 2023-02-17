@@ -12,12 +12,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
+          cache: 'npm'
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.nvm
+          path: ~\AppData\npm-cache
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
@@ -32,19 +33,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
+          cache: 'npm'
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.nvm
+          path: ~\AppData\npm-cache
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
       - name: Run Prettier check
         run: npm run prettier-check
         
-       
   Style-Lint:
     needs: Cache-Dependencies
     runs-on: windows-latest
@@ -53,12 +54,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
+          cache: 'npm'
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.nvm
+          path: ~\AppData\npm-cache
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
@@ -72,13 +74,14 @@ jobs:
       - name: Install Node Js v12
         uses: actions/setup-node@v3
         with:
-          node-version: 12     
+          node-version: 12
+          cache: 'npm'
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.nvm
+          path: ~\AppData\npm-cache
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
@@ -92,20 +95,20 @@ jobs:
       - name: Install Node Js v12
         uses: actions/setup-node@v3
         with:
-          node-version: 12     
+          node-version: 12
+          cache: 'npm'
       - name: Get Code From Git Repository
         uses: actions/checkout@v3
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.nvm
+          path: ~\AppData\npm-cache
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
       - name: Linting project
         run: npm run lint
     
-        
   Run-Unit-Tests:
     needs: Cache-Dependencies
     runs-on: windows-latest
@@ -114,6 +117,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
+          cache: 'npm'
       - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
         with:
@@ -128,7 +132,7 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.nvm
+          path: ~\AppData\npm-cache
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
@@ -143,6 +147,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 12
+          cache: 'npm'
       - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
         with:
@@ -159,10 +164,9 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.nvm
+          path: ~\AppData\npm-cache
           key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies / Third party packages
         run: npm ci
       - name: Run E2E tests
         run: npm run ng e2e --webdriver-update=false
-        
