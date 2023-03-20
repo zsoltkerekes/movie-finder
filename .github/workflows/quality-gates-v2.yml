@@ -1,7 +1,10 @@
-name: Quality Gates v2
+name: CI/CD
 
 on:
-  workflow_dispatch
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 
 jobs:
 
@@ -175,3 +178,37 @@ jobs:
         run: npm ci
       - name: Run E2E tests
         run: npm run ng e2e --webdriver-update=false
+        
+  Deploy:
+    needs: [Prettier-check, Style-Lint, Eslint-Check, Run-Linting, Run-Unit-Tests, Run-E2E-tests] 
+    runs-on: windows-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Install Node Js v12
+        uses: actions/setup-node@v3
+        with:
+          node-version: 12
+      - name: Get Code From Git Repository
+        uses: actions/checkout@v3
+      - name: Cache Dependencies
+        id: movie-finder-cache
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: movie-finder-cache-${{ hashFiles('**/package-lock.json') }}
+      - name: Install Dependencies / Third party packages
+        if: steps.movie-finder-cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Build project
+        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './docs'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
