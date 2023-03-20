@@ -187,7 +187,7 @@ export const textProvider: IProvider = (): IText => ({
     hu: 'Hamarosan a Mozikban',
   },
   'Choose a Movie genre': {
-    en: 'Choose a Movie genre',
+    en: 'Choose a movie genre',
     hu: 'Válassz film műfajt',
   },
   'Recommended movies': {
