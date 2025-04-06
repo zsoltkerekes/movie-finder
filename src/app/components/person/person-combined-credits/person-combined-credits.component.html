@@ -1,49 +1,33 @@
-<h2
-  class="text-center mat-h2"
-  *ngIf="
+<h2 class="text-center mat-h2" *ngIf="
     (combinedCredits.cast && combinedCredits.cast.length) ||
     (combinedCredits.cast && combinedCredits.cast.length)
-  "
->
+  ">
   {{ combinedCreditsText }}
 </h2>
 
 <mf-loading *ngIf="isLoading"></mf-loading>
 
-<section
-  class="combined-credits"
-  *ngIf="
+<section class="combined-credits" *ngIf="
     (combinedCredits.cast && combinedCredits.cast.length) ||
     (combinedCredits.cast && combinedCredits.cast.length)
-  "
->
+  ">
   <span *ngFor="let item of combinedCredits.cast">
-    <a
-      [routerLink]="[
+    <a [routerLink]="[
         item.media_type === 'movie' ? '/details' : '/tv-details',
         item.id
-      ]"
-    >
-      <mf-list-item
-        [movie]="item.media_type === 'movie' ? item : {}"
-        [tvShow]="item.media_type === 'tv' ? item : {}"
-        [person]="{}"
-      ></mf-list-item>
+      ]">
+      <mf-list-item [movie]="item.media_type === 'movie' ? item : {}" [tvShow]="item.media_type === 'tv' ? item : {}"
+        [person]="{}"></mf-list-item>
     </a>
   </span>
 
   <span *ngFor="let item of combinedCredits.crew">
-    <a
-      [routerLink]="[
-        item.media_type === 'movie' ? '/details' : 'tv-details',
+    <a [routerLink]="[
+        item.media_type === 'movie' ? '/details' : '/tv-details',
         item.id
-      ]"
-    >
-      <mf-list-item
-        [movie]="item.media_type === 'movie' ? item : {}"
-        [tvShow]="item.media_type === 'tv' ? item : {}"
-        [person]="{}"
-      ></mf-list-item>
+      ]">
+      <mf-list-item [movie]="item.media_type === 'movie' ? item : {}" [tvShow]="item.media_type === 'tv' ? item : {}"
+        [person]="{}"></mf-list-item>
     </a>
   </span>
 </section>

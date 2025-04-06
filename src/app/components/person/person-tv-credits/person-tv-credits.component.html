@@ -1,7 +1,4 @@
-<h2
-  *ngIf="tvCredits && (tvCredits.cast.length || tvCredits.crew.length)"
-  class="text-center mat-h2"
->
+<h2 *ngIf="tvCredits && (tvCredits.cast.length || tvCredits.crew.length)" class="text-center mat-h2">
   <br />
   <mat-divider></mat-divider>
   <br />
@@ -15,36 +12,22 @@
 
   <div *ngIf="tvCredits && tvCredits.cast && tvCredits.cast.length > 0">
     <mat-form-field class="full-width">
-      <input
-        matInput
-        type="search"
-        [placeholder]="placeholder"
-        name="searchCast"
-        id="searchCast"
-        [(ngModel)]="searchCast"
-      />
+      <input matInput type="search" [placeholder]="placeholder" name="searchCast" id="searchCast"
+        [(ngModel)]="searchCast" />
     </mat-form-field>
 
     <div class="container cast">
-      <div
-        *ngFor="let tv of tvCredits.cast | search: searchCast"
-        class="cast"
-        title="{{
+      <div *ngFor="let tv of tvCredits.cast | search: searchCast" class="cast" title="{{
           tv.name +
             ' (' +
-            tv.vote_average +
+            ( tv.vote_average | number: '1.1-1') +
             ' / 10)\n\n' +
             listGenres(tv.genre_ids) +
             '\n\n' +
             tv.overview
-        }}"
-      >
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Google: {{ tv.character }} {{ tv.name }}"
-          [href]="'https://www.google.hu/search?q=' + tv.job + ' ' + tv.name"
-        >
+        }}">
+        <a target="_blank" rel="noopener noreferrer" title="Google: {{ tv.character }} {{ tv.name }}"
+          [href]="'https://www.google.hu/search?q=' + tv.job + ' ' + tv.name">
           <span class="pull-left">
             {{ tv.character ? tv.character : '' }}
             {{ tv.first_air_date ? '(' + tv.first_air_date + ')' : '' }}
@@ -53,53 +36,34 @@
         <a [routerLink]="['/tv-details', tv.id]">
           {{ tv.name ? tv.name : language.na }}
           {{
-            tv.original_name && tv.original_name !== tv.name
-              ? ' (' + tv.original_name + ')'
-              : ''
+          tv.original_name && tv.original_name !== tv.name
+          ? ' (' + tv.original_name + ')'
+          : ''
           }}
-          {{ tv.vote_average ? '[' + tv.vote_average + '/10 ]' : '' }}
+          {{ tv.vote_average ? '[' + (tv.vote_average | number: '1.1-1') + '/10]' : '' }}
         </a>
       </div>
     </div>
   </div>
 
-  <h3
-    class="text-center mat-h3"
-    *ngIf="tvCredits && tvCredits.crew && tvCredits.crew.length > 0"
-  >
+  <h3 class="text-center mat-h3" *ngIf="tvCredits && tvCredits.crew && tvCredits.crew.length > 0">
     {{ crewText }}
   </h3>
-  <mat-form-field
-    class="full-width"
-    *ngIf="tvCredits && tvCredits.crew && tvCredits.crew.length > 0"
-  >
-    <input
-      matInput
-      type="search"
-      [placeholder]="placeholder"
-      name="searchCrew"
-      id="searchCrew"
-      [(ngModel)]="searchCrew"
-    />
+  <mat-form-field class="full-width" *ngIf="tvCredits && tvCredits.crew && tvCredits.crew.length > 0">
+    <input matInput type="search" [placeholder]="placeholder" name="searchCrew" id="searchCrew"
+      [(ngModel)]="searchCrew" />
   </mat-form-field>
 
-  <div
-    class="container crew"
-    *ngIf="tvCredits && tvCredits.crew && tvCredits.crew.length > 0"
-  >
-    <div
-      *ngFor="let tv of tvCredits.crew | search: searchCrew"
-      class="crew"
-      title="{{
+  <div class="container crew" *ngIf="tvCredits && tvCredits.crew && tvCredits.crew.length > 0">
+    <div *ngFor="let tv of tvCredits.crew | search: searchCrew" class="crew" title="{{
         tv.name +
           ' (' +
-          tv.vote_average +
+          ( tv.vote_average | number: '1.1-1' ) +
           ' / 10)\n\n' +
           listGenres(tv.genre_ids) +
           '\n\n' +
           tv.overview
-      }}"
-    >
+      }}">
       <a [routerLink]="['/tv-details', tv.id]">
         <span class="pull-left">
           {{ tv.job ? tv.job : language.na }}
@@ -108,11 +72,11 @@
 
         {{ tv.name ? tv.name : language.na }}
         {{
-          tv.original_name && tv.original_name !== tv.name
-            ? '(' + tv.original_name + ')'
-            : ''
+        tv.original_name && tv.original_name !== tv.name
+        ? '(' + tv.original_name + ')'
+        : ''
         }}
-        {{ tv.vote_average ? '[' + tv.vote_average + '/10 ]' : '' }}
+        {{ tv.vote_average ? '[' + ( tv.vote_average | number: '1.1-1' ) + '/10]' : '' }}
       </a>
     </div>
   </div>

@@ -1,14 +1,14 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 
 @Component({
   selector: 'mf-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   online: boolean;
 
-  constructor(private ngZone: NgZone) {}
+  constructor(private ngZone: NgZone) { }
 
   checkConnection(): void {
     this.ngZone.run(() => {
@@ -16,12 +16,22 @@ export class AppComponent implements OnInit {
         (<Window>window).navigator && (<Window>window).navigator.onLine;
     });
   }
+  private setupConnectionListener(): void {
+    window.addEventListener('online', () => this.checkConnection());
+    window.addEventListener('offline', () => this.checkConnection());
+  }
+
+  private cancelConnectionListener(): void {
+    window.removeEventListener('online', () => this.checkConnection());
+    window.removeEventListener('offline', () => this.checkConnection());
+  }
 
   ngOnInit(): void {
-    this.online = true;
-    (<Window>window)['navigator'][
-      'connection'
-    ].onchange = this.checkConnection.bind(this);
+    this.setupConnectionListener();
     this.checkConnection();
+  }
+
+  ngOnDestroy() {
+    this.cancelConnectionListener();
   }
 }
