@@ -180,7 +180,8 @@ jobs:
         run: npm run ng e2e --webdriver-update=false
         
   Deploy:
-    needs: [Prettier-check, Style-Lint, Eslint-Check, Run-Linting, Run-Unit-Tests, Run-E2E-tests] 
+    needs: [Prettier-check, Style-Lint, Eslint-Check, Run-Linting, Run-Unit-Tests, Run-E2E-tests]
+    if: always()
     runs-on: windows-latest
     environment:
       name: github-pages
