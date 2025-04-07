@@ -8,7 +8,7 @@ import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 export class AppComponent implements OnInit, OnDestroy {
   online: boolean;
 
-  constructor(private ngZone: NgZone) { }
+  constructor(private ngZone: NgZone) {}
 
   checkConnection(): void {
     this.ngZone.run(() => {
