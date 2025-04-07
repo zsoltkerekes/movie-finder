@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o --aot",
+    "start": "ng serve -o --aot --host 0.0.0.0",
     "build": "ng build --prod --aot --build-optimizer --optimization true --common-chunk --vendor-chunk --service-worker --base-href /movie-finder/ --output-path docs --delete-output-path",
     "test": "ng test --codeCoverage=true --watch=false",
     "lint": "ng lint",

@@ -31,30 +31,40 @@ export class ListItemComponent implements OnInit {
   getTitle(movie: ListItem, tvShow: ListItem, person: ListItem): string {
     const movieData = () =>
       movie
-        ? `${movie.title}${movie.release_date ? ` (${movie.release_date})` : ''
-        }${movie.vote_average &&
-          movie.vote_average > 0 &&
-          movie.vote_average < 10
-          ? ` [${Math.round((movie.vote_average + Number.EPSILON) * 10) / 10}/10]`
-          : ''
-        }${movie.genre_ids && movie.genre_ids.length
-          ? `\n${this.api.getGenreList(movie.genre_ids)}`
-          : ''
-        }${movie.overview ? `\n\n${movie.overview}` : ''}`
+        ? `${movie.title}${
+            movie.release_date ? ` (${movie.release_date})` : ''
+          }${
+            movie.vote_average &&
+            movie.vote_average > 0 &&
+            movie.vote_average < 10
+              ? ` [${
+                  Math.round((movie.vote_average + Number.EPSILON) * 10) / 10
+                }/10]`
+              : ''
+          }${
+            movie.genre_ids && movie.genre_ids.length
+              ? `\n${this.api.getGenreList(movie.genre_ids)}`
+              : ''
+          }${movie.overview ? `\n\n${movie.overview}` : ''}`
         : null;
 
     const tvShowData = () =>
       tvShow
-        ? `${tvShow.name}${tvShow.release_date ? ` (${tvShow.release_date})` : ''
-        }${tvShow.vote_average &&
-          tvShow.vote_average > 0 &&
-          tvShow.vote_average < 10
-          ? ` [${Math.round((tvShow.vote_average + Number.EPSILON) * 10) / 10}/10]`
-          : ''
-        }${tvShow.genre_ids && tvShow.genre_ids.length
-          ? `\n${this.api.getTvGenreList(this.tvShow.genre_ids)}`
-          : ''
-        }${tvShow.overview ? `\n\n${tvShow.overview}` : ''}`
+        ? `${tvShow.name}${
+            tvShow.release_date ? ` (${tvShow.release_date})` : ''
+          }${
+            tvShow.vote_average &&
+            tvShow.vote_average > 0 &&
+            tvShow.vote_average < 10
+              ? ` [${
+                  Math.round((tvShow.vote_average + Number.EPSILON) * 10) / 10
+                }/10]`
+              : ''
+          }${
+            tvShow.genre_ids && tvShow.genre_ids.length
+              ? `\n${this.api.getTvGenreList(this.tvShow.genre_ids)}`
+              : ''
+          }${tvShow.overview ? `\n\n${tvShow.overview}` : ''}`
         : null;
 
     const personData = () =>
@@ -63,7 +73,7 @@ export class ListItemComponent implements OnInit {
     return movieData() || personData() || tvShowData() || this.language.na;
   }
 
-  constructor(public api: ApiService, public language: LanguageService) { }
+  constructor(public api: ApiService, public language: LanguageService) {}
 
   ngOnInit(): void {
     this.titleLengthLimit = 27;

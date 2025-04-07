@@ -1,18 +1,27 @@
 <p class="collection-overview mat-body-1">
-  <strong>{{ collection.name }}</strong>: {{ collection.overview }}
+  <strong>{{ collection.name }}</strong
+  >: {{ collection.overview }}
 </p>
 <div class="maximized-height">
   <mat-chip-list *ngIf="collection.parts[0].id">
-    <mat-chip color="primary" [selected]="true" *ngFor="let part of collection.parts"
-      [routerLink]="['/details', part.id]">
+    <mat-chip
+      color="primary"
+      [selected]="true"
+      *ngFor="let part of collection.parts"
+      [routerLink]="['/details', part.id]"
+    >
       <p class="mat-body-1 text-center full-wide-width">
         <strong>{{ part.title ? part.title : '' }}</strong>
         {{
-        part.original_title !== part.title
-        ? ' (' + part.original_title + ')'
-        : ''
+          part.original_title !== part.title
+            ? ' (' + part.original_title + ')'
+            : ''
         }}
-        {{ part.vote_average ? '[' + ( part.vote_average | number: '1.1-1') + '/10]' : '' }}
+        {{
+          part.vote_average
+            ? '[' + (part.vote_average | number: '1.1-1') + '/10]'
+            : ''
+        }}
         {{ part.release_date ? '(' + part.release_date + ')' : '' }}
       </p>
     </mat-chip>

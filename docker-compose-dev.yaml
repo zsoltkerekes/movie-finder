@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  frontend-dev:
+    container_name: movie-finder-angular-frontend-dev
+    build:
+      dockerfile: dockerfile.dev
+      context: .
+    ports:
+      - '4200:4200'
+    volumes:
+      - .:/app
+      - /app/node_modules

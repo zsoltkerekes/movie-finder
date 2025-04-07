@@ -1,4 +1,7 @@
-<h2 *ngIf="movieCredits.cast.length || movieCredits.crew.length" class="text-center mat-h2">
+<h2
+  *ngIf="movieCredits.cast.length || movieCredits.crew.length"
+  class="text-center mat-h2"
+>
   <br />
   <mat-divider></mat-divider>
   <br />
@@ -11,8 +14,14 @@
   </h3>
 
   <mat-form-field class="full-width">
-    <input matInput type="search" [placeholder]="placeholder" name="searchCast" id="searchCast"
-      [(ngModel)]="searchCast" />
+    <input
+      matInput
+      type="search"
+      [placeholder]="placeholder"
+      name="searchCast"
+      id="searchCast"
+      [(ngModel)]="searchCast"
+    />
   </mat-form-field>
 
   <mat-radio-group (change)="onChange($event)" class="content-center">
@@ -22,45 +31,65 @@
     <mat-radio-button value="vote_average" color="primary" checked>
       {{ byVotesText }}
     </mat-radio-button>
-    <mat-radio-button value="popularity" color="primary">{{ byPopularityText }}
+    <mat-radio-button value="popularity" color="primary"
+      >{{ byPopularityText }}
     </mat-radio-button>
     <mat-radio-button value="title" color="primary">
       {{ byTitleText }}
     </mat-radio-button>
-    <mat-radio-button value="release_date" color="primary">{{ byReleaseDateText }}
+    <mat-radio-button value="release_date" color="primary"
+      >{{ byReleaseDateText }}
     </mat-radio-button>
   </mat-radio-group>
 
-  <div class="container cast" *ngIf="movieCredits.cast && movieCredits.cast.length">
-    <div *ngFor="let movie of movieCredits.cast | search: searchCast" class="cast">
-      <a target="_blank" rel="noopener noreferrer" title="Google: {{ movie.character }} {{ movie.title }}" [href]="
+  <div
+    class="container cast"
+    *ngIf="movieCredits.cast && movieCredits.cast.length"
+  >
+    <div
+      *ngFor="let movie of movieCredits.cast | search: searchCast"
+      class="cast"
+    >
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Google: {{ movie.character }} {{ movie.title }}"
+        [href]="
           'https://www.google.hu/search?q=' +
           movie.character +
           ' ' +
           movie.title
-        ">
+        "
+      >
         <span class="pull-left">
           {{ movie.character ? movie.character : '' }}
           {{ movie.release_date ? '(' + movie.release_date + ')' : '' }}
         </span>
       </a>
-      <a [routerLink]="['/details', movie.id]" title="{{
+      <a
+        [routerLink]="['/details', movie.id]"
+        title="{{
           movie.title +
             ' (' +
             (movie.vote_average | number: '1.1-1') +
             ' / 10)\n\n' +
             movie.genre_ids &&
             listGenres(movie.genre_ids) + '\n\n' + movie.overview
-        }}">
+        }}"
+      >
         <strong>
           {{ movie.title ? movie.title : language.na }}
         </strong>
         {{
-        movie.original_title && movie.original_title !== movie.title
-        ? '(' + movie.original_title + ')'
-        : ''
+          movie.original_title && movie.original_title !== movie.title
+            ? '(' + movie.original_title + ')'
+            : ''
         }}
-        {{ movie.vote_average ? '[' + (movie.vote_average | number: '1.1-1') + '/10]' : '' }}
+        {{
+          movie.vote_average
+            ? '[' + (movie.vote_average | number: '1.1-1') + '/10]'
+            : ''
+        }}
       </a>
     </div>
   </div>
@@ -72,31 +101,47 @@
   </h3>
 
   <mat-form-field class="full-width">
-    <input matInput type="search" [placeholder]="placeholder" name="searchCrew" id="searchCrew"
-      [(ngModel)]="searchCrew" />
+    <input
+      matInput
+      type="search"
+      [placeholder]="placeholder"
+      name="searchCrew"
+      id="searchCrew"
+      [(ngModel)]="searchCrew"
+    />
   </mat-form-field>
 
   <div class="container crew">
-    <a *ngFor="let movie of movieCredits.crew | search: searchCrew" [routerLink]="['/details', movie.id]">
-      <div class="crew" title="{{
+    <a
+      *ngFor="let movie of movieCredits.crew | search: searchCrew"
+      [routerLink]="['/details', movie.id]"
+    >
+      <div
+        class="crew"
+        title="{{
           movie.title +
             ' (' +
             (movie.vote_average | number: '1.1-1') +
             ' / 10)\n\n' +
             movie.genre_ids &&
             listGenres(movie.genre_ids) + '\n\n' + movie.overview
-        }}">
+        }}"
+      >
         <span class="pull-left">
           {{ movie.job ? movie.job : language.na }}
           {{ movie.release_date ? '(' + movie.release_date + ')' : '' }}
         </span>
         {{ movie.title ? movie.title : language.na }}
         {{
-        movie.original_title && movie.original_title !== movie.title
-        ? '(' + movie.original_title + ')'
-        : ''
+          movie.original_title && movie.original_title !== movie.title
+            ? '(' + movie.original_title + ')'
+            : ''
         }}
-        {{ movie.vote_average ? '[' + (movie.vote_average | number: '1.1-1') + '/10]' : '' }}
+        {{
+          movie.vote_average
+            ? '[' + (movie.vote_average | number: '1.1-1') + '/10]'
+            : ''
+        }}
       </div>
     </a>
   </div>

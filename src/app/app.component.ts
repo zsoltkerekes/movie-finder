@@ -31,7 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.checkConnection();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.cancelConnectionListener();
   }
 }
